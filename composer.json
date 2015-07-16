@@ -1,0 +1,37 @@
+{
+  "name": "themes-attachments",
+  "type": "wordpress-plugin",
+  "license": "GPL",
+  "description": "WordPress plugin add-ons for theme",
+  "homepage": "https://silversite.pl",
+  "authors": [
+    {
+      "name": "Michał Kalkowski",
+      "email": "michal@silversite.pl",
+      "homepage": "http://silversite.pl"
+    }
+  ],
+  "keywords": [
+    "gim",
+    "roots",
+    "wordpress",
+    "stack",
+    "composer",
+    "silverwp",
+    "wp"
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "SilverWpAddons\\": "SilverWpAddons/"
+    }
+  }
+}
