@@ -28,7 +28,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\View\MessageBox' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage ShortCode
-     * @author Michal Kalkowski <michal at dynamite-studio.pl>
+     * @author Michal Kalkowski <michal at silversite.pl>
      * @copyright (c) SilverSite.pl 2015
      * @version $Revision:$
      */

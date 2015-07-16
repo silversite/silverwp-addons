@@ -14,7 +14,8 @@ namespace SilverWpAddons;
  *
  * @wordpress-plugin
  * Plugin Name:       SilverWP Add-ons
- * Description:       This is necessary theme options, CPT, CMB, CT for themes based on SilverWp platform
+ * Description:       This is necessary for themes based on SilverWp platform
+ *                    In this plugin are defined all: CPT, CMB, CT
  * Version:           0.1
  * Author:            Michal Kalkowski <michal at silversite.pl>
  * Author URI:        http://silversite.pl/
@@ -25,7 +26,7 @@ namespace SilverWpAddons;
  */
 use SilverWp\Exception;
 use SilverWp\Helper\NavMenu;
-use SilverWp\ThemeOption\Option;
+use SilverWp\Helper\Option;
 use SilverWp\Translate;
 
 // If this file is called directly, abort.
@@ -41,7 +42,7 @@ add_action( 'plugins_loaded', function () {
             Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
             Translate::$text_domain = 'silverwp-addons';
 
-            if ( \class_exists( 'PostType\Portfolio' ) ) {
+            if ( \class_exists( '\SilverWpAddons\PostType\Portfolio' ) ) {
                 $Portfolio = PostType\Portfolio::getInstance();
                 $Portfolio->registerMetaBox( MetaBox\Portfolio::getInstance() );
                 $Portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );
@@ -56,11 +57,11 @@ add_action( 'plugins_loaded', function () {
                 Ajax\Portfolio::getInstance();
             }
             
-            if ( \class_exists( 'MetaBox\Blog' ) ) {
+            if ( \class_exists( '\SilverWpAddons\MetaBox\Blog' ) ) {
                 MetaBox\Blog::getInstance();
             }
 
-            if ( \class_exists( 'MetaBox\Page' ) ) {
+            if ( \class_exists( '\SilverWpAddons\MetaBox\Page' ) ) {
                 MetaBox\Page::getInstance();
             }
 

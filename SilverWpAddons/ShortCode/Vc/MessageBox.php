@@ -16,13 +16,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-/*
- Repository path: $HeadURL: https://svn.nq.pl/wordpress/branches/dynamite/igniter/wp-content/themes/igniter/lib/SilverWpAddons/ShortCode/MessageBox.php $
- Last committed: $Revision: 2216 $
- Last changed by: $Author: padalec $
- Last changed date: $Date: 2015-01-23 10:35:17 +0100 (Pt, 23 sty 2015) $
- ID: $Id: MessageBox.php 2216 2015-01-23 09:35:17Z padalec $
-*/
 namespace SilverWpAddons\ShortCode\Vc;
 
 use SilverWp\FileSystem;
@@ -42,12 +35,12 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\MessageBox' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage ShortCode
-     * @author Michal Kalkowski <michal at dynamite-studio.pl>
+     * @author Michal Kalkowski <michal at silversite.pl>
      * @copyright (c) SilverSite.pl 2015
      * @version $Revision: 2216 $
      */
     class MessageBox extends ShortCodeAbstract {
-        protected $tag_base = 'ds_alert';
+        protected $tag_base = 'ss_alert';
 
         /**
          * Render Short Code content
@@ -74,7 +67,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\MessageBox' ) ) {
          * @access protected
          */
         protected function create() {
-            $assets_uri = $this->getAssetsUri();
+            $css_uri = FileSystem::getDirectory( 'css_uri' );
+            $js_uri  = FileSystem::getDirectory( 'js_uri' );
 
             $this->setLabel( Translate::translate( 'Message box' ) );
             $this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
@@ -83,8 +77,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\MessageBox' ) ) {
             $this->setWrapperClass( 'alert' );
             $this->setJsView( 'DsMessageView' );
             $this->setViewClassName( '\SilverWpAddons\ShortCode\View\MessageBox' );
-            $this->setAdminEnqueueCss( $assets_uri . 'css/vc/admin/message_box.css' );
-            $this->setAdminEnqueueJs( $assets_uri . 'js/vc/admin/message_box.js' );
+            $this->setAdminEnqueueCss( $css_uri . 'vc/admin/message_box.css' );
+            $this->setAdminEnqueueJs( $js_uri . 'vc/admin/message_box.js' );
 
             $color = new Select( 'color' );
             $color->setLabel( Translate::translate( 'Message box type' ) );

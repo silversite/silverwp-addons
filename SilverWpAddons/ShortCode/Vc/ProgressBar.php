@@ -16,13 +16,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-/*
- Repository path: $HeadURL: https://svn.nq.pl/wordpress/branches/dynamite/igniter/wp-content/themes/igniter/lib/SilverWpAddons/ShortCode/ProgressBar.php $
- Last committed: $Revision: 2260 $
- Last changed by: $Author: padalec $
- Last changed date: $Date: 2015-01-28 16:53:30 +0100 (Śr, 28 sty 2015) $
- ID: $Id: ProgressBar.php 2260 2015-01-28 15:53:30Z padalec $
-*/
 namespace SilverWpAddons\ShortCode\Vc;
 
 use SilverWp\ShortCode\Vc\Control\Checkbox;
@@ -42,12 +35,12 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\ProgressBar' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage ShortCode
-     * @author Michal Kalkowski <michal at dynamite-studio.pl>
-     * @copyright SilverSite.pl & SilverSite.pl 2014
+     * @author Michal Kalkowski <michal at silversite.pl>
+     * @copyright SilverSite.pl 2014
      * @version $Id: ProgressBar.php 2260 2015-01-28 15:53:30Z padalec $
      */
     class ProgressBar extends ShortCodeAbstract {
-        protected $tag_base = 'ds_progress_bar';
+        protected $tag_base = 'ss_progress_bar';
 
         /**
          * Render Short Code content

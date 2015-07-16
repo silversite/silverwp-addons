@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: silverwp\n"
 "POT-Creation-Date: 2015-05-06 12:32+0100\n"
 "PO-Revision-Date: 2015-05-06 12:32+0100\n"
-"Last-Translator: Michał Kalkowski <michal@dynamite-studio.pl>\n"
+"Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
 "Language-Team: silverwp\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -183,7 +183,7 @@ msgstr "Button"
 #: ../Igniter/ShortCode/Vc/SocialAccount.php:49
 #: ../Igniter/ShortCode/Vc/TeamMember.php:69
 #: ../Igniter/ShortCode/Vc/Testimonial.php:52
-msgid "Add by Dynamite-Studio.pl"
+msgid "Add by silversite.pl"
 msgstr ""
 
 #: ../Igniter/ShortCode/Vc/Button.php:88 ../Igniter/ShortCode/Vc/Button.php:89

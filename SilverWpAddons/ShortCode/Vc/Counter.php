@@ -16,15 +16,9 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-/*
- Repository path: $HeadURL: https://svn.nq.pl/wordpress/branches/dynamite/igniter/wp-content/themes/igniter/lib/SilverWpAddons/ShortCode/Counter.php $
- Last committed: $Revision: 2184 $
- Last changed by: $Author: padalec $
- Last changed date: $Date: 2015-01-21 13:20:08 +0100 (Śr, 21 sty 2015) $
- ID: $Id: Counter.php 2184 2015-01-21 12:20:08Z padalec $
-*/
 namespace SilverWpAddons\ShortCode\Vc;
 
+use SilverWp\FileSystem;
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\Color;
@@ -50,7 +44,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Counter' ) ) {
      * @version $Revision:$
      */
     class Counter extends ShortCodeAbstract {
-        protected $tag_base = 'ds_counter';
+        protected $tag_base = 'ss_counter';
 
         /**
          * Render Short Code content
@@ -82,8 +76,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Counter' ) ) {
             $this->setLabel( Translate::translate( 'Counter' ) );
             $this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
 
-            $assets_uri = $this->getAssetsUri();
-            $this->setAdminEnqueueCss( $assets_uri . 'css/colors.css');
+            $css_uri = FileSystem::getDirectory( 'css_uri' );
+            $this->setAdminEnqueueCss( $css_uri . 'colors.css');
 
             $label_before = new Text( 'label_before' );
             $label_before->setLabel( Translate::translate( 'Label before value' ) );

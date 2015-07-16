@@ -13,7 +13,7 @@ if ( ! class_exists( 'SilverWpAddons\Sidebar\Contact' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage Sidebar
-     * @copyright (c) 2015, dynamite-studio.pl
+     * @copyright (c) 2015, silversite.pl
      */
     class Contact extends SidebarAbstract {
         protected $id = 'contact';

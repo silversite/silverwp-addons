@@ -2,6 +2,7 @@
 namespace SilverWpAddons\ShortCode\Vc;
 
 use SilverWp\Debug;
+use SilverWp\FileSystem;
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
@@ -58,9 +59,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Portfolio' ) ) {
             $this->setLabel( Translate::translate( 'Portfolio' ) );
             $this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
 
-            $assets_uri = $this->getAssetsUri();
-            $this->addFrontJs( $assets_uri . 'js/plugins/magnificpopup/jquery.mp.min.js' );
-            $this->addFrontCss( $assets_uri . 'css/magnific-popup.css' );
+            $css_uri = FileSystem::getDirectory( 'css_uri' );
+            $js_uri  = FileSystem::getDirectory( 'js_uri' );
+            $this->addFrontJs( $js_uri . 'plugins/magnificpopup/jquery.mp.min.js' );
+            $this->addFrontCss( $css_uri . 'magnific-popup.css' );
 
             $post_limit = new Slider( 'limit' );
             $post_limit->setLabel( Translate::translate( 'Project Count' ) );
@@ -91,10 +93,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Portfolio' ) ) {
          * @todo check this
          */
         public function addFrontJs() {
-            $assets_uri = $this->getAssetsUri();
+            $js_uri = FileSystem::getDirectory( 'js_uri' );
 
             $params[ 'magnific_popup_js' ] = array(
-                'url'       => $assets_uri . 'js/plugins/magnificpopup/jquery.mp.min.js',
+                'url'       => $js_uri . 'plugins/magnificpopup/jquery.mp.min.js',
                 'deps'      => array( 'jquery' ),
                 'in_footer' => true,
                 'ver'       => '1.0.0',
@@ -111,10 +113,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Portfolio' ) ) {
          * @todo check this
          */
         public function addFrontCss() {
-            $assets_uri = $this->getAssetsUri();
+            $css_uri = FileSystem::getDirectory( 'css_uri' );
 
             $params[ 'magnific_popup' ] = array(
-                'url' => $assets_uri . 'css/magnific-popup.css',
+                'url' => $css_uri . 'magnific-popup.css',
             );
 
             return $params;

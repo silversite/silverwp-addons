@@ -14,7 +14,7 @@ if ( ! class_exists( 'SilverWpAddons\Sidebar\Footer' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage Sidebar
-     * @copyright (c) 2015, dynamite-studio.pl
+     * @copyright (c) 2015, silversite.pl
      */
     class Footer extends SidebarAbstract {
         protected $id = 'footer';

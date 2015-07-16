@@ -18,7 +18,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\PieCharts' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage ShortCode
-     * @author Michal Kalkowski <michal at dynamite-studio.pl>
+     * @author Michal Kalkowski <michal at silversite.pl>
      * @copyright (c) SilverSite.pl 2015
      * @version $Id: PieCharts.php 2308 2015-02-02 13:35:21Z padalec $
      */

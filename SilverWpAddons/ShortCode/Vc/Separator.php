@@ -16,15 +16,9 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-/*
- Repository path: $HeadURL: https://svn.nq.pl/wordpress/branches/dynamite/igniter/wp-content/themes/igniter/lib/SilverWpAddons/ShortCode/Separator.php $
- Last committed: $Revision: 2216 $
- Last changed by: $Author: padalec $
- Last changed date: $Date: 2015-01-23 10:35:17 +0100 (Pt, 23 sty 2015) $
- ID: $Id: Separator.php 2216 2015-01-23 09:35:17Z padalec $
-*/
 namespace SilverWpAddons\ShortCode\Vc;
 
+use SilverWp\FileSystem;
 use SilverWp\ShortCode\Vc\Control\Color;
 use SilverWp\ShortCode\Vc\Control\Select;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
@@ -41,7 +35,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Separator' ) ) {
      * @subpackage ShortCode
      * @author Michal Kalkowski <michal at silversite.pl>
      * @copyright (c) SilverSite.pl 2015
-     * @version $Id: Separator.php 2216 2015-01-23 09:35:17Z padalec $
+     * @version $Revision:$
      */
     class Separator extends ShortCodeAbstract {
         protected $tag_base = 'ds_separator';
@@ -70,15 +64,16 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Separator' ) ) {
          * @access protected
          */
         protected function create() {
-            $assets_uri = $this->getAssetsUri();
+            $css_uri = FileSystem::getDirectory( 'css_uri' );
+            $js_uri  = FileSystem::getDirectory( 'js_uri' );
 
             $this->setIcon( 'icon-wpb-ui-separator' );
             $this->setLabel( Translate::translate( 'Separator' ) );
             $this->setDescription( Translate::translate( 'Horizontal separator line with heading.' ) );
             $this->setJsView( 'DsSeparatorView' );
             $this->setViewClassName( '\SilverWpAddons\ShortCode\View\MessageBox' );
-            $this->setAdminEnqueueCss( $assets_uri . 'css/vc/admin/separator.css' );
-            $this->setAdminEnqueueJs( $assets_uri . 'js/vc/admin/separator.js' );
+            $this->setAdminEnqueueCss( $css_uri . 'vc/admin/separator.css' );
+            $this->setAdminEnqueueJs( $js_uri . 'vc/admin/separator.js' );
             $this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
 
             $color = new Color( 'color' );

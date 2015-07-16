@@ -13,7 +13,7 @@ if ( ! class_exists( 'SilverWpAddons\Sidebar\Portfolio' ) ) {
      * @category WordPress
      * @package SilverWpAddons
      * @subpackage Sidebar
-     * @copyright (c) 2015, Dynamite-studio.pl
+     * @copyright (c) 2015, silversite.pl
      */
     class Portfolio extends SidebarAbstract {
         protected $id = 'portfolio';
