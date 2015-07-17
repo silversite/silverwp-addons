@@ -38,7 +38,13 @@ if ( ! class_exists( '\SilverWpAddons\Portfolio' ) ) {
         protected $name = 'portfolio';
         protected $supports = array( 'title', 'editor', 'thumbnail', 'comments' );
 
-        protected function setLabels() {
+        /**
+         *
+         * Class setup
+         *
+         * @access protected
+         */
+        protected function setUp() {
             $this->labels = array(
                 'menu_name'      => Translate::translate( 'Portfolio' ),
                 'name'           => Translate::translate( 'Portfolio Projects' ),

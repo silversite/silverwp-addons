@@ -16,14 +16,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-/*
-  Repository path: $HeadURL: https://svn.nq.pl/wordpress/branches/dynamite/igniter/wp-content/themes/igniter/lib/SilverWpAddons/PostType/Testimonial.php $
-  Last committed: $Revision: 2184 $
-  Last changed by: $Author: padalec $
-  Last changed date: $Date: 2015-01-21 13:20:08 +0100 (Śr, 21 sty 2015) $
-  ID: $Id: Testimonial.php 2184 2015-01-21 12:20:08Z padalec $
- */
-
 namespace SilverWpAddons\PostType;
 
 use SilverWp\PostType\PostTypeAbstract;
@@ -46,7 +38,13 @@ if ( ! class_exists( '\SilverWpAddons\Testimonial' ) ) {
         protected $supports = array( 'title', 'thumbnail' );
         protected $has_archive = false;
 
-        protected function setLabels() {
+        /**
+         *
+         * Setup class variables
+         *
+         * @access protected
+         */
+        protected function setUp() {
             $this->labels = array(
                 'menu_name'      => Translate::translate( 'Testimonial' ),
                 'name'           => Translate::translate( 'Testimonial' ),
