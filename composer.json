@@ -2,12 +2,11 @@
   "name": "themes-attachments",
   "type": "wordpress-plugin",
   "license": "GPL",
-  "description": "WordPress plugin add-ons for theme",
+  "description": "WordPress plugin add-ons for theme based on SilverWp platform",
   "homepage": "https://silversite.pl",
   "authors": [
     {
       "name": "Michał Kalkowski",
-      "email": "michal@silversite.pl",
       "homepage": "http://silversite.pl"
     }
   ],
@@ -19,12 +18,6 @@
     "composer",
     "silverwp",
     "wp"
-  ],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://wpackagist.org"
-    }
   ],
   "require": {
     "php": ">=5.3"
