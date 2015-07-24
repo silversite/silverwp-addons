@@ -15,11 +15,11 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
     /**
      * Meta box for Pages
      *
-     * @author Michal Kalkowski <michal at silversite.pl>
-     * @version $Id: Page.php 2563 2015-03-12 14:23:49Z padalec $
-     * @category WordPress
-     * @package SilverWpAddons
-     * @subpackage MetaBox
+     * @author        Michal Kalkowski <michal at silversite.pl>
+     * @version       $Id: Page.php 2563 2015-03-12 14:23:49Z padalec $
+     * @category      WordPress
+     * @package       SilverWpAddons
+     * @subpackage    MetaBox
      * @copyright (c) SilverSite.pl 2015
      */
     class Page extends MetaBoxAbstract {
@@ -112,13 +112,10 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
             $this->addMetaBox( $content_group );
             //END content group
 
-            $sidebar_group = new Group( 'sidebar' );
-            $sidebar_group->setLabel( Translate::translate( 'Page sidebar' ) );
-            $sidebar = new SidebarPosition('page_sidebar');
-            $sidebar->setLabel(Translate::translate('Sidebar position'));
-            $sidebar->removeOption(1);
-            $sidebar_group->addControl($sidebar);
-            $this->addMetaBox( $sidebar_group );
+            $sidebar = new SidebarPosition( 'sidebar' );
+            $sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
+            $sidebar->removeOption( 1 );
+            $this->addMetaBox( $sidebar );
         }
     }
 }
