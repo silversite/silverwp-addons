@@ -39,6 +39,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
          * @access protected
          */
         protected function register() {
+            /*
             new MessageBox();
             new Button();
             new CallToActionButton();
@@ -53,6 +54,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
             new TeamMember();
             new Testimonial();
             new Row();
+            */
         }
     }
 }
