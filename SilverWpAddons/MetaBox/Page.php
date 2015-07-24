@@ -3,6 +3,7 @@ namespace SilverWpAddons\MetaBox;
 
 use SilverWp\Helper\Control\Group;
 use SilverWp\Helper\Control\Notebox;
+use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Textarea;
 use SilverWp\Helper\Control\Upload;
@@ -110,6 +111,14 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 
             $this->addMetaBox( $content_group );
             //END content group
+
+            $sidebar_group = new Group( 'sidebar' );
+            $sidebar_group->setLabel( Translate::translate( 'Page sidebar' ) );
+            $sidebar = new SidebarPosition('page_sidebar');
+            $sidebar->setLabel(Translate::translate('Sidebar position'));
+            $sidebar->removeOption(1);
+            $sidebar_group->addControl($sidebar);
+            $this->addMetaBox( $sidebar_group );
         }
     }
 }
