@@ -1,15 +1,12 @@
 <?php
 namespace SilverWpAddons\MetaBox;
 
-use SilverWp\Helper\Control\Checkbox;
+use SilverWp\Helper\Control\Toggle;
 use SilverWp\Helper\Control\Group;
 use SilverWp\Helper\Control\Notebox;
 use SilverWp\Helper\Control\Select;
 use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Text;
-use SilverWp\Helper\Control\Textarea;
-use SilverWp\Helper\Control\Upload;
-use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
@@ -38,18 +35,19 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$page_header = new Group( 'page_header' );
 			$page_header->setLabel( Translate::translate( 'Page header' ) );
 
-			$hide_header = new Checkbox( 'page_header_hide_header' );
-			$hide_header->setLabel( Translate::translate( 'Hide header' ) . '?' );
-			$page_header->addControl( $hide_header );
+			$show_header = new Toggle( 'page_header_hide_header' );
+			$show_header->setLabel( Translate::translate( 'Show header' ) . ' ?' );
+			$page_header->addControl( $show_header );
 
 			$title = new Text( 'page_header_title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
+			$title->setDependency($show_header, 'vp_dep_boolean');
 			$page_header->addControl( $title );
 
 			$subtitle = new Text( 'page_header_subtitle' );
 			$subtitle->setLabel( Translate::translate( 'Subtitle' ) );
+			$subtitle->setDependency($show_header, 'vp_dep_boolean');
 			$page_header->addControl( $subtitle );
-
 			$this->addMetaBox( $page_header );
 
 			$beyond_content = new Group( 'beyond_content' );
