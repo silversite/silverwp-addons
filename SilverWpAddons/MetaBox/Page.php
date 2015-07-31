@@ -30,44 +30,6 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
-			//page header group
-			$header_group = new Group( 'header' );
-			$header_group->setLabel( Translate::translate( 'Page header' ) );
-
-			$title = new Text( 'title' );
-			$title->setLabel( Translate::translate( 'Title' ) );
-			$header_group->addControl( $title );
-
-			$text = new Textarea( 'text' );
-			$text->setLabel( Translate::translate( 'Text' ) );
-			$header_group->addControl( $text );
-
-			$bg_image = new Upload( 'background_image' );
-			$bg_image->setLabel( Translate::translate( 'Background image' ) );
-			$bg_image->setDefault( Option::get_theme_option( 'style_layout[page_background_image]' ) );
-			$header_group->addControl( $bg_image );
-			//END page header group
-			$this->addMetaBox( $header_group );
-
-			//content group
-			$content_group = new Group( 'content' );
-			$content_group->setLabel( Translate::translate( 'Texts and Short Codes' ) );
-
-			$note = new Notebox( 'note' );
-			$note->setLabel( Translate::translate( 'The following fields allow for setting content and shortcodes above and below the container. Thanks to this elment you can use full width of the screen.' ) );
-			$content_group->addControl( $note );
-
-			$above = new Textarea( 'above' );
-			$above->setLabel( Translate::translate( 'Above the content' ) );
-			$content_group->addControl( $above );
-
-			$below = new Textarea( 'below' );
-			$below->setLabel( Translate::translate( 'Below the content' ) );
-			$content_group->addControl( $below );
-
-			$this->addMetaBox( $content_group );
-			//END content group
-
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
 			$sidebar->removeOption( 1 );
@@ -77,8 +39,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$page_header->setLabel( Translate::translate( 'Page header' ) );
 
 			$hide_header = new Checkbox( 'page_header_hide_header' );
-			$hide_header->setLabel( Translate::translate( 'Hide header' )
-			                        . '?' );
+			$hide_header->setLabel( Translate::translate( 'Hide header' ) . '?' );
 			$page_header->addControl( $hide_header );
 
 			$title = new Text( 'page_header_title' );
