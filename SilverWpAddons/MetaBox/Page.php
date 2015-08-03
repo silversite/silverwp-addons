@@ -35,18 +35,19 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$page_header = new Group( 'page_header' );
 			$page_header->setLabel( Translate::translate( 'Page header' ) );
 
-			$show_header = new Toggle( 'page_header_hide_header' );
-			$show_header->setLabel( Translate::translate( 'Show header' ) . ' ?' );
+			$show_header = new Toggle( 'page_header_show_header' );
+			$show_header->setLabel( Translate::translate( 'Show header' ) . '?' );
 			$page_header->addControl( $show_header );
+			$page_header->setDefault( 1 );
 
 			$title = new Text( 'page_header_title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
-			$title->setDependency($show_header, 'vp_dep_boolean');
+			$title->setDependency( $show_header, 'vp_dep_boolean' );
 			$page_header->addControl( $title );
 
 			$subtitle = new Text( 'page_header_subtitle' );
 			$subtitle->setLabel( Translate::translate( 'Subtitle' ) );
-			$subtitle->setDependency($show_header, 'vp_dep_boolean');
+			$subtitle->setDependency( $show_header, 'vp_dep_boolean' );
 			$page_header->addControl( $subtitle );
 			$this->addMetaBox( $page_header );
 
