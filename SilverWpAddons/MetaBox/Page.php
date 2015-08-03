@@ -39,7 +39,6 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$show_header = new Toggle( 'show_header' );
 			$show_header->setLabel( Translate::translate( 'Show header' ) . '?' );
 			$show_header->setDefault( '1' );
-			$show_header->setValue( 1 );
 			$page_header->addControl( $show_header );
 
 			$title = new Text( 'title' );
