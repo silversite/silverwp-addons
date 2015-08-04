@@ -21,7 +21,7 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 	 * @subpackage    MetaBox
 	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class Blog extends MetaBoxAbstract implements RemoveInterface {
+	class Blog extends MetaBoxAbstract {
 		protected $id = 'post';
 		protected $post_type = array( 'post' );
 		protected $exclude_columns = array( 'category', 'tag' );
