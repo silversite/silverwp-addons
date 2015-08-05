@@ -33,11 +33,11 @@ use SilverWp\Translate;
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
+define('SILVERWP_THEME_OPTIONS_DEV', false);
 
 require_once 'vendor/autoload.php';
 add_action( 'plugins_loaded', function () {
     if ( class_exists( 'SilverWp\SilverWp' ) ) {
-    
         try {
             Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
             Translate::$text_domain = 'silverwp-addons';
