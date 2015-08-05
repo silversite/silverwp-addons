@@ -20,7 +20,7 @@
 
 namespace SilverWpAddons\Ajax;
 
-use SilverWp\AjaxAbstract;
+use SilverWp\Ajax\AjaxAbstract;
 
 /**
  * Blog posts list via ajax
@@ -35,6 +35,7 @@ use SilverWp\AjaxAbstract;
 class BlogPosts extends AjaxAbstract {
 
 	protected $name = 'blog-posts';
+	protected $ajax_js_file = 'main.js';
 
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();

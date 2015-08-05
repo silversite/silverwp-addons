@@ -54,6 +54,8 @@ if (!class_exists('\SilverWpAddons\PostLike')) {
         private $user_id;
         protected $name = 'post_like';
 
+        protected $ajax_js_file = 'main.js';
+
         /**
          *
          * Add Fontawesome Icons
