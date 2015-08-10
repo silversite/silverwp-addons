@@ -1,7 +1,6 @@
 <?php
 namespace SilverWpAddons\MetaBox;
 
-use SilverWp\Helper\Control\Checkbox;
 use SilverWp\Helper\Control\Toggle;
 use SilverWp\Helper\Control\Group;
 use SilverWp\Helper\Control\Notebox;

@@ -35,7 +35,7 @@ use SilverWp\Ajax\AjaxAbstract;
 class BlogPosts extends AjaxAbstract {
 
 	protected $name = 'blog-posts';
-	protected $ajax_js_file = 'main.js';
+	protected $ajax_js_file = '';
 
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();

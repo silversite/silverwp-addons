@@ -35,7 +35,6 @@ use SilverWp\Ajax\AjaxAbstract;
 class Portfolio extends AjaxAbstract {
 
 	protected $name = 'portfolio';
-	protected $ajax_js_file = 'main.js';
 
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();
