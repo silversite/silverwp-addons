@@ -25,7 +25,6 @@ namespace SilverWpAddons;
  * Domain Path:       /languages
  */
 use SilverWp\Exception;
-use SilverWp\Helper\NavMenu;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
 
