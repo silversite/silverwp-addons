@@ -9,6 +9,7 @@ use SilverWpAddons\ShortCode\Vc\MessageBox;
 use SilverWpAddons\ShortCode\Vc\PieCharts;
 use SilverWpAddons\ShortCode\Vc\Portfolio;
 use SilverWpAddons\ShortCode\Vc\ProgressBar;
+use SilverWpAddons\ShortCode\Vc\Quote;
 use SilverWpAddons\ShortCode\Vc\RecentBlogPostsGrid;
 use SilverWpAddons\ShortCode\Vc\Row;
 use SilverWpAddons\ShortCode\Vc\Separator;
@@ -39,22 +40,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
          * @access protected
          */
         protected function register() {
-            /*
-            new MessageBox();
-            new Button();
-            new CallToActionButton();
-            new Counter();
-            new IconBox();
-            new PieCharts();
-            new Portfolio();
-            new ProgressBar();
-            new RecentBlogPostsGrid();
-            new Separator();
-            new SocialAccount();
-            new TeamMember();
-            new Testimonial();
-            new Row();
-            */
+            new Quote();
         }
     }
 }
