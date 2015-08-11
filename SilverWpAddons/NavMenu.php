@@ -41,6 +41,6 @@ class NavMenu extends \SilverWp\Helper\NavMenu {
 	 * @access public
 	 */
 	public function addSearchForm( $items, $args ) {
-		return;
+		return $items;
 	}
 }
