@@ -79,12 +79,15 @@ add_action( 'plugins_loaded', function () {
                 ShortCode\Setup::getInstance();
             }
 
+	        new ShortCode\Dropcap();
+
             //post like
             Ajax\PostLike::getInstance();
             //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
                 Ajax\Tweetie::getInstance();
             }
+
         } catch ( Exception $ex ) {
             echo $ex->catchException();
         }
