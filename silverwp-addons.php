@@ -68,11 +68,8 @@ add_action( 'plugins_loaded', function () {
             NavMenu::getInstance();
 
             //register sidebars
-            Sidebar\Blog::getInstance();
-            Sidebar\Portfolio::getInstance();
-            Sidebar\Contact::getInstance();
             Sidebar\Primary::getInstance();
-            Sidebar\Footer::getInstance();
+	        Sidebar\ToggleNav::getInstance();
 
             if ( function_exists( 'vc_set_as_theme' ) ) {
                 ShortCode\Setup::getInstance();
