@@ -39,7 +39,8 @@ add_action( 'plugins_loaded', function () {
     if ( class_exists( 'SilverWp\SilverWp' ) ) {
         try {
             Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
-            Translate::$text_domain = 'silverwp-addons';
+            Translate::$text_domain = 'silverwp';
+			Translate::init();
 
             if ( \class_exists( '\SilverWpAddons\PostType\Portfolio' ) ) {
                 $Portfolio = PostType\Portfolio::getInstance();
@@ -66,16 +67,10 @@ add_action( 'plugins_loaded', function () {
 
             //nave menu hook
             NavMenu::getInstance();
-
             //register sidebars
             Sidebar\Primary::getInstance();
-	        Sidebar\ToggleNav::getInstance();
 
-            if ( function_exists( 'vc_set_as_theme' ) ) {
-                ShortCode\Setup::getInstance();
-            }
-
-	        new ShortCode\Dropcap();
+            new ShortCode\Dropcap();
 
             //post like
             Ajax\PostLike::getInstance();
