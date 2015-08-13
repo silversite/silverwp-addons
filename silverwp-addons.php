@@ -76,6 +76,7 @@ add_action( 'plugins_loaded', function () {
             }
 
 	        new ShortCode\Dropcap();
+            new ShortCode\Highlight();
 
             //post like
             Ajax\PostLike::getInstance();
