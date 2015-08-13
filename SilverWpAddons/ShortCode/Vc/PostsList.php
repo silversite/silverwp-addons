@@ -18,17 +18,17 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
-use SilverWp\Debug;
-use SilverWp\FileSystem;
 use SilverWp\ShortCode\Vc\Control\Animation;
+use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
-use SilverWp\ShortCode\Vc\Control\WpEditor;
+use SilverWp\ShortCode\Vc\Control\Select;
+use SilverWp\ShortCode\Vc\Control\TextArea;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
+if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 	/**
-	 * Short Code Quote
+	 * Short Code PostList
 	 *
 	 * @category      WordPress
 	 * @package       SilverWpAddons
@@ -37,8 +37,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 * @version       $Revision:$
 	 */
-	class Quote extends ShortCodeAbstract {
-		protected $tag_base = 'ss_quote';
+	class PostsList extends ShortCodeAbstract {
+		protected $tag_base = 'ss_postlist';
 
 		/**
 		 * Render Short Code content
@@ -46,14 +46,14 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 		 * @param array  $args    short code attributes
 		 * @param string $content content string added between short code tags
 		 *
-		 * @return mixed
+		 * @return string
 		 * @access public
 		 */
 		public function content( $args, $content ) {
 			$default = $this->prepareAttributes();
 
-			$short_code_attributes = $this->setDefaultAttributeValue( $default, $args );
-			$output                = $this->render( $short_code_attributes, $content );
+			$attributes = $this->setDefaultAttributeValue( $default, $args );
+			$output     = $this->render( $attributes, $content );
 
 			return $output;
 		}
@@ -65,19 +65,25 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 		 * @return void
 		 */
 		protected function create() {
-			$this->setLabel( Translate::translate( 'Quote' ) );
+			$this->setLabel( Translate::translate( 'Posts list' ) );
 			$this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
-			$this->setIcon( 'icon-wpb-ui-quote' );
+			$this->setIcon( 'icon-wpb-ui-posts-list' );
 
-			$editor = new WpEditor( 'content' );
-			//important! this lines display information from field value in backend editor
-			//in short code container
-			$editor->setCssClass( 'messagebox_text' );
-			$editor->setHolder( 'div' );
+			$select = new Select( 'layout' );
+			$select->setLabel( Translate::translate( 'Layout' ) );
+			$select->setOptions(
+				array(
+					'list'  => Translate::translate( 'list view' ),
+					'grid1' => Translate::translate( 'grid (1 column)' ),
+					'grid2' => Translate::translate( 'grid (2 column)' ),
+					'grid3' => Translate::translate( 'grid (3 column) - recommended only if you do not use Sidebar' ),
+				)
+			);
+			$this->addControl( $select );
 
-			$editor->setLabel( Translate::translate( 'Quotation text' ) );
-			$editor->setValue( Translate::translate( '<p>I am message box. Click edit button to change this text.</p>' ) );
-			$this->addControl( $editor );
+			$checkbox = new Checkbox( 'hide_sticky_posts' );
+			$checkbox->setLabel( Translate::translate( 'Hide Sticky Posts' ) );
+			$this->addControl( $checkbox );
 
 			$animation = new Animation();
 			$this->addControl( $animation );
