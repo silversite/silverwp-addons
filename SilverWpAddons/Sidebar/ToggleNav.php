@@ -16,7 +16,7 @@ if ( ! class_exists('\SilverWpAddons\Sidebar\ToggleNav')) {
      * @copyright (c) 2009 - 2014, SilverSite.pl
      */
     class ToggleNav extends SidebarAbstract {
-        protected $id = 'ToggleNav';
+        protected $id = 'toggle';
 
         protected function setName() {
             $this->name = Translate::translate( 'Toggle Navigation' );
