@@ -29,7 +29,6 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
         protected function register() {
             new Quote();
 	        //new PostsList();
-	        new MessageBox();
-        }
+	    }
     }
 }
