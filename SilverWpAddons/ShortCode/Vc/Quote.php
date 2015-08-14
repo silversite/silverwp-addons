@@ -18,8 +18,6 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
-use SilverWp\Debug;
-use SilverWp\FileSystem;
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
 use SilverWp\ShortCode\Vc\Control\WpEditor;

@@ -77,7 +77,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 					'grid1' => Translate::translate( 'grid (1 column)' ),
 					'grid2' => Translate::translate( 'grid (2 column)' ),
 					'grid3' => Translate::translate( 'grid (3 column) - recommended only if you do not use Sidebar' ),
-				)
+				),
+				false
 			);
 			$this->addControl( $select );
 

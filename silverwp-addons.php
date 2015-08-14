@@ -40,22 +40,8 @@ add_action( 'plugins_loaded', function () {
         try {
             Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
             Translate::$text_domain = 'silverwp-addons';
+	        Translate::init();
 
-            if ( \class_exists( '\SilverWpAddons\PostType\Portfolio' ) ) {
-                $Portfolio = PostType\Portfolio::getInstance();
-                $Portfolio->registerMetaBox( MetaBox\Portfolio::getInstance() );
-                $Portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );
-                $Portfolio->addTemplates(
-                    array(
-                        'list-grid-classic-portfolio.php',
-                        'list-grid-masonry-portfolio.php',
-                        'list-grid-merge-portfolio.php',
-                        'list-grid-text-portfolio.php',
-                    )
-                );
-                Ajax\Portfolio::getInstance();
-            }
-            
             if ( \class_exists( '\SilverWpAddons\MetaBox\Blog' ) ) {
                 MetaBox\Blog::getInstance();
             }
@@ -68,17 +54,13 @@ add_action( 'plugins_loaded', function () {
             NavMenu::getInstance();
 
             //register sidebars
-            Sidebar\Primary::getInstance();
-	        Sidebar\ToggleNav::getInstance();
+            Sidebar\ToggleNav::getInstance();
 
             if ( function_exists( 'vc_set_as_theme' ) ) {
                 ShortCode\Setup::getInstance();
             }
 
-	        new ShortCode\Dropcap();
-            new ShortCode\Highlight();
-
-            //post like
+	        //post like
             Ajax\PostLike::getInstance();
             //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
