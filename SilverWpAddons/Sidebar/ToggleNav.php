@@ -37,7 +37,17 @@ if ( ! class_exists('\SilverWpAddons\Sidebar\ToggleNav')) {
 	     * @access public
 	     */
 	    public function beforeTitle() {
-		    return '<h3 class="widget-heading">';
+		    return '<h3 class="widget-heading"><span>';
 	    }
+
+        /**
+         * Replace default widgets html title tage
+         *
+         * @return string
+         * @access public
+         */
+        public function afterTitle() {
+            return '</span></h3>';
+        }
     }
 }
