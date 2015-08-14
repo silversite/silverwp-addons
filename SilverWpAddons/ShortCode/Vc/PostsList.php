@@ -80,6 +80,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 				),
 				false
 			);
+			$select->setDefault( 'list' );
 			$this->addControl( $select );
 
 			$checkbox = new Checkbox( 'hide_sticky_posts' );
