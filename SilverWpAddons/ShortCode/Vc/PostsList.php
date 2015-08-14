@@ -73,12 +73,23 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 			$select->setLabel( Translate::translate( 'Layout' ) );
 			$select->setOptions(
 				array(
-					'list'  => Translate::translate( 'list view' ),
-					'grid1' => Translate::translate( 'grid (1 column)' ),
-					'grid2' => Translate::translate( 'grid (2 column)' ),
-					'grid3' => Translate::translate( 'grid (3 column) - recommended only if you do not use Sidebar' ),
-				),
-				false
+					array(
+						'label' => Translate::translate( 'list view' ),
+						'value' => 'list',
+					),
+					array(
+						'label' => Translate::translate( 'grid (1 column)' ),
+						'value' => 'grid1',
+					),
+					array(
+						'label' => Translate::translate( 'grid (2 column)' ),
+						'value' => 'grid2',
+					),
+					array(
+						'label' => Translate::translate( 'grid (3 column) - recommended only if you do not use Sidebar' ),
+						'value' => 'grid3',
+					)
+				)
 			);
 			$select->setDefault( 'list' );
 			$this->addControl( $select );
