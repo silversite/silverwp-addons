@@ -8,7 +8,7 @@ namespace SilverWpAddons;
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://github.com/padalec/silverwp-addons
+ * @link              https://github.com/silversite/silverwp-addons
  * @since             0.1
  * @package           SilverWPAddons
  *
@@ -24,10 +24,15 @@ namespace SilverWpAddons;
  * Text Domain:       silverwp-addons
  * Domain Path:       /languages
  */
+use SilverWp\Debug;
 use SilverWp\Exception;
 use SilverWp\Helper\NavMenu;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
+use SilverWpAddons\PostType\Events;
+use SilverWpAddons\PostType\Publications;
+use SilverWpAddons\PostType\Research;
+use SilverWpAddons\PostType\Sources;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -37,54 +42,28 @@ if ( ! defined( 'WPINC' ) ) {
 require_once 'vendor/autoload.php';
 add_action( 'plugins_loaded', function () {
     if ( class_exists( 'SilverWp\SilverWp' ) ) {
-    
+
         try {
-            Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
-            Translate::$text_domain = 'silverwp-addons';
+            Translate::$language_path   = plugin_dir_path( __FILE__ ) . 'languages';
+            Translate::$text_domain     = 'silverwp';
+	        Translate::init();
 
-            if ( \class_exists( '\SilverWpAddons\PostType\Portfolio' ) ) {
-                $Portfolio = PostType\Portfolio::getInstance();
-                $Portfolio->registerMetaBox( MetaBox\Portfolio::getInstance() );
-                $Portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );
-                $Portfolio->addTemplates(
-                    array(
-                        'list-grid-classic-portfolio.php',
-                        'list-grid-masonry-portfolio.php',
-                        'list-grid-merge-portfolio.php',
-                        'list-grid-text-portfolio.php',
-                    )
-                );
-                Ajax\Portfolio::getInstance();
-            }
-            
-            if ( \class_exists( '\SilverWpAddons\MetaBox\Blog' ) ) {
-                MetaBox\Blog::getInstance();
-            }
+	        $events = Events::getInstance();
+	        $events->registerMetaBox( MetaBox\Events::getInstance() );
+	        $events->registerTaxonomy( Taxonomy\Events::getInstance() );
 
-            if ( \class_exists( '\SilverWpAddons\MetaBox\Page' ) ) {
-                MetaBox\Page::getInstance();
-            }
+	        $sources = Sources::getInstance();
+	        $sources->registerMetaBox( MetaBox\Sources::getInstance() );
 
-            //nave menu hook
+	        $research = Research::getInstance();
+	        $research->registerMetaBox( MetaBox\Research::getInstance() );
+
+	        $publications = Publications::getInstance();
+	        $publications->registerMetaBox( MetaBox\Publications::getInstance() );
+	        $publications->registerTaxonomy( Taxonomy\Publications::getInstance() );
+	        //nave menu hook
             NavMenu::getInstance();
 
-            //register sidebars
-            Sidebar\Blog::getInstance();
-            Sidebar\Portfolio::getInstance();
-            Sidebar\Contact::getInstance();
-            Sidebar\Primary::getInstance();
-            Sidebar\Footer::getInstance();
-
-            if ( function_exists( 'vc_set_as_theme' ) ) {
-                ShortCode\Setup::getInstance();
-            }
-
-            //post like
-            Ajax\PostLike::getInstance();
-            //get tweets from tweeter
-            if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
-                Ajax\Tweetie::getInstance();
-            }
         } catch ( Exception $ex ) {
             echo $ex->catchException();
         }
