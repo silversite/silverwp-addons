@@ -78,7 +78,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 						'value' => 'list',
 					),
 					array(
-						'label' => Translate::translate( 'grid (1 column)' ),
+						'label' => Translate::translate( 'grid (1 column) - recommended only if you use Sidebar' ),
 						'value' => 'grid1',
 					),
 					array(
