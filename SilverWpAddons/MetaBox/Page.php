@@ -7,6 +7,7 @@ use SilverWp\Helper\Control\Notebox;
 use SilverWp\Helper\Control\Select;
 use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Text;
+use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
@@ -102,7 +103,8 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 					'value' => 'left',
 				),
 			) );
-			$social_plugin->setDefault( '{{first}}' );
+
+			$social_plugin->setDefault( Option::get_theme_option( 'social_plugin_position' ) );
 			$social_plugin->setValidation( 'required' );
 			$social->addControl( $social_plugin );
 
