@@ -24,7 +24,7 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 	class Blog extends MetaBoxAbstract {
 		protected $id = 'post';
 		protected $post_type = array( 'post' );
-		protected $exclude_columns = array( 'category', 'tag' );
+		//protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 

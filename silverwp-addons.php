@@ -61,7 +61,7 @@ add_action( 'plugins_loaded', function () {
             }
 
 	        //post like
-            Ajax\PostLike::getInstance();
+            //Ajax\PostLike::getInstance();
             //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
                 Ajax\Tweetie::getInstance();

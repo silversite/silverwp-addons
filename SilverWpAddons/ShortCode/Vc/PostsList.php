@@ -18,6 +18,7 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
+use SilverWp\Debug;
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
@@ -50,10 +51,13 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 		 * @access public
 		 */
 		public function content( $args, $content ) {
-			$default = $this->prepareAttributes();
-
+			$default    = $this->prepareAttributes();
 			$attributes = $this->setDefaultAttributeValue( $default, $args );
-			$output     = $this->render( $attributes, $content );
+
+			$this->addQueryArg( 'post_type', 'post' );
+			$this->addQueryArg( 'ignore_sticky_posts', (boolean) $attributes[ 'hide_sticky_posts' ] );
+
+			$output = $this->render( $attributes, $content );
 
 			return $output;
 		}
@@ -96,6 +100,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 
 			$checkbox = new Checkbox( 'hide_sticky_posts' );
 			$checkbox->setLabel( Translate::translate( 'Hide Sticky Posts' ) );
+			$checkbox->setDescription( Translate::translate( 'If YES - list ignores that a post is sticky and shows the posts in the normal order.' ) );
 			$this->addControl( $checkbox );
 
 			$animation = new Animation();
