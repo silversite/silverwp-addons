@@ -87,7 +87,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$social = new Group( 'social' );
 			$social->setLabel( Translate::translate( 'Social plugin' ) );
 
-			$social_plugin = new Select( 'social_plugin' );
+			$social_plugin = new Select( 'social_plugin_position' );
 			$social_plugin->setLabel( Translate::translate( 'Plugin position' ) );
 			$social_plugin->setOptions( array(
 				array(

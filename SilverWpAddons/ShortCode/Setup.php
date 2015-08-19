@@ -1,6 +1,7 @@
 <?php
 namespace SilverWpAddons\ShortCode;
 
+use SilverWpAddons\ShortCode\Vc\GoogleMaps;
 use SilverWpAddons\ShortCode\Vc\MessageBox;
 use SilverWpAddons\ShortCode\Vc\PostsList;
 use SilverWpAddons\ShortCode\Vc\Quote;
@@ -30,6 +31,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
         protected function register() {
             new Quote();
 	        new PostsList();
+	        new GoogleMaps();
 	        //short codes not implemented to editor
 	        new Dropcap();
 	        new Highlight();
