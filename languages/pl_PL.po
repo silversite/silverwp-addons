@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Silversite.pl\n"
-"POT-Creation-Date: 2015-08-19 11:46+0200\n"
-"PO-Revision-Date: 2015-08-19 11:46+0200\n"
+"POT-Creation-Date: 2015-08-19 12:38+0200\n"
+"PO-Revision-Date: 2015-08-19 12:38+0200\n"
 "Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
 "Language-Team: SilverSite.pl <info@silversite.pl>\n"
 "Language: pl_PL\n"
@@ -122,11 +122,11 @@ msgid "Show in Team page"
 msgstr "Pokaż w zakładce Zespół"
 
 #: ../SilverWpAddons/PostType/Authors.php:42
-#: ../SilverWpAddons/PostType/Authors.php:43
+#: ../SilverWpAddons/PostType/Authors.php:43 ../silverwp-addons.php:140
 msgid "Authors"
 msgstr "Autorzy"
 
-#: ../SilverWpAddons/PostType/Authors.php:44
+#: ../SilverWpAddons/PostType/Authors.php:44 ../silverwp-addons.php:147
 msgid "Author"
 msgstr "Autor"
 
@@ -145,7 +145,7 @@ msgstr "Wszystkie Wiadomości"
 
 #: ../SilverWpAddons/PostType/Publications.php:42
 #: ../SilverWpAddons/PostType/Publications.php:43
-#: ../SilverWpAddons/PostType/Publications.php:44
+#: ../SilverWpAddons/PostType/Publications.php:44 ../silverwp-addons.php:120
 msgid "Publications"
 msgstr "Publikacje"
 
@@ -155,7 +155,7 @@ msgstr "Wszystkie publikacje"
 
 #: ../SilverWpAddons/PostType/Research.php:42
 #: ../SilverWpAddons/PostType/Research.php:43
-#: ../SilverWpAddons/PostType/Research.php:44
+#: ../SilverWpAddons/PostType/Research.php:44 ../silverwp-addons.php:131
 msgid "Research"
 msgstr "Badania"
 
@@ -281,20 +281,80 @@ msgid "Add new JEL code"
 msgstr "Dodaj nowy Kod JEL"
 
 #: ../silverwp-addons.php:78 ../silverwp-addons.php:81
+#: ../silverwp-addons.php:93 ../silverwp-addons.php:96
 msgid "Project"
 msgstr "Projekt"
 
-#: ../silverwp-addons.php:80
+#: ../silverwp-addons.php:80 ../silverwp-addons.php:95
 msgid "Select Project"
 msgstr "Wybierz projekt"
 
-#: ../silverwp-addons.php:82
+#: ../silverwp-addons.php:82 ../silverwp-addons.php:97
 msgid "Search projects"
 msgstr "Przeszukaj proejkty "
 
-#: ../silverwp-addons.php:83
+#: ../silverwp-addons.php:83 ../silverwp-addons.php:98
 msgid "No projects found."
 msgstr "Nie znaleziono projektów"
+
+#: ../silverwp-addons.php:108 ../silverwp-addons.php:111
+#: ../silverwp-addons.php:125
+msgid "Publication"
+msgstr "Publikacja"
+
+#: ../silverwp-addons.php:110 ../silverwp-addons.php:124
+msgid "Select Publication"
+msgstr "Wybierz Publikację"
+
+#: ../silverwp-addons.php:112
+msgid "Search publications"
+msgstr "Wyszukaj Publikacji"
+
+#: ../silverwp-addons.php:113
+msgid "No publication found."
+msgstr "Nie znaleziono Publikacji"
+
+#: ../silverwp-addons.php:121
+msgid "Researches"
+msgstr "Badania"
+
+#: ../silverwp-addons.php:126
+msgid "Search Publication"
+msgstr "Wyszukaj Publikacji"
+
+#: ../silverwp-addons.php:127
+msgid "No Publication found."
+msgstr "Nie znaleziono Publikacji"
+
+#: ../silverwp-addons.php:130
+msgid "Select Research"
+msgstr "Wybierz Badanie"
+
+#: ../silverwp-addons.php:132
+msgid "Search Research"
+msgstr "Wyszukaj Badanie"
+
+#: ../silverwp-addons.php:133
+msgid "No Research found."
+msgstr "Nie znaleziono Badania"
+
+#: ../silverwp-addons.php:146
+msgid "Select Author"
+msgstr "Wybierz Autora"
+
+#: ../silverwp-addons.php:148
+msgid "Search Author"
+msgstr "Wyszukaj Autora"
+
+#: ../silverwp-addons.php:149
+msgid "No Author found."
+msgstr "Nie znaleziono autora"
+
+#~ msgid "Search Researches"
+#~ msgstr "Wyszukaj Badanie"
+
+#~ msgid "Search Publications"
+#~ msgstr "Wyszukaj Publikacji"
 
 #~ msgid "Events types"
 #~ msgstr "Typy wydarzeń"

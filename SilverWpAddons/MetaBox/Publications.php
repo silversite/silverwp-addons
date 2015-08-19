@@ -40,12 +40,11 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 */
 	class Publications extends MetaBoxAbstract {
+		protected $priority = 'low';
 
 		protected function createMetaBox() {
 
 			$this->setEnterTitleHearLabel( Translate::translate( 'Name' ) );
-
-			//todo add P2P connect with CPT authors
 
 			$text = new Text( 'keywords' );
 			$text->setLabel( Translate::translate( 'Keywords' ) );
@@ -58,8 +57,6 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 			$text_area = new Textarea( 'additional_information' );
 			$text_area->setLabel( Translate::translate( 'Additional information' ) );
 			$this->addMetaBox( $text_area );
-
-			//todo add P2P multiselect connect with Research
 
 			$select = new Select( 'publication_year' );
 			$select->setLabel( Translate::translate( 'Publication year' ) );
@@ -74,7 +71,7 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 			$select->setOptions( $options );
 			$this->addMetaBox( $select );
 
-			$checkbox = new Checkbox('language');
+			$checkbox = new Checkbox( 'language' );
 			$checkbox->setLabel( Translate::translate( 'Publication language' ) );
 			$checkbox->setOptions(
 				array(
