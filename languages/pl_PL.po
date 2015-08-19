@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Silversite.pl\n"
-"POT-Creation-Date: 2015-08-17 12:07+0200\n"
-"PO-Revision-Date: 2015-08-17 12:54+0200\n"
+"POT-Creation-Date: 2015-08-18 12:59+0200\n"
+"PO-Revision-Date: 2015-08-18 13:01+0200\n"
 "Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
 "Language-Team: SilverSite.pl <info@silversite.pl>\n"
 "Language: pl_PL\n"
@@ -24,6 +24,21 @@ msgstr "Nie lubię"
 #: ../SilverWpAddons/Ajax/PostLike.php:386
 msgid "Like"
 msgstr "Lubię"
+
+#: ../SilverWpAddons/MetaBox/Authors.php:42
+#: ../SilverWpAddons/MetaBox/Team.php:43
+msgid "Name and last name"
+msgstr "Imie i nazwisko"
+
+#: ../SilverWpAddons/MetaBox/Authors.php:45
+#: ../SilverWpAddons/MetaBox/Team.php:51
+msgid "Affiliation"
+msgstr "Afiliacja"
+
+#: ../SilverWpAddons/MetaBox/Authors.php:49
+#: ../SilverWpAddons/MetaBox/Team.php:46
+msgid "E-mail"
+msgstr "Mail"
 
 #: ../SilverWpAddons/MetaBox/Events.php:49
 msgid "Gallery"
@@ -54,6 +69,72 @@ msgstr "Czas"
 msgid "Place"
 msgstr "Miejsce"
 
+#: ../SilverWpAddons/MetaBox/Publications.php:46
+msgid "Name"
+msgstr "Nazwa"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:51
+msgid "Keywords"
+msgstr "Słowa kluczowe"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:55
+msgid "Abstract"
+msgstr "Abstrakt"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:59
+msgid "Additional information"
+msgstr "Dodatkowe informacje"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:65
+msgid "Publication year"
+msgstr "Rok publikacji"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:78
+msgid "Publication language"
+msgstr "Język publikacji"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:82
+msgid "Polish"
+msgstr "Polski"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:86
+msgid "English"
+msgstr "Angielski"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:97
+msgid "Cover"
+msgstr "Okładka"
+
+#: ../SilverWpAddons/MetaBox/Research.php:45
+msgid "Partners"
+msgstr "Partnerzy"
+
+#: ../SilverWpAddons/MetaBox/Research.php:50
+#: ../SilverWpAddons/MetaBox/Team.php:55
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../SilverWpAddons/MetaBox/Research.php:54
+msgid "External URL"
+msgstr "Zewnętrzny URL"
+
+#: ../SilverWpAddons/MetaBox/Team.php:59
+msgid "Show in Team page"
+msgstr "Pokaż w zakładce Zespół"
+
+#: ../SilverWpAddons/PostType/Authors.php:42
+#: ../SilverWpAddons/PostType/Authors.php:43
+msgid "Authors"
+msgstr "Autorzy"
+
+#: ../SilverWpAddons/PostType/Authors.php:44
+msgid "Author"
+msgstr "Autor"
+
+#: ../SilverWpAddons/PostType/Authors.php:45
+msgid "All Authors"
+msgstr "Wszyscy Autorzy"
+
 #: ../SilverWpAddons/PostType/Events.php:42
 #: ../SilverWpAddons/PostType/Events.php:43
 msgid "Events"
@@ -63,7 +144,51 @@ msgstr "Wydarzenia"
 msgid "All events"
 msgstr "Wszystkie wydarzenia"
 
+#: ../SilverWpAddons/PostType/Publications.php:42
+#: ../SilverWpAddons/PostType/Publications.php:43
+#: ../SilverWpAddons/PostType/Publications.php:44
+msgid "Publications"
+msgstr "Publikacje"
+
+#: ../SilverWpAddons/PostType/Publications.php:45
+msgid "All Publications"
+msgstr "Wszystkie publikacje"
+
+#: ../SilverWpAddons/PostType/Research.php:42
+#: ../SilverWpAddons/PostType/Research.php:43
+#: ../SilverWpAddons/PostType/Research.php:44
+msgid "Research"
+msgstr "Badania"
+
+#: ../SilverWpAddons/PostType/Research.php:45
+msgid "All Research"
+msgstr "Wszystkie Badania"
+
+#: ../SilverWpAddons/PostType/Sources.php:42
+#: ../SilverWpAddons/PostType/Sources.php:43
+msgid "Sources"
+msgstr "Żródła"
+
+#: ../SilverWpAddons/PostType/Sources.php:44
+msgid "Source"
+msgstr "Źródło"
+
+#: ../SilverWpAddons/PostType/Sources.php:45
+msgid "All Sources"
+msgstr "Wszystkie Źródła"
+
+#: ../SilverWpAddons/PostType/Team.php:42
+#: ../SilverWpAddons/PostType/Team.php:43
+#: ../SilverWpAddons/PostType/Team.php:44
+msgid "Team"
+msgstr "Zespół"
+
+#: ../SilverWpAddons/PostType/Team.php:45
+msgid "All Team"
+msgstr "Cały zespół"
+
 #: ../SilverWpAddons/Taxonomy/Events.php:42
+#: ../SilverWpAddons/Taxonomy/Publications.php:43
 msgid "Select type"
 msgstr "Wybierz typ"
 
@@ -89,14 +214,75 @@ msgid "Choose from the most often used Events types"
 msgstr "Wybierz z najczęściej używanych typów wydarzeń"
 
 #: ../SilverWpAddons/Taxonomy/Events.php:58
+#: ../SilverWpAddons/Taxonomy/Publications.php:59
 msgid "Add new Type"
 msgstr "Dodaj nowy Typ"
 
+#: ../SilverWpAddons/Taxonomy/Publications.php:53
+#: ../SilverWpAddons/Taxonomy/Publications.php:55
+msgid "Publications types"
+msgstr "Typy Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:54
+msgid "Publication type"
+msgstr "Typ Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:56
+msgid "All Publications types"
+msgstr "Wszystkie Typy Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:57
+msgid "Separate Publications types with commas"
+msgstr "Typy publikacji rozdzielone przecinkami"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:58
+msgid "Choose from the most often used Publications types"
+msgstr "Wybierz z najczęściej używanych Typów Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:73
+#: ../SilverWpAddons/Taxonomy/Publications.php:75
+msgid "Publications categories"
+msgstr "Kategorie Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:74
+msgid "Publication category"
+msgstr "Kategoria Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:76
+msgid "All Publications categories"
+msgstr "Wszystkie Kategorie Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:79
+msgid "Add new Category"
+msgstr "Dodaj nową Kategorię"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:100
+#: ../SilverWpAddons/Taxonomy/Publications.php:102
+msgid "JEL codes"
+msgstr "Kody JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:101
+msgid "JEL code"
+msgstr "Kod JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:103
+msgid "All JEL codes"
+msgstr "Wszystkie Kody JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:104
+msgid "Separate JEL codes with commas"
+msgstr "Kody JEL odzielone przecinkami"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:105
+msgid "Choose from the most often used JEL codes"
+msgstr "Wybierz z najczęściej używanych Kdów JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:106
+msgid "Add new JEL code"
+msgstr "Dodaj nowy Kod JEL"
+
 #~ msgid "Details"
 #~ msgstr "Szczegóły"
-
-#~ msgid "Name"
-#~ msgstr "Nazwa"
 
 #~ msgid "Description"
 #~ msgstr "Opis"

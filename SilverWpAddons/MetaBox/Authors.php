@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (C) 2014 Michal Kalkowski <michal at silversite.pl>
  *
@@ -16,34 +17,38 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+namespace SilverWpAddons\MetaBox;
 
-namespace SilverWpAddons\PostType;
-
-use SilverWp\PostType\PostTypeAbstract;
+use SilverWp\Helper\Control\Text;
+use SilverWp\Helper\Control\Textarea;
 use SilverWp\Translate;
+use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Authors' ) ) {
 	/**
-	 * Publications custom post type
+	 * Authors Meta box for Authors Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Revision:$
+	 * @version       $Id:$
 	 * @category      WordPress
 	 * @package       SilverWpAddons
-	 * @subpackage    PostType
-	 * @copyright     SilverSite.pl (c) 2015
+	 * @subpackage    MetaBox
+	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class Publications extends PostTypeAbstract {
-		protected $name = 'publications';
-		protected $supports = array( 'title' );
+	class Authors extends MetaBoxAbstract {
 
-		protected function setLabels() {
-			$this->labels = array(
-				'menu_name'      => Translate::translate( 'Publications' ),
-				'name'           => Translate::translate( 'Publications' ),
-				'name_admin_bar' => Translate::translate( 'Publications' ),
-				'all_items'      => Translate::translate( 'All Publications' )
-			);
+		protected function createMetaBox() {
+
+			$this->setEnterTitleHearLabel( Translate::translate( 'Name and last name' ) );
+
+			$text_area = new Textarea( 'affiliation' );
+			$text_area->setLabel( Translate::translate( 'Affiliation' ) );
+			$this->addMetaBox( $text_area );
+
+			$text = new Text( 'email' );
+			$text->setLabel( Translate::translate( 'E-mail' ) );
+			$text->setValidation( 'email' );
+			$this->addMetaBox( $text );
 		}
 	}
 }

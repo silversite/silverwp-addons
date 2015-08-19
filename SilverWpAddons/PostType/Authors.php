@@ -22,9 +22,9 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Authors' ) ) {
 	/**
-	 * Publications custom post type
+	 * Authors custom post type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
@@ -33,16 +33,16 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 	 * @subpackage    PostType
 	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class Publications extends PostTypeAbstract {
-		protected $name = 'publications';
+	class Authors extends PostTypeAbstract {
+		protected $name = 'authors';
 		protected $supports = array( 'title' );
 
 		protected function setLabels() {
 			$this->labels = array(
-				'menu_name'      => Translate::translate( 'Publications' ),
-				'name'           => Translate::translate( 'Publications' ),
-				'name_admin_bar' => Translate::translate( 'Publications' ),
-				'all_items'      => Translate::translate( 'All Publications' )
+				'menu_name'      => Translate::translate( 'Authors' ),
+				'name'           => Translate::translate( 'Authors' ),
+				'name_admin_bar' => Translate::translate( 'Author' ),
+				'all_items'      => Translate::translate( 'All Authors' )
 			);
 		}
 	}

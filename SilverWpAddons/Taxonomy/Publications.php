@@ -4,7 +4,7 @@ namespace SilverWpAddons\Taxonomy;
 use SilverWp\Translate;
 use SilverWp\Taxonomy\TaxonomyAbstract;
 
-if ( ! class_exists( 'SilverWpAddons\Taxonomy\Publications' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Taxonomy\Publications' ) ) {
 	/**
 	 * Taxonomy for Publications
 	 *
@@ -24,7 +24,8 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\Publications' ) ) {
 		 * @access protected
 		 */
 		protected function setUp() {
-			$this->add( 'type', array(
+			global $wp_rewrite;
+			$this->add( 'types', array(
 				'public'            => true,
 				'show_in_nav_menus' => true,
 				//show meta box in post type edit area
@@ -48,7 +49,7 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\Publications' ) ) {
 					'allow_new_terms' => true
 				)
 			) );
-			$this->setLabels( 'type', array(
+			$this->setLabels( 'types', array(
 				'name'                       => Translate::translate( 'Publications types' ),
 				'singular_name'              => Translate::translate( 'Publication type' ),
 				'menu_name'                  => Translate::translate( 'Publications types' ),
@@ -64,7 +65,7 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\Publications' ) ) {
 				//show meta box in post type edit area
 				'show_ui'           => true,
 				'show_tagcloud'     => false,
-				'hierarchical'      => false,
+				'hierarchical'      => true,
 				'query_var'         => true,
 			) );
 
@@ -73,29 +74,38 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\Publications' ) ) {
 				'singular_name'              => Translate::translate( 'Publication category' ),
 				'menu_name'                  => Translate::translate( 'Publications categories' ),
 				'all_items'                  => Translate::translate( 'All Publications categories' ),
-				'separate_items_with_commas' => Translate::translate( 'Separate Publications categories with commas' ),
-				'choose_from_most_used'      => Translate::translate( 'Choose from the most often used Publications categories' ),
+				'separate_items_with_commas' => false,
+				'choose_from_most_used'      => false,
 				'add_new_item'               => Translate::translate( 'Add new Category' ),
 			) );
-
+			//TODO fix autocomplete
 			$this->add( 'jel', array(
 				'public'            => true,
-				'show_in_nav_menus' => true,
+				'hierarchical'      => false,
 				//show meta box in post type edit area
 				'show_ui'           => true,
+				'show_admin_column' => true,
+				'query_var'         => 'jel',
+				'rewrite' => array(
+					'hierarchical' => false,
+					'slug'         => get_option( 'tag_base' ) ? get_option( 'tag_base' ) : 'jel',
+					'with_front'   => ! get_option( 'tag_base' ) || $wp_rewrite->using_index_permalinks(),
+					'ep_mask'      => EP_TAGS,
+				),
 				'show_tagcloud'     => true,
-				'hierarchical'      => false,
-				'query_var'         => true,
+				'_builtin'          => true,
 			) );
 
 			$this->setLabels( 'jel', array(
-				'name'                       => Translate::translate( 'Publications JEL' ),
-				'singular_name'              => Translate::translate( 'Publication JEL' ),
-				'menu_name'                  => Translate::translate( 'Publications JEL' ),
-				'all_items'                  => Translate::translate( 'All Publications JEL' ),
-				'separate_items_with_commas' => Translate::translate( 'Separate Publications JEL with commas' ),
-				'choose_from_most_used'      => Translate::translate( 'Choose from the most often used Publications JEL' ),
-				'add_new_item'               => Translate::translate( 'Add new JEL' ),
+				'name'                       => Translate::translate( 'JEL codes' ),
+				'singular_name'              => Translate::translate( 'JEL code' ),
+				'menu_name'                  => Translate::translate( 'JEL codes' ),
+				'all_items'                  => Translate::translate( 'All JEL codes' ),
+				'separate_items_with_commas' => Translate::translate( 'Separate JEL codes with commas' ),
+				'choose_from_most_used'      => Translate::translate( 'Choose from the most often used JEL codes' ),
+				'add_new_item'               => Translate::translate( 'Add new JEL code' ),
+				'parent_item'                => null,
+				'parent_item_colon'          => null,
 			) );
 
 		}

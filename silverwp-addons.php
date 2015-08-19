@@ -9,14 +9,14 @@ namespace SilverWpAddons;
  * that starts the plugin.
  *
  * @link              https://github.com/silversite/silverwp-addons
- * @since             0.1
+ * @since             1.0
  * @package           SilverWPAddons
  *
  * @wordpress-plugin
  * Plugin Name:       SilverWP Add-ons
  * Description:       This is necessary for themes based on SilverWp platform
  *                    In this plugin are defined all: CPT, CMB, CT
- * Version:           0.1
+ * Version:           1.0
  * Author:            Michal Kalkowski <michal at silversite.pl>
  * Author URI:        http://silversite.pl/
  * License:           GPL-2.0+
@@ -24,15 +24,16 @@ namespace SilverWpAddons;
  * Text Domain:       silverwp-addons
  * Domain Path:       /languages
  */
-use SilverWp\Debug;
 use SilverWp\Exception;
 use SilverWp\Helper\NavMenu;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
+use SilverWpAddons\PostType\Authors;
 use SilverWpAddons\PostType\Events;
 use SilverWpAddons\PostType\Publications;
 use SilverWpAddons\PostType\Research;
 use SilverWpAddons\PostType\Sources;
+use SilverWpAddons\PostType\Team;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -61,6 +62,13 @@ add_action( 'plugins_loaded', function () {
 	        $publications = Publications::getInstance();
 	        $publications->registerMetaBox( MetaBox\Publications::getInstance() );
 	        $publications->registerTaxonomy( Taxonomy\Publications::getInstance() );
+
+	        $authors = Authors::getInstance();
+	        $authors->registerMetaBox( MetaBox\Authors::getInstance() );
+
+	        $team = Team::getInstance();
+	        $team->registerMetaBox( MetaBox\Team::getInstance() );
+
 	        //nave menu hook
             NavMenu::getInstance();
 

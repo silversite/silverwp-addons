@@ -22,9 +22,9 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
 	/**
-	 * Publications custom post type
+	 * Team custom post type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
@@ -33,16 +33,16 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 	 * @subpackage    PostType
 	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class Publications extends PostTypeAbstract {
-		protected $name = 'publications';
-		protected $supports = array( 'title' );
+	class Team extends PostTypeAbstract {
+		protected $name = 'team';
+		protected $supports = array( 'title', 'editor', 'thumbnail' );
 
 		protected function setLabels() {
 			$this->labels = array(
-				'menu_name'      => Translate::translate( 'Publications' ),
-				'name'           => Translate::translate( 'Publications' ),
-				'name_admin_bar' => Translate::translate( 'Publications' ),
-				'all_items'      => Translate::translate( 'All Publications' )
+				'menu_name'      => Translate::translate( 'Team' ),
+				'name'           => Translate::translate( 'Team' ),
+				'name_admin_bar' => Translate::translate( 'Team' ),
+				'all_items'      => Translate::translate( 'All Team' )
 			);
 		}
 	}

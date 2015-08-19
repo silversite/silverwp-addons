@@ -20,7 +20,11 @@
 namespace SilverWpAddons\MetaBox;
 
 use SilverWp\Helper\Control\Attachments;
+use SilverWp\Helper\Control\Checkbox;
+use SilverWp\Helper\Control\Select;
+use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Textarea;
+use SilverWp\Helper\Control\Upload;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
@@ -39,15 +43,59 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 
 		protected function createMetaBox() {
 
+			$this->setEnterTitleHearLabel( Translate::translate( 'Name' ) );
+
 			//todo add P2P connect with CPT authors
 
-			$text_area = new Textarea( 'affiliation' );
-			$text_area->setLabel( Translate::translate( 'Affiliation' ) );
+			$text = new Text( 'keywords' );
+			$text->setLabel( Translate::translate( 'Keywords' ) );
+			$this->addMetaBox( $text );
 
+			$text = new Text( 'abstract' );
+			$text->setLabel( Translate::translate( 'Abstract' ) );
+			$this->addMetaBox( $text );
+
+			$text_area = new Textarea( 'additional_information' );
+			$text_area->setLabel( Translate::translate( 'Additional information' ) );
 			$this->addMetaBox( $text_area );
 
-			//todo add P2P multiselect connect with Publications
+			//todo add P2P multiselect connect with Research
 
+			$select = new Select( 'publication_year' );
+			$select->setLabel( Translate::translate( 'Publication year' ) );
+
+			$options = array();
+			for ( $i = 2005; $i <= date( 'Y' ); $i ++ ) {
+				$options[] = array(
+					'label' => $i,
+					'value' => $i,
+				);
+			}
+			$select->setOptions( $options );
+			$this->addMetaBox( $select );
+
+			$checkbox = new Checkbox('language');
+			$checkbox->setLabel( Translate::translate( 'Publication language' ) );
+			$checkbox->setOptions(
+				array(
+					array(
+						'label' => Translate::translate('Polish'),
+						'value' => 'pl',
+					),
+					array(
+						'label' => Translate::translate('English'),
+						'value' => 'en',
+					)
+				)
+			);
+			$this->addMetaBox( $checkbox );
+
+			$attachments = new Attachments( 'attachments' );
+			$this->addMetaBox( $attachments );
+
+			$upload = new Upload( 'cover' );
+			$upload->setLabel( Translate::translate( 'Cover' ) );
+			$this->addMetaBox( $upload );
 		}
 	}
 }
