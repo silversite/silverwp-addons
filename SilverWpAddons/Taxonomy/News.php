@@ -4,9 +4,9 @@ namespace SilverWpAddons\Taxonomy;
 use SilverWp\Translate;
 use SilverWp\Taxonomy\TaxonomyAbstract;
 
-if ( ! class_exists( 'SilverWpAddons\Taxonomy\Events' ) ) {
+if ( ! class_exists( 'SilverWpAddons\Taxonomy\News' ) ) {
 	/**
-	 * taxonomy for Events
+	 * taxonomy for News
 	 *
 	 * @author     Michal Kalkowski <michal at silversite.pl>
 	 * @category   WordPress
@@ -15,7 +15,7 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\Events' ) ) {
 	 * @copyright  SilverSite.pl (c) 2015
 	 * @version    $Revision:$
 	 */
-	class Events extends TaxonomyAbstract {
+	class News extends TaxonomyAbstract {
 
 		/**
 		 * Set up taxonomy class labels etc.
@@ -49,12 +49,12 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\Events' ) ) {
 				)
 			) );
 			$this->setLabels( 'type', array(
-				'name'                       => Translate::translate( 'Events types' ),
+				'name'                       => Translate::translate( 'News types' ),
 				'singular_name'              => Translate::translate( 'Event type' ),
-				'menu_name'                  => Translate::translate( 'Events types' ),
+				'menu_name'                  => Translate::translate( 'News types' ),
 				'all_items'                  => Translate::translate( 'All events types' ),
-				'separate_items_with_commas' => Translate::translate( 'Separate Events types with commas' ),
-				'choose_from_most_used'      => Translate::translate( 'Choose from the most often used Events types' ),
+				'separate_items_with_commas' => Translate::translate( 'Separate News types with commas' ),
+				'choose_from_most_used'      => Translate::translate( 'Choose from the most often used News types' ),
 				'add_new_item'               => Translate::translate( 'Add new Type' ),
 			) );
 		}

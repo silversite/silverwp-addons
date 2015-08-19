@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Silversite.pl\n"
-"POT-Creation-Date: 2015-08-18 12:59+0200\n"
-"PO-Revision-Date: 2015-08-18 13:01+0200\n"
+"POT-Creation-Date: 2015-08-19 11:46+0200\n"
+"PO-Revision-Date: 2015-08-19 11:46+0200\n"
 "Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
 "Language-Team: SilverSite.pl <info@silversite.pl>\n"
 "Language: pl_PL\n"
@@ -40,32 +40,31 @@ msgstr "Afiliacja"
 msgid "E-mail"
 msgstr "Mail"
 
-#: ../SilverWpAddons/MetaBox/Events.php:49
+#: ../SilverWpAddons/MetaBox/News.php:49
 msgid "Gallery"
 msgstr "Galeria"
 
-#: ../SilverWpAddons/MetaBox/Events.php:56
+#: ../SilverWpAddons/MetaBox/News.php:56
 msgid "Promotion on main page"
 msgstr "Promuj na stronie głównej"
 
-#: ../SilverWpAddons/MetaBox/Events.php:60
-#: ../SilverWpAddons/PostType/Events.php:44
+#: ../SilverWpAddons/MetaBox/News.php:60 ../SilverWpAddons/PostType/News.php:44
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: ../SilverWpAddons/MetaBox/Events.php:63
+#: ../SilverWpAddons/MetaBox/News.php:63
 msgid "Program"
 msgstr "Program"
 
-#: ../SilverWpAddons/MetaBox/Events.php:67
+#: ../SilverWpAddons/MetaBox/News.php:67
 msgid "Date"
 msgstr "Data"
 
-#: ../SilverWpAddons/MetaBox/Events.php:71
+#: ../SilverWpAddons/MetaBox/News.php:71
 msgid "Time"
 msgstr "Czas"
 
-#: ../SilverWpAddons/MetaBox/Events.php:75
+#: ../SilverWpAddons/MetaBox/News.php:75
 msgid "Place"
 msgstr "Miejsce"
 
@@ -135,14 +134,14 @@ msgstr "Autor"
 msgid "All Authors"
 msgstr "Wszyscy Autorzy"
 
-#: ../SilverWpAddons/PostType/Events.php:42
-#: ../SilverWpAddons/PostType/Events.php:43
-msgid "Events"
-msgstr "Wydarzenia"
+#: ../SilverWpAddons/PostType/News.php:42
+#: ../SilverWpAddons/PostType/News.php:43
+msgid "News"
+msgstr "Wiadomości"
 
-#: ../SilverWpAddons/PostType/Events.php:45
-msgid "All events"
-msgstr "Wszystkie wydarzenia"
+#: ../SilverWpAddons/PostType/News.php:45
+msgid "All News"
+msgstr "Wszystkie Wiadomości"
 
 #: ../SilverWpAddons/PostType/Publications.php:42
 #: ../SilverWpAddons/PostType/Publications.php:43
@@ -164,18 +163,18 @@ msgstr "Badania"
 msgid "All Research"
 msgstr "Wszystkie Badania"
 
-#: ../SilverWpAddons/PostType/Sources.php:42
-#: ../SilverWpAddons/PostType/Sources.php:43
-msgid "Sources"
-msgstr "Żródła"
+#: ../SilverWpAddons/PostType/Resources.php:42
+#: ../SilverWpAddons/PostType/Resources.php:43
+msgid "Resources"
+msgstr "Zasoby"
 
-#: ../SilverWpAddons/PostType/Sources.php:44
-msgid "Source"
-msgstr "Źródło"
+#: ../SilverWpAddons/PostType/Resources.php:44
+msgid "Resource"
+msgstr "Zasoby"
 
-#: ../SilverWpAddons/PostType/Sources.php:45
-msgid "All Sources"
-msgstr "Wszystkie Źródła"
+#: ../SilverWpAddons/PostType/Resources.php:45
+msgid "All Resources"
+msgstr "Wszystkie Zasoby"
 
 #: ../SilverWpAddons/PostType/Team.php:42
 #: ../SilverWpAddons/PostType/Team.php:43
@@ -187,33 +186,33 @@ msgstr "Zespół"
 msgid "All Team"
 msgstr "Cały zespół"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:42
+#: ../SilverWpAddons/Taxonomy/News.php:42
 #: ../SilverWpAddons/Taxonomy/Publications.php:43
 msgid "Select type"
 msgstr "Wybierz typ"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:52
-#: ../SilverWpAddons/Taxonomy/Events.php:54
-msgid "Events types"
-msgstr "Typy wydarzeń"
+#: ../SilverWpAddons/Taxonomy/News.php:52
+#: ../SilverWpAddons/Taxonomy/News.php:54
+msgid "News types"
+msgstr "Typy wiadomości"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:53
+#: ../SilverWpAddons/Taxonomy/News.php:53
 msgid "Event type"
 msgstr "Typ wydarzenia"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:55
+#: ../SilverWpAddons/Taxonomy/News.php:55
 msgid "All events types"
 msgstr "Wszystkie typy wydarzeń"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:56
-msgid "Separate Events types with commas"
-msgstr "Typy wydarzeń separowane przecinkiem"
+#: ../SilverWpAddons/Taxonomy/News.php:56
+msgid "Separate News types with commas"
+msgstr "Typy Wiadomości rozdzielone przecinkami"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:57
-msgid "Choose from the most often used Events types"
-msgstr "Wybierz z najczęściej używanych typów wydarzeń"
+#: ../SilverWpAddons/Taxonomy/News.php:57
+msgid "Choose from the most often used News types"
+msgstr "Wybierz z najczęściej używanych Typów Wiadomości"
 
-#: ../SilverWpAddons/Taxonomy/Events.php:58
+#: ../SilverWpAddons/Taxonomy/News.php:58
 #: ../SilverWpAddons/Taxonomy/Publications.php:59
 msgid "Add new Type"
 msgstr "Dodaj nowy Typ"
@@ -280,6 +279,46 @@ msgstr "Wybierz z najczęściej używanych Kdów JEL"
 #: ../SilverWpAddons/Taxonomy/Publications.php:106
 msgid "Add new JEL code"
 msgstr "Dodaj nowy Kod JEL"
+
+#: ../silverwp-addons.php:78 ../silverwp-addons.php:81
+msgid "Project"
+msgstr "Projekt"
+
+#: ../silverwp-addons.php:80
+msgid "Select Project"
+msgstr "Wybierz projekt"
+
+#: ../silverwp-addons.php:82
+msgid "Search projects"
+msgstr "Przeszukaj proejkty "
+
+#: ../silverwp-addons.php:83
+msgid "No projects found."
+msgstr "Nie znaleziono projektów"
+
+#~ msgid "Events types"
+#~ msgstr "Typy wydarzeń"
+
+#~ msgid "Separate Events types with commas"
+#~ msgstr "Typy wydarzeń separowane przecinkiem"
+
+#~ msgid "Choose from the most often used Events types"
+#~ msgstr "Wybierz z najczęściej używanych typów wydarzeń"
+
+#~ msgid "Events"
+#~ msgstr "Wydarzenia"
+
+#~ msgid "All events"
+#~ msgstr "Wszystkie wydarzenia"
+
+#~ msgid "Sources"
+#~ msgstr "Żródła"
+
+#~ msgid "Source"
+#~ msgstr "Źródło"
+
+#~ msgid "All Sources"
+#~ msgstr "Wszystkie Źródła"
 
 #~ msgid "Details"
 #~ msgstr "Szczegóły"

@@ -29,10 +29,10 @@ use SilverWp\Helper\NavMenu;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Authors;
-use SilverWpAddons\PostType\Events;
+use SilverWpAddons\PostType\News;
 use SilverWpAddons\PostType\Publications;
 use SilverWpAddons\PostType\Research;
-use SilverWpAddons\PostType\Sources;
+use SilverWpAddons\PostType\Resources;
 use SilverWpAddons\PostType\Team;
 
 // If this file is called directly, abort.
@@ -49,12 +49,12 @@ add_action( 'plugins_loaded', function () {
             Translate::$text_domain     = 'silverwp';
 	        Translate::init();
 
-	        $events = Events::getInstance();
-	        $events->registerMetaBox( MetaBox\Events::getInstance() );
-	        $events->registerTaxonomy( Taxonomy\Events::getInstance() );
+	        $events = News::getInstance();
+	        $events->registerMetaBox( MetaBox\News::getInstance() );
+	        $events->registerTaxonomy( Taxonomy\News::getInstance() );
 
-	        $sources = Sources::getInstance();
-	        $sources->registerMetaBox( MetaBox\Sources::getInstance() );
+	        $resources = Resources::getInstance();
+	        $resources->registerMetaBox( MetaBox\Resources::getInstance() );
 
 	        $research = Research::getInstance();
 	        $research->registerMetaBox( MetaBox\Research::getInstance() );
@@ -69,6 +69,21 @@ add_action( 'plugins_loaded', function () {
 	        $team = Team::getInstance();
 	        $team->registerMetaBox( MetaBox\Team::getInstance() );
 
+	        //posts relationship
+	        #events_to_research
+	        $events_to_research = $events->addRelationship( 'events_to_research', $research );
+	        $events_to_research->admin_box = array(
+		        'show' => 'from'
+	        );
+	        $events_to_research->title = Translate::translate( 'Project' );
+	        $events_to_research->to_labels = array(
+		        'create'        => Translate::translate( 'Select Project' ),
+		        'singular_name' => Translate::translate( 'Project' ),
+		        'search_items'  => Translate::translate( 'Search projects' ),
+		        'not_found'     => Translate::translate( 'No projects found.' ),
+	        );
+			#endevents_to_research
+	        #s_to_research
 	        //nave menu hook
             NavMenu::getInstance();
 

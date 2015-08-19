@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Copyright (C) 2014 Michal Kalkowski <michal at silversite.pl>
  *
@@ -17,34 +16,34 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-namespace SilverWpAddons\MetaBox;
 
-use SilverWp\Helper\Control\Attachments;
+namespace SilverWpAddons\PostType;
+
+use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
-use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\Sources' ) ) {
+if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	/**
-	 * Sources Meta box for Sources Post Type
+	 * News custom post type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Id:$
+	 * @version       $Revision:$
 	 * @category      WordPress
 	 * @package       SilverWpAddons
-	 * @subpackage    MetaBox
-	 * @copyright (c) SilverSite.pl 2015
+	 * @subpackage    PostType
+	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class Sources extends MetaBoxAbstract {
+	class News extends PostTypeAbstract {
+		protected $name = 'news';
+		protected $supports = array( 'title', 'editor', 'thumbnail' );
 
-		protected function createMetaBox() {
-
-			//todo add P2P connect with CPT Research
-
-			$attachments = new Attachments( 'attachments' );
-			$this->addMetaBox( $attachments );
-
-			//todo add P2P multiselect connect with Publications
-
+		protected function setLabels() {
+			$this->labels = array(
+				'menu_name'      => Translate::translate( 'News' ),
+				'name'           => Translate::translate( 'News' ),
+				'name_admin_bar' => Translate::translate( 'Event' ),
+				'all_items'      => Translate::translate( 'All News' )
+			);
 		}
 	}
 }

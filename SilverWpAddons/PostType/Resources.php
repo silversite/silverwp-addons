@@ -22,9 +22,9 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\Sources' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Resources' ) ) {
 	/**
-	 * Sources custom post type
+	 * Resources custom post type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
@@ -33,16 +33,16 @@ if ( ! class_exists( '\SilverWpAddons\Sources' ) ) {
 	 * @subpackage    PostType
 	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class Sources extends PostTypeAbstract {
-		protected $name = 'sources';
+	class Resources extends PostTypeAbstract {
+		protected $name = 'resources';
 		protected $supports = array( 'title', 'editor' );
 
 		protected function setLabels() {
 			$this->labels = array(
-				'menu_name'      => Translate::translate( 'Sources' ),
-				'name'           => Translate::translate( 'Sources' ),
-				'name_admin_bar' => Translate::translate( 'Source' ),
-				'all_items'      => Translate::translate( 'All Sources' )
+				'menu_name'      => Translate::translate( 'Resources' ),
+				'name'           => Translate::translate( 'Resources' ),
+				'name_admin_bar' => Translate::translate( 'Resource' ),
+				'all_items'      => Translate::translate( 'All Resources' )
 			);
 		}
 	}

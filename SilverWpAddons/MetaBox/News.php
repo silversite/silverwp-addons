@@ -29,9 +29,9 @@ use SilverWp\Helper\Control\Wpeditor;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\Events' ) ) {
+if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	/**
-	 * Events Meta box for Events Post Type
+	 * News Meta box for News Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Id:$
@@ -40,7 +40,7 @@ if ( ! class_exists( '\SilverWpAddons\Events' ) ) {
 	 * @subpackage    MetaBox
 	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class Events extends MetaBoxAbstract {
+	class News extends MetaBoxAbstract {
 		protected $priority = 'low';
 
 		protected function createMetaBox() {

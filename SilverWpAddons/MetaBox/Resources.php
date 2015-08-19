@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (C) 2014 Michal Kalkowski <michal at silversite.pl>
  *
@@ -16,34 +17,29 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+namespace SilverWpAddons\MetaBox;
 
-namespace SilverWpAddons\PostType;
-
-use SilverWp\PostType\PostTypeAbstract;
+use SilverWp\Helper\Control\Attachments;
 use SilverWp\Translate;
+use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\Events' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Resources' ) ) {
 	/**
-	 * Events custom post type
+	 * Resources Meta box for Resources Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Revision:$
+	 * @version       $Id:$
 	 * @category      WordPress
 	 * @package       SilverWpAddons
-	 * @subpackage    PostType
-	 * @copyright     SilverSite.pl (c) 2015
+	 * @subpackage    MetaBox
+	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class Events extends PostTypeAbstract {
-		protected $name = 'events';
-		protected $supports = array( 'title', 'editor', 'thumbnail' );
+	class Resources extends MetaBoxAbstract {
 
-		protected function setLabels() {
-			$this->labels = array(
-				'menu_name'      => Translate::translate( 'Events' ),
-				'name'           => Translate::translate( 'Events' ),
-				'name_admin_bar' => Translate::translate( 'Event' ),
-				'all_items'      => Translate::translate( 'All events' )
-			);
+		protected function createMetaBox() {
+
+			$attachments = new Attachments( 'attachments' );
+			$this->addMetaBox( $attachments );
 		}
 	}
 }
