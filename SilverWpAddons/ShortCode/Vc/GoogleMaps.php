@@ -18,6 +18,7 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
+use SilverWp\Interfaces\EnqueueScripts;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
 use SilverWp\ShortCode\Vc\Control\Image;
@@ -39,8 +40,84 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 * @version       0.1
 	 */
-	class GoogleMaps extends ShortCodeAbstract {
-		protected $tag_base = 'ss_gm';
+	class GoogleMaps extends ShortCodeAbstract implements EnqueueScripts {
+		protected $tag_base = 'ss_googlemaps';
+
+		public function __construct() {
+			parent::__construct();
+			add_action( 'save_post', array( $this, 'saveOccurrencesPostsIds' ) ); //is post has our map shortcode
+		}
+
+		/**
+		 * Save all posts ids where google map short code occurrences
+		 *
+		 * @param int $post_id
+		 * @access public
+		 */
+		public function saveOccurrencesPostsIds( $post_id ) {
+			if ( wp_is_post_revision( $post_id )) {
+				return;
+			}
+			$post_type = get_post_type( $post_id );
+			$id_array = $this->findOccurrences( $this->tag_base, $post_type );
+			if ( false === add_option( $this->tag_base, $id_array ) ) {
+				update_option( $this->tag_base, $id_array );
+			}
+		}
+
+		/**
+		 * Find all post id where short code occurrence
+		 *
+		 * @param $short_code
+		 * @param $post_type
+		 *
+		 * @return array
+		 * @access private
+		 */
+		private function findOccurrences( $short_code, $post_type ) {
+			$found_ids    = array();
+			$args         = array(
+				'post_type'      => $post_type,
+				'post_status'    => 'publish',
+				'posts_per_page' => - 1,
+			);
+			$query_result = new \WP_Query( $args );
+			foreach ( $query_result->posts as $post ) {
+				if ( false !== strpos( $post->post_content, $short_code ) ) {
+					$found_ids[] = $post->ID;
+				}
+			}
+
+			return $found_ids;
+		}
+
+		/**
+		 * Enqueue scripts js or css
+		 *
+		 * @return void
+		 * @access public
+		 */
+		public function enqueueScripts() {
+			wp_register_script(
+				'googleapis',
+				'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
+			);
+			if ( is_front_page() ) {
+				$page_id = get_option( 'page_on_front' );
+			} else {
+				$page_id = get_the_ID();
+			}
+			//enqueue this script only on page or post where short code was founded
+			$option_id_array = get_option( $this->tag_base );
+
+			if ( $option_id_array ) {
+				if ( ! empty( $option_id_array ) ) {
+					if ( in_array( $page_id, $option_id_array ) ) {
+						wp_enqueue_script( 'googleapis' );
+					}
+				}
+			}
+		}
 
 		/**
 		 * Render Short Code content
@@ -54,8 +131,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 		public function content( $args, $content ) {
 			$default = $this->prepareAttributes();
 
-			$short_code_attributes = $this->setDefaultAttributeValue( $default, $args );
-			$output                = $this->render( $short_code_attributes, $content );
+			$args   = $this->setDefaultAttributeValue( $default, $args );
+			$output = $this->render( $args, $content );
 
 			return $output;
 		}
@@ -72,7 +149,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$this->setCssClass( 'vc_google_map' );
 			$this->setDescription( Translate::translate( 'Display Google Maps to indicate your location' ) );
 			$this->setIcon( 'vc_google_map' );
-
+			$this->setShowSettingsForm( true );
+			$this->setControls( 'full' );
 
 			$text = new Text( 'width' );
 			$text->setLabel( Translate::translate( 'Width (in %)' ) );
@@ -88,11 +166,11 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$text->setAdminLabel( true );
 			$this->addControl( $text );
 
-			$select = new Select( 'map_type' );
-			$select->setLabel( Translate::translate( 'Map type' ) );
-			$select->setAdminLabel( true );
-			$select->setGroup( Translate::translate( 'General Settings' ) );
-			$select->setOptions(
+			$map_type = new Select( 'map_type' );
+			$map_type->setLabel( Translate::translate( 'Map type' ) );
+			$map_type->setAdminLabel( true );
+			$map_type->setGroup( Translate::translate( 'General Settings' ) );
+			$map_type->setOptions(
 				array(
 					array(
 						'label' => Translate::translate( 'Roadmap' ),
@@ -112,6 +190,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					)
 				)
 			);
+			$map_type->setDefault( 'ROADMAP' );
+			$this->addControl( $map_type );
 
 			$text = new Text( 'lat' );
 			$text->setLabel( Translate::translate( 'Latitude' ) );
@@ -139,19 +219,19 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$text->setAdminLabel( true );
 			$this->addControl( $text );
 
-			$slider = new Slider( 'zoom' );
-			$slider->setLabel( Translate::translate( 'Map Zoom' ) );
-			$slider->setMin( 1 );
-			$slider->setMax( 20 );
-			$slider->setStep( 1 );
-			$slider->setDefault( 18 );
-			$slider->setGroup( Translate::translate( 'General Settings' ) );
-			$this->addControl( $slider );
+			$zoom = new Slider( 'zoom' );
+			$zoom->setLabel( Translate::translate( 'Map Zoom' ) );
+			$zoom->setMin( 1 );
+			$zoom->setMax( 20 );
+			$zoom->setStep( 1 );
+			$zoom->setDefault( 18 );
+			$zoom->setGroup( Translate::translate( 'General Settings' ) );
+			$this->addControl( $zoom );
 
-			$checkbox = new Checkbox( 'scrollwheel' );
-			$checkbox->setLabel( '' );
-			$checkbox->setGroup( Translate::translate( 'General Settings' ) );
-			$checkbox->setOptions(
+			$scroll_wheel = new Checkbox( 'scrollwheel' );
+			$scroll_wheel->setLabel( '' );
+			$scroll_wheel->setGroup( Translate::translate( 'General Settings' ) );
+			$scroll_wheel->setOptions(
 				array(
 					array(
 						'label' => Translate::translate( 'Disable map zoom on mouse wheel scroll' ),
@@ -159,12 +239,12 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					)
 				)
 			);
-			$this->addControl( $checkbox );
+			$this->addControl( $scroll_wheel );
 
-			$select = new Select( 'scrollwheel' );
-			$select->setLabel( Translate::translate( 'Street view control' ) );
-			$select->setGroup( Translate::translate( 'General Settings' ) );
-			$select->setOptions(
+			$street_view_control = new Select( 'streetviewcontrol' );
+			$street_view_control->setLabel( Translate::translate( 'Street view control' ) );
+			$street_view_control->setGroup( Translate::translate( 'General Settings' ) );
+			$street_view_control->setOptions(
 				array(
 					array(
 						'label' => Translate::translate( 'Disable' ),
@@ -176,12 +256,13 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					),
 				)
 			);
-			$this->addControl( $select );
+			$street_view_control->setDefault( 'false' );
+			$this->addControl( $street_view_control );
 
-			$select = new Select( 'maptypecontrol' );
-			$select->setLabel( Translate::translate( 'Map type control' ) );
-			$select->setGroup( Translate::translate( 'General Settings' ) );
-			$select->setOptions(
+			$map_type_control = new Select( 'maptypecontrol' );
+			$map_type_control->setLabel( Translate::translate( 'Map type control' ) );
+			$map_type_control->setGroup( Translate::translate( 'General Settings' ) );
+			$map_type_control->setOptions(
 				array(
 					array(
 						'label' => Translate::translate( 'Disable' ),
@@ -193,12 +274,13 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					),
 				)
 			);
-			$this->addControl( $select );
+			$map_type_control->setDefault( 'false' );
+			$this->addControl( $map_type_control );
 
-			$select = new Select( 'pancontrol' );
-			$select->setLabel( Translate::translate( 'Map pan control' ) );
-			$select->setGroup( Translate::translate( 'General Settings' ) );
-			$select->setOptions(
+			$pan_control = new Select( 'pancontrol' );
+			$pan_control->setLabel( Translate::translate( 'Map pan control' ) );
+			$pan_control->setGroup( Translate::translate( 'General Settings' ) );
+			$pan_control->setOptions(
 				array(
 					array(
 						'label' => Translate::translate( 'Disable' ),
@@ -210,7 +292,8 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					),
 				)
 			);
-			$this->addControl( $select );
+			$pan_control->setDefault( 'false' );
+			$this->addControl( $pan_control );
 
 			$zoom_control = new Select( 'zoomcontrol' );
 			$zoom_control->setLabel( Translate::translate( 'Zoom control' ) );
@@ -227,6 +310,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					),
 				)
 			);
+			$zoom_control->setDefault( 'false' );
 			$this->addControl( $zoom_control );
 
 			$zoom_control_size = new Select( 'zoomcontrolsize' );
@@ -244,6 +328,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					),
 				)
 			);
+			$zoom_control_size->setDefault( 'SMALL' );
 			$zoom_control_size->setDependency( $zoom_control, array( 'true' ) );
 			$this->addControl( $zoom_control_size );
 
@@ -270,7 +355,6 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$this->addControl( $marker_icon );
 
 			$icon_img = new Image( 'icon_img' );
-			$icon_img->setAdminLabel( true );
 			$icon_img->setDescription( Translate::translate( 'Upload the custom image icon.' ) );
 			$icon_img->setGroup( Translate::translate( 'General Settings' ) );
 			$icon_img->setDependency( $marker_icon, array( 'custom' ) );
@@ -357,7 +441,11 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 					),
 				)
 			);
-			$map_override->setDescription( Translate::translate( 'By default, the map will be given to the Visual Composer row. However, in some cases depending on your theme\'s CSS - it may not fit well to the container you are wishing it would. In that case you will have to select the appropriate value here that gets you desired output..' ) );
+			$map_override->setDescription(
+				Translate::translate(
+					'By default, the map will be given to the Visual Composer row. However, in some cases depending on your theme\'s CSS - it may not fit well to the container you are wishing it would. In that case you will have to select the appropriate value here that gets you desired output..'
+				)
+			);
 			$this->addControl( $map_override );
 
 			$map_style = new TextArea( 'map_style' );
@@ -372,8 +460,9 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$this->addControl( $map_style );
 
 			$el_class = new ExtraCss();
-			$el_class->setGroup( Translate::translate( 'General Settings' ) );
+			$el_class->setGroup( Translate::translate( 'Styling' ) );
 			$this->addControl( $el_class );
+
 		}
 	}
 }
