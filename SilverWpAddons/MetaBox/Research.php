@@ -38,6 +38,7 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 	 */
 	class Research extends MetaBoxAbstract {
 		protected $priority = 'low';
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 

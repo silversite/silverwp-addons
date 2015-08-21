@@ -41,6 +41,7 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 	 */
 	class Publications extends MetaBoxAbstract {
 		protected $priority = 'low';
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 

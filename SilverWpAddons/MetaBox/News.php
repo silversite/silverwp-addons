@@ -42,6 +42,7 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	 */
 	class News extends MetaBoxAbstract {
 		protected $priority = 'low';
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 

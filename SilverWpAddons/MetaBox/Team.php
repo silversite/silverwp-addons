@@ -37,6 +37,7 @@ if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 */
 	class Team extends MetaBoxAbstract {
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 

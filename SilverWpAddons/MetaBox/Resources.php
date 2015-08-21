@@ -35,6 +35,7 @@ if ( ! class_exists( '\SilverWpAddons\Resources' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 */
 	class Resources extends MetaBoxAbstract {
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 

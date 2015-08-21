@@ -36,6 +36,7 @@ if ( ! class_exists( '\SilverWpAddons\Authors' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 */
 	class Authors extends MetaBoxAbstract {
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
 
