@@ -52,7 +52,11 @@ add_action( 'plugins_loaded', function () {
 	        $news = News::getInstance();
 	        $news->registerMetaBox( MetaBox\News::getInstance() );
 	        $news->registerTaxonomy( Taxonomy\News::getInstance() );
-
+	        $news->addTemplates(
+		        array(
+			        'single-news.php'
+		        )
+	        );
 	        $resources = Resources::getInstance();
 	        $resources->registerMetaBox( MetaBox\Resources::getInstance() );
 
@@ -83,7 +87,7 @@ add_action( 'plugins_loaded', function () {
 		        'not_found'     => Translate::translate( 'No projects found.' ),
 	        );
 	        //$news_to_research->cardinality = 'one-to-one';
-			#endevents_to_research
+			#end news_to_research
 
 	        #resources_to_research
 	        $resources_to_research = $resources->addRelationship( 'resources_to_research', $research );
