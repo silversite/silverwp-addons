@@ -134,7 +134,6 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$default = $this->prepareAttributes();
 
 			$args   = $this->setDefaultAttributeValue( $default, $args );
-			Debug::dumpPrint($args);
 			$output = $this->render( $args, $content );
 
 			return $output;
