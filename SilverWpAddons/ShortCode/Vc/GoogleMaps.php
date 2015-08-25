@@ -155,7 +155,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$this->setControls( 'full' );
 
 			$width = new Select( 'width' );
-			$width->setLabel( Translate::translate( 'Width (in %)' ) );
+			$width->setLabel( Translate::translate( 'Width' ) );
 			$width->setGroup( Translate::translate( 'General Settings' ) );
 			$width->setDefault( '100' );
 			$width->setOptions(array(
