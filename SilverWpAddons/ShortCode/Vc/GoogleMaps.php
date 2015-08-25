@@ -18,6 +18,7 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
+use SilverWp\Debug;
 use SilverWp\Interfaces\EnqueueScripts;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
@@ -26,6 +27,7 @@ use SilverWp\ShortCode\Vc\Control\Select;
 use SilverWp\ShortCode\Vc\Control\Slider;
 use SilverWp\ShortCode\Vc\Control\Text;
 use SilverWp\ShortCode\Vc\Control\TextArea;
+use SilverWp\ShortCode\Vc\Control\WpEditor;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
 
@@ -132,6 +134,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$default = $this->prepareAttributes();
 
 			$args   = $this->setDefaultAttributeValue( $default, $args );
+			Debug::dumpPrint($args);
 			$output = $this->render( $args, $content );
 
 			return $output;
@@ -152,12 +155,23 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$this->setShowSettingsForm( true );
 			$this->setControls( 'full' );
 
-			$text = new Text( 'width' );
-			$text->setLabel( Translate::translate( 'Width (in %)' ) );
-			$text->setGroup( Translate::translate( 'General Settings' ) );
-			$text->setValue( '100%' );
-			$text->setAdminLabel( true );
-			$this->addControl( $text );
+			$width = new Select( 'width' );
+			$width->setLabel( Translate::translate( 'Width (in %)' ) );
+			$width->setGroup( Translate::translate( 'General Settings' ) );
+			$width->setDefault( '100' );
+			$width->setOptions(array(
+				array(
+					'label' => Translate::translate( '100% width of container' ),
+					'value' => 'container'
+				),
+				array(
+					'label' => Translate::translate( 'fullscreen width' ),
+					'value' => 'fullwidth'
+				),
+			));
+			$width->setAdminLabel( true );
+
+			$this->addControl( $width );
 
 			$text = new Text( 'height' );
 			$text->setLabel( Translate::translate( 'Height (in px)' ) );
@@ -342,16 +356,11 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 						'value' => 'default'
 					),
 					array(
-						'label' => Translate::translate( 'Use Plugin\'s Default' ),
-						'value' => 'default_self'
-					),
-					array(
 						'label' => Translate::translate( 'Upload Custom' ),
 						'value' => 'custom'
 					),
 				)
 			);
-			$marker_icon->setDependency( $zoom_control, array( 'true' ) );
 			$this->addControl( $marker_icon );
 
 			$icon_img = new Image( 'icon_img' );
@@ -360,7 +369,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			$icon_img->setDependency( $marker_icon, array( 'custom' ) );
 			$this->addControl( $icon_img );
 
-			$content = new TextArea( 'content' );
+			$content = new WpEditor( 'content' );
 			$content->setLabel( Translate::translate( 'Info Window Text' ) );
 			$content->setGroup( Translate::translate( 'General Settings' ) );
 			$this->addControl( $content );
@@ -385,68 +394,6 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 				)
 			);
 			$this->addControl( $top_margin );
-
-			$map_override = new Select( 'map_override' );
-			$map_override->setLabel( Translate::translate( 'Map Width Override' ) );
-			$map_override->setGroup( Translate::translate( 'General Settings' ) );
-			$map_override->setOptions(
-				array(
-					array(
-						'label' => Translate::translate( 'Default Width' ),
-						'value' => '0'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 1st parent element\'s width' ),
-						'value' => '1'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 2nd parent element\'s width' ),
-						'value' => '2'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 3rd parent element\'s width' ),
-						'value' => '3'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 4th parent element\'s width' ),
-						'value' => '4'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 5th parent element\'s width' ),
-						'value' => '5'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 6th parent element\'s width' ),
-						'value' => '6'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 7th parent element\'s width' ),
-						'value' => '7'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 8th parent element\'s width' ),
-						'value' => '8'
-					),
-					array(
-						'label' => Translate::translate( 'Apply 9th parent element\'s width' ),
-						'value' => '9'
-					),
-					array(
-						'label' => Translate::translate( 'Full Width' ),
-						'value' => 'full'
-					),
-					array(
-						'label' => Translate::translate( 'Maximum Full Width' ),
-						'value' => 'ex-full'
-					),
-				)
-			);
-			$map_override->setDescription(
-				Translate::translate(
-					'By default, the map will be given to the Visual Composer row. However, in some cases depending on your theme\'s CSS - it may not fit well to the container you are wishing it would. In that case you will have to select the appropriate value here that gets you desired output..'
-				)
-			);
-			$this->addControl( $map_override );
 
 			$map_style = new TextArea( 'map_style' );
 			$map_style->setPosType( 'raw_html' );
