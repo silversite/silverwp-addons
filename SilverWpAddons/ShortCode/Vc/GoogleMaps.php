@@ -18,8 +18,8 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
-use SilverWp\Debug;
 use SilverWp\Interfaces\EnqueueScripts;
+use SilverWp\ShortCode\SaveOccurencesInterface;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
 use SilverWp\ShortCode\Vc\Control\Image;
@@ -42,56 +42,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 * @version       0.1
 	 */
-	class GoogleMaps extends ShortCodeAbstract implements EnqueueScripts {
+	class GoogleMaps extends ShortCodeAbstract
+		implements EnqueueScripts, SaveOccurencesInterface {
+
 		protected $tag_base = 'ss_googlemaps';
-
-		public function __construct() {
-			parent::__construct();
-			add_action( 'save_post', array( $this, 'saveOccurrencesPostsIds' ), 10, 1 ); //is post has our map shortcode
-		}
-
-		/**
-		 * Save all posts ids where google map short code occurrences
-		 *
-		 * @param int $post_id
-		 * @access public
-		 */
-		public function saveOccurrencesPostsIds( $post_id ) {
-			if ( wp_is_post_revision( $post_id )) {
-				return;
-			}
-			$post_type = get_post_type( $post_id );
-			$id_array = $this->findOccurrences( $this->tag_base, $post_type );
-			if ( false === add_option( $this->tag_base, $id_array ) ) {
-				update_option( $this->tag_base, $id_array );
-			}
-		}
-
-		/**
-		 * Find all post id where short code occurrence
-		 *
-		 * @param $short_code
-		 * @param $post_type
-		 *
-		 * @return array
-		 * @access private
-		 */
-		private function findOccurrences( $short_code, $post_type ) {
-			$found_ids    = array();
-			$args         = array(
-				'post_type'      => $post_type,
-				'post_status'    => 'publish',
-				'posts_per_page' => - 1,
-			);
-			$query_result = new \WP_Query( $args );
-			foreach ( $query_result->posts as $post ) {
-				if ( false !== strpos( $post->post_content, $short_code ) ) {
-					$found_ids[] = $post->ID;
-				}
-			}
-
-			return $found_ids;
-		}
 
 		/**
 		 * Enqueue scripts js or css

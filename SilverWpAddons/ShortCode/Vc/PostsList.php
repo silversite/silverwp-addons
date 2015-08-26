@@ -23,9 +23,9 @@ use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
 use SilverWp\ShortCode\Vc\Control\Select;
-use SilverWp\ShortCode\Vc\Control\TextArea;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
+use SilverWpAddons\Ajax\BlogPosts;
 
 if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 	/**
@@ -40,6 +40,12 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 	 */
 	class PostsList extends ShortCodeAbstract {
 		protected $tag_base = 'ss_postlist';
+		public function __construct() {
+			parent::__construct();
+			//Ajax post list
+			//todo move this to some extra property
+			BlogPosts::getInstance();
+		}
 
 		/**
 		 * Render Short Code content
@@ -51,6 +57,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 		 * @access public
 		 */
 		public function content( $args, $content ) {
+
 			$default    = $this->prepareAttributes();
 			$attributes = $this->setDefaultAttributeValue( $default, $args );
 

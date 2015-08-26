@@ -37,6 +37,7 @@ class BlogPosts extends AjaxAbstract {
 
 	protected $name = 'blog-posts';
 	protected $ajax_js_file = 'main.js';
+	protected $ajax_handler = 'sage_js';
 
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();
@@ -44,8 +45,7 @@ class BlogPosts extends AjaxAbstract {
 		$limit  = $this->getRequestData( 'limit', FILTER_SANITIZE_NUMBER_INT );
 		$offset = $this->getRequestData( 'offset', FILTER_SANITIZE_NUMBER_INT );
 		//$pager		 = $this->getRequestData( 'pagination', FILTER_VALIDATE_BOOLEAN );
-		$category_id = $this->getRequestData( 'catid',
-			FILTER_SANITIZE_NUMBER_INT );
+		$category_id = $this->getRequestData( 'catid', FILTER_SANITIZE_NUMBER_INT );
 		//create post type portfolio object
 		$query_args = array();
 		//if category id is set create tax query

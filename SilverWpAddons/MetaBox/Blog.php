@@ -2,15 +2,11 @@
 
 namespace SilverWpAddons\MetaBox;
 
-use SilverWp\Debug;
 use SilverWp\Helper\Control\PostFormat;
-use SilverWp\Helper\Control\Select;
 use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Toggle;
 use SilverWp\Helper\Option;
 use SilverWp\MetaBox\MetaBoxAbstract;
-use SilverWp\MetaBox\RemoveInterface;
-use SilverWp\SilverWp;
 use SilverWp\Translate;
 
 if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
@@ -19,7 +15,7 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 	 * Meta box for Blog
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Id: Blog.php 2559 2015-03-12 13:01:04Z padalec $
+	 * @version       0.3
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    MetaBox

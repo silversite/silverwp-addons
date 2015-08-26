@@ -27,7 +27,7 @@ namespace SilverWpAddons;
 use SilverWp\Exception;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
-
+use SilverWpAddons\PostType\News;
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
     die;
@@ -42,7 +42,7 @@ add_action( 'plugins_loaded', function () {
             Translate::$text_domain = 'silverwp-addons';
 	        Translate::init();
 
-            if ( \class_exists( '\SilverWpAddons\MetaBox\Blog' ) ) {
+	        if ( \class_exists( '\SilverWpAddons\MetaBox\Blog' ) ) {
                 MetaBox\Blog::getInstance();
             }
 
@@ -60,9 +60,7 @@ add_action( 'plugins_loaded', function () {
                 ShortCode\Setup::getInstance();
             }
 
-	        //post like
-            //Ajax\PostLike::getInstance();
-            //get tweets from tweeter
+	        //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
                 Ajax\Tweetie::getInstance();
             }
