@@ -31,6 +31,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
 			$sidebar->removeOption( 1 );
+			$sidebar->setDefault( Option::get_theme_option( 'page_sidebar' ) );
 			$this->addMetaBox( $sidebar );
 
 			$page_header = new Group( 'page_header' );

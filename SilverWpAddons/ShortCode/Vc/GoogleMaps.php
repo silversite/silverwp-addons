@@ -47,7 +47,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 
 		public function __construct() {
 			parent::__construct();
-			add_action( 'save_post', array( $this, 'saveOccurrencesPostsIds' ) ); //is post has our map shortcode
+			add_action( 'save_post', array( $this, 'saveOccurrencesPostsIds' ), 10, 1 ); //is post has our map shortcode
 		}
 
 		/**
@@ -111,7 +111,6 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 			}
 			//enqueue this script only on page or post where short code was founded
 			$option_id_array = get_option( $this->tag_base );
-
 			if ( $option_id_array ) {
 				if ( ! empty( $option_id_array ) ) {
 					if ( in_array( $page_id, $option_id_array ) ) {

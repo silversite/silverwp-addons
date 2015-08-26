@@ -2,11 +2,15 @@
 
 namespace SilverWpAddons\MetaBox;
 
+use SilverWp\Debug;
 use SilverWp\Helper\Control\PostFormat;
 use SilverWp\Helper\Control\Select;
+use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Toggle;
+use SilverWp\Helper\Option;
 use SilverWp\MetaBox\MetaBoxAbstract;
 use SilverWp\MetaBox\RemoveInterface;
+use SilverWp\SilverWp;
 use SilverWp\Translate;
 
 if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
@@ -25,11 +29,13 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 		protected $id = 'post';
 		protected $post_type = array( 'post' );
 		protected $exclude_columns = array( 'category', 'tag' );
+		protected $debug = false;
 
 		protected function createMetaBox() {
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
 			$sidebar->removeOption( 1 );
+			$sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
 			$this->addMetaBox( $sidebar );
 
 			//Featured on the list
