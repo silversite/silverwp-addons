@@ -27,6 +27,10 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function createMetaBox() {
+			$sidebar = new SidebarPosition( 'sidebar' );
+			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
+			$sidebar->removeOption( 1 );
+			$this->addMetaBox( $sidebar );
 
 			//Featured on the list
 			$featured_list = new Toggle( 'featured' );
