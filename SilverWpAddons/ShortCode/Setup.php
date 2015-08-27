@@ -32,9 +32,12 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
             new Quote();
 	        new PostsList();
 	        new GoogleMaps();
-	        //short codes not implemented to editor
+	        // shortcodes not implemented to editor
 	        new Dropcap();
 	        new Highlight();
+            // shortcodes to section "About the Author"
+            new Links();
+            new Link();
         }
     }
 }
