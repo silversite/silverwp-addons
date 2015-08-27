@@ -21,6 +21,7 @@
 namespace SilverWpAddons\Ajax;
 
 use SilverWp\Ajax\AjaxAbstract;
+use SilverWp\Db\Query;
 use SilverWp\Debug;
 
 /**
@@ -31,7 +32,7 @@ use SilverWp\Debug;
  * @category      WordPress
  * @package       SilverWpAddons
  * @subpackage    Ajax
- * @copyright (c) SilverSite.pl 2015
+ * @copyright     SilverSite.pl (c) 2015
  */
 class BlogPosts extends AjaxAbstract {
 
@@ -39,45 +40,46 @@ class BlogPosts extends AjaxAbstract {
 	protected $ajax_js_file = 'main.js';
 	protected $ajax_handler = 'sage_js';
 
+	/**
+	 * Generate response
+	 *
+	 * @access public
+	 */
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();
 		//get request params
-		$limit  = $this->getRequestData( 'limit', FILTER_SANITIZE_NUMBER_INT );
-		$offset = $this->getRequestData( 'offset', FILTER_SANITIZE_NUMBER_INT );
-		//$pager		 = $this->getRequestData( 'pagination', FILTER_VALIDATE_BOOLEAN );
-		$category_id = $this->getRequestData( 'catid', FILTER_SANITIZE_NUMBER_INT );
+		$offset       = $this->getRequestData( 'offset', FILTER_SANITIZE_NUMBER_INT );
+		$current_page = $this->getRequestData( 'currentpage', FILTER_SANITIZE_NUMBER_INT );
+		$category_id  = $this->getRequestData( 'catid', FILTER_SANITIZE_STRING );
+		$layout       = $this->getRequestData( 'layout', FILTER_SANITIZE_STRING );
+		Debug::dump($current_page, 'current_page');
+		Debug::dump($offset, 'offset');
+		Debug::dump($category_id, 'category');
 		//create post type portfolio object
-		$query_args = array();
+		$the_query = new Query();
 		//if category id is set create tax query
 		if ( $category_id && $category_id != '*' ) {
-			$query_args = array(
-				'tax_query' => array(
-					array(
-						'taxonomy' => 'category',
-						'field'    => 'term_id',
-						'terms'    => (int) $category_id,
-					),
-				),
-			);
+			$the_query->addTaxonomyFilter( 'category', (int) $category_id );
 		}
+
+		$the_query->setCurrentPagedPage( (int) $current_page );
+
 		//if offset is set add paged param
 		if ( $offset ) {
-			$query_args['offset'] = (int) $offset;
+			$the_query->setOffset( (int) $offset );
 		}
 
-		$query_args['numberposts'] = (int) $limit;
-
-		$items = \get_posts( \wp_parse_args( $query_args ) );
+		$the_query->get_posts();
 
 		$data = array(
-			'data' => $items,
+			'the_query' => $the_query,
+			'args'      => array(
+				'layout' => $layout,
+			)
 		);
 
-		$view_file = $this->getViewFileFromRequest();
-		$this->responseHtml( $data, $view_file );
-	}
+		$this->responseHtml( $data );
 
-	private function getPosts() {
-
+		$the_query->reset_postdata();
 	}
 }
