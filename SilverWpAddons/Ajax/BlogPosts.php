@@ -35,7 +35,7 @@ use SilverWp\Debug;
  */
 class BlogPosts extends AjaxAbstract {
 
-	protected $name = 'blog-posts';
+	protected $name = 'blogposts';
 	protected $ajax_js_file = 'main.js';
 	protected $ajax_handler = 'sage_js';
 
