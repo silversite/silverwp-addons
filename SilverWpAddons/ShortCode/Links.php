@@ -45,7 +45,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Links' ) ) {
 		 * @access public
 		 */
 		public function content( $args, $content = '' ) {
-            var_dump($args);
+
 			$data = array(
 				'args'    => $args,
 				'content' => $content,
