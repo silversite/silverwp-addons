@@ -26,7 +26,6 @@ namespace SilverWpAddons;
  */
 use SilverWp\Exception;
 use SilverWp\Helper\NavMenu;
-use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Authors;
 use SilverWpAddons\PostType\News;
@@ -54,9 +53,11 @@ add_action( 'plugins_loaded', function () {
 	        $news->registerTaxonomy( Taxonomy\News::getInstance() );
 	        $news->addTemplates(
 		        array(
-			        'single-news.php'
+			        'single-news.php',
+			        'template-news.php',
 		        )
 	        );
+	        /*
 	        $resources = Resources::getInstance();
 	        $resources->registerMetaBox( MetaBox\Resources::getInstance() );
 
@@ -153,10 +154,13 @@ add_action( 'plugins_loaded', function () {
 		        'not_found'     => Translate::translate( 'No Author found.' ),
 	        );
 	        #endauthors_to_publications
-
+			*/
 	        //nave menu hook
             NavMenu::getInstance();
 
+	        #widgets
+	        //new Widget\Social();
+	        #endwidgets
         } catch ( Exception $ex ) {
             echo $ex->catchException();
         }

@@ -32,7 +32,11 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\News' ) ) {
 				'show_tagcloud'     => false,
 				'hierarchical'      => false,
 				'query_var'         => true,
-				'custom_meta_box' => array(
+				'rewrite'           => array(
+					'slug'       => 'types',
+					'with_front' => true
+				),
+				'custom_meta_box'   => array(
 					'control_type'    => 'select',
 					// Priority of the metabox placement.
 					'priority'        => 'high',

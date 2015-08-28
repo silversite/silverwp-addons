@@ -22,9 +22,12 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\News' ) ) {
+if ( ! class_exists( 'SilverWpAddons\News' ) ) {
 	/**
 	 * News custom post type
+	 *
+	 * @property array labels
+	 * @property bool  has_archive
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
@@ -36,12 +39,20 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	class News extends PostTypeAbstract {
 		protected $name = 'news';
 		protected $supports = array( 'title', 'editor', 'thumbnail' );
-
-		protected function setLabels() {
+		protected $debug = false;
+		/**
+		 *
+		 * Set up Custom Post Type. In this method will be set up labels and all
+		 * register_post_type function arguments
+		 *
+		 * @access protected
+		 */
+		protected function setUp() {
+			$this->has_archive = false;
 			$this->labels = array(
 				'menu_name'      => Translate::translate( 'News' ),
 				'name'           => Translate::translate( 'News' ),
-				'name_admin_bar' => Translate::translate( 'Event' ),
+				'name_admin_bar' => Translate::translate( 'News' ),
 				'all_items'      => Translate::translate( 'All News' )
 			);
 		}

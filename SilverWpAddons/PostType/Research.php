@@ -26,8 +26,10 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 	/**
 	 * Research custom post type
 	 *
+	 * @property array labels
+	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Revision:$
+	 * @version       0.3
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    PostType
@@ -37,7 +39,14 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 		protected $name = 'research';
 		protected $supports = array( 'title', 'editor' );
 
-		protected function setLabels() {
+		/**
+		 *
+		 * Set up Custom Post Type. In this method will be set up labels and all
+		 * register_post_type function arguments
+		 *
+		 * @access protected
+		 */
+		protected function setUp() {
 			$this->labels = array(
 				'menu_name'      => Translate::translate( 'Research' ),
 				'name'           => Translate::translate( 'Research' ),

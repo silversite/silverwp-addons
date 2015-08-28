@@ -26,6 +26,8 @@ if ( ! class_exists( '\SilverWpAddons\Authors' ) ) {
 	/**
 	 * Authors custom post type
 	 *
+	 * @property array labels
+	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
 	 * @category      WordPress
@@ -37,7 +39,14 @@ if ( ! class_exists( '\SilverWpAddons\Authors' ) ) {
 		protected $name = 'authors';
 		protected $supports = array( 'title' );
 
-		protected function setLabels() {
+		/**
+		 *
+		 * Set up Custom Post Type. In this method will be set up labels and all
+		 * register_post_type function arguments
+		 *
+		 * @access protected
+		 */
+		protected function setUp() {
 			$this->labels = array(
 				'menu_name'      => Translate::translate( 'Authors' ),
 				'name'           => Translate::translate( 'Authors' ),

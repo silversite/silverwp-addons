@@ -22,9 +22,11 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
+if ( ! class_exists( 'SilverWpAddons\Team' ) ) {
 	/**
 	 * Team custom post type
+	 *
+	 * @property array labels
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
@@ -37,7 +39,14 @@ if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
 		protected $name = 'team';
 		protected $supports = array( 'title', 'editor', 'thumbnail' );
 
-		protected function setLabels() {
+		/**
+		 *
+		 * Set up Custom Post Type. In this method will be set up labels and all
+		 * register_post_type function arguments
+		 *
+		 * @access protected
+		 */
+		protected function setUp() {
 			$this->labels = array(
 				'menu_name'      => Translate::translate( 'Team' ),
 				'name'           => Translate::translate( 'Team' ),
