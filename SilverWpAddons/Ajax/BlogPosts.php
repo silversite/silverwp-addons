@@ -52,9 +52,11 @@ class BlogPosts extends AjaxAbstract {
 		$current_page = $this->getRequestData( 'currentpage', FILTER_SANITIZE_NUMBER_INT );
 		$category_id  = $this->getRequestData( 'catid', FILTER_SANITIZE_STRING );
         $layout       = $this->getRequestData( 'layout', FILTER_SANITIZE_STRING );
-        Debug::dump($current_page, 'current_page');
-        Debug::dump($offset, 'offset');
-        Debug::dump($category_id, 'category');
+        $limit        = get_option('posts_per_page');
+        $offset       = $limit * $current_page;
+        //Debug::dump($current_page, 'current_page');
+        //Debug::dump($offset, 'offset');
+        //Debug::dump($category_id, 'category');
 
 		//create post type portfolio object
 		$the_query = new Query();
@@ -64,11 +66,7 @@ class BlogPosts extends AjaxAbstract {
 		}
 
 		$the_query->setCurrentPagedPage( (int) $current_page );
-
-		//if offset is set add paged param
-		if ( $offset ) {
-			$the_query->setOffset( (int) $offset );
-		}
+        $the_query->setOffset( (int) $offset );
 
 		$the_query->get_posts();
 
