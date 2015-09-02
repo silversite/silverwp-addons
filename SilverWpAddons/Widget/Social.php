@@ -16,17 +16,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-/*
-  Repository path: $HeadURL: https://svn.nq.pl/wordpress/branches/dynamite/igniter/wp-content/themes/igniter/lib/SilverWpAddons/Sidebar/Widget/Social.php $
-  Last committed: $Revision: 2187 $
-  Last changed by: $Author: cichy $
-  Last changed date: $Date: 2015-01-21 14:44:21 +0100 (Śr, 21 sty 2015) $
-  ID: $Id: Social.php 2187 2015-01-21 13:44:21Z cichy $
- */
+namespace SilverWpAddons\Widget;
 
-namespace SilverWpAddons\Sidebar\Widget;
-
-use SilverWpAddons\Translate;
+use SilverWp\Debug;
+use SilverWp\Helper\Control\Text;
+use SilverWp\Translate;
+use SilverWp\Widget\WidgetAbstract;
+use SilverWp\Widget\WidgetInterface;
 
 /**
  * Social accounts list
@@ -38,43 +34,13 @@ use SilverWpAddons\Translate;
  * @subpackage Sidebar\Widget
  * @copyright (c) 2009 - 2014, SilverSite.pl
  */
-class Social extends WidgetAbstract {
+class Social extends WidgetAbstract implements WidgetInterface {
+	protected $debug = false;
     public function __construct() {
-        // Configure widget array
-        $args             = array(
-            // Widget Backend label
-            'label'       => Translate::translate( 'Social accounts' ),
-            'name'        => 'social',
-            // Widget Backend Description
-            'description' => Translate::translate( 'Social icons with link to social accounts. Configuration social accounts is available in Theme Options - social bookmark.' ),
-            'options'     => array(
-                'classname' => 'widget_social'
-            )
-        );
-        $args[ 'fields' ] = array(
-            // Title field
-            array(
-                'name'     => Translate::translate( 'Title' ),
-                'id'       => 'title',
-                'type'     => 'text',
-                'class'    => 'widefat',
-                'validate' => 'alpha_numeric',
-                'filter'   => 'strip_tags|esc_attr',
-                'std'      => Translate::translate( 'Social accounts' ),
-            ),
-            // Title field
-            array(
-                'name'     => Translate::translate( 'Description' ),
-                'id'       => 'description',
-                'type'     => 'textarea',
-                'class'    => 'widefat',
-                'validate' => 'alpha_numeric',
-                //'filter'   => 'strip_tags|esc_attr',
-                //'std'      => Translate::translate( 'Social accounts' ),
-            ),
-        );
-
-        $this->createWidget( $args );
+		parent::__construct('social', Translate::translate('Social'));
+	    $text = new Text( 'test' );
+	    $text->setLabel( 'test' );
+	    $this->addControl( $text );
     }
 
     // Output function

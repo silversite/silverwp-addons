@@ -27,7 +27,8 @@ namespace SilverWpAddons;
 use SilverWp\Exception;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
-use SilverWpAddons\PostType\News;
+use SilverWp\SilverWp;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
     die;
@@ -59,6 +60,8 @@ add_action( 'plugins_loaded', function () {
             if ( function_exists( 'vc_set_as_theme' ) ) {
                 ShortCode\Setup::getInstance();
             }
+
+//	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\Social' );
 
 	        //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
