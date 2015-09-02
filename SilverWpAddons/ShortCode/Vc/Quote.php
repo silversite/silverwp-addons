@@ -20,6 +20,7 @@ namespace SilverWpAddons\ShortCode\Vc;
 
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
+use SilverWp\ShortCode\Vc\Control\Text;
 use SilverWp\ShortCode\Vc\Control\WpEditor;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
@@ -76,6 +77,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 			$editor->setLabel( Translate::translate( 'Quotation text' ) );
 			$editor->setValue( Translate::translate( '<p>I am message box. Click edit button to change this text.</p>' ) );
 			$this->addControl( $editor );
+
+			$author = new Text( 'author' );
+			$author->setLabel( Translate::translate( 'Author' ) );
+			$this->addControl( $author );
 
 			$animation = new Animation();
 			$this->addControl( $animation );
