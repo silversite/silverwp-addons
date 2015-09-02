@@ -58,8 +58,10 @@ class BlogPosts extends AjaxAbstract {
 		if ( $category_id && $category_id != '*' ) {
 			$the_query->addTaxonomyFilter( 'category', (int) $category_id );
 		}
-
-		$the_query->setCurrentPagedPage( (int) $current_page );
+		//add + 1 because load more hav to go to next page but from request
+		// I got current page
+		$current_page = (int) $current_page + 1;
+		$the_query->setCurrentPagedPage( $current_page );
 
 		//if offset is set add paged param
 		if ( $offset ) {
