@@ -61,7 +61,7 @@ add_action( 'plugins_loaded', function () {
                 ShortCode\Setup::getInstance();
             }
 
-//	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\Social' );
+	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\RecentPosts' );
 
 	        //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
