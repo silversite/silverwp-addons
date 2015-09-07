@@ -24,58 +24,60 @@ use SilverWp\Helper\Control\Text;
 use SilverWp\Widget\WidgetAbstract;
 use SilverWp\Translate;
 
-/**
- * Recent Posts Widget
- *
- * @author        Michal Kalkowski <michal at silversite.pl>
- * @version       0.4
- * @category      WordPress
- * @package       SilverWpAddons
- * @subpackage    Widget
- * @copyright     2009 - 2015 (c) SilverSite.pl
- */
-class RecentPosts extends WidgetAbstract {
-	public function __construct() {
+if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
+	/**
+	 * Recent Posts Widget
+	 *
+	 * @author        Michal Kalkowski <michal at silversite.pl>
+	 * @version       0.4
+	 * @category      WordPress
+	 * @package       SilverWpAddons
+	 * @subpackage    Widget
+	 * @copyright     2009 - 2015 (c) SilverSite.pl
+	 */
+	class RecentPosts extends WidgetAbstract {
+		public function __construct() {
 
-		$widget_options = array(
-			'description' => Translate::translate( 'Blog posts with images from selected categories.' ),
-		);
-		parent::__construct( 'custom-recent-posts', Translate::translate( 'Recent Posts with Image' ), $widget_options );
+			$widget_options = array(
+				'description' => Translate::translate( 'Blog posts with images from selected categories.' ),
+			);
+			parent::__construct( 'custom-recent-posts',
+				Translate::translate( 'Recent Posts with Image' ),
+				$widget_options );
 
-		// Configure the widget fields
-		// Example for: Title ( text ) and Amount of posts to show ( select box )
-		// fields array
-		$title = new Text( 'title' );
-		$title->setLabel( Translate::translate( 'Title' ) );
-		$title->setDefault( Translate::translate( 'Recent Posts With Image' ) );
-		$this->addControl( $title );
+			// Configure the widget fields
+			$title = new Text( 'title' );
+			$title->setLabel( Translate::translate( 'Title' ) );
+			$title->setDefault( Translate::translate( 'Recent Posts With Image' ) );
+			$this->addControl( $title );
 
-		$number = new Text( 'number' );
-		$number->setLabel( Translate::translate( 'Number of posts to show' ) );
-		$number->setDefault( 5 );
-		$this->addControl( $number );
+			$number = new Text( 'number' );
+			$number->setLabel( Translate::translate( 'Number of posts to show' ) );
+			$number->setDefault( 5 );
+			$this->addControl( $number );
 
-		$show_date = new Checkbox( 'show_date' );
-		$show_date->setLabel( Translate::translate( 'Display post date' ) );
-		$show_date->setDefault( 1 );
-		$this->addControl( $show_date );
+			$show_date = new Checkbox( 'show_date' );
+			$show_date->setLabel( Translate::translate( 'Display post date' ) );
+			$show_date->setDefault( 1 );
+			$this->addControl( $show_date );
 
-		$show_author = new Checkbox( 'show_author' );
-		$show_author->setLabel( Translate::translate( 'Display post author' ) );
-		$show_author->setDefault( 1 );
-		$this->addControl( $show_author );
+			$show_author = new Checkbox( 'show_author' );
+			$show_author->setLabel( Translate::translate( 'Display post author' ) );
+			$show_author->setDefault( 1 );
+			$this->addControl( $show_author );
 
-		$show_category = new Checkbox( 'show_category' );
-		$show_category->setLabel( Translate::translate( 'Display post category' ) );
-		$this->addControl( $show_category );
+			$show_category = new Checkbox( 'show_category' );
+			$show_category->setLabel( Translate::translate( 'Display post category' ) );
+			$this->addControl( $show_category );
 
-		$show_image = new Checkbox( 'show_image' );
-		$show_image->setLabel( Translate::translate( 'Display post image' ) );
-		$this->addControl( $show_image );
+			$show_image = new Checkbox( 'show_image' );
+			$show_image->setLabel( Translate::translate( 'Display post image' ) );
+			$this->addControl( $show_image );
 
-		$categories = new CategoriesCheckboxes( 'categories' );
-		$categories->setLabel( Translate::translate( 'Categories' ) );
-		$categories->setMulti( true );
-		$this->addControl( $categories );
+			$categories = new CategoriesCheckboxes( 'categories' );
+			$categories->setLabel( Translate::translate( 'Categories' ) );
+			$categories->setMulti( true );
+			$this->addControl( $categories );
+		}
 	}
 }
