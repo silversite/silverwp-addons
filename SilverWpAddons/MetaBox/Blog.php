@@ -23,26 +23,25 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 	 */
 	class Blog extends MetaBoxAbstract {
 		protected $id = 'post';
-		protected $post_type = array( 'post' );
+		protected $post_types = array( 'post' );
 		protected $exclude_columns = array( 'category', 'tag' );
-		protected $debug = false;
 
-		protected function createMetaBox() {
+		protected function setUp() {
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
 			$sidebar->removeOption( 1 );
 			$sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
-			$this->addMetaBox( $sidebar );
+			$this->addControl( $sidebar );
 
 			//Featured on the list
 			$featured_list = new Toggle( 'featured' );
 			$featured_list->setLabel( Translate::translate( 'Featured on the list' ) );
 			$featured_list->setDefault( 0 );
-			$this->addMetaBox( $featured_list );
+			$this->addControl( $featured_list );
 			//ENDFeatured on the list
 
 			$post_format = new PostFormat();
-			$this->addMetaBox( $post_format );
+			$this->addControl( $post_format );
 
 		}
 

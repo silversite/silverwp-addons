@@ -25,15 +25,15 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 	 */
 	class Page extends MetaBoxAbstract {
 		protected $id = 'page';
-		protected $post_type = array( 'page' );
+		protected $post_types = array( 'page' );
 		protected $exclude_columns = array( 'category', 'tag' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
 			$sidebar->removeOption( 1 );
 			$sidebar->setDefault( Option::get_theme_option( 'pages_sidebar' ) );
-			$this->addMetaBox( $sidebar );
+			$this->addControl( $sidebar );
 
 			$page_header = new Group( 'page_header' );
 			$page_header->setLabel( Translate::translate( 'Page header' ) );
@@ -52,7 +52,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$subtitle->setLabel( Translate::translate( 'Subtitle' ) );
 			$subtitle->setDependency( $show_header, 'vp_dep_boolean' );
 			$page_header->addControl( $subtitle );
-			$this->addMetaBox( $page_header );
+			$this->addControl( $page_header );
 
 			$beyond_content = new Group( 'beyond_content' );
 			$beyond_content->setLabel( Translate::translate( 'Beyond the content' ) );
@@ -84,7 +84,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$above_content->setDefault( 'empty' );
 			$beyond_content->addControl( $above_content );
 
-			$this->addMetaBox( $beyond_content );
+			$this->addControl( $beyond_content );
 
 			$social = new Group( 'social' );
 			$social->setLabel( Translate::translate( 'Social plugin' ) );
@@ -110,7 +110,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$social_plugin->setValidation( 'required' );
 			$social->addControl( $social_plugin );
 
-			$this->addMetaBox( $social );
+			$this->addControl( $social );
 		}
 	}
 }
