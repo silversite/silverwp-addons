@@ -46,8 +46,6 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			parent::__construct(
 				'silverwp-flickr',
 				Translate::translate( 'SilverWp Flickr' ),
-				'flickr',
-				'Silver Flickr',
 				$widget_options
 			);
 
@@ -58,6 +56,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			$this->addControl( $title );
 
 			$type = new Select( 'type' );
+			$type->setShowEmpty( false );
 			$type->setLabel( Translate::translate( 'Type' ) );
 			$type->setDescription( Translate::translate( 'The type of images from user or group.' ) );
 			$type->addOption( 'user', Translate::translate( 'user' ) );
@@ -75,13 +74,17 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			$flickr_id->setDefault( '71865026@N00' );
 			$this->addControl( $flickr_id );
 
-			$count = new Number( 'count' );
+			$count = new Select( 'count' );
 			$count->setLabel( Translate::translate( 'Number of images to show' ) );
+			$count->setShowEmpty( false );
 			$count->setDefault( 5 );
+			$count->setStart( 1 );
+			$count->setEnd( 10 );
 			$count->setDescription( Translate::translate( 'Number of images shown from 1 to 10' ) );
 			$this->addControl( $count );
 
 			$display_method = new Select( 'display' );
+			$display_method->setShowEmpty( false );
 			$display_method->setLabel( Translate::translate( 'Display Method' ) );
 			$display_method->setDescription( Translate::translate( 'Get the image from recent or use random function' ) );
 			$display_method->addOption( 'latest', Translate::translate( 'latest' ) );

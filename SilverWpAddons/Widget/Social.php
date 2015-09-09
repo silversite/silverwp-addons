@@ -1,7 +1,6 @@
 <?php
 /*
  * Copyright (C) 2014 Michal Kalkowski <michal at silversite.pl>
- *                    Marcin Dobroszek <marcin at silversite.pl>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,46 +16,58 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
 namespace SilverWpAddons\Widget;
 
-use SilverWp\Helper\Control\Slider;
+use SilverWp\Helper\Control\Checkbox;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Translate;
 use SilverWp\Widget\WidgetAbstract;
 
-if ( ! class_exists( 'SilverWpAddons\Widget\TwitterRecentPosts' ) ) {
+if ( ! class_exists( 'SilverWpAddons\Widget\Social' ) ) {
 	/**
-	 * Twitter - Recent Posts (latests tweets)
+	 * Social bookmarks list
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @author        Marcin Dobroszek <marcin at silversite.pl>
-	 * @version       $Id: TwitterRecentPosts.php 1895 2014-12-05 14:10:19Z cichy $
+	 * @version       0.5
 	 * @category      WordPress
-	 * @package       SilverWp
-	 * @subpackage    Sidebar\Widget
-	 * @copyright (c) 2009 - 2014, SilverSite.pl
+	 * @package       SilvweWp
+	 * @subpackage    Widget
+	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class TwitterRecentPosts extends WidgetAbstract {
-
+	class Social extends WidgetAbstract {
 		public function __construct() {
+			$this->setDefaultTitleLabel( Translate::translate( 'Social Widget' ) );
+			// Configure widget array
 			$widget_options = array(
-				'description' => Translate::translate( 'Recent posts from Twitter social platform. Account data must be configured in Theme Options &rsaquo; Social.' ),
+				'description' => Translate::translate( 'Social icons with link to social accounts.' ),
 			);
-			parent::__construct( 'silverwp-twitter-recent-posts', 'SilverWp Twitter', $widget_options );
-
-			// Configure widget form
+			parent::__construct(
+				'silverwp-social',
+				Translate::translate( 'SilverWp Social' ),
+				$widget_options
+			);
+			// Configure the widget fields
 			$title = new Text( 'title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
-			$title->setDefault( Translate::translate( 'Latest Tweets' ) );
+			$title->setDefault( Translate::translate( 'Social Widget' ) );
 			$this->addControl( $title );
 
-			$limit = new Text( 'limit' );
-			$limit->setLabel( Translate::translate( 'Number of posts to show' ) );
-			/*$limit->setMin( 1 );
-			$limit->setMax( 10 );
-			$limit->setStep( 1 );*/
-			$limit->setDefault( 3 );
-			$this->addControl( $limit );
+			$accounts = new Checkbox( 'accounts' );
+			$accounts->setLabel( Translate::translate( 'Social accounts' ) );
+
+			$options = array();
+			$social_accounts = \SilverWp\Helper\Social::getIcons();
+			foreach ( $social_accounts as $slug => $value ) {
+				$options[] = array(
+					'value' => $slug,
+					'label' => $value['label']
+				);
+			}
+			$accounts->setOptions( $options );
+			$accounts->setMulti( true );
+			$this->addControl( $accounts );
+
 		}
 	}
 }
