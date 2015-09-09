@@ -42,7 +42,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\TwitterRecentPosts' ) ) {
 			$widget_options = array(
 				'description' => Translate::translate( 'Recent posts from Twitter social platform. Account data must be configured in Theme Options &rsaquo; Social.' ),
 			);
-			parent::__construct( 'twitter-recent-posts', 'Twitter', $widget_options );
+			parent::__construct( 'silverwp-twitter-recent-posts', 'Silverwp Twitter', $widget_options );
 
 			// Configure widget form
 			$title = new Text( 'title' );

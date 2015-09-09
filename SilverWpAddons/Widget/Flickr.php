@@ -44,8 +44,8 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 				'description' => Translate::translate( 'Displays a Flickr photo stream from an ID.' ),
 			);
 			parent::__construct(
-				'flickr',
-				Translate::translate( 'Flickr' ),
+				'silverwp-flickr',
+				Translate::translate( 'SilverWp Flickr' ),
 				$widget_options
 			);
 
@@ -60,6 +60,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			$type->setDescription( Translate::translate( 'The type of images from user or group.' ) );
 			$type->addOption( 'user', Translate::translate( 'user' ) );
 			$type->addOption( 'group', Translate::translate( 'group' ) );
+			$type->setDefault( 'user' );
 			$this->addControl( $type );
 
 			$flickr_id = new Text( 'flickr_id' );
@@ -83,6 +84,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			$display_method->setDescription( Translate::translate( 'Get the image from recent or use random function' ) );
 			$display_method->addOption( 'latest', Translate::translate( 'latest' ) );
 			$display_method->addOption( 'random', Translate::translate( 'random' ) );
+			$display_method->setDefault( 'latest' );
 			$this->addControl( $display_method );
 
 		}

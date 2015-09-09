@@ -20,6 +20,7 @@ namespace SilverWpAddons\Widget;
 
 use SilverWp\Helper\Control\CategoriesCheckboxes;
 use SilverWp\Helper\Control\Checkbox;
+use SilverWp\Helper\Control\Number;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Widget\WidgetAbstract;
 use SilverWp\Translate;
@@ -41,41 +42,44 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 			$widget_options = array(
 				'description' => Translate::translate( 'Blog posts with images from selected categories.' ),
 			);
-			parent::__construct( 'custom-recent-posts',
-				Translate::translate( 'Recent Posts with Image' ),
-				$widget_options );
+			parent::__construct(
+				'silverwp-recent-posts',
+				Translate::translate( 'SilverWp Recent Posts' ),
+				$widget_options
+			);
 
 			// Configure the widget fields
 			$title = new Text( 'title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
-			$title->setDefault( Translate::translate( 'Recent Posts With Image' ) );
+			$title->setDefault( Translate::translate( 'SilverWp Recent Posts' ) );
 			$this->addControl( $title );
 
-			$number = new Text( 'number' );
+			$number = new Number( 'number' );
 			$number->setLabel( Translate::translate( 'Number of posts to show' ) );
 			$number->setDefault( 5 );
+
 			$this->addControl( $number );
 
 			$show_date = new Checkbox( 'show_date' );
-			$show_date->setLabel( Translate::translate( 'Display post date' ) );
+			$show_date->setLabel( Translate::translate( 'Display post date' ) . '?' );
 			$show_date->setDefault( 1 );
 			$this->addControl( $show_date );
 
 			$show_author = new Checkbox( 'show_author' );
-			$show_author->setLabel( Translate::translate( 'Display post author' ) );
+			$show_author->setLabel( Translate::translate( 'Display post author' ) . '?' );
 			$show_author->setDefault( 1 );
 			$this->addControl( $show_author );
 
 			$show_category = new Checkbox( 'show_category' );
-			$show_category->setLabel( Translate::translate( 'Display post category' ) );
+			$show_category->setLabel( Translate::translate( 'Display post category' ) . '?' );
 			$this->addControl( $show_category );
 
 			$show_image = new Checkbox( 'show_image' );
-			$show_image->setLabel( Translate::translate( 'Display post image' ) );
+			$show_image->setLabel( Translate::translate( 'Display post image' ) . '?' );
 			$this->addControl( $show_image );
 
 			$categories = new CategoriesCheckboxes( 'categories' );
-			$categories->setLabel( Translate::translate( 'Categories' ) );
+			$categories->setLabel( Translate::translate( 'Categories' ) . ':<br />' );
 			$categories->setMulti( true );
 			$this->addControl( $categories );
 		}
