@@ -46,6 +46,8 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			parent::__construct(
 				'silverwp-flickr',
 				Translate::translate( 'SilverWp Flickr' ),
+				'flickr',
+				'Silver Flickr',
 				$widget_options
 			);
 
