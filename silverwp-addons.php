@@ -28,7 +28,7 @@ use SilverWp\Exception;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWp\SilverWp;
-
+use SilverWp\Ajax\Tweetie;
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
     die;
@@ -62,12 +62,12 @@ add_action( 'plugins_loaded', function () {
             }
 
 	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\RecentPosts' );
-	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\TwitterRecentPosts' );
 	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\Flickr' );
-
+	        SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\Social' );
 	        //get tweets from tweeter
             if ( Option::get_theme_option( 'use_twitter_plugin' ) === '1' ) {
-                Ajax\Tweetie::getInstance();
+                Tweetie::getInstance();
+	            SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\TwitterRecentPosts' );
             }
 
         } catch ( Exception $ex ) {
