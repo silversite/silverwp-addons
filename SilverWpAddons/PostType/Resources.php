@@ -37,7 +37,7 @@ if ( ! class_exists( '\SilverWpAddons\Resources' ) ) {
 	 */
 	class Resources extends PostTypeAbstract {
 		protected $name = 'resources';
-		protected $supports = array( 'title', 'editor' );
+		protected $supports = array( 'title', 'editor', 'thumbnail' );
 
 		/**
 		 *

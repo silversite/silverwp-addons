@@ -36,20 +36,20 @@ if ( ! class_exists( '\SilverWpAddons\Authors' ) ) {
 	 * @copyright (c) SilverSite.pl 2015
 	 */
 	class Authors extends MetaBoxAbstract {
-		protected $exclude_columns = array( 'category', 'tag' );
+		protected $exclude_columns = array( 'category', 'tag', 'author' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 
 			$this->setEnterTitleHearLabel( Translate::translate( 'Name and last name' ) );
 
 			$text_area = new Textarea( 'affiliation' );
 			$text_area->setLabel( Translate::translate( 'Affiliation' ) );
-			$this->addMetaBox( $text_area );
+			$this->addControl( $text_area );
 
 			$text = new Text( 'email' );
 			$text->setLabel( Translate::translate( 'E-mail' ) );
 			$text->setValidation( 'email' );
-			$this->addMetaBox( $text );
+			$this->addControl( $text );
 		}
 	}
 }

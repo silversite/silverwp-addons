@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Silversite.pl\n"
-"POT-Creation-Date: 2015-08-19 12:38+0200\n"
-"PO-Revision-Date: 2015-08-19 12:38+0200\n"
+"POT-Creation-Date: 2015-09-01 10:45+0200\n"
+"PO-Revision-Date: 2015-09-01 12:28+0200\n"
 "Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
 "Language-Team: SilverSite.pl <info@silversite.pl>\n"
 "Language: pl_PL\n"
@@ -25,50 +25,50 @@ msgstr "Nie lubię"
 msgid "Like"
 msgstr "Lubię"
 
-#: ../SilverWpAddons/MetaBox/Authors.php:42
-#: ../SilverWpAddons/MetaBox/Team.php:43
+#: ../SilverWpAddons/MetaBox/Authors.php:43
+#: ../SilverWpAddons/MetaBox/Team.php:44
 msgid "Name and last name"
 msgstr "Imie i nazwisko"
 
-#: ../SilverWpAddons/MetaBox/Authors.php:45
-#: ../SilverWpAddons/MetaBox/Team.php:51
+#: ../SilverWpAddons/MetaBox/Authors.php:46
+#: ../SilverWpAddons/MetaBox/Team.php:52
 msgid "Affiliation"
 msgstr "Afiliacja"
 
-#: ../SilverWpAddons/MetaBox/Authors.php:49
-#: ../SilverWpAddons/MetaBox/Team.php:46
+#: ../SilverWpAddons/MetaBox/Authors.php:50
+#: ../SilverWpAddons/MetaBox/Team.php:47
 msgid "E-mail"
 msgstr "Mail"
 
-#: ../SilverWpAddons/MetaBox/News.php:49
+#: ../SilverWpAddons/MetaBox/News.php:50
 msgid "Gallery"
 msgstr "Galeria"
 
-#: ../SilverWpAddons/MetaBox/News.php:56
+#: ../SilverWpAddons/MetaBox/News.php:57
 msgid "Promotion on main page"
 msgstr "Promuj na stronie głównej"
 
-#: ../SilverWpAddons/MetaBox/News.php:60 ../SilverWpAddons/PostType/News.php:44
+#: ../SilverWpAddons/MetaBox/News.php:61
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: ../SilverWpAddons/MetaBox/News.php:63
+#: ../SilverWpAddons/MetaBox/News.php:64
 msgid "Program"
 msgstr "Program"
 
-#: ../SilverWpAddons/MetaBox/News.php:67
+#: ../SilverWpAddons/MetaBox/News.php:68
 msgid "Date"
 msgstr "Data"
 
-#: ../SilverWpAddons/MetaBox/News.php:71
+#: ../SilverWpAddons/MetaBox/News.php:72
 msgid "Time"
 msgstr "Czas"
 
-#: ../SilverWpAddons/MetaBox/News.php:75
+#: ../SilverWpAddons/MetaBox/News.php:76
 msgid "Place"
 msgstr "Miejsce"
 
-#: ../SilverWpAddons/MetaBox/Publications.php:46
+#: ../SilverWpAddons/MetaBox/Publications.php:48
 msgid "Name"
 msgstr "Nazwa"
 
@@ -84,135 +84,136 @@ msgstr "Abstrakt"
 msgid "Additional information"
 msgstr "Dodatkowe informacje"
 
-#: ../SilverWpAddons/MetaBox/Publications.php:65
+#: ../SilverWpAddons/MetaBox/Publications.php:63
 msgid "Publication year"
 msgstr "Rok publikacji"
 
-#: ../SilverWpAddons/MetaBox/Publications.php:78
+#: ../SilverWpAddons/MetaBox/Publications.php:76
 msgid "Publication language"
 msgstr "Język publikacji"
 
-#: ../SilverWpAddons/MetaBox/Publications.php:82
+#: ../SilverWpAddons/MetaBox/Publications.php:80
 msgid "Polish"
 msgstr "Polski"
 
-#: ../SilverWpAddons/MetaBox/Publications.php:86
+#: ../SilverWpAddons/MetaBox/Publications.php:84
 msgid "English"
 msgstr "Angielski"
 
-#: ../SilverWpAddons/MetaBox/Publications.php:97
+#: ../SilverWpAddons/MetaBox/Publications.php:95
 msgid "Cover"
 msgstr "Okładka"
 
-#: ../SilverWpAddons/MetaBox/Research.php:45
+#: ../SilverWpAddons/MetaBox/Research.php:46
 msgid "Partners"
 msgstr "Partnerzy"
 
-#: ../SilverWpAddons/MetaBox/Research.php:50
-#: ../SilverWpAddons/MetaBox/Team.php:55
+#: ../SilverWpAddons/MetaBox/Research.php:51
+#: ../SilverWpAddons/MetaBox/Team.php:56
 msgid "Contact"
 msgstr "Kontakt"
 
-#: ../SilverWpAddons/MetaBox/Research.php:54
+#: ../SilverWpAddons/MetaBox/Research.php:55
 msgid "External URL"
 msgstr "Zewnętrzny URL"
 
-#: ../SilverWpAddons/MetaBox/Team.php:59
+#: ../SilverWpAddons/MetaBox/Team.php:60
 msgid "Show in Team page"
 msgstr "Pokaż w zakładce Zespół"
 
-#: ../SilverWpAddons/PostType/Authors.php:42
-#: ../SilverWpAddons/PostType/Authors.php:43 ../silverwp-addons.php:140
+#: ../SilverWpAddons/PostType/Authors.php:51
+#: ../SilverWpAddons/PostType/Authors.php:52 ../silverwp-addons.php:161
 msgid "Authors"
 msgstr "Autorzy"
 
-#: ../SilverWpAddons/PostType/Authors.php:44 ../silverwp-addons.php:147
+#: ../SilverWpAddons/PostType/Authors.php:53 ../silverwp-addons.php:168
 msgid "Author"
 msgstr "Autor"
 
-#: ../SilverWpAddons/PostType/Authors.php:45
+#: ../SilverWpAddons/PostType/Authors.php:54
 msgid "All Authors"
 msgstr "Wszyscy Autorzy"
 
-#: ../SilverWpAddons/PostType/News.php:42
-#: ../SilverWpAddons/PostType/News.php:43
+#: ../SilverWpAddons/PostType/News.php:53
+#: ../SilverWpAddons/PostType/News.php:54
+#: ../SilverWpAddons/PostType/News.php:55
 msgid "News"
 msgstr "Wiadomości"
 
-#: ../SilverWpAddons/PostType/News.php:45
+#: ../SilverWpAddons/PostType/News.php:56
 msgid "All News"
 msgstr "Wszystkie Wiadomości"
 
-#: ../SilverWpAddons/PostType/Publications.php:42
-#: ../SilverWpAddons/PostType/Publications.php:43
-#: ../SilverWpAddons/PostType/Publications.php:44 ../silverwp-addons.php:120
+#: ../SilverWpAddons/PostType/Publications.php:51
+#: ../SilverWpAddons/PostType/Publications.php:52
+#: ../SilverWpAddons/PostType/Publications.php:53 ../silverwp-addons.php:141
 msgid "Publications"
 msgstr "Publikacje"
 
-#: ../SilverWpAddons/PostType/Publications.php:45
+#: ../SilverWpAddons/PostType/Publications.php:54
 msgid "All Publications"
 msgstr "Wszystkie publikacje"
 
-#: ../SilverWpAddons/PostType/Research.php:42
-#: ../SilverWpAddons/PostType/Research.php:43
-#: ../SilverWpAddons/PostType/Research.php:44 ../silverwp-addons.php:131
+#: ../SilverWpAddons/PostType/Research.php:51
+#: ../SilverWpAddons/PostType/Research.php:52
+#: ../SilverWpAddons/PostType/Research.php:53 ../silverwp-addons.php:152
 msgid "Research"
 msgstr "Badania"
 
-#: ../SilverWpAddons/PostType/Research.php:45
+#: ../SilverWpAddons/PostType/Research.php:54
 msgid "All Research"
 msgstr "Wszystkie Badania"
 
-#: ../SilverWpAddons/PostType/Resources.php:42
-#: ../SilverWpAddons/PostType/Resources.php:43
+#: ../SilverWpAddons/PostType/Resources.php:51
+#: ../SilverWpAddons/PostType/Resources.php:52
 msgid "Resources"
 msgstr "Zasoby"
 
-#: ../SilverWpAddons/PostType/Resources.php:44
+#: ../SilverWpAddons/PostType/Resources.php:53
 msgid "Resource"
 msgstr "Zasoby"
 
-#: ../SilverWpAddons/PostType/Resources.php:45
+#: ../SilverWpAddons/PostType/Resources.php:54
 msgid "All Resources"
 msgstr "Wszystkie Zasoby"
 
-#: ../SilverWpAddons/PostType/Team.php:42
-#: ../SilverWpAddons/PostType/Team.php:43
-#: ../SilverWpAddons/PostType/Team.php:44
+#: ../SilverWpAddons/PostType/Team.php:51
+#: ../SilverWpAddons/PostType/Team.php:52
+#: ../SilverWpAddons/PostType/Team.php:53
 msgid "Team"
 msgstr "Zespół"
 
-#: ../SilverWpAddons/PostType/Team.php:45
+#: ../SilverWpAddons/PostType/Team.php:54
 msgid "All Team"
 msgstr "Cały zespół"
 
-#: ../SilverWpAddons/Taxonomy/News.php:42
+#: ../SilverWpAddons/Taxonomy/News.php:46
 #: ../SilverWpAddons/Taxonomy/Publications.php:43
 msgid "Select type"
 msgstr "Wybierz typ"
 
-#: ../SilverWpAddons/Taxonomy/News.php:52
-#: ../SilverWpAddons/Taxonomy/News.php:54
+#: ../SilverWpAddons/Taxonomy/News.php:56
+#: ../SilverWpAddons/Taxonomy/News.php:58
 msgid "News types"
 msgstr "Typy wiadomości"
 
-#: ../SilverWpAddons/Taxonomy/News.php:53
+#: ../SilverWpAddons/Taxonomy/News.php:57
 msgid "Event type"
 msgstr "Typ wydarzenia"
 
-#: ../SilverWpAddons/Taxonomy/News.php:55
+#: ../SilverWpAddons/Taxonomy/News.php:59
 msgid "All events types"
 msgstr "Wszystkie typy wydarzeń"
 
-#: ../SilverWpAddons/Taxonomy/News.php:56
+#: ../SilverWpAddons/Taxonomy/News.php:60
 msgid "Separate News types with commas"
 msgstr "Typy Wiadomości rozdzielone przecinkami"
 
-#: ../SilverWpAddons/Taxonomy/News.php:57
+#: ../SilverWpAddons/Taxonomy/News.php:61
 msgid "Choose from the most often used News types"
 msgstr "Wybierz z najczęściej używanych Typów Wiadomości"
 
-#: ../SilverWpAddons/Taxonomy/News.php:58
+#: ../SilverWpAddons/Taxonomy/News.php:62
 #: ../SilverWpAddons/Taxonomy/Publications.php:59
 msgid "Add new Type"
 msgstr "Dodaj nowy Typ"
@@ -280,73 +281,93 @@ msgstr "Wybierz z najczęściej używanych Kdów JEL"
 msgid "Add new JEL code"
 msgstr "Dodaj nowy Kod JEL"
 
-#: ../silverwp-addons.php:78 ../silverwp-addons.php:81
-#: ../silverwp-addons.php:93 ../silverwp-addons.php:96
+#: ../silverwp-addons.php:83 ../silverwp-addons.php:86
+#: ../silverwp-addons.php:114 ../silverwp-addons.php:117
 msgid "Project"
 msgstr "Projekt"
 
-#: ../silverwp-addons.php:80 ../silverwp-addons.php:95
+#: ../silverwp-addons.php:85 ../silverwp-addons.php:116
 msgid "Select Project"
 msgstr "Wybierz projekt"
 
-#: ../silverwp-addons.php:82 ../silverwp-addons.php:97
+#: ../silverwp-addons.php:87 ../silverwp-addons.php:118
 msgid "Search projects"
 msgstr "Przeszukaj proejkty "
 
-#: ../silverwp-addons.php:83 ../silverwp-addons.php:98
+#: ../silverwp-addons.php:88 ../silverwp-addons.php:119
 msgid "No projects found."
 msgstr "Nie znaleziono projektów"
 
-#: ../silverwp-addons.php:108 ../silverwp-addons.php:111
-#: ../silverwp-addons.php:125
+#: ../silverwp-addons.php:98
+msgid "Persons from IBS"
+msgstr "Osoby z IBS"
+
+#: ../silverwp-addons.php:100
+msgid "Select Person"
+msgstr "Wybierz osobę"
+
+#: ../silverwp-addons.php:101
+msgid "Person"
+msgstr "Osoba"
+
+#: ../silverwp-addons.php:102
+msgid "Search persons"
+msgstr "Wyszukaj osobę"
+
+#: ../silverwp-addons.php:103
+msgid "No person found."
+msgstr "Nie znaleziono osób."
+
+#: ../silverwp-addons.php:129 ../silverwp-addons.php:132
+#: ../silverwp-addons.php:146
 msgid "Publication"
 msgstr "Publikacja"
 
-#: ../silverwp-addons.php:110 ../silverwp-addons.php:124
+#: ../silverwp-addons.php:131 ../silverwp-addons.php:145
 msgid "Select Publication"
 msgstr "Wybierz Publikację"
 
-#: ../silverwp-addons.php:112
+#: ../silverwp-addons.php:133
 msgid "Search publications"
 msgstr "Wyszukaj Publikacji"
 
-#: ../silverwp-addons.php:113
+#: ../silverwp-addons.php:134
 msgid "No publication found."
 msgstr "Nie znaleziono Publikacji"
 
-#: ../silverwp-addons.php:121
+#: ../silverwp-addons.php:142
 msgid "Researches"
 msgstr "Badania"
 
-#: ../silverwp-addons.php:126
+#: ../silverwp-addons.php:147
 msgid "Search Publication"
 msgstr "Wyszukaj Publikacji"
 
-#: ../silverwp-addons.php:127
+#: ../silverwp-addons.php:148
 msgid "No Publication found."
 msgstr "Nie znaleziono Publikacji"
 
-#: ../silverwp-addons.php:130
+#: ../silverwp-addons.php:151
 msgid "Select Research"
 msgstr "Wybierz Badanie"
 
-#: ../silverwp-addons.php:132
+#: ../silverwp-addons.php:153
 msgid "Search Research"
 msgstr "Wyszukaj Badanie"
 
-#: ../silverwp-addons.php:133
+#: ../silverwp-addons.php:154
 msgid "No Research found."
 msgstr "Nie znaleziono Badania"
 
-#: ../silverwp-addons.php:146
+#: ../silverwp-addons.php:167
 msgid "Select Author"
 msgstr "Wybierz Autora"
 
-#: ../silverwp-addons.php:148
+#: ../silverwp-addons.php:169
 msgid "Search Author"
 msgstr "Wyszukaj Autora"
 
-#: ../silverwp-addons.php:149
+#: ../silverwp-addons.php:170
 msgid "No Author found."
 msgstr "Nie znaleziono autora"
 

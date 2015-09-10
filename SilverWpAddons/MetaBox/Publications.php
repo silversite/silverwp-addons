@@ -43,21 +43,21 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 		protected $priority = 'low';
 		protected $exclude_columns = array( 'category', 'tag' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 
 			$this->setEnterTitleHearLabel( Translate::translate( 'Name' ) );
 
 			$text = new Text( 'keywords' );
 			$text->setLabel( Translate::translate( 'Keywords' ) );
-			$this->addMetaBox( $text );
+			$this->addControl( $text );
 
-			$text = new Text( 'abstract' );
+			$text = new Textarea( 'abstract' );
 			$text->setLabel( Translate::translate( 'Abstract' ) );
-			$this->addMetaBox( $text );
+			$this->addControl( $text );
 
 			$text_area = new Textarea( 'additional_information' );
 			$text_area->setLabel( Translate::translate( 'Additional information' ) );
-			$this->addMetaBox( $text_area );
+			$this->addControl( $text_area );
 
 			$select = new Select( 'publication_year' );
 			$select->setLabel( Translate::translate( 'Publication year' ) );
@@ -70,7 +70,7 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 				);
 			}
 			$select->setOptions( $options );
-			$this->addMetaBox( $select );
+			$this->addControl( $select );
 
 			$checkbox = new Checkbox( 'language' );
 			$checkbox->setLabel( Translate::translate( 'Publication language' ) );
@@ -86,14 +86,14 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 					)
 				)
 			);
-			$this->addMetaBox( $checkbox );
+			$this->addControl( $checkbox );
 
 			$attachments = new Attachments( 'attachments' );
-			$this->addMetaBox( $attachments );
+			$this->addControl( $attachments );
 
 			$upload = new Upload( 'cover' );
 			$upload->setLabel( Translate::translate( 'Cover' ) );
-			$this->addMetaBox( $upload );
+			$this->addControl( $upload );
 		}
 	}
 }

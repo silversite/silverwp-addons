@@ -13,9 +13,10 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\News' ) ) {
 	 * @package    SilverWpAddons
 	 * @subpackage Taxonomy
 	 * @copyright  SilverSite.pl (c) 2015
-	 * @version    $Revision:$
+	 * @version    1.0
 	 */
 	class News extends TaxonomyAbstract {
+		protected $exclude_columns = array( 'category', 'tag' );
 
 		/**
 		 * Set up taxonomy class labels etc.
@@ -50,7 +51,8 @@ if ( ! class_exists( 'SilverWpAddons\Taxonomy\News' ) ) {
 					'indented'        => false,
 					// Allows adding of new terms from the metabox
 					'allow_new_terms' => true
-				)
+				),
+				'display_column' => true
 			) );
 			$this->setLabels( 'type', array(
 				'name'                       => Translate::translate( 'News types' ),

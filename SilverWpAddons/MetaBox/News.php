@@ -42,20 +42,19 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	 */
 	class News extends MetaBoxAbstract {
 		protected $priority = 'low';
-		protected $exclude_columns = array( 'category', 'tag' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 
 			$gallery = new Gallery( 'gallery' );
 			$gallery->setLabel( Translate::translate( 'Gallery' ) );
-			$this->addMetaBox( $gallery );
+			$this->addControl( $gallery );
 
 			$attachments = new Attachments( 'attachments' );
-			$this->addMetaBox( $attachments );
+			$this->addControl( $attachments );
 
 			$checkbox = new Checkbox( 'main_page_promo' );
 			$checkbox->setLabel( Translate::translate( 'Promotion on main page' ) );
-			$this->addMetaBox( $checkbox );
+			$this->addControl( $checkbox );
 
 			$group = new Group( 'event' );
 			$group->setLabel( Translate::translate( 'Event' ) );
@@ -76,7 +75,7 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 			$place->setLabel( Translate::translate( 'Place' ) );
 			$group->addControl( $place );
 
-			$this->addMetaBox( $group );
+			$this->addControl( $group );
 		}
 	}
 }

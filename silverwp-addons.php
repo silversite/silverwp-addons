@@ -26,6 +26,7 @@ namespace SilverWpAddons;
  */
 use SilverWp\Exception;
 use SilverWp\Helper\NavMenu;
+use SilverWp\SilverWp;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Authors;
 use SilverWpAddons\PostType\News;
@@ -49,31 +50,29 @@ add_action( 'plugins_loaded', function () {
 	        Translate::init();
 
 	        $news = News::getInstance();
-	        $news->registerMetaBox( MetaBox\News::getInstance() );
 	        $news->registerTaxonomy( Taxonomy\News::getInstance() );
-	        $news->addTemplates(
-		        array(
-			        'single-news.php',
-			        'template-news.php',
-		        )
-	        );
-	        /*
-	        $resources = Resources::getInstance();
-	        $resources->registerMetaBox( MetaBox\Resources::getInstance() );
+	        $news->registerMetaBox( MetaBox\News::getInstance() );
+	        $news->addTemplates( 'template-news.php' );
 
 	        $research = Research::getInstance();
-	        $research->registerMetaBox( MetaBox\Research::getInstance() );
+			$research->registerMetaBox( MetaBox\Research::getInstance() );
+	        $research->addTemplates( 'template-research.php' );
+
+			$resources = Resources::getInstance();
+	        $resources->registerMetaBox( MetaBox\Resources::getInstance() );
+	        $resources->addTemplates( 'template-resources.php' );
 
 	        $publications = Publications::getInstance();
-	        $publications->registerMetaBox( MetaBox\Publications::getInstance() );
+			$publications->registerMetaBox( MetaBox\Publications::getInstance() );
 	        $publications->registerTaxonomy( Taxonomy\Publications::getInstance() );
+	        $publications->addTemplates( 'template-publication.php' );
 
-	        $authors = Authors::getInstance();
-	        $authors->registerMetaBox( MetaBox\Authors::getInstance() );
+			$authors = Authors::getInstance();
+			$authors->registerMetaBox( MetaBox\Authors::getInstance() );
 
-	        $team = Team::getInstance();
-	        $team->registerMetaBox( MetaBox\Team::getInstance() );
-
+			$team = Team::getInstance();
+			$team->registerMetaBox( MetaBox\Team::getInstance() );
+	        $team->addTemplates( 'template-team.php' );
 	        //posts relationship
 	        #news_to_research
 	        $news_to_research = $news->addRelationship( 'news_to_research', $research );
@@ -87,77 +86,94 @@ add_action( 'plugins_loaded', function () {
 		        'search_items'  => Translate::translate( 'Search projects' ),
 		        'not_found'     => Translate::translate( 'No projects found.' ),
 	        );
+
 	        //$news_to_research->cardinality = 'one-to-one';
-			#end news_to_research
+	        #end news_to_research
+	        #team_to_research
+	        $team_to_research = $research->addRelationship( 'team_to_research', $team );
+	        $team_to_research->admin_box = array(
+		        'show' => 'from'
+	        );
+	        $team_to_research->title = Translate::translate( 'Persons from IBS' );
+	        $team_to_research->to_labels = array(
+		        'create'        => Translate::translate( 'Select Person' ),
+		        'singular_name' => Translate::translate( 'Person' ),
+		        'search_items'  => Translate::translate( 'Search persons' ),
+		        'not_found'     => Translate::translate( 'No person found.' ),
+	        );
+
+	        //$news_to_research->cardinality = 'one-to-one';
+	        #end news_to_research
 
 	        #resources_to_research
-	        $resources_to_research = $resources->addRelationship( 'resources_to_research', $research );
-	        $resources_to_research->admin_box = array(
-		        'show' => 'from'
-	        );
-	        $resources_to_research->title = Translate::translate( 'Project' );
-	        $resources_to_research->to_labels = array(
-		        'create'        => Translate::translate( 'Select Project' ),
-		        'singular_name' => Translate::translate( 'Project' ),
-		        'search_items'  => Translate::translate( 'Search projects' ),
-		        'not_found'     => Translate::translate( 'No projects found.' ),
-	        );
-	        $resources_to_research->cardinality = 'one-to-one';
-	        #endresources_to_research
+			$resources_to_research = $resources->addRelationship( 'resources_to_research', $research );
+			$resources_to_research->admin_box = array(
+				'show' => 'from'
+			);
+			$resources_to_research->title = Translate::translate( 'Project' );
+			$resources_to_research->to_labels = array(
+				'create'        => Translate::translate( 'Select Project' ),
+				'singular_name' => Translate::translate( 'Project' ),
+				'search_items'  => Translate::translate( 'Search projects' ),
+				'not_found'     => Translate::translate( 'No projects found.' ),
+			);
+			$resources_to_research->cardinality = 'one-to-one';
+			#endresources_to_research
 
-	        #resources_to_publication
-	        $resources_to_publication = $resources->addRelationship( 'resources_to_publications', $publications );
-	        $resources_to_publication->admin_box = array(
-		        'show' => 'from'
-	        );
-	        $resources_to_publication->title = Translate::translate( 'Publication' );
-	        $resources_to_publication->to_labels = array(
-		        'create'        => Translate::translate( 'Select Publication' ),
-		        'singular_name' => Translate::translate( 'Publication' ),
-		        'search_items'  => Translate::translate( 'Search publications' ),
-		        'not_found'     => Translate::translate( 'No publication found.' ),
-	        );
-	        #endresources_to_publication
+			#resources_to_publication
+			$resources_to_publication = $resources->addRelationship( 'resources_to_publications', $publications );
+			$resources_to_publication->admin_box = array(
+				'show' => 'from'
+			);
+			$resources_to_publication->title = Translate::translate( 'Publication' );
+			$resources_to_publication->to_labels = array(
+				'create'        => Translate::translate( 'Select Publication' ),
+				'singular_name' => Translate::translate( 'Publication' ),
+				'search_items'  => Translate::translate( 'Search publications' ),
+				'not_found'     => Translate::translate( 'No publication found.' ),
+			);
+			#endresources_to_publication
 
-	        #research_to_publications
-	        $research_to_publications = $research->addRelationship( 'research_to_publications', $publications );
-	        $research_to_publications->title = array(
-		        'from' => Translate::translate( 'Publications' ),
-		        'to'   => Translate::translate( 'Researches' ),
-	        );
-	        $research_to_publications->to_labels = array(
-		        'create'        => Translate::translate( 'Select Publication' ),
-		        'singular_name' => Translate::translate( 'Publication' ),
-		        'search_items'  => Translate::translate( 'Search Publication' ),
-		        'not_found'     => Translate::translate( 'No Publication found.' ),
-	        );
-	        $research_to_publications->from_labels = array(
-		        'create'        => Translate::translate( 'Select Research' ),
-		        'singular_name' => Translate::translate( 'Research' ),
-		        'search_items'  => Translate::translate( 'Search Research' ),
-		        'not_found'     => Translate::translate( 'No Research found.' ),
-	        );
-	        #endresearch_to_publications
+			#research_to_publications
+			$research_to_publications = $research->addRelationship( 'research_to_publications', $publications );
+			$research_to_publications->title = array(
+				'from' => Translate::translate( 'Publications' ),
+				'to'   => Translate::translate( 'Researches' ),
+			);
+			$research_to_publications->to_labels = array(
+				'create'        => Translate::translate( 'Select Publication' ),
+				'singular_name' => Translate::translate( 'Publication' ),
+				'search_items'  => Translate::translate( 'Search Publication' ),
+				'not_found'     => Translate::translate( 'No Publication found.' ),
+			);
+			$research_to_publications->from_labels = array(
+				'create'        => Translate::translate( 'Select Research' ),
+				'singular_name' => Translate::translate( 'Research' ),
+				'search_items'  => Translate::translate( 'Search Research' ),
+				'not_found'     => Translate::translate( 'No Research found.' ),
+			);
+			#endresearch_to_publications
 
 			#authors_to_publications
-	        $authors_to_publications = $publications->addRelationship( 'authors_to_publications', $authors );
-	        $authors_to_publications->title = array(
-		        'from' => Translate::translate( 'Authors' ),
-	        );
-	        $authors_to_publications->admin_box = array(
-		        'show' => 'from'
-	        );
-	        $authors_to_publications->to_labels = array(
-		        'create'        => Translate::translate( 'Select Author' ),
-		        'singular_name' => Translate::translate( 'Author' ),
-		        'search_items'  => Translate::translate( 'Search Author' ),
-		        'not_found'     => Translate::translate( 'No Author found.' ),
-	        );
-	        #endauthors_to_publications
-			*/
+			$authors_to_publications = $publications->addRelationship( 'authors_to_publications', $authors );
+			$authors_to_publications->title = array(
+				'from' => Translate::translate( 'Authors' ),
+			);
+			$authors_to_publications->admin_box = array(
+				'show' => 'from'
+			);
+			$authors_to_publications->to_labels = array(
+				'create'        => Translate::translate( 'Select Author' ),
+				'singular_name' => Translate::translate( 'Author' ),
+				'search_items'  => Translate::translate( 'Search Author' ),
+				'not_found'     => Translate::translate( 'No Author found.' ),
+			);
+			#endauthors_to_publications
+
 	        //nave menu hook
             NavMenu::getInstance();
 
+			\SilverWp\Ajax\Tweetie::getInstance();
 	        #widgets
 	        //new Widget\Social();
 	        #endwidgets

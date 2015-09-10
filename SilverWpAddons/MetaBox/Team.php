@@ -30,7 +30,7 @@ if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
 	 * Team Meta box for Team Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Id:$
+	 * @version       0.2
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    MetaBox
@@ -39,26 +39,26 @@ if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
 	class Team extends MetaBoxAbstract {
 		protected $exclude_columns = array( 'category', 'tag' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 
 			$this->setEnterTitleHearLabel( Translate::translate( 'Name and last name' ) );
 
 			$text = new Text( 'email' );
 			$text->setLabel( Translate::translate( 'E-mail' ) );
 			$text->setValidation( 'email' );
-			$this->addMetaBox( $text );
+			$this->addControl( $text );
 
 			$text = new Text( 'affiliation' );
 			$text->setLabel( Translate::translate( 'Affiliation' ) );
-			$this->addMetaBox( $text );
+			$this->addControl( $text );
 
 			$text_area = new Textarea( 'contact' );
 			$text_area->setLabel( Translate::translate( 'Contact' ) );
-			$this->addMetaBox( $text_area );
+			$this->addControl( $text_area );
 
 			$checkbox = new Checkbox( 'show_in_team_page' );
 			$checkbox->setLabel( Translate::translate( 'Show in Team page' ) );
-			$this->addMetaBox( $checkbox );
+			$this->addFilterControl( $checkbox );
 		}
 	}
 }

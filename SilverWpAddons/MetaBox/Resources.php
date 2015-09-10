@@ -37,10 +37,10 @@ if ( ! class_exists( '\SilverWpAddons\Resources' ) ) {
 	class Resources extends MetaBoxAbstract {
 		protected $exclude_columns = array( 'category', 'tag' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 
 			$attachments = new Attachments( 'attachments' );
-			$this->addMetaBox( $attachments );
+			$this->addControl( $attachments );
 		}
 	}
 }

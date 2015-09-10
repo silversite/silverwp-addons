@@ -37,7 +37,7 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 	 */
 	class Research extends PostTypeAbstract {
 		protected $name = 'research';
-		protected $supports = array( 'title', 'editor' );
+		protected $supports = array( 'title', 'editor', 'thumbnail' );
 
 		/**
 		 *

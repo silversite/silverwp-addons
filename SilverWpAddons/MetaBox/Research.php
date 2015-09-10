@@ -40,24 +40,23 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 		protected $priority = 'low';
 		protected $exclude_columns = array( 'category', 'tag' );
 
-		protected function createMetaBox() {
+		protected function setUp() {
 
 			$text_area = new Textarea( 'partners' );
 			$text_area->setLabel( Translate::translate( 'Partners' ) );
-			$this->addMetaBox( $text_area );
-			//todo add P2P connect with team
+			$this->addControl( $text_area );
 
 			$text_area = new Textarea( 'contact' );
 			$text_area->setLabel( Translate::translate( 'Contact' ) );
-			$this->addMetaBox( $text_area );
+			$this->addControl( $text_area );
 
 			$url = new Text( 'external_url' );
 			$url->setLabel( Translate::translate( 'External URL' ) );
 			$url->setValidation( 'url' );
-			$this->addMetaBox( $text_area );
+			$this->addControl( $url );
 
 			$attachments = new Attachments( 'attachments' );
-			$this->addMetaBox( $attachments );
+			$this->addControl( $attachments );
 
 			//todo add P2P autocomplete connect with publication
 
