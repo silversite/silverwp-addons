@@ -44,14 +44,14 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 			);
 			parent::__construct(
 				'silverwp-recent-posts',
-				Translate::translate( 'SilverWp Recent Posts' ),
+				'SilverWp Recent Posts',
 				$widget_options
 			);
 
 			// Configure the widget fields
 			$title = new Text( 'title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
-			$title->setDefault( Translate::translate( 'SilverWp Recent Posts' ) );
+			$title->setDefault( Translate::translate( 'Recent Posts' ) );
 			$this->addControl( $title );
 
 			$number = new Number( 'number' );

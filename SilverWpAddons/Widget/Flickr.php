@@ -45,20 +45,19 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			);
 			parent::__construct(
 				'silverwp-flickr',
-				Translate::translate( 'SilverWp Flickr' ),
+				'SilverWp Flickr',
 				$widget_options
 			);
 
 			// Configure the widget fields
 			$title = new Text( 'title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
-			$title->setDefault( Translate::translate( 'Flickr Widget' ) );
+			$title->setDefault( 'Flickr Widget' );
 			$this->addControl( $title );
 
 			$type = new Select( 'type' );
 			$type->setShowEmpty( false );
 			$type->setLabel( Translate::translate( 'Type' ) );
-			$type->setDescription( Translate::translate( 'The type of images from user or group.' ) );
 			$type->addOption( 'user', Translate::translate( 'user' ) );
 			$type->addOption( 'group', Translate::translate( 'group' ) );
 			$type->setDefault( 'user' );
@@ -67,11 +66,11 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			$flickr_id = new Text( 'flickr_id' );
 			$flickr_id->setDescription(
 				Translate::translate(
-					'Put the flickr ID here, go to <a href="http://goo.gl/PM6rZ" target="_blank">Flickr NSID Lookup</a> if you don\'t know your ID. Example: 71865026@N00'
+					'Put the flickr ID here (example: 52617155@N08) or go to <a href="http://idgettr.com/" target="_blank">idGettr</a> if you don\'t know ID.'
 				)
 			);
 			$flickr_id->setLabel( Translate::translate( 'Flickr ID' ) );
-			$flickr_id->setDefault( '71865026@N00' );
+			$flickr_id->setDefault( '' );
 			$this->addControl( $flickr_id );
 
 			$count = new Select( 'count' );
@@ -80,13 +79,11 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Flickr' ) ) {
 			$count->setDefault( 5 );
 			$count->setStart( 1 );
 			$count->setEnd( 10 );
-			$count->setDescription( Translate::translate( 'Number of images shown from 1 to 10' ) );
 			$this->addControl( $count );
 
 			$display_method = new Select( 'display' );
 			$display_method->setShowEmpty( false );
 			$display_method->setLabel( Translate::translate( 'Display Method' ) );
-			$display_method->setDescription( Translate::translate( 'Get the image from recent or use random function' ) );
 			$display_method->addOption( 'latest', Translate::translate( 'latest' ) );
 			$display_method->addOption( 'random', Translate::translate( 'random' ) );
 			$display_method->setDefault( 'latest' );

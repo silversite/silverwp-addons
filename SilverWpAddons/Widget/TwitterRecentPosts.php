@@ -47,7 +47,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\TwitterRecentPosts' ) ) {
 			// Configure widget form
 			$title = new Text( 'title' );
 			$title->setLabel( Translate::translate( 'Title' ) );
-			$title->setDefault( Translate::translate( 'Latest Tweets' ) );
+			$title->setDefault( 'Twitter Widget' );
 			$this->addControl( $title );
 
 			$limit = new Text( 'limit' );
