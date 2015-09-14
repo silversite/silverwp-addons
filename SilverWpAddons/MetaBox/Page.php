@@ -8,6 +8,7 @@ use SilverWp\Helper\Control\Notebox;
 use SilverWp\Helper\Control\Select;
 use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Text;
+use SilverWp\Helper\Control\Checkbox;
 use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
@@ -39,7 +40,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			$page_header->setLabel( Translate::translate( 'Page header' ) );
 
 			$show_header = new Toggle( 'show_header' );
-			$show_header->setLabel( Translate::translate( 'Show header' ) . '?' );
+			$show_header->setLabel( Translate::translate( 'Show header' ) );
 			$show_header->setDefault( '1' );
 			$page_header->addControl( $show_header );
 
@@ -83,6 +84,11 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 			) );
 			$above_content->setDefault( 'empty' );
 			$beyond_content->addControl( $above_content );
+
+            $button = new Checkbox( 'slider_button' );
+            $button->setLabel( Translate::translate( 'Show button link in Slider' ) );
+            $button->addOption( '1', Translate::translate( 'yes' ) );
+            $beyond_content->addControl( $button );
 
 			$this->addControl( $beyond_content );
 
