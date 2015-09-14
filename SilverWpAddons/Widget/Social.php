@@ -54,14 +54,14 @@ if ( ! class_exists( 'SilverWpAddons\Widget\Social' ) ) {
 			$this->addControl( $title );
 
 			$accounts = new Checkbox( 'accounts' );
-			$accounts->setLabel( Translate::translate( 'Social accounts' ) );
+			$accounts->setLabel( Translate::translate( 'Social accounts' ) . ':<br />' );
 
 			$options = array();
 			$social_accounts = \SilverWp\Helper\Social::getIcons();
 			foreach ( $social_accounts as $slug => $value ) {
 				$options[] = array(
 					'value' => $slug,
-					'label' => $value['label']
+					'label' => $value['label'] . '<br />'
 				);
 			}
 			$accounts->setOptions( $options );
