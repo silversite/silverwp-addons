@@ -61,21 +61,51 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 			$this->addControl( $number );
 
 			$show_date = new Checkbox( 'show_date' );
-			$show_date->setLabel( Translate::translate( 'Display post date' ) . '?' );
+			$show_date->setOptions(
+				array(
+					array(
+						'value' => 1,
+						'label' => Translate::translate( 'Display post date' ) . '?'
+					)
+				)
+			);
+
 			$show_date->setDefault( 1 );
 			$this->addControl( $show_date );
 
 			$show_author = new Checkbox( 'show_author' );
-			$show_author->setLabel( Translate::translate( 'Display post author' ) . '?' );
+			$show_author->setOptions(
+				array(
+					array(
+						'value' => 1,
+						'label' => Translate::translate( 'Display post author' ) . '?'
+					)
+				)
+			);
 			$show_author->setDefault( 1 );
 			$this->addControl( $show_author );
 
 			$show_category = new Checkbox( 'show_category' );
-			$show_category->setLabel( Translate::translate( 'Display post category' ) . '?' );
+			$show_category->setOptions(
+				array(
+					array(
+						'value' => 1,
+						'label' => Translate::translate( 'Display post category' ) . '?'
+					)
+				)
+			);
 			$this->addControl( $show_category );
 
 			$show_image = new Checkbox( 'show_image' );
-			$show_image->setLabel( Translate::translate( 'Display post image' ) . '?' );
+			$show_image->setOptions(
+				array(
+					array(
+						'value' => 1,
+						'label' => Translate::translate( 'Display post image' ) . '?'
+					)
+				)
+			);
+
 			$this->addControl( $show_image );
 
 			$categories = new CategoriesCheckboxes( 'categories' );
