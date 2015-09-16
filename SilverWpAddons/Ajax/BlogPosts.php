@@ -49,27 +49,54 @@ class BlogPosts extends AjaxAbstract {
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();
 		//get request params
-		$offset       = $this->getRequestData( 'offset', FILTER_SANITIZE_NUMBER_INT );
-		$current_page = $this->getRequestData( 'currentpage', FILTER_SANITIZE_NUMBER_INT );
-		$filter_name  = $this->getRequestData( 'filtername', FILTER_SANITIZE_STRING );
-		$filter_value  = $this->getRequestData( 'filtervalue', FILTER_SANITIZE_NUMBER_INT );
-		$layout       = $this->getRequestData( 'layout', FILTER_SANITIZE_STRING );
+		$offset       = $this->getRequestData(
+			'offset',
+			FILTER_SANITIZE_NUMBER_INT
+		);
+		$current_page = $this->getRequestData(
+			'currentpage',
+			FILTER_SANITIZE_NUMBER_INT
+		);
+		$filter_name  = $this->getRequestData(
+			'filtername',
+			FILTER_SANITIZE_STRING
+		);
+		$filter_value = $this->getRequestData(
+			'filtervalue',
+			FILTER_SANITIZE_NUMBER_INT
+		);
+		$layout       = $this->getRequestData(
+			'layout',
+			FILTER_SANITIZE_STRING
+		);
 		//create post type portfolio object
-		$the_query = new Query();
-		$the_query->setMetaBox( Blog::getInstance() );
+
 		//if category id is set create tax query
 		switch ( $filter_name ) {
 			case 'cat':
-				$the_query->addTaxonomyFilter( 'category', (int) $filter_value );
+				$args = array(
+					'post_type' => 'post',
+					'tax_query' => array(
+						'relation' => 'AND',
+						array(
+							'taxonomy' => 'category',
+							'field'    => 'term_id',
+							'terms'    => $filter_value,
+						),
+					),
+				);
 				break;
 			case 'tag':
-				$the_query->addTaxonomyFilter( 'tag', $filter_value );
+				$args = array(
+					'post_type' => 'post',
+					'tag_id'    => (int) $filter_value
+				);
 				break;
 			case 'author':
-				$the_query->query_vars['author'] = (int) $filter_value;
+				$args['author'] = (int) $filter_value;
 				break;
 			case 'date':
-				$the_query->query_vars['date_query'] = array(
+				$args['date_query'] = array(
 					'column' => 'post_date',
 					'after'  => '- 30 days'
 				);
@@ -77,6 +104,9 @@ class BlogPosts extends AjaxAbstract {
 
 
 		}
+
+		$the_query = new Query( $args );
+		$the_query->setMetaBox( Blog::getInstance() );
 		//add + 1 because load more hav to go to next page but from request
 		// I got current page
 		$current_page = (int) $current_page + 1;
@@ -88,7 +118,7 @@ class BlogPosts extends AjaxAbstract {
 		}
 
 		$the_query->get_posts();
-
+//		Debug::dumpPrint($the_query);
 		$data = array(
 			'the_query' => $the_query,
 			'args'      => array(
