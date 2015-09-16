@@ -51,14 +51,31 @@ class BlogPosts extends AjaxAbstract {
 		//get request params
 		$offset       = $this->getRequestData( 'offset', FILTER_SANITIZE_NUMBER_INT );
 		$current_page = $this->getRequestData( 'currentpage', FILTER_SANITIZE_NUMBER_INT );
-		$category_id  = $this->getRequestData( 'catid', FILTER_SANITIZE_STRING );
+		$filter_name  = $this->getRequestData( 'filtername', FILTER_SANITIZE_STRING );
+		$filter_value  = $this->getRequestData( 'filtervalue', FILTER_SANITIZE_NUMBER_INT );
 		$layout       = $this->getRequestData( 'layout', FILTER_SANITIZE_STRING );
 		//create post type portfolio object
 		$the_query = new Query();
 		$the_query->setMetaBox( Blog::getInstance() );
 		//if category id is set create tax query
-		if ( $category_id && $category_id != '*' ) {
-			$the_query->addTaxonomyFilter( 'category', (int) $category_id );
+		switch ( $filter_name ) {
+			case 'cat':
+				$the_query->addTaxonomyFilter( 'category', (int) $filter_value );
+				break;
+			case 'tag':
+				$the_query->addTaxonomyFilter( 'tag', $filter_value );
+				break;
+			case 'author':
+				$the_query->query_vars['author'] = (int) $filter_value;
+				break;
+			case 'date':
+				$the_query->query_vars['date_query'] = array(
+					'column' => 'post_date',
+					'after'  => '- 30 days'
+				);
+				break;
+
+
 		}
 		//add + 1 because load more hav to go to next page but from request
 		// I got current page
