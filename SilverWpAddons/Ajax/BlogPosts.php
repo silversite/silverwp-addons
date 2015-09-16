@@ -23,6 +23,7 @@ namespace SilverWpAddons\Ajax;
 use SilverWp\Ajax\AjaxAbstract;
 use SilverWp\Db\Query;
 use SilverWp\Debug;
+use SilverWpAddons\MetaBox\Blog;
 
 /**
  * Blog posts list via ajax
@@ -54,6 +55,7 @@ class BlogPosts extends AjaxAbstract {
 		$layout       = $this->getRequestData( 'layout', FILTER_SANITIZE_STRING );
 		//create post type portfolio object
 		$the_query = new Query();
+		$the_query->setMetaBox( Blog::getInstance() );
 		//if category id is set create tax query
 		if ( $category_id && $category_id != '*' ) {
 			$the_query->addTaxonomyFilter( 'category', (int) $category_id );
