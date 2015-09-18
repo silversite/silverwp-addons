@@ -96,13 +96,22 @@ class BlogPosts extends AjaxAbstract {
 				$args['author'] = (int) $filter_value;
 				break;
 			case 'date':
-				$args['date_query'] = array(
-					'column' => 'post_date',
-					'after'  => '- 30 days'
+				$args = array(
+					'post_type' => 'post',
 				);
+				if ( get_option( 'permalink_structure' ) ) {
+					$date = explode('/', $filter_value);
+					if (isset($date[0])) {
+						$args['date_query']['year'] = $date[0];
+					}
+					if (isset($date[1])) {
+						$args['date_query']['month'] = $date[1];
+					}
+					if (isset($date[2])) {
+						$args['date_query']['day'] = $date[2];
+					}
+				}
 				break;
-
-
 		}
 
 		$the_query = new Query( $args );

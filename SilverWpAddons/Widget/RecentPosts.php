@@ -44,7 +44,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 			);
 			parent::__construct(
 				'silverwp-recent-posts',
-				'SilverWp Recent Posts',
+				Translate::translate( 'SilverWp Recent Posts' ),
 				$widget_options
 			);
 
@@ -96,17 +96,17 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 			);
 			$this->addControl( $show_category );
 
-			$show_image = new Checkbox( 'show_image' );
-			$show_image->setOptions(
-				array(
-					array(
-						'value' => 1,
-						'label' => Translate::translate( 'Display post image' ) . '?'
-					)
-				)
-			);
-
-			$this->addControl( $show_image );
+//			$show_image = new Checkbox( 'show_image' );
+//			$show_image->setOptions(
+//				array(
+//					array(
+//						'value' => 1,
+//						'label' => Translate::translate( 'Display post image' ) . '?'
+//					)
+//				)
+//			);
+//
+//			$this->addControl( $show_image );
 
 			$categories = new CategoriesCheckboxes( 'categories' );
 			$categories->setLabel( Translate::translate( 'Categories' ) . ':<br />' );
