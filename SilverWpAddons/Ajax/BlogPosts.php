@@ -69,8 +69,7 @@ class BlogPosts extends AjaxAbstract {
 			'layout',
 			FILTER_SANITIZE_STRING
 		);
-		//create post type portfolio object
-
+		$args = array();
 		//if category id is set create tax query
 		switch ( $filter_name ) {
 			case 'cat':
