@@ -30,6 +30,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function setUp() {
+			global $pagenow;
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
 			$sidebar->removeOption( 1 );
@@ -112,8 +113,11 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 				),
 			) );
 
-			$social_plugin->setDefault( Option::get_theme_option( 'social_plugin_position' ) );
+			if ( $pagenow == 'post-new.php' ) {
+				$social_plugin->setDefault( Option::get_theme_option( 'social_plugin_position' ) );
+			}
 			$social_plugin->setValidation( 'required' );
+			//$screen = \get_current_screen();
 			$social->addControl( $social_plugin );
 
 			$this->addControl( $social );

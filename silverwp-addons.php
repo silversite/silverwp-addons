@@ -29,6 +29,8 @@ use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWp\SilverWp;
 use SilverWp\Ajax\Tweetie;
+use SilverWpAddons\Ajax\PostLike;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
     die;
@@ -39,6 +41,8 @@ require_once 'vendor/autoload.php';
 add_action( 'plugins_loaded', function () {
     if ( class_exists( 'SilverWp\SilverWp' ) ) {
         try {
+	        $time = new \DateTime('2012');
+
             Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
             Translate::$text_domain = 'silverwp-addons';
 	        Translate::init();
@@ -68,6 +72,8 @@ add_action( 'plugins_loaded', function () {
                 Tweetie::getInstance();
 	            SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\TwitterRecentPosts' );
             }
+
+	        PostLike::getInstance();
 
         } catch ( Exception $ex ) {
             echo $ex->catchException();
