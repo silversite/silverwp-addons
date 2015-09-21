@@ -80,8 +80,9 @@ class BlogPosts extends AjaxAbstract {
 			FILTER_SANITIZE_NUMBER_INT,
 			get_option( 'posts_per_page' )
 		);
+		$args['posts_per_page'] = $limit;
 
-		if ($ignore_sticky == 1) {
+		if ( $ignore_sticky == 1 ) {
 			$args['ignore_sticky_posts'] = 1;
 		}
 
