@@ -19,6 +19,7 @@
 namespace SilverWpAddons\ShortCode\Vc;
 
 use SilverWp\Debug;
+use SilverWp\ShortCode\Vc\Control\Text;
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
@@ -103,12 +104,25 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 				)
 			);
 			$select->setDefault( 'list' );
+            $select->setAdminLabel( true );
 			$this->addControl( $select );
 
 			$checkbox = new Checkbox( 'hide_sticky_posts' );
 			$checkbox->setLabel( Translate::translate( 'Hide Sticky Posts' ) );
 			$checkbox->setDescription( Translate::translate( 'If YES - list ignores that a post is sticky and shows the posts in the normal order.' ) );
 			$this->addControl( $checkbox );
+
+            $tmp = new Text( 'category' );
+            $tmp->setLabel( Translate::translate( 'Category' ) );
+            $tmp->setDescription( Translate::translate( 'Set it if you want to show posts from one category only.' ) );
+            $tmp->setValue( 'all' );
+            $this->addControl( $tmp );
+
+            $text = new Text( 'limit' );
+            $text->setLabel( Translate::translate( 'Limit' ) );
+            $text->setDescription( Translate::translate( 'Maximum number of posts to show on a page.' ) );
+            $text->setValue( get_option( 'posts_per_page', 10 ) );
+            $this->addControl( $text );
 
 			$animation = new Animation();
 			$this->addControl( $animation );
