@@ -49,6 +49,7 @@ class BlogPosts extends AjaxAbstract {
 	public function ajaxResponse() {
 		$this->checkAjaxReferer();
 		//get request params
+		$args = array();
 		$offset       = $this->getRequestData(
 			'offset',
 			FILTER_SANITIZE_NUMBER_INT
@@ -69,7 +70,22 @@ class BlogPosts extends AjaxAbstract {
 			'layout',
 			FILTER_SANITIZE_STRING
 		);
-		$args = array();
+		$ignore_sticky = $this->getRequestData(
+			'ignoresticky',
+			FILTER_SANITIZE_NUMBER_INT
+		);
+
+		$limit = $this->getRequestData(
+			'limit',
+			FILTER_SANITIZE_NUMBER_INT,
+			get_option( 'posts_per_page' )
+		);
+
+		if ($ignore_sticky == 1) {
+			$args['ignore_sticky_posts'] = 1;
+		}
+
+
 		//if category id is set create tax query
 		switch ( $filter_name ) {
 			case 'cat':
@@ -95,6 +111,7 @@ class BlogPosts extends AjaxAbstract {
 				$args['author'] = (int) $filter_value;
 				break;
 			case 'date':
+				//todo this doesn't work
 				$args = array(
 					'post_type' => 'post',
 				);
@@ -119,7 +136,9 @@ class BlogPosts extends AjaxAbstract {
 		// I got current page
 		$current_page = (int) $current_page + 1;
 		$the_query->setCurrentPagedPage( $current_page );
-
+		if ( ! $offset ) {
+			$offset = ( $current_page - 1 ) * $limit;
+		}
 		//if offset is set add paged param
 		if ( $offset ) {
 			$the_query->setOffset( (int) $offset );

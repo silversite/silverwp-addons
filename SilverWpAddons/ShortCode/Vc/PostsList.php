@@ -112,11 +112,15 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 			$checkbox->setDescription( Translate::translate( 'If YES - list ignores that a post is sticky and shows the posts in the normal order.' ) );
 			$this->addControl( $checkbox );
 
-            $tmp = new Text( 'category' );
-            $tmp->setLabel( Translate::translate( 'Category' ) );
-            $tmp->setDescription( Translate::translate( 'Set it if you want to show posts from one category only.' ) );
-            $tmp->setValue( 'all' );
-            $this->addControl( $tmp );
+            $category = new Select( 'category' );
+			$category->setLabel( Translate::translate( 'Category' ) );
+			$category->setDescription( Translate::translate( 'Set it if you want to show posts from one category only.' ) );
+
+			$categories = get_categories();
+			foreach ( $categories as $value ) {
+				$category->addOption( $value->cat_ID, $value->name );
+			}
+			$this->addControl( $category );
 
             $text = new Text( 'limit' );
             $text->setLabel( Translate::translate( 'Limit' ) );
