@@ -117,6 +117,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 			$category->setDescription( Translate::translate( 'Set it if you want to show posts from one category only.' ) );
 
 			$categories = get_categories();
+			$category->addOption( 0, Translate::translate( 'all' ) );
 			foreach ( $categories as $value ) {
 				$category->addOption( $value->cat_ID, $value->name );
 			}
