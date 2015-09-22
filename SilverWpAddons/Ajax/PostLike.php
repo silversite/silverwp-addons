@@ -27,13 +27,12 @@ use SilverWp\Translate;
  * Post Like rating system
  *
  * @author        Michal Kalkowski <michal at silversite.pl>
- * @version       $Id: PostLike.php 2024 2015-01-06 18:38:27Z padalec $
+ * @version       0.5
  * @category      WordPress
  * @package       SilverWp
  * @subpackage    Ajax
  * @link          https://github.com/JonMasterson/WordPress-Post-Like-System based on JonMasterson script
- * @copyright (c) 2009 - 2014, SilverSite.pl
- * @TODO          refactor!!
+ * @copyright     2009 - 2015 (c) SilverSite.pl
  */
 class PostLike extends AjaxAbstract {
 	/**
@@ -43,6 +42,7 @@ class PostLike extends AjaxAbstract {
 	 * @var int
 	 */
 	private $post_id;
+
 	/**
 	 *
 	 * user id
@@ -50,56 +50,56 @@ class PostLike extends AjaxAbstract {
 	 * @var int
 	 */
 	private $user_id;
+
 	protected $name = 'post_like';
 	protected $ajax_js_file = 'main.js';
 	protected $ajax_handler = 'sage_js';
 
+
 	/**
+	 * Get post like count
 	 *
-	 * Add Fontawesome Icons
+	 * @param int $post_id
 	 *
 	 * @access public
-	 * @return void
+	 * @return array
+	 * @static
 	 */
-	public function enqueueIcons() {
-		wp_register_style( 'icon-style',
-			'http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css' );
-		wp_enqueue_style( 'icon-style' );
-		wp_register_style( $this->name, ASSETS_URI . 'css/like-styles.css' );
-		wp_enqueue_style( $this->name );
+	public static function getLikeCount( $post_id ) {
+		$like_count = get_post_meta( $post_id, '_post_like_count', true );
+
+		return $like_count;
 	}
 
 	/**
 	 *
 	 * Save like data
 	 *
-	 * @global type $current_user
+	 * @global  $current_user
 	 */
-	public function postLike() {
+	public function save() {
 		$this->checkAjaxReferer();
-		$post_like     = (int) $this->getRequestData( 'post_like',
-			FILTER_SANITIZE_NUMBER_INT );
-		$this->post_id = (int) $this->getRequestData( 'post_id',
-			FILTER_SANITIZE_NUMBER_INT ); // post id
+
+		$post_like = $this->getRequestData( 'post_like', FILTER_SANITIZE_NUMBER_INT );
+		$this->post_id = $this->getRequestData( 'post_id', FILTER_SANITIZE_NUMBER_INT );
 
 		if ( $post_like ) {
-
-			$post_like_count = $this->getPostMeta( '_post_like_count',
-				true ); // post like count
+			// post like count
+			$post_like_count = $this->getPostMeta( '_post_like_count', true );
 			if ( \is_user_logged_in() ) { // user is logged in
 				$this->userLoggedLike( $post_like_count );
 			} else { // user is not logged in (anonymous)
 				// user IP address
 				if ( ( $ip = $this->getUserIp() ) !== false ) {
-					$liked_ips
-						= $this->getPostMeta( '_user_IP' ); // stored IP addresses
-					if ( \array_search( $ip, $liked_ips ) === false
-					     || \array_search( $ip, $liked_ips ) === null
+					// stored IP addresses
+					$liked_ips = $this->getPostMeta( '_user_IP' );
+					if ( array_search( $ip, $liked_ips ) === false
+					     || array_search( $ip, $liked_ips ) === null
 					) {
 						// if IP not in array
 						$liked_ips[] = $ip;// add IP to array
 					}
-					if ( $this->alreadyLiked() ) {// unlike the post
+					if ( self::isAlreadyLiked() ) {// unlike the post
 						$ip_key = \array_search( $ip,
 							$liked_ips ); // find the key
 						unset( $liked_ips[ $ip_key ] ); // remove from array
@@ -107,8 +107,7 @@ class PostLike extends AjaxAbstract {
 						// -1 count post meta
 						$post_like_count
 							= $this->subtractionLikeCount( $post_like_count );
-						$this->updatePostLikeMeta( $liked_ips,
-							$post_like_count );
+						$this->updatePostLikeMeta( $liked_ips, $post_like_count );
 						// generate response
 						$this->response( 0, $post_like_count );
 					} else {//like the post
@@ -130,6 +129,17 @@ class PostLike extends AjaxAbstract {
 	}
 
 	/**
+	 * Ajax response
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function ajaxResponse() {
+		$post_like = $this->postLike();
+
+		return $post_like;
+	}
+	/**
 	 *
 	 * if user logged in change user meta data
 	 *
@@ -137,33 +147,30 @@ class PostLike extends AjaxAbstract {
 	 *
 	 * @param int               $post_like_count post like count
 	 *
-	 * @global \SilverWp\object $current_user
+	 * @global WP_User $current_user
 	 */
 	protected function userLoggedLike( $post_like_count ) {
 		global $current_user;
-		$this->user_id = $current_user->ID; // current user
+		$this->user_id = $current_user->ID; // current user id
 
 		$liked_posts = $this->getUserLikeMeta(); // post ids from user meta
-
-		$liked_users
-			           = $this->getPostMeta( '_user_liked' ); // user ids from post meta
+		// user ids from post meta
+		$liked_users = $this->getPostMeta( '_user_liked' );
 		$liked_posts[] = $this->post_id; // Add post id to user meta array
 		$liked_users[] = $this->user_id; // add user id to post meta array
 
-		$liked_posts
-			= UtlArray::array_remove_empty( \array_unique( $liked_posts ) );
-		//$liked_users = \array_unique($liked_users);
+		$liked_posts = UtlArray::array_remove_empty( array_unique( $liked_posts ) );
 
-		$user_likes = \count( $liked_posts ); // count user likes
-
-		if ( $this->alreadyLiked() ) {//unlike the post
-			$liked_posts = \array_diff( array( $this->_post_id ),
-				$liked_posts ); // find the key
-			$liked_users = \array_diff( array( $this->_user_id ),
-				$liked_users ); // find the key
+		$user_likes = count( $liked_posts ); // count user likes
+		//if user like the post and click like - unlike the post
+		if ( $this->alreadyLiked( $this->post_id ) ) {
+			// find the key
+			$liked_posts = array_diff( array( $this->post_id ), $liked_posts );
+			// find the key
+			$liked_users = array_diff( array( $this->user_id ),$liked_users );
 			//unset($liked_posts[ $pid_key ]); // remove from array
 			//unset($liked_users[ $uid_key ]); // remove from array
-			$user_likes = \count( $liked_posts ); // recount user likes
+			$user_likes = count( $liked_posts ); // recount user likes
 
 			// Add user ID to post meta
 			// +1 count post meta
@@ -179,13 +186,10 @@ class PostLike extends AjaxAbstract {
 				// Add post ID to user meta
 				// +1 count user meta
 				$this->updateUserLikeMeta( $liked_posts, $user_likes );
-				//silverwp_debug_array($liked_users);
-				//silverwp_debug_array($liked_posts);
 			}
 			// update count on front end
 			$this->response( 0, $post_like_count );
 		} else { // like the post
-
 			// Add user ID to post meta
 			// +1 count post meta
 			$this->updatePostLikeMeta( $liked_users, ++ $post_like_count );
@@ -227,13 +231,12 @@ class PostLike extends AjaxAbstract {
 	 * @return array
 	 */
 	private function getUserLikeMeta() {
-		$user_meta = array();
-		//check is multisite
+		//check is multi site
 		if ( \is_multisite() ) {
 			$user_meta = \get_user_option( '_liked_posts', $this->user_id );
 		} else {
-			$user_meta = \get_user_meta( $this->user_id,
-				'_liked_posts' ); // post ids from user meta
+			// post ids from user meta
+			$user_meta = \get_user_meta( $this->user_id, '_liked_posts' );
 		}
 
 		if ( \count( $user_meta ) != 0 ) { // meta exists, set up values
@@ -310,12 +313,13 @@ class PostLike extends AjaxAbstract {
 
 	/**
 	 *
-	 * generet json response
+	 * Generate JSON response
 	 *
-	 * @param array $data
+	 * @param $already
+	 * @param $post_like_count
 	 *
 	 * @return string
-	 * @access protected
+	 * @access   protected
 	 */
 	protected function response( $already, $post_like_count ) {
 		$data = array(
@@ -327,17 +331,19 @@ class PostLike extends AjaxAbstract {
 
 	/**
 	 *
-	 * Test if user already liked post
+	 * Test if current user already liked post
 	 *
-	 * @access protected
-	 * @return boolean
+	 * @param int $post_id
+	 *
+	 * @access public
+	 * @return bool
+	 * @static
 	 */
-	protected function alreadyLiked() {
-		if ( \is_user_logged_in() ) { // user is logged in
-
-			$user_id     = \get_current_user_id(); // current user
-			$liked_users = $this->getPostMeta( '_user_liked',
-				true ); // user ids from post meta
+	public function isAlreadyLiked( $post_id ) {
+		if ( is_user_logged_in() ) { // user is logged in
+			$user_id     = get_current_user_id(); // current user
+			// user ids from post meta
+			$liked_users = get_post_meta( $post_id, '_user_liked', true );
 			if ( \is_array( $liked_users )
 			     && \array_search( $user_id, $liked_users ) !== false
 			) {
@@ -345,14 +351,12 @@ class PostLike extends AjaxAbstract {
 			}
 
 		} else { // user is anonymous, use IP address for voting
-
-			$liked_ips = $this->getPostMeta( '_user_IP',
-				true ); // get previously voted IP address
-			if ( ( $ip = $this->getUserIp() )
-			     !== false
-			) { // Retrieve current user IP
-				if ( \is_array( $liked_ips )
-				     && \array_search( $ip, $liked_ips ) !== false
+			// get previously voted IP address
+			$liked_ips = get_post_meta( $post_id, '_user_IP', true );
+			// Retrieve current user IP
+			if ( ( $ip = Filter::ip() ) !== false ) {
+				if ( is_array( $liked_ips )
+				     && array_search( $ip, $liked_ips ) !== false
 				) { // True is IP in array
 					return true;
 				}
@@ -360,19 +364,6 @@ class PostLike extends AjaxAbstract {
 		}
 
 		return false;
-	}
-
-	/**
-	 *
-	 * get current usr ip address
-	 *
-	 * @return string|boolean if the ip addrss is bad return false else return ip address
-	 * @access private
-	 */
-	private function getUserIp() {
-		$ip = Filter::ip();
-
-		return $ip;
 	}
 
 	/**
@@ -385,76 +376,8 @@ class PostLike extends AjaxAbstract {
 	 * @return array
 	 */
 	private function getPostMeta( $key, $single = false ) {
-		$post_meta = \get_post_meta( $this->post_id, $key, $single );
+		$post_meta = get_post_meta( $this->post_id, $key, $single );
 
 		return $post_meta;
-	}
-
-	/**
-	 *
-	 * Front end button
-	 *
-	 * @param int $post_id - post id
-	 *
-	 * @return string html link button
-	 */
-	public function getPostLikeLink( $post_id ) {
-		$this->post_id = $post_id;
-		$like_count    = $this->getPostMeta( '_post_like_count',
-			true ); // get post likes
-		$count         = empty( $like_count ) ? 0 : $like_count;
-		if ( $this->alreadyLiked() ) {
-			$button = Translate::translate( 'Unlike' );
-			$heart  = '<i class="icon-heart-2"></i>'; // full heart
-		} else {
-			$button = Translate::translate( 'Like' );
-			$heart  = '<i class="icon-heart-empty-1"></i>'; // empty heart
-		}
-		$output = '<span class="jm-post-like" id="likeit" data-post_id="'
-		          . esc_attr( $post_id ) . '">';
-		//$output .= '<span class="txt">' . $button . '</span> ' ;
-		$output .= '<span class="count">' . $heart . ' ' . $count
-		           . '</span></span>';
-		$output .= '<span class="loading"></span>';
-
-		return $output;
-	}
-
-	/**
-	 * Add a shortcode to your posts instead
-	 * type [postliker] in your post to output the button
-	 *
-	 * @todo   move this method to short code class
-	 * @access public
-	 * @return array
-	 */
-	public static function getLikeCount( $post_id = null ) {
-		if ( \is_null( $post_id ) ) {
-			$post_id = \get_the_ID();
-		}
-		$like_count = \get_post_meta( $post_id, '_post_like_count', true );
-
-		return $like_count;
-	}
-
-	/**
-	 *
-	 * get users post like count
-	 *
-	 * @param int $post_id post id
-	 *
-	 * @return int
-	 */
-	public function getPostLikeCount( $post_id ) {
-		$this->post_id = $post_id; // post id
-		$like_count    = $this->getPostMeta( '_post_like_count',
-			true ); // post like count
-		return $like_count;
-	}
-
-	public function ajaxResponse() {
-		$post_like = $this->postLike();
-
-		return $post_like;
 	}
 }
