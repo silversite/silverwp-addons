@@ -40,7 +40,7 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 		public function __construct() {
 
 			$widget_options = array(
-				'description' => Translate::translate( 'Blog posts with images from selected categories.' ),
+				'description' => Translate::translate( 'Most recent Posts with image from selected categories.' ),
 			);
 			parent::__construct(
 				'silverwp-recent-posts',
@@ -96,17 +96,17 @@ if ( ! class_exists( 'SilverWpAddons\Widget\RecentPosts' ) ) {
 			);
 			$this->addControl( $show_category );
 
-//			$show_image = new Checkbox( 'show_image' );
-//			$show_image->setOptions(
-//				array(
-//					array(
-//						'value' => 1,
-//						'label' => Translate::translate( 'Display post image' ) . '?'
-//					)
-//				)
-//			);
-//
-//			$this->addControl( $show_image );
+			$show_image = new Checkbox( 'show_image' );
+			$show_image->setOptions(
+				array(
+					array(
+						'value' => 1,
+						'label' => Translate::translate( 'Display post image' ) . '?'
+					)
+				)
+            );
+
+            $this->addControl( $show_image );
 
 			$categories = new CategoriesCheckboxes( 'categories' );
 			$categories->setLabel( Translate::translate( 'Categories' ) . ':<br />' );
