@@ -41,9 +41,7 @@ require_once 'vendor/autoload.php';
 add_action( 'plugins_loaded', function () {
     if ( class_exists( 'SilverWp\SilverWp' ) ) {
         try {
-	        $time = new \DateTime('2012');
-
-            Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
+	        Translate::$language_path = plugin_dir_url( __FILE__ ) . 'languages/';
             Translate::$text_domain = 'silverwp-addons';
 	        Translate::init();
 
