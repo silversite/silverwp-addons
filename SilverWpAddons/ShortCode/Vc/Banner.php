@@ -26,7 +26,7 @@ use SilverWp\ShortCode\Vc\Control\Image;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
+if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Banner' ) ) {
 	/**
 	 * Shortcode Banner
 	 *
@@ -65,6 +65,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 		 * @return void
 		 */
 		protected function create() {
+			$this->setViewClassName( 'SilverWpAddons\ShortCode\Vc\View\Banner' );
 			$this->setLabel( Translate::translate( 'Banner Image' ) );
 			$this->setCategory( Translate::translate( 'Add by Silversite.pl' ) );
             $this->setDescription( Translate::translate( 'Image block with text and link to page' ) );
@@ -82,7 +83,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 
             $bnr_img = new Image( 'image' );
             $bnr_img->setLabel( Translate::translate( 'Image' ) );
-            $bnr_img->setDescription( Translate::translate( 'Add banner image.' ) );
+			$bnr_img->setDescription( Translate::translate( 'Add banner image.' ) );
             $this->addControl( $bnr_img );
 
             $bnr_img_size = new Text( 'size' );
