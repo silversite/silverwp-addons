@@ -73,7 +73,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Banner' ) ) {
 
 			$bnr_name = new Text( 'name' );
             $bnr_name->setLabel( Translate::translate( 'Text' ) );
-            $bnr_name->setAdminLabel( true );
+            //$bnr_name->setAdminLabel( true );
 			$this->addControl( $bnr_name );
 
             $bnr_link = new Link( 'url' );
