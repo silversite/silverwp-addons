@@ -100,10 +100,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 		 */
 		protected function create() {
 			$this->setLabel( Translate::translate( 'Google Map' ) );
-			$this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
+			$this->setCategory( Translate::translate( 'Add by Silversite.pl' ) );
 			$this->setCssClass( 'vc_google_map' );
 			$this->setDescription( Translate::translate( 'Display Google Maps to indicate your location' ) );
-			$this->setIcon( 'vc_google_map' );
+            $this->setIcon( 'icon-wpb-map-pin' );
 			$this->setShowSettingsForm( true );
 			$this->setControls( 'full' );
 
