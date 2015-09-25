@@ -78,8 +78,9 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\PostsList' ) ) {
 		 */
 		protected function create() {
 			$this->setLabel( Translate::translate( 'Posts list' ) );
-			$this->setCategory( Translate::translate( 'Add by SilverSite.pl' ) );
-			$this->setIcon( 'icon-wpb-ui-posts-list' );
+			$this->setCategory( Translate::translate( 'Add by Silversite.pl' ) );
+            $this->setDescription( Translate::translate( 'Customizable list of Blogposts' ) );
+			$this->setIcon( 'icon-wpb-application-icon-large' );
 
 			$select = new Select( 'layout' );
 			$select->setLabel( Translate::translate( 'Layout' ) );

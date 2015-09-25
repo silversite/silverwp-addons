@@ -5,6 +5,7 @@ use SilverWpAddons\ShortCode\Vc\GoogleMaps;
 use SilverWpAddons\ShortCode\Vc\MessageBox;
 use SilverWpAddons\ShortCode\Vc\PostsList;
 use SilverWpAddons\ShortCode\Vc\Quote;
+use SilverWpAddons\ShortCode\Vc\Banner;
 use SilverWp\ShortCode\Vc\SetupAbstract;
 
 if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
@@ -29,6 +30,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
          * @access protected
          */
         protected function register() {
+            new Banner();
             new Quote();
 	        new PostsList();
 	        new GoogleMaps();

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (C) 2014 Michal Kalkowski <michal at silversite.pl>
+ * Copyright (C) 2014 Marcin Dobroszek <marcin at silversite.pl>
  *
  * SilverWpAddons is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,26 +21,27 @@ namespace SilverWpAddons\ShortCode\Vc;
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
 use SilverWp\ShortCode\Vc\Control\Text;
-use SilverWp\ShortCode\Vc\Control\WpEditor;
+use SilverWp\ShortCode\Vc\Control\Link;
+use SilverWp\ShortCode\Vc\Control\Image;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
 
 if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 	/**
-	 * Short Code Quote
+	 * Shortcode Banner
 	 *
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    ShortCode
-	 * @author        Michal Kalkowski <michal at silversite.pl>
+	 * @author        Marcin Dobroszek <marcin at silversite.pl>
 	 * @copyright (c) SilverSite.pl 2015
 	 * @version       $Revision:$
 	 */
-	class Quote extends ShortCodeAbstract {
-		protected $tag_base = 'ss_quote';
+	class Banner extends ShortCodeAbstract {
+		protected $tag_base = 'ss_banner';
 
 		/**
-		 * Render Short Code content
+		 * Render Shortcode content
 		 *
 		 * @param array  $args    short code attributes
 		 * @param string $content content string added between short code tags
@@ -64,24 +65,31 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Quote' ) ) {
 		 * @return void
 		 */
 		protected function create() {
-			$this->setLabel( Translate::translate( 'Quote' ) );
+			$this->setLabel( Translate::translate( 'Banner Image' ) );
 			$this->setCategory( Translate::translate( 'Add by Silversite.pl' ) );
-            $this->setDescription( Translate::translate( 'Citation with special styles' ) );
-			$this->setIcon( 'icon-wpb-atm' );
+            $this->setDescription( Translate::translate( 'Image block with text and link to page' ) );
+			$this->setIcon( 'vc_icon-vc-gitem-image' ); // icon-wpb-single-image
 
-			$editor = new WpEditor( 'content' );
-			//important! this lines display information from field value in backend editor
-			//in short code container
-			$editor->setCssClass( 'messagebox_text' );
-			$editor->setHolder( 'div' );
+			$bnr_name = new Text( 'name' );
+            $bnr_name->setLabel( Translate::translate( 'Text' ) );
+            $bnr_name->setAdminLabel( true );
+			$this->addControl( $bnr_name );
 
-			$editor->setLabel( Translate::translate( 'Quotation text' ) );
-			$editor->setValue( Translate::translate( '<p>I am message box. Click edit button to change this text.</p>' ) );
-			$this->addControl( $editor );
+            $bnr_link = new Link( 'url' );
+            $bnr_link->setLabel( Translate::translate( 'URL (Link)' ) );
+            $bnr_link->setDescription( Translate::translate( 'Add link to banner.' ) );
+            $this->addControl( $bnr_link );
 
-			$author = new Text( 'author' );
-			$author->setLabel( Translate::translate( 'Author' ) );
-			$this->addControl( $author );
+            $bnr_img = new Image( 'image' );
+            $bnr_img->setLabel( Translate::translate( 'Image' ) );
+            $bnr_img->setDescription( Translate::translate( 'Add banner image.' ) );
+            $this->addControl( $bnr_img );
+
+            $bnr_img_size = new Text( 'size' );
+            $bnr_img_size->setLabel( Translate::translate( 'Image size' ) );
+            $bnr_img_size->setValue( Translate::translate( 'thumbnail' ) );
+            $bnr_img_size->setDescription( Translate::translate('Enter image size. Example: thumbnail, medium, large, full or other sizes defined by current theme. Alternatively enter image size in pixels: 200x100 (Width x Height). Leave empty to use "thumbnail" size.') );
+            $this->addControl( $bnr_img_size );
 
 			$animation = new Animation();
 			$this->addControl( $animation );
