@@ -38,7 +38,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Gallery' ) ) {
 	 * @version       1.0
 	 */
 	class Gallery extends ShortCodeAbstract {
-		protected $tag_base = 'ss_quote';
+		protected $tag_base = 'ss_gallery';
 
 		/**
 		 * Render Short Code content
@@ -71,7 +71,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Gallery' ) ) {
 			$this->setIcon( 'icon-wpb-atm' );
 
 			$images = new Images( 'images' );
-			$images->setLabel(Translate::translate('Images'));
+			$images->setLabel( Translate::translate( 'Images' ) );
 			$this->addControl( $images );
 
 			$animation = new Animation();
