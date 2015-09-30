@@ -7,6 +7,7 @@ use SilverWpAddons\ShortCode\Vc\MessageBox;
 use SilverWpAddons\ShortCode\Vc\PostsList;
 use SilverWpAddons\ShortCode\Vc\Quote;
 use SilverWpAddons\ShortCode\Vc\Banner;
+use SilverWpAddons\ShortCode\Vc\Social;
 use SilverWp\ShortCode\Vc\SetupAbstract;
 
 if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
@@ -35,6 +36,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
 			new Quote();
 			new PostsList();
 			new GoogleMaps();
+            new Social();
 			// shortcodes not implemented to editor
 			new Dropcap();
 			new Highlight();
