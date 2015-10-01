@@ -8,6 +8,7 @@ use SilverWpAddons\ShortCode\Vc\PostsList;
 use SilverWpAddons\ShortCode\Vc\Quote;
 use SilverWpAddons\ShortCode\Vc\Banner;
 use SilverWp\ShortCode\Vc\SetupAbstract;
+use SilverWpAddons\ShortCode\Vc\Social;
 
 if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
 	/**
@@ -19,7 +20,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
 	 * @subpackage    ShortCode
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @copyright     SilverSite.pl (c) 2015
-	 * @version       0.6
+	 * @version       0.7
 	 */
 	class Setup extends SetupAbstract {
 
@@ -35,13 +36,14 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Setup' ) ) {
 			new Quote();
 			new PostsList();
 			new GoogleMaps();
+			new Gallery();
+			new Social();
 			// shortcodes not implemented to editor
 			new Dropcap();
 			new Highlight();
 			// shortcodes to section "About the Author"
 			new Links();
 			new Link();
-			new Gallery();
 		}
 	}
 }

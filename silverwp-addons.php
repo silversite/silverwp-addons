@@ -29,6 +29,8 @@ use SilverWp\Helper\Option;
 use SilverWp\Translate;
 use SilverWp\SilverWp;
 use SilverWp\Ajax\Tweetie;
+use SilverWp\Wpml\Wpml;
+use SilverWpAddons\Ajax\MegaMenu;
 use SilverWpAddons\Ajax\PostLike;
 
 // If this file is called directly, abort.
@@ -72,6 +74,8 @@ add_action( 'plugins_loaded', function () {
             }
 
 	        PostLike::getInstance();
+	        MegaMenu::getInstance();
+			Wpml::getInstance();
 
         } catch ( Exception $ex ) {
             echo $ex->catchException();
