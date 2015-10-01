@@ -43,4 +43,13 @@ class NavMenu extends \SilverWp\Helper\NavMenu {
 	public function addSearchForm( $items, $args ) {
 		return $items;
 	}
+
+	/**
+	 * Remove footer menu
+	 *
+	 * @access public
+	 */
+	public function registerMenu() {
+		return;
+	}
 }
