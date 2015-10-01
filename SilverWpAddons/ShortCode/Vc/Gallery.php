@@ -65,10 +65,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Gallery' ) ) {
 		 * @return void
 		 */
 		protected function create() {
-			$this->setLabel( Translate::translate( 'Gallery' ) );
+			$this->setLabel( Translate::translate( 'Gallery Carousel' ) );
 			$this->setCategory( Translate::translate( 'Add by Silversite.pl' ) );
-            //$this->setDescription( Translate::translate( '' ) );
-			$this->setIcon( 'icon-wpb-atm' );
+            $this->setDescription( Translate::translate( 'Touch enabled carousel slider' ) );
+			$this->setIcon( 'icon-wpb-images-carousel' );
 
 			$images = new Images( 'images' );
 			$images->setLabel( Translate::translate( 'Images' ) );

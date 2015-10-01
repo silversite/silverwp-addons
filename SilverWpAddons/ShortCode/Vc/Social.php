@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (C) 2014 Michal Kalkowski <michal at silversite.pl>
+ * Copyright (C) 2014 Marcin Dobroszek <marcin at silversite.pl>
  *
  * SilverWpAddons is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -20,30 +20,29 @@ namespace SilverWpAddons\ShortCode\Vc;
 
 use SilverWp\ShortCode\Vc\Control\Animation;
 use SilverWp\ShortCode\Vc\Control\ExtraCss;
-use SilverWp\ShortCode\Vc\Control\Images;
 use SilverWp\ShortCode\Vc\Control\Text;
 use SilverWp\ShortCode\Vc\Control\WpEditor;
 use SilverWp\ShortCode\Vc\ShortCodeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Social' ) ) {
+if ( ! class_exists( '\SilverWpAddons\ShortCode\Social' ) ) {
 	/**
-	 * Short Code Social
+	 * Shortcode Social
 	 *
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    ShortCode
-	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @copyright (c) SilverSite.pl 2015
-	 * @version       1.0
+	 * @author        Marcin Dobroszek <marcin at silversite.pl>
+	 * @copyright (c) Silversite.pl 2015
+	 * @version       $Revision:$
 	 */
 	class Social extends ShortCodeAbstract {
 		protected $tag_base = 'ss_social';
 
 		/**
-		 * Render Short Code content
+		 * Render Shortcode content
 		 *
-		 * @param array  $args    short code attributes
+		 * @param array  $args    shortcode attributes
 		 * @param string $content content string added between short code tags
 		 *
 		 * @return mixed
@@ -59,7 +58,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Social' ) ) {
 		}
 
 		/**
-		 * Create short code settings
+		 * Create shortcode settings
 		 *
 		 * @access public
 		 * @return void
@@ -67,8 +66,19 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\Social' ) ) {
 		protected function create() {
 			$this->setLabel( Translate::translate( 'Social' ) );
 			$this->setCategory( Translate::translate( 'Add by Silversite.pl' ) );
-            //$this->setDescription( Translate::translate( '' ) );
-			$this->setIcon( 'icon-wpb-social' );
+            $this->setDescription( Translate::translate( 'One-row list with social account links' ) );
+			$this->setIcon( 'icon-wpb-row' );
+
+            // get data from Theme Options
+            $social_accounts = \SilverWp\Helper\Social::getAccounts();
+
+            foreach ( $social_accounts as $social_item ) {
+                $social_field = new Text( $social_item[ 'slug' ] );
+                $social_field->setLabel( $social_item[ 'name' ] );
+                $social_field->setDefault( esc_url( $social_item[ 'url' ] ) );
+                $social_field->setDescription( sprintf( Translate::translate( 'Add link to your personal %s account.' ), $social_item[ 'name' ] ) );
+                $this->addControl( $social_field );
+            }
 
 			$animation = new Animation();
 			$this->addControl( $animation );
