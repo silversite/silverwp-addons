@@ -58,6 +58,7 @@ if ( ! class_exists( 'SilverWpAddons\Ajax\MegaMenu' ) ) {
 				//if category id is set create tax query
 				$args      = array(
 					'post_type' => 'post',
+                    'meta_key' => '_thumbnail_id',
 					'tax_query' => array(
 						'relation' => 'AND',
 						array(
@@ -68,7 +69,8 @@ if ( ! class_exists( 'SilverWpAddons\Ajax\MegaMenu' ) ) {
 					),
 				);
 				$the_query = new Query( $args );
-				$the_query->setMetaBox( Blog::getInstance() );
+				//$the_query->setMetaBox( Blog::getInstance() );
+                $the_query->setLimit( 4 );
 				$the_query->get_posts();
 				$data = array(
 					'the_query' => $the_query,
