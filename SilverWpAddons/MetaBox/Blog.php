@@ -27,18 +27,22 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function setUp() {
-			$sidebar = new SidebarPosition( 'sidebar' );
-			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
-			$sidebar->removeOption( 1 );
-			$sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
-			$this->addControl( $sidebar );
-
-			//Featured on the list
 			$featured_list = new Toggle( 'featured' );
 			$featured_list->setLabel( Translate::translate( 'Featured on the list' ) );
 			$featured_list->setDefault( 0 );
 			$this->addControl( $featured_list );
-			//ENDFeatured on the list
+
+            $sidebar = new SidebarPosition( 'sidebar' );
+            $sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
+            $sidebar->removeOption( 1 );
+            $sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
+            $this->addControl( $sidebar );
+
+            $modify = new Toggle( 'modify' );
+            $modify->setLabel( Translate::translate( 'Modified content' ) );
+            $modify->setDescription( Translate::translate( 'Narrower text content. Recommended for no-sidebar view.' ) );
+            $modify->setDefault( 0 );
+            $this->addControl( $modify );
 
 			$post_format = new PostFormat();
 			$this->addControl( $post_format );
