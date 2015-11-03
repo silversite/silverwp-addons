@@ -71,9 +71,13 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 					'value' => 'empty',
 				),
 				array(
-					'label' => Translate::translate( 'Sticky posts, layout: Masonry GRID' ),
+					'label' => Translate::translate( 'Sticky posts, layout: Masonry GRID (4 posts)' ),
 					'value' => 'sticky_post_masonry_grid',
 				),
+                array(
+                    'label' => Translate::translate( 'Sticky posts, layout: Masonry GRID (3 posts)' ),
+                    'value' => 'sticky_post_masonry_grid_alt',
+                ),
 				array(
 					'label' => Translate::translate( 'Sticky posts, layout: Slider in container' ),
 					'value' => 'sticky_post_slider_container',
