@@ -18,6 +18,7 @@
  */
 namespace SilverWpAddons\ShortCode\Vc;
 
+use SilverWp\Debug;
 use SilverWp\Interfaces\EnqueueScripts;
 use SilverWp\ShortCode\SaveOccurencesInterface;
 use SilverWp\ShortCode\Vc\Control\Checkbox;
@@ -86,6 +87,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 		public function content( $args, $content ) {
 			$default = $this->prepareAttributes();
 
+			if ( ! empty( $args['map_style'] ) ) {
+				//move from template TF rejected
+				$args['map_style'] = rawurldecode( strip_tags( base64_decode( $args['map_style'] ) ) );
+			}
 			$args   = $this->setDefaultAttributeValue( $default, $args );
 			$output = $this->render( $args, $content );
 
