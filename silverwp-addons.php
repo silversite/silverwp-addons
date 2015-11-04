@@ -75,7 +75,10 @@ add_action( 'plugins_loaded', function () {
 
 	        PostLike::getInstance();
 	        MegaMenu::getInstance();
-			Wpml::getInstance();
+	        if ( function_exists( 'icl_object_id' ) ) {
+				Wpml::getInstance();
+			}
+
 
         } catch ( Exception $ex ) {
             echo $ex->catchException();
