@@ -16,7 +16,7 @@ namespace SilverWpAddons;
  * Plugin Name:       SilverWP Add-ons
  * Description:       This is necessary for themes based on SilverWp platform
  *                    In this plugin are defined all: CPT, CMB, CT
- * Version:           0.1
+ * Version:           0.5
  * Author:            Michal Kalkowski <michal at silversite.pl>
  * Author URI:        http://silversite.pl/
  * License:           GPL-2.0+
@@ -75,7 +75,10 @@ add_action( 'plugins_loaded', function () {
 
 	        PostLike::getInstance();
 	        MegaMenu::getInstance();
-			Wpml::getInstance();
+	        if ( function_exists( 'icl_object_id' ) ) {
+				Wpml::getInstance();
+			}
+
 
         } catch ( Exception $ex ) {
             echo $ex->catchException();

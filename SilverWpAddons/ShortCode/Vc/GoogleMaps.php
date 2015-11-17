@@ -86,6 +86,10 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\GoogleMaps' ) ) {
 		 */
 		public function content( $args, $content ) {
 			$default = $this->prepareAttributes();
+			if ( ! empty( $args['map_style'] ) ) {
+				//move from template TF rejected
+				$args['map_style'] = rawurldecode( strip_tags( base64_decode( $args['map_style'] ) ) );
+			}
 
 			if ( ! empty( $args['map_style'] ) ) {
 				//move from template TF rejected

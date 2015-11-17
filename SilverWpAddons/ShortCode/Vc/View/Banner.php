@@ -65,7 +65,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\View\Banner' ) ) {
 				'btn-warning'
 			);
 			$value = str_ireplace( $old_names, $new_names, $value );
-			//$value = __($value, "js_composer");
+			//$value = esc_html__($value, "js_composer");
 			//
 			$param_name = isset( $param['param_name'] ) ? $param['param_name'] : '';
 			$type = isset( $param['type'] ) ? $param['type'] : '';
@@ -79,7 +79,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\View\Banner' ) ) {
 					'attach_id' => (int) preg_replace( '/[^\d]/', '', $value ),
 					'thumb_size' => 'thumbnail'
 				) );
-				$this->setSettings( 'logo', ( $img ? $img['thumbnail'] : '<img width="150" height="150" src="' . vc_asset_url( 'vc/blank.gif' ) . '" class="attachment-thumbnail vc_element-icon"  data-name="' . $param_name . '" alt="" title="" style="display: none;" />' ) . '<span class="no_image_image vc_element-icon' . ( ! empty( $element_icon ) ? ' ' . $element_icon : '' ) . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '" /><a href="#" class="column_edit_trigger' . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '">' . __( 'Add image', 'js_composer' ) . '</a>' );
+				$this->setSettings( 'logo', ( $img ? $img['thumbnail'] : '<img width="150" height="150" src="' . vc_asset_url( 'vc/blank.gif' ) . '" class="attachment-thumbnail vc_element-icon"  data-name="' . $param_name . '" alt="" title="" style="display: none;" />' ) . '<span class="no_image_image vc_element-icon' . ( ! empty( $element_icon ) ? ' ' . $element_icon : '' ) . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '" /><a href="#" class="column_edit_trigger' . ( $img && ! empty( $img['p_img_large'][0] ) ? ' image-exists' : '' ) . '">' . esc_html__( 'Add image', 'js_composer' ) . '</a>' );
 				$output .= $this->outputTitleTrue( $this->settings['name'] );
 			} elseif ( ! empty( $param['holder'] ) ) {
 				if ( $param['holder'] == 'input' ) {
@@ -92,7 +92,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\View\Banner' ) ) {
 			}
 
 			if ( ! empty( $param['admin_label'] ) && $param['admin_label'] === true ) {
-				$output .= '<span class="vc_admin_label admin_label_' . $param['param_name'] . ( empty( $value ) ? ' hidden-label' : '' ) . '"><label>' . __( $param['heading'], 'js_composer' ) . '</label>: ' . $value . '</span>';
+				$output .= '<span class="vc_admin_label admin_label_' . $param['param_name'] . ( empty( $value ) ? ' hidden-label' : '' ) . '"><label>' . esc_html__( $param['heading'], 'js_composer' ) . '</label>: ' . $value . '</span>';
 			}
 
 			return $output;
@@ -125,7 +125,7 @@ if ( ! class_exists( '\SilverWpAddons\ShortCode\Vc\View\Banner' ) ) {
 		}
 
 		protected function outputTitleTrue( $title ) {
-			return '<h4 class="wpb_element_title">' . __( $title, 'js_composer' ) . ' ' . $this->settings( 'logo' ) . '</h4>';
+			return '<h4 class="wpb_element_title">' . esc_html__( $title, 'js_composer' ) . ' ' . $this->settings( 'logo' ) . '</h4>';
 		}
 	}
 }

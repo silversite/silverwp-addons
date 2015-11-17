@@ -10,6 +10,12 @@
       "homepage": "http://silversite.pl"
     }
   ],
+  "repositories": [
+    {
+      "url": "https://github.com/silversite/silverwp",
+      "type": "git"
+    }
+  ],
   "keywords": [
     "gim",
     "roots",
@@ -20,7 +26,8 @@
     "wp"
   ],
   "require": {
-    "php": ">=5.3"
+    "php": ">=5.3",
+    "silversite/silverwp":"dev-dev"
   },
   "autoload": {
     "psr-4": {
