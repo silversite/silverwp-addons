@@ -37,7 +37,7 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 	 */
 	class Publications extends PostTypeAbstract {
 		protected $name = 'publications';
-		protected $supports = array( 'title' );
+		protected $supports = array( 'title', 'editor' );
 
 		/**
 		 *

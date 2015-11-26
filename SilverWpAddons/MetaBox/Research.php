@@ -20,8 +20,10 @@
 namespace SilverWpAddons\MetaBox;
 
 use SilverWp\Helper\Control\Attachments;
+use SilverWp\Helper\Control\Group;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Textarea;
+use SilverWp\Helper\Control\Wpeditor;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
@@ -30,11 +32,11 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 	 * Research Meta box for Research Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Id:$
+	 * @version       1.1
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    MetaBox
-	 * @copyright (c) SilverSite.pl 2015
+	 * @copyright     SilverSite.pl (c) 2015
 	 */
 	class Research extends MetaBoxAbstract {
 		protected $priority = 'low';
@@ -42,23 +44,39 @@ if ( ! class_exists( '\SilverWpAddons\Research' ) ) {
 
 		protected function setUp() {
 
-			$text_area = new Textarea( 'partners' );
-			$text_area->setLabel( Translate::translate( 'Partners' ) );
-			$this->addControl( $text_area );
+			$realization_time = new Text( 'realization_time' );
+			$realization_time->setLabel( Translate::translate( 'Realization time' ) );
+			$this->addControl( $realization_time );
 
-			$text_area = new Textarea( 'contact' );
-			$text_area->setLabel( Translate::translate( 'Contact' ) );
-			$this->addControl( $text_area );
+			$partners = new Wpeditor( 'partners' );
+			$partners->setLabel( Translate::translate( 'Partners' ) );
+			$this->addControl( $partners );
 
-			$url = new Text( 'external_url' );
-			$url->setLabel( Translate::translate( 'External URL' ) );
-			$url->setValidation( 'url' );
-			$this->addControl( $url );
+			$contact = new Textarea( 'contact' );
+			$contact->setLabel( Translate::translate( 'Contact' ) );
+			$this->addControl( $contact );
+
+			$external_url = new Text( 'external_url' );
+			$external_url->setLabel( Translate::translate( 'External URL' ) );
+			$external_url->setValidation( 'url' );
+			$this->addControl( $external_url );
+
+			$group = new Group( 'persons' );
+			$group->setLabel( Translate::translate( 'Persons engage in project' ) );
+			$group->setSortable( true );
+			$group->setRepeating( true );
+
+			$label = new Text( 'label' );
+			$label->setLabel( Translate::translate( 'Label' ) );
+			$group->addControl( $label );
+
+			$name = new Text( 'person' );
+			$name->setLabel( Translate::translate( 'Person' ) );
+			$group->addControl( $name );
+			$this->addControl( $group );
 
 			$attachments = new Attachments( 'attachments' );
 			$this->addControl( $attachments );
-
-			//todo add P2P autocomplete connect with publication
 
 		}
 	}

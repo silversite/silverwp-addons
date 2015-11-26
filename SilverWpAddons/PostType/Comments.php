@@ -22,12 +22,11 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( 'SilverWpAddons\News' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Comments' ) ) {
 	/**
-	 * News custom post type
+	 * Comments custom post type
 	 *
 	 * @property array labels
-	 * @property bool  has_archive
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Revision:$
@@ -36,10 +35,10 @@ if ( ! class_exists( 'SilverWpAddons\News' ) ) {
 	 * @subpackage    PostType
 	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class News extends PostTypeAbstract {
-		protected $name = 'news';
-		protected $supports = array( 'title', 'editor', 'thumbnail' );
-		protected $debug = false;
+	class Comments extends PostTypeAbstract {
+		protected $name = 'comments';
+		protected $supports = array( 'title', 'thumbnail', 'editor' );
+
 		/**
 		 *
 		 * Set up Custom Post Type. In this method will be set up labels and all
@@ -48,11 +47,12 @@ if ( ! class_exists( 'SilverWpAddons\News' ) ) {
 		 * @access protected
 		 */
 		protected function setUp() {
+			$this->exclude_from_search = false;
 			$this->labels = array(
-				'menu_name'      => Translate::translate( 'News' ),
-				'name'           => Translate::translate( 'News' ),
-				'name_admin_bar' => Translate::translate( 'News' ),
-				'all_items'      => Translate::translate( 'All News' )
+				'menu_name'      => Translate::translate( 'Comments' ),
+				'name'           => Translate::translate( 'Comments' ),
+				'name_admin_bar' => Translate::translate( 'Comments' ),
+				'all_items'      => Translate::translate( 'All Comments' )
 			);
 		}
 	}

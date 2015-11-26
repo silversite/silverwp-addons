@@ -37,7 +37,7 @@ if ( ! class_exists( 'SilverWpAddons\Team' ) ) {
 	 */
 	class Team extends PostTypeAbstract {
 		protected $name = 'team';
-		protected $supports = array( 'title', 'editor', 'thumbnail' );
+		protected $supports = array( 'title', 'editor', 'thumbnail', 'page-attributes' );
 
 		/**
 		 *
@@ -47,6 +47,7 @@ if ( ! class_exists( 'SilverWpAddons\Team' ) ) {
 		 * @access protected
 		 */
 		protected function setUp() {
+			$this->hierarchical = false;
 			$this->labels = array(
 				'menu_name'      => Translate::translate( 'Team' ),
 				'name'           => Translate::translate( 'Team' ),

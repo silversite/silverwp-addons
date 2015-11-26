@@ -22,6 +22,7 @@ namespace SilverWpAddons\MetaBox;
 use SilverWp\Helper\Control\Checkbox;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Textarea;
+use SilverWp\Helper\Control\Upload;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
@@ -59,6 +60,19 @@ if ( ! class_exists( '\SilverWpAddons\Team' ) ) {
 			$checkbox = new Checkbox( 'show_in_team_page' );
 			$checkbox->setLabel( Translate::translate( 'Show in Team page' ) );
 			$this->addFilterControl( $checkbox );
+
+			$interests = new Textarea( 'interests' );
+			$interests->setLabel( Translate::translate( 'Interests' ) );
+			$this->addControl( $interests );
+
+			$attachment = new Upload( 'attachment' );
+			$attachment->setLabel( Translate::translate( 'Curriculum Vitae' ) );
+			$this->addControl( $attachment );
+
+			$iamge = new Upload( 'image' );
+			$iamge->setLabel( Translate::translate( 'Picture with smile' ) );
+			$this->addControl( $iamge );
+
 		}
 	}
 }

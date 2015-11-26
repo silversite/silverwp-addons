@@ -47,13 +47,17 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 
 			$this->setEnterTitleHearLabel( Translate::translate( 'Name' ) );
 
-			$text = new Text( 'keywords' );
-			$text->setLabel( Translate::translate( 'Keywords' ) );
-			$this->addControl( $text );
+			$lead = new Textarea( 'lead' );
+			$lead->setLabel( Translate::translate( 'Lead' ) );
+			$this->addControl( $lead );
 
-			$text = new Textarea( 'abstract' );
-			$text->setLabel( Translate::translate( 'Abstract' ) );
-			$this->addControl( $text );
+			$keywords = new Text( 'keywords' );
+			$keywords->setLabel( Translate::translate( 'Keywords' ) );
+			$this->addControl( $keywords );
+
+			$abstract = new Textarea( 'abstract' );
+			$abstract->setLabel( Translate::translate( 'Abstract' ) );
+			$this->addControl( $abstract );
 
 			$text_area = new Textarea( 'additional_information' );
 			$text_area->setLabel( Translate::translate( 'Additional information' ) );
@@ -61,39 +65,36 @@ if ( ! class_exists( '\SilverWpAddons\Publications' ) ) {
 
 			$select = new Select( 'publication_year' );
 			$select->setLabel( Translate::translate( 'Publication year' ) );
-
-			$options = array();
-			for ( $i = 2005; $i <= date( 'Y' ); $i ++ ) {
-				$options[] = array(
-					'label' => $i,
-					'value' => $i,
-				);
-			}
-			$select->setOptions( $options );
-			$this->addControl( $select );
+			$select->setStart( 2005 );
+			$select->setEnd( date( 'Y' ) );
+			$this->addFilterControl( $select );
 
 			$checkbox = new Checkbox( 'language' );
 			$checkbox->setLabel( Translate::translate( 'Publication language' ) );
 			$checkbox->setOptions(
 				array(
 					array(
-						'label' => Translate::translate('Polish'),
+						'label' => Translate::translate('polish'),
 						'value' => 'pl',
 					),
 					array(
-						'label' => Translate::translate('English'),
+						'label' => Translate::translate('english'),
 						'value' => 'en',
 					)
 				)
 			);
-			$this->addControl( $checkbox );
+			$this->addFilterControl( $checkbox );
+
+			$attachment = new Upload( 'attachment' );
+			$attachment->setLabel( Translate::translate( 'Main file' ) );
+			$this->addControl( $attachment );
 
 			$attachments = new Attachments( 'attachments' );
 			$this->addControl( $attachments );
 
-			$upload = new Upload( 'cover' );
-			$upload->setLabel( Translate::translate( 'Cover' ) );
-			$this->addControl( $upload );
+			$cover = new Upload( 'cover' );
+			$cover->setLabel( Translate::translate( 'Cover' ) );
+			$this->addControl( $cover );
 		}
 	}
 }
