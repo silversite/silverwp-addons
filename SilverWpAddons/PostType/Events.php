@@ -22,9 +22,9 @@ namespace SilverWpAddons\PostType;
 use SilverWp\PostType\PostTypeAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( 'SilverWpAddons\News' ) ) {
+if ( ! class_exists( 'SilverWpAddons\Events' ) ) {
 	/**
-	 * News custom post type
+	 * Events custom post type
 	 *
 	 * @property array labels
 	 * @property bool  has_archive
@@ -36,8 +36,8 @@ if ( ! class_exists( 'SilverWpAddons\News' ) ) {
 	 * @subpackage    PostType
 	 * @copyright     SilverSite.pl (c) 2015
 	 */
-	class News extends PostTypeAbstract {
-		protected $name = 'news';
+	class Events extends PostTypeAbstract {
+		protected $name = 'events';
 		protected $supports = array( 'title', 'editor', 'thumbnail' );
 		protected $debug = false;
 		/**
@@ -48,11 +48,12 @@ if ( ! class_exists( 'SilverWpAddons\News' ) ) {
 		 * @access protected
 		 */
 		protected function setUp() {
+			$this->has_archive = false;
 			$this->labels = array(
-				'menu_name'      => Translate::translate( 'News' ),
-				'name'           => Translate::translate( 'News' ),
-				'name_admin_bar' => Translate::translate( 'News' ),
-				'all_items'      => Translate::translate( 'All News' )
+				'menu_name'      => Translate::translate( 'Events' ),
+				'name'           => Translate::translate( 'Events' ),
+				'name_admin_bar' => Translate::translate( 'Events' ),
+				'all_items'      => Translate::translate( 'All Events' )
 			);
 		}
 	}

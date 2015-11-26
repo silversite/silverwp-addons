@@ -16,6 +16,11 @@ if ( ! class_exists( '\SilverWpAddons\Taxonomy\Publications' ) ) {
 	 * @version    $Revision:$
 	 */
 	class Publications extends TaxonomyAbstract {
+		/**
+		 * Remove this columns from edita table list
+		 * @var array
+		 */
+		protected $exclude_columns = array( 'tag', 'category' );
 
 		/**
 		 * Set up taxonomy class labels etc.
@@ -67,6 +72,7 @@ if ( ! class_exists( '\SilverWpAddons\Taxonomy\Publications' ) ) {
 				'show_tagcloud'     => false,
 				'hierarchical'      => true,
 				'query_var'         => true,
+				'display_column'    => true,
 			) );
 
 			$this->setLabels( 'category', array(
@@ -85,6 +91,7 @@ if ( ! class_exists( '\SilverWpAddons\Taxonomy\Publications' ) ) {
 				//show meta box in post type edit area
 				'show_ui'           => true,
 				'show_admin_column' => true,
+				'show_in_nav_menus' => false,
 				'query_var'         => 'jel',
 				'rewrite' => array(
 					'hierarchical' => false,

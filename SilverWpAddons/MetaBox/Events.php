@@ -30,9 +30,9 @@ use SilverWp\Helper\Control\Wpeditor;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\News' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Events' ) ) {
 	/**
-	 * News Meta box for News Post Type
+	 * Events Meta box for Events Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Id:$
@@ -41,7 +41,7 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	 * @subpackage    MetaBox
 	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class News extends MetaBoxAbstract {
+	class Events extends MetaBoxAbstract {
 		protected $priority = 'low';
 
 		protected function setUp() {
@@ -52,6 +52,55 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 			$checkbox = new Checkbox( 'main_page_promo' );
 			$checkbox->setLabel( Translate::translate( 'Promotion on main page' ) );
 			$this->addControl( $checkbox );
+
+
+			$place = new Text( 'place' );
+			$place->setLabel( Translate::translate( 'Place' ) );
+			$this->addControl( $place );
+
+			$address = new Text( 'address' );
+			$address->setLabel( Translate::translate( 'Event address' ) );
+			$this->addControl( $address );
+
+			$program = new Group( 'program' );
+			$program->setLabel( Translate::translate( 'Program' ) );
+			$program->setRepeating( true );
+			$program->setSortable( true );
+
+			$label = new Text( 'title' );
+			$label->setLabel( Translate::translate( 'Title' ) );
+			$program->addControl( $label );
+
+			$description = new Wpeditor( 'description' );
+			$description->setLabel( Translate::translate( 'Description' ) );
+			$program->addControl( $description );
+
+			$this->addControl( $program );
+
+			$start = new Group( 'start' );
+			$start->setLabel( Translate::translate( 'Start' ) );
+
+			$date = new Date( 'date_start' );
+			$date->setLabel( Translate::translate( 'Date start' ) );
+			$start->addControl( $date );
+
+			$time = new Text( 'time_start' );
+			$time->setLabel( Translate::translate( 'Time start' ) );
+			$start->addControl( $time );
+			$this->addControl( $start );
+
+			$end = new Group( 'end' );
+			$end->setLabel( Translate::translate( 'End' ) );
+
+			$date = new Date( 'date_end' );
+			$date->setLabel( Translate::translate( 'Date end' ) );
+			$end->addControl( $date );
+
+			$time = new Text( 'time_end' );
+			$time->setLabel( Translate::translate( 'Time end' ) );
+			$end->addControl( $time );
+			$this->addControl( $end );
+
 		}
 	}
 }
