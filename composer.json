@@ -1,5 +1,5 @@
 {
-  "name": "silversite/silverwp-addons",
+  "name": "themes-attachments",
   "type": "wordpress-plugin",
   "license": "GPL",
   "description": "WordPress plugin add-ons for theme based on SilverWp platform",
