@@ -16,7 +16,7 @@ namespace SilverWpAddons;
  * Plugin Name:       SilverWP Add-ons
  * Description:       This is necessary for themes based on SilverWp platform
  *                    In this plugin are defined all: CPT, CMB, CT
- * Version:           0.1
+ * Version:           0.5
  * Author:            Michal Kalkowski <michal at silversite.pl>
  * Author URI:        http://silversite.pl/
  * License:           GPL-2.0+
@@ -26,6 +26,7 @@ namespace SilverWpAddons;
  */
 use SilverWp\Exception;
 use SilverWp\Translate;
+use SilverWpAddons\PostType\Currency;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -41,6 +42,9 @@ add_action( 'plugins_loaded', function () {
 		        'silverwp-addons',
 		        plugin_dir_url( __FILE__ ) . 'languages/'
 	        );
+			$currency = Currency::getInstance();
+	        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
+	        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
         } catch ( Exception $ex ) {
             echo $ex->catchException();
