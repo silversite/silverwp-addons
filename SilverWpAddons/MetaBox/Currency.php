@@ -21,6 +21,8 @@
 namespace SilverWpAddons\MetaBox;
 
 
+use SilverWp\Helper\Control\Checkbox;
+use SilverWp\Helper\Control\Gallery;
 use SilverWp\Helper\Control\Text;
 use SilverWp\MetaBox\MetaBoxAbstract;
 use SilverWp\Translate;
@@ -48,8 +50,19 @@ if ( ! class_exists( '\SilverWpAddons\MetaBox\Currency' ) ) {
 		 */
 		protected function setUp() {
 			$country = new Text( 'country' );
-			$country->setLabel( Translate::translate('Country') );
+			$country->setLabel( Translate::translate( 'Country' ) );
 			$this->addControl( $country );
+
+			$description = new Text( 'description' );
+			$description->setLabel( Translate::translate( 'Description' ) );
+			$this->addControl( $description );
+
+			$main_page = new Checkbox( 'main_page' );
+			$main_page->setLabel( Translate::translate( 'Display on home?' ) );
+			$this->addControl( $main_page );
+
+			$gallery = new Gallery( 'gallery' );
+			$this->addControl( $gallery );
 		}
 	}
 }

@@ -56,10 +56,10 @@ if ( ! class_exists( '\SilverWpAddons\Taxonomy\Currency' ) ) {
 				'hierarchical'       => true,
 				'query_var'          => true,
 				'custom_single_view' => true,
-				'show_admin_column'  => false,
+				'show_admin_column'  => true,
 			) );
 
-			$this->setLabels( 'category', array(
+			$this->setLabels( 'continent', array(
 				'name'                       => Translate::translate( 'Continents' ),
 				'singular_name'              => Translate::translate( 'Continent' ),
 				'menu_name'                  => Translate::translate( 'Continents' ),

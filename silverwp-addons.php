@@ -24,6 +24,7 @@ namespace SilverWpAddons;
  * Text Domain:       silverwp-addons
  * Domain Path:       /languages
  */
+use SilverWp\Debug;
 use SilverWp\Exception;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Currency;
@@ -35,16 +36,18 @@ if ( ! defined( 'WPINC' ) ) {
 
 require_once 'vendor/autoload.php';
 add_action( 'plugins_loaded', function () {
-    if ( class_exists( 'SilverWp\SilverWp' ) ) {
+	if ( class_exists( 'SilverWp\SilverWp' ) ) {
     
         try {
-	        Translate::init(
+
+			Translate::init(
 		        'silverwp-addons',
 		        plugin_dir_url( __FILE__ ) . 'languages/'
 	        );
 			$currency = Currency::getInstance();
 	        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
 	        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
+
 
         } catch ( Exception $ex ) {
             echo $ex->catchException();
