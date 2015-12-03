@@ -1,0 +1,34 @@
+{
+  "name": "silversite/zend-db",
+  "description": " ",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "zf2",
+    "db",
+    "silversite"
+  ],
+  "homepage": "https://github.com/silversite/zend-db",
+  "autoload": {
+    "psr-4": {
+      "SilverZF2\\Db\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.5",
+    "zendframework/zend-db": "~2.6",
+    "zendframework/zend-filter": "~2.6"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1-dev",
+      "dev-develop": "0.1-dev"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SilverZF2Test\\Db\\": "test/"
+    }
+  }
+}

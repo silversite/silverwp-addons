@@ -50,12 +50,16 @@ if ( ! class_exists( '\SilverWpAddons\PostType\Currency' ) ) {
 		 */
 		protected function setUp() {
 			$this->exclude_from_search = true;
-			$this->labels = array(
+			$this->rewrite = [
+				'slug'       => Translate::translate( 'currency' ),
+				'with_front' => true,
+			];
+			$this->labels = [
 				'menu_name'      => Translate::translate( 'Currencies' ),
 				'name'           => Translate::translate( 'Currencies' ),
 				'name_admin_bar' => Translate::translate( 'Currencies' ),
 				'all_items'      => Translate::translate( 'All Currencies' )
-			);
+			];
 		}
 	}
 }

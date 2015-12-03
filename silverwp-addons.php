@@ -24,6 +24,7 @@ namespace SilverWpAddons;
  * Text Domain:       silverwp-addons
  * Domain Path:       /languages
  */
+use SilverZF2\Db\Adapter;
 use SilverWp\Debug;
 use SilverWp\Exception;
 use SilverWp\Translate;
@@ -35,22 +36,35 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 require_once 'vendor/autoload.php';
-add_action( 'plugins_loaded', function () {
-	if ( class_exists( 'SilverWp\SilverWp' ) ) {
-    
-        try {
+add_action(
+	'plugins_loaded',
+	function () {
+		if ( class_exists( 'SilverWp\SilverWp' ) ) {
+	        try {
+				Translate::init(
+			        'silverwp-addons',
+			        plugin_dir_url( __FILE__ ) . 'languages/'
+		        );
+				$currency = Currency::getInstance();
+		        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
+		        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
-			Translate::init(
-		        'silverwp-addons',
-		        plugin_dir_url( __FILE__ ) . 'languages/'
-	        );
-			$currency = Currency::getInstance();
-	        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
-	        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
+		        $config     = [
+			        'driver'   => 'Pdo_Mysql',
+			        'database' => DB_NAME,
+			        'username' => DB_USER,
+			        'password' => DB_PASSWORD,
+			        'hostname' => DB_HOST,
+			        'prefix'   => DB_PREFIX,
+			        'charset'  => DB_CHARSET
 
+		        ];
+		        new Adapter\Adapter( $config );
 
-        } catch ( Exception $ex ) {
-            echo $ex->catchException();
-        }
-    }
-} );
+	        } catch ( Exception $ex ) {
+	            echo $ex->catchException();
+	        }
+	    }
+	},
+	12
+);

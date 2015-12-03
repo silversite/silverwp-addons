@@ -20,11 +20,15 @@
     "wp"
   ],
   "require": {
-    "php": ">=5.3"
+    "php": ">=5.3",
+    "zendframework/zend-db": "^2.6",
+    "zendframework/zend-filter": "^2.5"
   },
   "autoload": {
     "psr-4": {
-      "SilverWpAddons\\": "SilverWpAddons/"
+      "SilverWpAddons\\": "SilverWpAddons/",
+	  "Currency\\": "src/",
+      "SilverZF2\\Db": "silversite/zend-db/src/"
     }
   }
 }

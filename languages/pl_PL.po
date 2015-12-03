@@ -1,1403 +1,551 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dynamitestudio\n"
-"POT-Creation-Date: 2015-05-06 12:29+0100\n"
-"PO-Revision-Date: 2015-05-06 12:30+0100\n"
+"POT-Creation-Date: 2015-12-03 15:31+0100\n"
+"PO-Revision-Date: 2015-12-03 15:31+0100\n"
 "Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
 "Language-Team: dynamitestudio\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;__params;_n;escHtmlE;"
 "escHtml;e;escAttr;escAttrE;n;params;nNoop;translate\n"
-"X-Poedit-Basepath: ./\n"
+"X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPathExcluded-0: ../vendor\n"
 
-#: ../Igniter/Ajax/PostLike.php:383
-msgid "Unlike"
-msgstr "Nie lubię"
+#: ../SilverWpAddons/MetaBox/Currency.php:53
+msgid "Country"
+msgstr "Kraj"
 
-#: ../Igniter/Ajax/PostLike.php:386
-msgid "Like"
-msgstr "Lubię"
-
-#: ../Igniter/MetaBox/Blog.php:34
-msgid "Blog sidebar"
-msgstr "Pasek widgetów bloga"
-
-#: ../Igniter/MetaBox/Blog.php:40
-msgid "Post format"
-msgstr ""
-
-#: ../Igniter/MetaBox/Blog.php:43
-msgid "Link"
-msgstr "Odnośnik"
-
-#: ../Igniter/MetaBox/Blog.php:47
-msgid "Url"
-msgstr "Odnośnik"
-
-#: ../Igniter/MetaBox/Blog.php:56
-msgid "Quote"
-msgstr "Cytat"
-
-#: ../Igniter/MetaBox/Blog.php:59
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:130
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:108
-msgid "Author"
-msgstr "Autor"
-
-#: ../Igniter/MetaBox/Blog.php:63 ../Igniter/MetaBox/Page.php:85
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:101
-#: ../Igniter/ShortCode/Vc/Counter.php:122
-#: ../Igniter/ShortCode/Vc/IconBox.php:76
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:65
-msgid "Text"
-msgstr "Tekst"
-
-#: ../Igniter/MetaBox/Blog.php:70
-#: ../Igniter/ShortCode/Vp/Menu/Element/Video.php:51
-msgid "Video"
-msgstr "Wideo"
-
-#: ../Igniter/MetaBox/Blog.php:74
-msgid "YouTube or Vimeo film URL"
-msgstr "Odnośnik filmu YouTube lub Vimeo"
-
-#: ../Igniter/MetaBox/Page.php:78
-msgid "Page header"
-msgstr "Nagłówek strony"
-
-#: ../Igniter/MetaBox/Page.php:81 ../Igniter/ShortCode/Vc/IconBox.php:72
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/Title.php:53
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:62
-#: ../Igniter/Sidebar/Widget/LatestComments.php:60
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:61
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:67
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:63
-#: ../Igniter/Sidebar/Widget/Social.php:57
-msgid "Title"
-msgstr "Tytuł"
-
-#: ../Igniter/MetaBox/Page.php:89 ../Igniter/ShortCode/Vc/Counter.php:155
-msgid "Background image"
-msgstr "Obrazek tła"
-
-#: ../Igniter/MetaBox/Page.php:97
-msgid "Texts and Short Codes"
-msgstr ""
-
-#: ../Igniter/MetaBox/Page.php:100
-msgid ""
-"The following fields allow for setting content and shortcodes above and "
-"below the container. Thanks to this elment you can use full width of the "
-"screen."
-msgstr ""
-"Poniższe pola umożliwiają wprowadzenie treści oraz kodów shortcode powyżej "
-"oraz poniżej kontenera. Dzięki czemu możliwe jest wprowadzanie elementów z "
-"wykorzystaniem pełnej szerokości ekranu."
-
-#: ../Igniter/MetaBox/Page.php:104
-msgid "Above the content"
-msgstr "Powyżej treści"
-
-#: ../Igniter/MetaBox/Page.php:108
-msgid "Below the content"
-msgstr "Poniżej treści"
-
-#: ../Igniter/MetaBox/Portfolio.php:44
-msgid "Details"
-msgstr ""
-
-#: ../Igniter/MetaBox/Portfolio.php:49
-#: ../Igniter/ShortCode/Vc/TeamMember.php:72
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/Box.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/ColourfulBar.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Icons.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/KlIcons.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/ProgressBar.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Video.php:49
-msgid "Name"
-msgstr "Nazwa"
-
-#: ../Igniter/MetaBox/Portfolio.php:53
-#: ../Igniter/ShortCode/Vc/TeamMember.php:92
-#: ../Igniter/ShortCode/Vp/Menu/Element/Box.php:51
-#: ../Igniter/Sidebar/Widget/Social.php:67
+#: ../SilverWpAddons/MetaBox/Currency.php:57
 msgid "Description"
 msgstr "Opis"
 
-#: ../Igniter/PostType/Portfolio.php:43 ../Igniter/PostType/Portfolio.php:45
-#: ../Igniter/ShortCode/Vc/Portfolio.php:58
-#: ../Igniter/Sidebar/Portfolio.php:22
-msgid "Portfolio"
-msgstr "Portfolio"
-
-#: ../Igniter/PostType/Portfolio.php:44
-msgid "Portfolio Projects"
-msgstr "Projekty portfolio"
-
-#: ../Igniter/PostType/Portfolio.php:46
-msgid "All Portfolio"
-msgstr "Wszystkie projekty"
-
-#: ../Igniter/PostType/Testimonial.php:51
-#: ../Igniter/PostType/Testimonial.php:52
-#: ../Igniter/ShortCode/Vc/Testimonial.php:51
-#: ../Igniter/ShortCode/Vp/Menu/Element/Testimonial.php:62
-msgid "Testimonial"
-msgstr "Referencje"
-
-#: ../Igniter/PostType/Testimonial.php:53
-msgid "Testimonial list"
-msgstr "Lista referencji"
-
-#: ../Igniter/PostType/Testimonial.php:54
-msgid "All Testimonial"
-msgstr "Wszystkie referencje"
-
-#: ../Igniter/ShortCode/Vc/Button.php:83
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:73
-msgid "Button"
-msgstr "Przycisk"
-
-#: ../Igniter/ShortCode/Vc/Button.php:84
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:93
-#: ../Igniter/ShortCode/Vc/Counter.php:83
-#: ../Igniter/ShortCode/Vc/IconBox.php:69
-#: ../Igniter/ShortCode/Vc/MessageBox.php:80
-#: ../Igniter/ShortCode/Vc/PieCharts.php:55
-#: ../Igniter/ShortCode/Vc/Portfolio.php:59
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:81
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:86
-#: ../Igniter/ShortCode/Vc/Separator.php:82
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:49
-#: ../Igniter/ShortCode/Vc/TeamMember.php:69
-#: ../Igniter/ShortCode/Vc/Testimonial.php:52
-msgid "Add by silversite.pl"
+#: ../SilverWpAddons/MetaBox/Currency.php:61
+msgid "Display on home?"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/Button.php:88 ../Igniter/ShortCode/Vc/Button.php:89
-#: ../Igniter/ShortCode/Vc/Button.php:90
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:102
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:103
-msgid "Text on the button"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:95
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:108
-msgid "URL (Link)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:99
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:112
-msgid "Button style"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:104
-#: ../Igniter/ShortCode/Vc/MessageBox.php:97
-msgid "Custom color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:105
-msgid "Use custom color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:106
-msgid ""
-"If you set up color hear you can not configure color for this element in "
-"theme options."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:110
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:119
-#: ../Igniter/ShortCode/Vc/PieCharts.php:87
-#: ../Igniter/ShortCode/Vc/Separator.php:85
-msgid "Color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:116
-msgid "Transparent ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:117
-msgid "Only colorful border"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:121
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:124
-#: ../Igniter/ShortCode/Vc/PieCharts.php:79
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:67
-msgid "Size"
-msgstr "Rozmiar"
-
-#: ../Igniter/ShortCode/Vc/Button.php:127
-#: ../Igniter/ShortCode/Vc/PieCharts.php:93
-msgid "Add icon ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:128
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:139
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:154
-#: ../Igniter/ShortCode/Vc/Counter.php:133
-#: ../Igniter/ShortCode/Vc/Counter.php:145
-#: ../Igniter/ShortCode/Vc/PieCharts.php:94
-msgid "Yes please"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:132
-#: ../Igniter/ShortCode/Vc/IconBox.php:80
-#: ../Igniter/ShortCode/Vc/MessageBox.php:103
-#: ../Igniter/ShortCode/Vc/PieCharts.php:98
-#: ../Igniter/ShortCode/Vp/Menu/Element/Gwf.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Icons.php:55
-#: ../Igniter/ShortCode/Vp/Menu/Element/Social.php:51
-msgid "Icon"
-msgstr "Ikona"
-
-#: ../Igniter/ShortCode/Vc/Button.php:137
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:71
-msgid "Icon position"
-msgstr "Pozycja ikony"
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:92
-msgid "Call to action button"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:97
-msgid "Promotional text"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:115
-msgid "Text align in call to action block."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:120
-msgid "Button color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:127
-msgid "Button size."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:131
-msgid "Button position"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:134
-msgid "Select button alignment."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:138
-#: ../Igniter/ShortCode/Vc/Counter.php:132
-msgid "Border ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:140
-msgid "Button border. If enabled You have to define border color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:141
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:148
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:156
-msgid "Border"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:145
-#: ../Igniter/ShortCode/Vc/Counter.php:138
-msgid "Border color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:147
-#: ../Igniter/ShortCode/Vc/Counter.php:140
-msgid "Choice border color from colors list."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:153
-#: ../Igniter/ShortCode/Vc/Counter.php:144
-msgid "Rounded ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:155
-msgid "Button border style rounded"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:82
-msgid "Counter"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:89
-msgid "Label before value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:90
-msgid "Label before counter value."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:95
-msgid "Counter value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:96
-msgid "Counter value."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:101
-msgid "Label after value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:102
-msgid "Label after counter value."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:107
-msgid "Label font size"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:114
-msgid "Label font weight"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:118
-msgid "Not for every fonts all weights is available."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:123
-msgid "Text below label."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:127
-msgid "Label color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:128
-msgid "Text label color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:134
-msgid "Counter border. If enabled You have to define border color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:146
-msgid "Counter box rounded"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:150
-msgid "Background color"
-msgstr ""
+#: ../SilverWpAddons/PostType/Currency.php:54
+msgid "currency"
+msgstr "waluta"
 
-#: ../Igniter/ShortCode/Vc/Counter.php:151
-msgid "Choice background color from colors list."
+#: ../SilverWpAddons/PostType/Currency.php:58
+#: ../SilverWpAddons/PostType/Currency.php:59
+#: ../SilverWpAddons/PostType/Currency.php:60
+msgid "Currencies"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/Counter.php:156
-msgid "Background image from media library or from Your hard drive."
+#: ../SilverWpAddons/PostType/Currency.php:61
+msgid "All Currencies"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/IconBox.php:68
-msgid "Icon box"
+#: ../SilverWpAddons/Taxonomy/Currency.php:63
+#: ../SilverWpAddons/Taxonomy/Currency.php:65
+msgid "Continents"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/MessageBox.php:79
-msgid "Message box"
+#: ../SilverWpAddons/Taxonomy/Currency.php:64
+msgid "Continent"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/MessageBox.php:90
-msgid "Message box type"
+#: ../SilverWpAddons/Taxonomy/Currency.php:66
+msgid "All Continents"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/MessageBox.php:91
-msgid "Select message type."
+#: ../SilverWpAddons/Taxonomy/Currency.php:67
+msgid "Separate Continents with commas"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/MessageBox.php:98
-msgid "Custom message background color."
+#: ../SilverWpAddons/Taxonomy/Currency.php:68
+msgid "Choose from the most often used Continents"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/MessageBox.php:104
-#: ../Igniter/ShortCode/Vc/PieCharts.php:99
-msgid "Select icon."
+#: ../SilverWpAddons/Taxonomy/Currency.php:69
+msgid "Add new Continent"
 msgstr ""
 
-#: ../Igniter/ShortCode/Vc/MessageBox.php:111
-msgid "<p>I am message box. Click edit button to change this text.</p>"
-msgstr ""
+#~ msgid "Unlike"
+#~ msgstr "Nie lubię"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:54
-msgid "Pie chart"
-msgstr ""
+#~ msgid "Like"
+#~ msgstr "Lubię"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:59
-msgid "Pie value"
-msgstr ""
+#~ msgid "Blog sidebar"
+#~ msgstr "Pasek widgetów bloga"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:64
-msgid "Input graph value here. Choose range between 0 and 100."
-msgstr ""
+#~ msgid "Link"
+#~ msgstr "Odnośnik"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:69
-msgid "Pie label value"
-msgstr ""
+#~ msgid "Url"
+#~ msgstr "Odnośnik"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:70
-msgid "Input integer value for label. If empty \"Pie value\" will be used."
-msgstr ""
+#~ msgid "Quote"
+#~ msgstr "Cytat"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:74
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:91
-msgid "Units"
-msgstr ""
+#~ msgid "Author"
+#~ msgstr "Autor"
 
-#: ../Igniter/ShortCode/Vc/PieCharts.php:75
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:92
-msgid ""
-"Enter measurement units (if needed) Eg. %, px, points, etc. Graph value and "
-"unit will be appended to the graph title."
-msgstr ""
+#~ msgid "Text"
+#~ msgstr "Tekst"
 
-#: ../Igniter/ShortCode/Vc/Portfolio.php:66
-msgid "Project Count"
-msgstr ""
+#~ msgid "Video"
+#~ msgstr "Wideo"
 
-#: ../Igniter/ShortCode/Vc/Portfolio.php:74
-msgid "Enable filters?"
-msgstr ""
+#~ msgid "YouTube or Vimeo film URL"
+#~ msgstr "Odnośnik filmu YouTube lub Vimeo"
 
-#: ../Igniter/ShortCode/Vc/Portfolio.php:75 ../Igniter/ShortCode/Vc/Row.php:61
-msgid "Yes"
-msgstr "Tak"
+#~ msgid "Page header"
+#~ msgstr "Nagłówek strony"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:80
-msgid "Progress Bar"
-msgstr ""
+#~ msgid "Title"
+#~ msgstr "Tytuł"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:85
-msgid "Graphic values"
-msgstr ""
+#~ msgid "Background image"
+#~ msgstr "Obrazek tła"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:86
-msgid ""
-"Input graph values, titles and color here. Divide values with linebreaks "
-"(Enter). Example: 90|Development|#e75956"
-msgstr ""
+#~ msgid ""
+#~ "The following fields allow for setting content and shortcodes above and "
+#~ "below the container. Thanks to this elment you can use full width of the "
+#~ "screen."
+#~ msgstr ""
+#~ "Poniższe pola umożliwiają wprowadzenie treści oraz kodów shortcode "
+#~ "powyżej oraz poniżej kontenera. Dzięki czemu możliwe jest wprowadzanie "
+#~ "elementów z wykorzystaniem pełnej szerokości ekranu."
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:96
-msgid "Bar color"
-msgstr ""
+#~ msgid "Above the content"
+#~ msgstr "Powyżej treści"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:97
-msgid "Select bar background color."
-msgstr ""
+#~ msgid "Below the content"
+#~ msgstr "Poniżej treści"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:102
-msgid "Options"
-msgstr ""
+#~ msgid "Name"
+#~ msgstr "Nazwa"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:105
-msgid "Add Stripes?"
-msgstr ""
+#~ msgid "Portfolio"
+#~ msgstr "Portfolio"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:106
-msgid "Add animation? Will be visible with striped bars."
-msgstr ""
+#~ msgid "Portfolio Projects"
+#~ msgstr "Projekty portfolio"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:113
-msgid "Label position"
-msgstr ""
+#~ msgid "All Portfolio"
+#~ msgstr "Wszystkie projekty"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:116
-msgid "Inside the progress bar"
-msgstr ""
+#~ msgid "Testimonial"
+#~ msgstr "Referencje"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:117
-msgid "Above the progress bar"
-msgstr ""
+#~ msgid "Testimonial list"
+#~ msgstr "Lista referencji"
 
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:123
-msgid "Rounded style"
-msgstr ""
+#~ msgid "All Testimonial"
+#~ msgstr "Wszystkie referencje"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:85
-msgid "Recent blog posts grid"
-msgstr ""
+#~ msgid "Button"
+#~ msgstr "Przycisk"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:91
-msgid "Post count"
-msgstr ""
+#~ msgid "Size"
+#~ msgstr "Rozmiar"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:99
-msgid "Column count"
-msgstr ""
+#~ msgid "Icon"
+#~ msgstr "Ikona"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:104
-msgid "Thumbnail size"
-msgstr ""
+#~ msgid "Icon position"
+#~ msgstr "Pozycja ikony"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:108
-msgid ""
-"Enter thumbnail size. Example: thumbnail, medium, large, full or other sizes "
-"defined by current\n"
-"                    theme. Alternatively enter image size in pixels: 200x100 "
-"(Width x Height) ."
-msgstr ""
+#~ msgid "Yes"
+#~ msgstr "Tak"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:115
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:73
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:66
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:89
-msgid "Layout"
-msgstr "Szablon"
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:118
-msgid "Mini"
-msgstr ""
+#~ msgid "Layout"
+#~ msgstr "Szablon"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:119
-msgid "Standard"
-msgstr ""
+#~ msgid "General"
+#~ msgstr "Ogólne"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:126
-msgid "Line 2 (below title)"
-msgstr ""
+#~ msgid "Image"
+#~ msgstr "Zdjęcie"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:129
-msgid "Category names"
-msgstr ""
+#~ msgid "%s URL"
+#~ msgstr "%s URL"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:131
-msgid "Publish date"
-msgstr ""
+#~ msgid "Author name"
+#~ msgstr "Autor"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:132
-msgid "Comments number"
-msgstr ""
+#~ msgid "Accordion"
+#~ msgstr "Akordeon"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:140
-msgid "Line 3"
-msgstr ""
+#~ msgid "Open"
+#~ msgstr "Otwarty"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:147
-msgid "Show date ?"
-msgstr ""
+#~ msgid "Href"
+#~ msgstr "Href (odnośnik wiążący)"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:148
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:154
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:160
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:166
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:172
-msgid "Yes, please"
-msgstr ""
+#~ msgid "Accordion content item"
+#~ msgstr "Accordion content item (zawartość)"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:153
-msgid "Show category ?"
-msgstr ""
+#~ msgid "Box title"
+#~ msgstr "Tytuł boksu"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:159
-msgid "Show comments number ?"
-msgstr ""
+#~ msgid "Icon (under title)"
+#~ msgstr "Ikona poniżej tytułu"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:165
-msgid "Show author ?"
-msgstr ""
+#~ msgid "Background colour"
+#~ msgstr "Kolor tła"
 
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:171
-msgid "Show read more link ?"
-msgstr ""
+#~ msgid "Number of posts"
+#~ msgstr "Liczba wpisów"
 
-#: ../Igniter/ShortCode/Vc/Row.php:60
-msgid "Full-width content"
-msgstr ""
+#~ msgid "Normal"
+#~ msgstr "Normalny"
 
-#: ../Igniter/ShortCode/Vc/Row.php:63
-msgid "General"
-msgstr "Ogólne"
+#~ msgid "Strong"
+#~ msgstr "Pogrubiony"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:76
-msgid "Separator"
-msgstr ""
+#~ msgid "URL"
+#~ msgstr "Adres URL"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:77
-msgid "Horizontal separator line with heading."
-msgstr ""
+#~ msgid "Rounding"
+#~ msgstr "Zaokrąglenie"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:86
-msgid "Separator color."
-msgstr ""
+#~ msgid "Colour (background)"
+#~ msgstr "Kolor tła"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:90
-msgid "Separator style"
-msgstr ""
+#~ msgid "Icon after text"
+#~ msgstr "Ikona za tekstem"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:93
-msgid "Separator style."
-msgstr ""
+#~ msgid "Icon before text"
+#~ msgstr "Ikona przed tekstem"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:97
-msgid "Element width"
-msgstr ""
+#~ msgid "Box description"
+#~ msgstr "Opis boksu"
 
-#: ../Igniter/ShortCode/Vc/Separator.php:100
-msgid "Separator element width in percents."
-msgstr ""
+#~ msgid "Number of clients"
+#~ msgstr "Liczba klientów"
 
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:48
-#: ../Igniter/ShortCode/Vc/TeamMember.php:87
-#: ../Igniter/Sidebar/Widget/Social.php:46
-#: ../Igniter/Sidebar/Widget/Social.php:63
-msgid "Social accounts"
-msgstr ""
+#~ msgid "Clients"
+#~ msgstr "Klienci"
 
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:50
-msgid "Social account URLs are configured in Theme Options."
-msgstr ""
+#~ msgid "Colourful Bar"
+#~ msgstr "Kolorowy pas"
 
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:57
-msgid ""
-"Social accounts URLs are configured in <a href=\"themes.php?page=silverwp-"
-"theme_options#_social\" target=\"_blank\">Theme Options</a>"
-msgstr ""
+#~ msgid "Main"
+#~ msgstr "Kolumna"
 
-#: ../Igniter/ShortCode/Vc/TeamMember.php:68
-msgid "Team member"
-msgstr ""
+#~ msgid "Offset"
+#~ msgstr "Offset (odstęp)"
 
-#: ../Igniter/ShortCode/Vc/TeamMember.php:76
-msgid "Image"
-msgstr "Zdjęcie"
+#~ msgid "Column"
+#~ msgstr "Column (kolumny)"
 
-#: ../Igniter/ShortCode/Vc/TeamMember.php:80
-msgid "Workplace"
-msgstr ""
+#~ msgid "Company Advantage"
+#~ msgstr "Zalety firmy"
 
-#: ../Igniter/ShortCode/Vc/TeamMember.php:86
-#, php-format
-msgid "%s URL"
-msgstr "%s URL"
+#~ msgid "simple"
+#~ msgstr "prosty"
 
-#: ../Igniter/ShortCode/Vc/Testimonial.php:55
-msgid "Quotation"
-msgstr ""
+#~ msgid "grid"
+#~ msgstr "siatka (grid)"
 
-#: ../Igniter/ShortCode/Vc/Testimonial.php:60
-msgid "Author name"
-msgstr "Autor"
+#~ msgid "Type"
+#~ msgstr "Typ"
 
-#: ../Igniter/ShortCode/Vc/Testimonial.php:65
-msgid "Author description"
-msgstr ""
+#~ msgid "Company Stats"
+#~ msgstr "Statystyki firmy"
 
-#: ../Igniter/ShortCode/Vc/Testimonial.php:66
-msgid "Company name or workplace."
-msgstr ""
+#~ msgid "Colour"
+#~ msgstr "Kolor"
 
-#: ../Igniter/ShortCode/Vp/Main.php:50 ../Igniter/ShortCode/Vp/Main.php:55
-msgid "Short Codes"
-msgstr ""
+#~ msgid "Features"
+#~ msgstr "Cechy"
 
-#: ../Igniter/ShortCode/Vp/Menu/Accordion.php:48
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accordion.php:49
-msgid "Accordion"
-msgstr "Akordeon"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:51
-msgid "Open"
-msgstr "Otwarty"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:51
-msgid "Href"
-msgstr "Href (odnośnik wiążący)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:54
-msgid "Accordion content item"
-msgstr "Accordion content item (zawartość)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:49
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:65
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/PieCharts.php:51
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:61
-#: ../Igniter/ShortCode/Vp/Menu/Element/PricePlan.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:60
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Timeline.php:50
-msgid "Box title"
-msgstr "Tytuł boksu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:55
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:67
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:54
-msgid "Icon (under title)"
-msgstr "Ikona poniżej tytułu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:55
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:56
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:68
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:55
-msgid "Background colour"
-msgstr "Kolor tła"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:58
-msgid "Number of posts"
-msgstr "Liczba wpisów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:66
-msgid "Blog - latest posts"
-msgstr ""
+#~ msgid "Map type"
+#~ msgstr "Rodzaj mapy"
 
-#: ../Igniter/ShortCode/Vp/Menu/Element/Box.php:54
-msgid "Box"
-msgstr ""
+#~ msgid "Point coordinates latitude"
+#~ msgstr "Szerokość geograficzna (latitude)"
 
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:53
-msgid "Normal"
-msgstr "Normalny"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:57
-msgid "Strong"
-msgstr "Pogrubiony"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:66
-#: ../Igniter/ShortCode/Vp/Menu/Element/Social.php:52
-msgid "URL"
-msgstr "Adres URL"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:68
-msgid "Rounding"
-msgstr "Zaokrąglenie"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:69
-msgid "Colour (background)"
-msgstr "Kolor tła"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:70
-msgid "Icon after text"
-msgstr "Ikona za tekstem"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:71
-msgid "Icon before text"
-msgstr "Ikona przed tekstem"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:66
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/PieCharts.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:62
-#: ../Igniter/ShortCode/Vp/Menu/Element/PricePlan.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:61
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Timeline.php:51
-msgid "Box description"
-msgstr "Opis boksu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:53
-msgid "Number of clients"
-msgstr "Liczba klientów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:61
-msgid "Clients"
-msgstr "Klienci"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/ColourfulBar.php:54
-msgid "Colourful Bar"
-msgstr "Kolorowy pas"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Column.php:51
-msgid "Main"
-msgstr "Kolumna"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Column.php:61
-msgid "Offset"
-msgstr "Offset (odstęp)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Column.php:70
-msgid "Column"
-msgstr "Column (kolumny)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:58
-msgid "Company Advantage"
-msgstr "Zalety firmy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:56
-msgid "simple"
-msgstr "prosty"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:60
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:53
-msgid "grid"
-msgstr "siatka (grid)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:69
-msgid "Type"
-msgstr "Typ"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:71
-msgid "Company Stats"
-msgstr "Statystyki firmy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Dropcaps.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Gwf.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/Highlight.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Icons.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/KlIcons.php:53
-msgid "Colour"
-msgstr "Kolor"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Dropcaps.php:55
-msgid "Dropcap"
-msgstr ""
+#~ msgid ""
+#~ "You can define coordinates using this <a href=\"http://universimmedia."
+#~ "pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">tool</a>."
+#~ msgstr ""
+#~ "Możesz odczytać położenie geograficzne dzięki temu <a href=\"http://"
+#~ "universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank"
+#~ "\">narzędziu</a>."
 
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:57
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:67
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:91
-msgid "Features"
-msgstr "Cechy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:55
-msgid "Map type"
-msgstr "Rodzaj mapy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:60
-msgid "Point coordinates latitude"
-msgstr "Szerokość geograficzna (latitude)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:62
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:68
-msgid ""
-"You can define coordinates using this <a href=\"http://universimmedia."
-"pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">tool</a>."
-msgstr ""
-"Możesz odczytać położenie geograficzne dzięki temu <a href=\"http://"
-"universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank"
-"\">narzędziu</a>."
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:66
-msgid "Point coordinates longitude"
-msgstr "Długość geograficzna (longitude)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:72
-msgid "Zoom"
-msgstr "Powiększenie"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:81
-msgid "Google Map"
-msgstr ""
+#~ msgid "Point coordinates longitude"
+#~ msgstr "Długość geograficzna (longitude)"
 
-#: ../Igniter/ShortCode/Vp/Menu/Element/Highlight.php:55
-msgid "Highlight"
-msgstr ""
+#~ msgid "Zoom"
+#~ msgstr "Powiększenie"
 
-#: ../Igniter/ShortCode/Vp/Menu/Element/KlIcons.php:55
 #, fuzzy
-msgid "KlIcons"
-msgstr "Icons (ikony)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/PieCharts.php:54
-msgid "Pie Charts"
-msgstr "Wykresy kołowe"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:57
-msgid "carousel"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:65
-msgid "Number of projects"
-msgstr "Liczba projektów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:75
-msgid "Portfolio - latest projects"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Presentation.php:51
-msgid "Presentation"
-msgstr "Prezentacja"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/PricePlan.php:55
-msgid "Price Plan"
-msgstr "Cennik"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/ProgressBar.php:53
-msgid "Percent value"
-msgstr "Procent"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/ProgressBar.php:61
-msgid "Progressbar"
-msgstr "Pasek postępu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Row.php:46
-msgid "Row"
-msgstr "Row (wiersz)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:50
-msgid "Top"
-msgstr "Góra"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:54
-msgid "Left"
-msgstr "Lewa strona"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:64
-msgid "Maximum item in row"
-msgstr "Maksymalna ilość elementów w wierszu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:72
-msgid "Icon border"
-msgstr "Obramowanie ikony"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:74
-msgid "Services"
-msgstr "Usługi"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Social.php:54
-msgid "Social button (icon)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContent.php:48
-msgid "Tab content"
-msgstr "Tab content (zawartość zakładek)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContentItem.php:49
-msgid "Id"
-msgstr "Identyfikator"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContentItem.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:50
-msgid "Active"
-msgstr "Aktywny"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContentItem.php:52
-msgid "Tab content item"
-msgstr "Tab content item (zawartość danej zakładki)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNav.php:46
-msgid "Tab nav"
-msgstr "Tab nav (nawigacja zakładek)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:54
-msgid "Tab nav item"
-msgstr "Tab nav item (odnośnik nawigacji)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:56
-msgid "Number of person"
-msgstr "Liczba osób"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:69
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:101
-msgid "Grid with images only"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:73
-msgid "List with description of members"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:79
-msgid "Team"
-msgstr "Zespół (Team)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Testimonial.php:54
-msgid "Number of quots"
-msgstr "Liczba cytatów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Timeline.php:53
-msgid "Timeline"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Title.php:50
-msgid "Text of title"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Title.php:51
-msgid "Style"
-msgstr "Styl"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleLarge.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:51
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:51
-msgid "Title text"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleLarge.php:53
-msgid "Below description"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleLarge.php:55
-msgid "Large title (H2)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:52
-msgid "Align"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:58
-msgid "center"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:58
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:54
-msgid "left"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:63
-msgid "Medium title (H3)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:63
-msgid "Small title (H4)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Elements.php:48
-msgid "Elements"
-msgstr "Elementy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Grid.php:48
-msgid "Grid"
-msgstr "Grid"
-
-#: ../Igniter/ShortCode/Vp/Menu/PostTypes.php:50
-msgid "Post Types"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Tabs.php:48
-msgid "Tabs"
-msgstr "Zakładki"
-
-#: ../Igniter/ShortCode/Vp/Menu/Titles.php:48
-msgid "Titles"
-msgstr ""
-
-#: ../Igniter/Sidebar/Blog.php:22
-msgid "Blog"
-msgstr "Blog"
-
-#: ../Igniter/Sidebar/Blog.php:28
-msgid "Place for right site in Blog view"
-msgstr "Umiejscowiony w bocznej części Bloga"
-
-#: ../Igniter/Sidebar/Contact.php:22
-msgid "Contact Page"
-msgstr "Zakładka kontakt"
-
-#: ../Igniter/Sidebar/Contact.php:28
-msgid "Place for right site in Contact Page view"
-msgstr "Umiejscowiony w bocznej części zakładki Kontakt"
-
-#: ../Igniter/Sidebar/Footer.php:23
-msgid "Footer"
-msgstr "Stopka strony"
-
-#: ../Igniter/Sidebar/Page.php:48
-msgid "Pages"
-msgstr "Zakładki"
-
-#: ../Igniter/Sidebar/Page.php:53
-msgid "Sidebar area for Widgets for Pages templates"
-msgstr "Sidebar dla widgetów dla szablonu zakładek"
-
-#: ../Igniter/Sidebar/Portfolio.php:28
-msgid "Place for right site in Portfolio view"
-msgstr "Umiejscowiony w bocznej części widoku Portfolio"
-
-#: ../Igniter/Sidebar/Primary.php:22
-msgid "Primary"
-msgstr "Podstawowy"
-
-#: ../Igniter/Sidebar/Primary.php:28
-msgid "Place for right site in Page view"
-msgstr "Umiejscowiony w bocznej części stron"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:50
-msgid "Company Info"
-msgstr "Dane firmy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:53
-msgid "Company information contact details."
-msgstr "Dane kontaktowe (teleadresowe) firmy."
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:115
-msgid "Show Company Name"
-msgstr "Pokaż nazwę firmy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:124
-msgid "Show Company Street"
-msgstr "Pokaż adres (ulica)"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:132
-msgid "Show Postcode"
-msgstr "Pokaż kod pocztowy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:140
-msgid "Show City"
-msgstr "Pokaż miasto"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:148
-msgid "Show State / Region"
-msgstr "Pokaż stan / region / województwo"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:156
-msgid "Show Country"
-msgstr "Pokaż kraj"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:172
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:180
-#, php-format
-msgid "Show Phone number %s"
-msgstr "Pokaż numer telefonu %s"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:188
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:196
-#, php-format
-msgid "Show Mobile phone number %s"
-msgstr "Pokaż numer telefonu komórkowego %s"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:204
-msgid "Show Fax number"
-msgstr "Pokaż numer faksu"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:212
-msgid "Show Email address"
-msgstr "Pokaż adres email"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:220
-msgid "Show Business hours"
-msgstr "Pokaż godziny otwarcia"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:242
-msgid "Company Information"
-msgstr "Dane firmy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:263
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:264
-msgid "Phone"
-msgstr "Telefon"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:265
-msgid "Email"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:266
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:267
-msgid "Mobile"
-msgstr "Telefon kom."
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:268
-msgid "Fax"
-msgstr "Faks"
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:47
-msgid "Latest comments"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:49
-msgid "widget description."
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:66
-#: ../Igniter/Sidebar/Widget/LatestComments.php:83
-msgid "Latest comments with excerpts"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:69
-msgid "Number of comments to show"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:51
-msgid "Portfolio Project Details"
-msgstr "Szczegóły Projektów Portfolio"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:54
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:53
-msgid "Enabled only on single Project view with sidebar."
-msgstr ""
-"Widoczne jedynie w widoku szczegółowym danego projektu z panelem bocznym."
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:72
-msgid "Project Details"
-msgstr "Szczegóły projektu"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:105
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:107
-msgid "Date"
-msgstr "Data"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:109
-msgid "Category"
-msgstr "Kategoria"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:110
-msgid "Tags"
-msgstr "Tagi"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:111
-msgid "Client"
-msgstr "Klient"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:112
-msgid "Website"
-msgstr "Strona internetowa"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:50
-msgid "Portfolio Project Features"
-msgstr "Cechy Projektów Portfolio"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:54
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:133
-msgid "Recent Posts with Image"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:56
-msgid "Blog posts with images from selected categories."
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:73
-msgid "Recent Posts With Image"
-msgstr "Ostatnie wpisy z obrazkami"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:76
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:72
-msgid "Number of posts to show"
-msgstr "Liczba wpisów"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:85
-msgid "Display post date"
-msgstr "Pokaż datę publikacji"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:93
-msgid "Display post author"
-msgstr "Pokaż autora"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:101
-msgid "Display post category"
-msgstr "Pokaż kategorię"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:109
-msgid "Display post image"
-msgstr "Pokaż obrazek"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:117
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:81
-msgid "Categories"
-msgstr "Kategorie"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:164
-msgid "Permanent link to "
-msgstr "Bezpośredni odnośnik do"
+#~ msgid "KlIcons"
+#~ msgstr "Icons (ikony)"
+
+#~ msgid "Pie Charts"
+#~ msgstr "Wykresy kołowe"
+
+#~ msgid "Number of projects"
+#~ msgstr "Liczba projektów"
+
+#~ msgid "Presentation"
+#~ msgstr "Prezentacja"
+
+#~ msgid "Price Plan"
+#~ msgstr "Cennik"
+
+#~ msgid "Percent value"
+#~ msgstr "Procent"
+
+#~ msgid "Progressbar"
+#~ msgstr "Pasek postępu"
+
+#~ msgid "Row"
+#~ msgstr "Row (wiersz)"
+
+#~ msgid "Top"
+#~ msgstr "Góra"
+
+#~ msgid "Left"
+#~ msgstr "Lewa strona"
+
+#~ msgid "Maximum item in row"
+#~ msgstr "Maksymalna ilość elementów w wierszu"
+
+#~ msgid "Icon border"
+#~ msgstr "Obramowanie ikony"
+
+#~ msgid "Services"
+#~ msgstr "Usługi"
+
+#~ msgid "Tab content"
+#~ msgstr "Tab content (zawartość zakładek)"
+
+#~ msgid "Id"
+#~ msgstr "Identyfikator"
+
+#~ msgid "Active"
+#~ msgstr "Aktywny"
+
+#~ msgid "Tab content item"
+#~ msgstr "Tab content item (zawartość danej zakładki)"
+
+#~ msgid "Tab nav"
+#~ msgstr "Tab nav (nawigacja zakładek)"
+
+#~ msgid "Tab nav item"
+#~ msgstr "Tab nav item (odnośnik nawigacji)"
+
+#~ msgid "Number of person"
+#~ msgstr "Liczba osób"
+
+#~ msgid "Team"
+#~ msgstr "Zespół (Team)"
+
+#~ msgid "Number of quots"
+#~ msgstr "Liczba cytatów"
+
+#~ msgid "Style"
+#~ msgstr "Styl"
+
+#~ msgid "Elements"
+#~ msgstr "Elementy"
+
+#~ msgid "Grid"
+#~ msgstr "Grid"
+
+#~ msgid "Tabs"
+#~ msgstr "Zakładki"
+
+#~ msgid "Blog"
+#~ msgstr "Blog"
+
+#~ msgid "Place for right site in Blog view"
+#~ msgstr "Umiejscowiony w bocznej części Bloga"
+
+#~ msgid "Contact Page"
+#~ msgstr "Zakładka kontakt"
+
+#~ msgid "Place for right site in Contact Page view"
+#~ msgstr "Umiejscowiony w bocznej części zakładki Kontakt"
+
+#~ msgid "Footer"
+#~ msgstr "Stopka strony"
+
+#~ msgid "Pages"
+#~ msgstr "Zakładki"
+
+#~ msgid "Sidebar area for Widgets for Pages templates"
+#~ msgstr "Sidebar dla widgetów dla szablonu zakładek"
+
+#~ msgid "Place for right site in Portfolio view"
+#~ msgstr "Umiejscowiony w bocznej części widoku Portfolio"
+
+#~ msgid "Primary"
+#~ msgstr "Podstawowy"
+
+#~ msgid "Place for right site in Page view"
+#~ msgstr "Umiejscowiony w bocznej części stron"
+
+#~ msgid "Company Info"
+#~ msgstr "Dane firmy"
+
+#~ msgid "Company information contact details."
+#~ msgstr "Dane kontaktowe (teleadresowe) firmy."
+
+#~ msgid "Show Company Name"
+#~ msgstr "Pokaż nazwę firmy"
+
+#~ msgid "Show Company Street"
+#~ msgstr "Pokaż adres (ulica)"
+
+#~ msgid "Show Postcode"
+#~ msgstr "Pokaż kod pocztowy"
+
+#~ msgid "Show City"
+#~ msgstr "Pokaż miasto"
+
+#~ msgid "Show State / Region"
+#~ msgstr "Pokaż stan / region / województwo"
+
+#~ msgid "Show Country"
+#~ msgstr "Pokaż kraj"
+
+#~ msgid "Show Phone number %s"
+#~ msgstr "Pokaż numer telefonu %s"
+
+#~ msgid "Show Mobile phone number %s"
+#~ msgstr "Pokaż numer telefonu komórkowego %s"
+
+#~ msgid "Show Fax number"
+#~ msgstr "Pokaż numer faksu"
+
+#~ msgid "Show Email address"
+#~ msgstr "Pokaż adres email"
+
+#~ msgid "Show Business hours"
+#~ msgstr "Pokaż godziny otwarcia"
+
+#~ msgid "Company Information"
+#~ msgstr "Dane firmy"
+
+#~ msgid "Phone"
+#~ msgstr "Telefon"
+
+#~ msgid "Mobile"
+#~ msgstr "Telefon kom."
+
+#~ msgid "Fax"
+#~ msgstr "Faks"
+
+#~ msgid "Portfolio Project Details"
+#~ msgstr "Szczegóły Projektów Portfolio"
+
+#~ msgid "Enabled only on single Project view with sidebar."
+#~ msgstr ""
+#~ "Widoczne jedynie w widoku szczegółowym danego projektu z panelem bocznym."
+
+#~ msgid "Project Details"
+#~ msgstr "Szczegóły projektu"
+
+#~ msgid "Date"
+#~ msgstr "Data"
+
+#~ msgid "Category"
+#~ msgstr "Kategoria"
+
+#~ msgid "Tags"
+#~ msgstr "Tagi"
+
+#~ msgid "Client"
+#~ msgstr "Klient"
+
+#~ msgid "Website"
+#~ msgstr "Strona internetowa"
+
+#~ msgid "Portfolio Project Features"
+#~ msgstr "Cechy Projektów Portfolio"
+
+#~ msgid "Recent Posts With Image"
+#~ msgstr "Ostatnie wpisy z obrazkami"
+
+#~ msgid "Number of posts to show"
+#~ msgstr "Liczba wpisów"
+
+#~ msgid "Display post date"
+#~ msgstr "Pokaż datę publikacji"
+
+#~ msgid "Display post author"
+#~ msgstr "Pokaż autora"
+
+#~ msgid "Display post category"
+#~ msgstr "Pokaż kategorię"
+
+#~ msgid "Display post image"
+#~ msgstr "Pokaż obrazek"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorie"
+
+#~ msgid "Permanent link to "
+#~ msgstr "Bezpośredni odnośnik do"
 
 # Date in Category
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:237
-#, php-format
-msgid "in %s "
-msgstr "w %s "
+#~ msgid "in %s "
+#~ msgstr "w %s "
 
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:52
-msgid "Recent Projects"
-msgstr ""
+#~ msgid "Social"
+#~ msgstr "Społeczność"
 
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:69
-msgid "Recent Portfolio Project"
-msgstr ""
+#~ msgid "Portfolio categories"
+#~ msgstr "Kategorie portfolio"
 
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:97
-msgid "List with names of Projects"
-msgstr ""
+#~ msgid "Portfolio category"
+#~ msgstr "Kategoria portfolio"
 
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:123
-msgid "Recent portfolio projects"
-msgstr ""
+#~ msgid "All Portfolio categories"
+#~ msgstr "Wszystkie kategorie portfolio"
 
-#: ../Igniter/Sidebar/Widget/Social.php:49
-msgid ""
-"Social icons with link to social accounts. Configuration social accounts is "
-"available in Theme Options - social bookmark."
-msgstr ""
+#~ msgid "Parent Portfolio category"
+#~ msgstr "Rodzic kategorii portfolio"
 
-#: ../Igniter/Sidebar/Widget/Social.php:94
-msgid "Social"
-msgstr "Społeczność"
+#~ msgid "Update Portfolio category"
+#~ msgstr "Aktualizuj kategorię portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:46 ../Igniter/Taxonomy/Portfolio.php:48
-msgid "Portfolio categories"
-msgstr "Kategorie portfolio"
+#~ msgid "Separate Portfolio categories with commas"
+#~ msgstr "Kolejne kategorie portfolio rozdziel przecinkami"
 
-#: ../Igniter/Taxonomy/Portfolio.php:47
-msgid "Portfolio category"
-msgstr "Kategoria portfolio"
+#~ msgid "Choose from the most often used Portfolio categories"
+#~ msgstr "Wybierz spośród najczęściej stosowanych kategorii portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:49
-msgid "All Portfolio categories"
-msgstr "Wszystkie kategorie portfolio"
+#~ msgid "Portfolio tags"
+#~ msgstr "Tagi portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:50 ../Igniter/Taxonomy/Portfolio.php:51
-msgid "Parent Portfolio category"
-msgstr "Rodzic kategorii portfolio"
+#~ msgid "Portfolio tag"
+#~ msgstr "Tag portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:52
-msgid "Update Portfolio category"
-msgstr "Aktualizuj kategorię portfolio"
+#~ msgid "All Portfolio tags"
+#~ msgstr "Wszystkie tagi portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:53
-msgid "Separate Portfolio categories with commas"
-msgstr "Kolejne kategorie portfolio rozdziel przecinkami"
+#~ msgid "Parent Portfolio tag"
+#~ msgstr "Rodzic tagów portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:54
-msgid "Choose from the most often used Portfolio categories"
-msgstr "Wybierz spośród najczęściej stosowanych kategorii portfolio"
+#~ msgid "Update Portfolio tag"
+#~ msgstr "Aktualizuj tag portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:58 ../Igniter/Taxonomy/Portfolio.php:60
-msgid "Portfolio tags"
-msgstr "Tagi portfolio"
+#~ msgid "Separate Portfolio tags with commas"
+#~ msgstr "Kolejne tagi portfolio rozdziel przecinkami"
 
-#: ../Igniter/Taxonomy/Portfolio.php:59
-msgid "Portfolio tag"
-msgstr "Tag portfolio"
+#~ msgid "Choose from the most often used Portfolio tags"
+#~ msgstr "Wybierz spośród najczęściej stosowanych tagów portfolio"
 
-#: ../Igniter/Taxonomy/Portfolio.php:61
-msgid "All Portfolio tags"
-msgstr "Wszystkie tagi portfolio"
+#~ msgid "Team proffesions"
+#~ msgstr "Zawody (profesje)"
 
-#: ../Igniter/Taxonomy/Portfolio.php:62 ../Igniter/Taxonomy/Portfolio.php:63
-msgid "Parent Portfolio tag"
-msgstr "Rodzic tagów portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:64
-msgid "Update Portfolio tag"
-msgstr "Aktualizuj tag portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:65
-msgid "Separate Portfolio tags with commas"
-msgstr "Kolejne tagi portfolio rozdziel przecinkami"
-
-#: ../Igniter/Taxonomy/Portfolio.php:66
-msgid "Choose from the most often used Portfolio tags"
-msgstr "Wybierz spośród najczęściej stosowanych tagów portfolio"
-
-#: ../Igniter/Taxonomy/Slider.php:60 ../Igniter/Taxonomy/Slider.php:62
-msgid "Slider categories"
-msgstr ""
-
-#: ../Igniter/Taxonomy/Slider.php:61
-msgid "Slider category"
-msgstr ""
-
-#: ../Igniter/Taxonomy/Team.php:60 ../Igniter/Taxonomy/Team.php:62
-msgid "Team proffesions"
-msgstr "Zawody (profesje)"
-
-#: ../Igniter/Taxonomy/Team.php:61
-msgid "Team proffesion"
-msgstr "Zawód (profesja)"
+#~ msgid "Team proffesion"
+#~ msgstr "Zawód (profesja)"
 
 #~ msgid "Page not found"
 #~ msgstr "Strona nie została znaleziona"
@@ -2214,9 +1362,6 @@ msgstr "Zawód (profesja)"
 
 #~ msgid "State / Region"
 #~ msgstr "Stan / Region / Województwo"
-
-#~ msgid "Country"
-#~ msgstr "Kraj"
 
 #~ msgid "Phone number %s"
 #~ msgstr "Numer telefonu %s"
