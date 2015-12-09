@@ -9,10 +9,10 @@ use SilverWp\Helper\Option;
 use SilverWp\MetaBox\MetaBoxAbstract;
 use SilverWp\Translate;
 
-if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
+if ( ! class_exists( 'SilverWpAddons\Post' ) ) {
 	/**
 	 *
-	 * Meta box for Blog
+	 * Meta box for Post
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       0.3
@@ -21,7 +21,7 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 	 * @subpackage    MetaBox
 	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class Blog extends MetaBoxAbstract {
+	class Post extends MetaBoxAbstract {
 		protected $id = 'post';
 		protected $post_types = array( 'post' );
 		protected $exclude_columns = array( 'category', 'tag' );
