@@ -20,7 +20,7 @@
 
 namespace Currency\Model\Mapper;
 
-use SilverSite\Db\Mapper\AbstractDbMapper;
+use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
  *

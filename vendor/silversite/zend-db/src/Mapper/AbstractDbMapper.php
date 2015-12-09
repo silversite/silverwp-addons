@@ -9,20 +9,18 @@ use Zend\Db\ResultSet\HydratingResultSet;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\TableIdentifier;
+use Zend\Hydrator\HydratorAwareTrait;
 use Zend\Hydrator\HydratorInterface;
 use Zend\Hydrator\ClassMethods;
 
 abstract class AbstractDbMapper
 {
-    /**
+	use HydratorAwareTrait;
+
+	/**
      * @var Adapter
      */
     protected $dbAdapter;
-
-    /**
-     * @var HydratorInterface
-     */
-    protected $hydrator;
 
     /**
      * @var object
@@ -45,11 +43,6 @@ abstract class AbstractDbMapper
     private $sql;
 
     /**
-     * @var string
-     */
-    protected $tableName;
-
-	/**
      * @var boolean
      */
     private $isInitialized = false;
@@ -57,12 +50,17 @@ abstract class AbstractDbMapper
 	/**
 	 * AbstractDbMapper constructor.
 	 *
-	 * @param Adapter         $dbAdapter
-	 * @param EntityPrototype $entityPrototype
+	 * @param Adapter|null         $dbAdapter
+	 * @param EntityPrototype|null $entityPrototype
 	 */
-	public function __construct(Adapter $dbAdapter, EntityPrototype $entityPrototype) {
-		$this->setDbAdapter($dbAdapter);
-		$this->setEntityPrototype($entityPrototype);
+	public function __construct(Adapter $dbAdapter = null, EntityPrototype $entityPrototype = null) {
+		if ( ! is_null($dbAdapter)) {
+			$this->setDbAdapter($dbAdapter);
+		}
+
+		if ( ! is_null($entityPrototype)) {
+			$this->setEntityPrototype( $entityPrototype );
+		}
 	}
 
 	/**
@@ -252,24 +250,11 @@ abstract class AbstractDbMapper
      */
     public function getHydrator()
     {
-        if ( ! $this->hydrator) {
+        if ( ! $this->hydrator || is_null($this->hydrator)) {
             $this->hydrator = new ClassMethods(false);
         }
 
         return $this->hydrator;
-    }
-
-    /**
-     * @param HydratorInterface $hydrator
-     *
-     * @return AbstractDbMapper
-     */
-    public function setHydrator(HydratorInterface $hydrator)
-    {
-        $this->hydrator           = $hydrator;
-        $this->resultSetPrototype = null;
-
-        return $this;
     }
 
     /**
@@ -298,6 +283,22 @@ abstract class AbstractDbMapper
         return $this;
     }
 
+	/**
+	 * @param bool|true $toArray
+	 *
+	 * @return array|HydratingResultSet
+	 * @access public
+	 */
+	public function getAll($toArray = true)
+	{
+		$select = $this->select($this->getSelect(), $this->getEntityPrototype(), $this->getHydrator());
+
+		if  ($toArray) {
+			return $select->toArray();
+		}
+
+		return $select;
+	}
     /**
      * Uses the hydrator to convert the entity to an array.
      *

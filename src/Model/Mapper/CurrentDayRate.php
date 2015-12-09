@@ -18,36 +18,25 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
+namespace Currency\Model\Mapper;
 
-use SilverZF2\Db\Entity\Entity;
-use SilverZF2\Db\Entity\EntityPrototype;
+use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
  *
- * Currency Current day rates entity class
- * @property $currentDayRateId
  *
- * @category   Currency
- * @package    Model
- * @subpackage Entity
- * @author     Michal Kalkowski <michal at silversite.pl>
- * @copyright  SilverSite.pl 2015
- * @version    0.1
+ *
+ * @category     Currency
+ * @package      Model
+ * @subpackage   Mapper
+ * @author       Michal Kalkowski <michal at silversite.pl>
+ * @copyright    SilverSite.pl 2015
+ * @version      0.1
  */
-class CurrentDayRate extends Entity implements EntityPrototype
+class CurrentDayRate extends AbstractDbMapper
 {
 	/**
-	 * @return float
+	 * @var string
 	 */
-	public function getCurrencyRate() {
-		return $this->currencyRate;
-	}
-
-	/**
-	 * @return float
-	 */
-	public function getCurrencyChangeRate() {
-		return $this->currencyChangeRate;
-	}
+	protected $tableName = 'current_day_rate';
 }

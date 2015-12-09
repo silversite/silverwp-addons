@@ -24,11 +24,15 @@ namespace SilverWpAddons;
  * Text Domain:       silverwp-addons
  * Domain Path:       /languages
  */
-use SilverZF2\Db\Adapter;
+use Currency\Model\Mapper\CurrentDayRate;
+use Currency\Model\Service\CurrentDayRateMapperFactory;
 use SilverWp\Debug;
 use SilverWp\Exception;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Currency;
+use SilverZF2\Common\Application;
+use Zend\ServiceManager\Config;
+use Zend\ServiceManager\ServiceManager;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -40,27 +44,23 @@ add_action(
 	'plugins_loaded',
 	function () {
 		if ( class_exists( 'SilverWp\SilverWp' ) ) {
+
 	        try {
-				Translate::init(
-			        'silverwp-addons',
-			        plugin_dir_url( __FILE__ ) . 'languages/'
-		        );
-				$currency = Currency::getInstance();
+				load_plugin_textdomain('silverwp_addons', false, plugin_dir_url( __FILE__ ) . 'languages/');
+
+		        $currency = Currency::getInstance();
 		        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
 		        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
-		        $config     = [
-			        'driver'   => 'Pdo_Mysql',
-			        'database' => DB_NAME,
-			        'username' => DB_USER,
-			        'password' => DB_PASSWORD,
-			        'hostname' => DB_HOST,
-			        'prefix'   => DB_PREFIX,
-			        'charset'  => DB_CHARSET
+		        $application = Application::getInstance();
+		        $application->init(include __DIR__ . '/config/module.config.php');
 
-		        ];
-		        new Adapter\Adapter( $config );
+		        /**
+		         * @var $model CurrentDayRate
+		         */
+		        $model = $application->getServiceLocator()->get('CurrentDayRate');
 
+		        Debug::dumpPrint($model->getAll());
 	        } catch ( Exception $ex ) {
 	            echo $ex->catchException();
 	        }

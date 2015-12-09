@@ -7,10 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Zend\\Stdlib\\' => array($vendorDir . '/zendframework/zend-stdlib/src'),
+    'Zend\\ServiceManager\\' => array($vendorDir . '/zendframework/zend-servicemanager/src'),
     'Zend\\Hydrator\\' => array($vendorDir . '/zendframework/zend-hydrator/src'),
     'Zend\\Filter\\' => array($vendorDir . '/zendframework/zend-filter/src'),
     'Zend\\Db\\' => array($vendorDir . '/zendframework/zend-db/src'),
-    'SilverZF2\\Db\\' => array($vendorDir . '/silversite/zend-db/src'),
+    'SilverZF2\\Db\\' => array( $vendorDir . '/silversite/zend-db/src'),
+    'SilverZF2\\Common\\' => array( $vendorDir . '/silversite/common/src'),
     'SilverWpAddons\\' => array($baseDir . '/SilverWpAddons'),
+    'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
     'Currency\\' => array($baseDir . '/src'),
 );

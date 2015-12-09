@@ -18,36 +18,36 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
+namespace SilverZF2\Db\Entity;
 
-use SilverZF2\Db\Entity\Entity;
-use SilverZF2\Db\Entity\EntityPrototype;
 
 /**
  *
- * Currency Current day rates entity class
- * @property $currentDayRateId
+ * Entity interface
  *
- * @category   Currency
- * @package    Model
- * @subpackage Entity
- * @author     Michal Kalkowski <michal at silversite.pl>
- * @copyright  SilverSite.pl 2015
- * @version    0.1
+ * @category     Zend Framework 2
+ * @package      Db
+ * @subpackage   Entity
+ * @author       Michal Kalkowski <michal at silversite.pl>
+ * @copyright    SilverSite.pl 2015
+ * @version      0.1
  */
-class CurrentDayRate extends Entity implements EntityPrototype
+interface EntityInterface
 {
 	/**
-	 * @return float
+	 * @param string $name
+	 *
+	 * @return mixed
+	 * @access public
 	 */
-	public function getCurrencyRate() {
-		return $this->currencyRate;
-	}
+	public function __get($name);
 
 	/**
-	 * @return float
+	 * @param string $name
+	 * @param string $value
+	 *
+	 * @return void
+	 * @access public
 	 */
-	public function getCurrencyChangeRate() {
-		return $this->currencyChangeRate;
-	}
+	public function __set($name, $value);
 }

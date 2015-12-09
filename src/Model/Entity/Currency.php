@@ -34,7 +34,7 @@ class Currency implements CurrencyInterface {
 	/**
 	 * @var int
 	 */
-	protected $currencyId;
+	protected $ID;
 
 	/**
 	 * @var string
