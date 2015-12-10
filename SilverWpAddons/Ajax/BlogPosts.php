@@ -23,7 +23,7 @@ namespace SilverWpAddons\Ajax;
 use SilverWp\Ajax\AjaxAbstract;
 use SilverWp\Db\Query;
 use SilverWp\Debug;
-use SilverWpAddons\MetaBox\Blog;
+use SilverWpAddons\MetaBox\Post;
 
 /**
  * Blog posts list via ajax
@@ -132,7 +132,7 @@ class BlogPosts extends AjaxAbstract {
 		}
 
 		$the_query = new Query( $args );
-		$the_query->setMetaBox( Blog::getInstance() );
+		$the_query->setMetaBox( Post::getInstance() );
 		//add + 1 because load more hav to go to next page but from request
 		// I got current page
 		$current_page = (int) $current_page + 1;
