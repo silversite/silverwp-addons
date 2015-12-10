@@ -22,7 +22,6 @@ namespace SilverWpAddons\Ajax;
 
 use SilverWp\Ajax\AjaxAbstract;
 use SilverWp\Db\Query;
-use SilverWp\Debug;
 use SilverWpAddons\MetaBox\Post;
 
 /**
