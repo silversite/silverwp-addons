@@ -4,8 +4,11 @@ namespace SilverZF2\Db\Mapper;
 
 use SilverZF2\Db\Entity\EntityPrototype;
 use SilverZF2\Db\Adapter\Adapter;
+use SilverZF2\Db\Exception\Mapper\InvalidArgumentException;
+use SilverZF2\Db\Table\TableAwareTrait;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\HydratingResultSet;
+use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\TableIdentifier;
@@ -13,14 +16,22 @@ use Zend\Hydrator\HydratorAwareTrait;
 use Zend\Hydrator\HydratorInterface;
 use Zend\Hydrator\ClassMethods;
 
+/**
+ *
+ * Abstract mapper base class
+ *
+ * @category    Zend Framework 2
+ * @package     SilverZF2\Db
+ * @subpackage  Mapper
+ * @author      Michal Kalkowski <michal.kalkowski at autentika.pl>
+ * @copyright   SilverSite.pl (c) 2015
+ * @version     1.0
+ * @abstract
+ */
 abstract class AbstractDbMapper
 {
 	use HydratorAwareTrait;
-
-	/**
-     * @var Adapter
-     */
-    protected $dbAdapter;
+	use TableAwareTrait;
 
     /**
      * @var object
@@ -75,7 +86,7 @@ abstract class AbstractDbMapper
             return;
         }
 
-        if ( ! $this->dbAdapter instanceof Adapter) {
+        if ( ! $this->adapter instanceof Adapter) {
             throw new \Exception('No db adapter present');
         }
 
@@ -197,14 +208,6 @@ abstract class AbstractDbMapper
     }
 
     /**
-     * @return string
-     */
-    protected function getTableName()
-    {
-        return $this->getDbAdapter()->getTablePrefix() . $this->tableName;
-    }
-
-    /**
      * @return object
      */
     public function getEntityPrototype()
@@ -221,26 +224,6 @@ abstract class AbstractDbMapper
     {
         $this->entityPrototype    = $entityPrototype;
         $this->resultSetPrototype = null;
-
-        return $this;
-    }
-
-    /**
-     * @return Adapter
-     */
-    public function getDbAdapter()
-    {
-        return $this->dbAdapter;
-    }
-
-    /**
-     * @param Adapter $dbAdapter
-     *
-     * @return AbstractDbMapper
-     */
-    public function setDbAdapter(Adapter $dbAdapter)
-    {
-        $this->dbAdapter = $dbAdapter;
 
         return $this;
     }
@@ -284,21 +267,44 @@ abstract class AbstractDbMapper
     }
 
 	/**
-	 * @param bool|true $toArray
+	 * @param $id
 	 *
-	 * @return array|HydratingResultSet
-	 * @access public
+	 * @return object
 	 */
-	public function getAll($toArray = true)
+	public function find($id)
 	{
-		$select = $this->select($this->getSelect(), $this->getEntityPrototype(), $this->getHydrator());
+		$select = $this->getSelect();
+		$select->where(array('id = ?' => $id));
 
-		if  ($toArray) {
-			return $select->toArray();
+		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
+		$result = $stmt->execute();
+
+		if ($result instanceof ResultInterface && $result->isQueryResult() && $result->getAffectedRows()) {
+			return $this->getHydrator()->hydrate($result->current(), $this->getEntityPrototype());
 		}
 
-		return $select;
+		throw new \InvalidArgumentException("Record with given ID:{$id} not found.");
 	}
+
+	/**
+	 *
+	 * @return ResultSet
+	 */
+	public function findAll()
+	{
+		$select = $this->getSelect();
+		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
+		$result = $stmt->execute();
+
+		if ($result instanceof ResultInterface && $result->isQueryResult()) {
+			$resultSet = new HydratingResultSet($this->getHydrator(), $this->getEntityPrototype());
+
+			return $resultSet->initialize($result);
+		}
+
+		return [];
+	}
+
     /**
      * Uses the hydrator to convert the entity to an array.
      *
@@ -309,7 +315,7 @@ abstract class AbstractDbMapper
      * @param HydratorInterface $hydrator
      *
      * @return array
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     protected function entityToArray(
         $entity, HydratorInterface $hydrator = null
@@ -323,7 +329,7 @@ abstract class AbstractDbMapper
 
             return $hydrator->extract($entity);
         }
-        throw new Exception\InvalidArgumentException(
+        throw new InvalidArgumentException(
             'Entity passed to db mapper should be an array or object.'
         );
     }

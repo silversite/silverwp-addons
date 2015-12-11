@@ -26,7 +26,12 @@ use SilverZF2\Db\Entity\EntityPrototype;
 /**
  *
  * Currency Current day rates entity class
+ *
  * @property $currentDayRateId
+ * @property $currencyChangeRate
+ * @property $currencyCounter
+ * @property $currencyRate
+ * @property $currencyId
  *
  * @category   Currency
  * @package    Model
@@ -40,14 +45,101 @@ class CurrentDayRate extends Entity implements EntityPrototype
 	/**
 	 * @return float
 	 */
-	public function getCurrencyRate() {
+	public function getCurrencyChangeRate()
+	{
+		return $this->currencyChangeRate;
+	}
+
+	/**
+	 * @param float $changeRate
+	 *
+	 * @return CurrentDayRate
+	 */
+	public function setCurrencyChangeRate($changeRate)
+	{
+		$this->currencyChangeRate = $changeRate;
+
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getCurrentDayRateId()
+	{
+		return $this->currentDayRateId;
+	}
+
+	/**
+	 * @param int $currentDayRateId
+	 *
+	 * @return CurrentDayRate
+	 */
+	public function setCurrentDayRateId($currentDayRateId)
+	{
+		$this->currentDayRateId = $currentDayRateId;
+
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getCurrencyId()
+	{
+		return $this->currencyId;
+	}
+
+	/**
+	 * @param int $currencyId
+	 *
+	 * @return CurrentDayRate
+	 */
+	public function setCurrencyId($currencyId)
+	{
+		$this->currencyId = $currencyId;
+
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getCurrencyCounter()
+	{
+		return $this->currencyCounter;
+	}
+
+	/**
+	 * @param int $counter
+	 *
+	 * @return $this
+	 */
+	public function setCurrencyCounter($counter)
+	{
+		$this->currencyCounter = $counter;
+
+		return $this;
+	}
+	/**
+	 * @return float
+	 */
+	public function getCurrencyRate()
+	{
 		return $this->currencyRate;
 	}
 
 	/**
-	 * @return float
+	 * @param float $rate
+	 *
+	 * @return CurrentDayRate
 	 */
-	public function getCurrencyChangeRate() {
-		return $this->currencyChangeRate;
+	public function setCurrencyRate($rate)
+	{
+		$this->currencyRate = $rate;
+
+		return $this;
 	}
+
+
 }

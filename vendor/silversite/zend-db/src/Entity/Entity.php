@@ -21,16 +21,13 @@
 namespace SilverZF2\Db\Entity;
 
 use Zend\Filter\Word\CamelCaseToUnderscore;
-use Zend\Hydrator\HydratorAwareInterface;
-use Zend\Hydrator\HydratorAwareTrait;
-use Zend\Hydrator\Iterator\HydratingArrayIterator;
 
 /**
  *
- *
+ * Base Entity class
  *
  * @category   Zend Framework 2
- * @package    Db
+ * @package    SilverZF2\Db
  * @subpackage Entity
  * @author     Michal Kalkowski <michal at silversite.pl>
  * @copyright  SilverSite.pl 2015
@@ -38,7 +35,20 @@ use Zend\Hydrator\Iterator\HydratingArrayIterator;
  */
 class Entity implements EntityInterface
 {
-	use HydratorAwareTrait;
+	/**
+	 * @var string
+	 */
+	protected $rowPrefix = '';
+
+	/**
+	 * @var array
+	 */
+	protected $data = [];
+
+	/**
+	 * @var array
+	 */
+	protected $nullable = [];
 
 	/**
 	 * Check if field is already set
@@ -49,9 +59,9 @@ class Entity implements EntityInterface
 	 *
 	 * @return boolean
 	 */
-	public function __isset( $name )
+	public function __isset($name)
 	{
-		return ( null !== $this->$name );
+		return (null !== $this->data[$name]);
 	}
 
 	/**
@@ -63,15 +73,14 @@ class Entity implements EntityInterface
 	 *
 	 * @return mixed
 	 */
-	public function __get( $name )
+	public function __get($name)
 	{
-		$getter = 'get' . ucfirst( $name );
-		$name   = $this->formatFieldName( $name );
-
-		if ( method_exists( $this, $getter ) ) {
+		$getter = 'get' . ucfirst($name);
+		$name   = $this->formatFieldName($name);
+		if (method_exists($this, $getter)) {
 			return $this->$getter();
 		} else {
-			return $this->{$name};
+			return $this->_get($name);
 		}
 	}
 
@@ -85,15 +94,15 @@ class Entity implements EntityInterface
 	 *
 	 * @throws LogicException When trying to set primary key of non-new entity
 	 */
-	public function __set( $name, $value )
+	public function __set($name, $value)
 	{
-		$setter = 'set' . ucfirst( $name );
-		$name   = $this->formatFieldName( $name );
+		$setter = 'set' . ucfirst($name);
+		$name   = $this->formatFieldName($name);
 
-		if ( method_exists( $this, $setter ) ) {
-			$this->$setter( $value );
+		if (method_exists($this, $setter)) {
+			$this->$setter($value);
 		} else {
-			$this->{$name} =  $value;
+			$this->_set($name, $value);
 		}
 	}
 
@@ -106,7 +115,7 @@ class Entity implements EntityInterface
 	public function __unset($name)
 	{
 		$this->__set($name, null);
-		unset($this->{$name});
+		unset($this->data[$name]);
 	}
 
 	/**
@@ -123,8 +132,97 @@ class Entity implements EntityInterface
 		if (is_null($instance)) {
 			$instance = new CamelCaseToUnderscore();
 		}
-		$name = strtolower( $instance->filter( $name ) );
+		$name = $this->getColumnName($name);
+		$name = strtolower($instance->filter($name));
 
 		return $name;
 	}
+
+	/**
+	 * Gets value of specified filed or null
+	 *
+	 * @internal
+	 *
+	 * @param string $name
+	 *
+	 * @return mixed
+	 */
+	protected function _get($name)
+	{
+		$name = $this->getColumnName($name);
+
+		$value = isset($this->data[$name]) ? $this->data[$name] : null;
+
+		return $value;
+	}
+
+	/**
+	 * Sets value of specified field and optionally marks that field that is changed
+	 *
+	 * @internal
+	 *
+	 * @param string $name
+	 * @param mixed  $value
+	 */
+	protected function _set($name, $value)
+	{
+		$name = $this->getColumnName($name);
+
+		if ($this->isNullable($name) && $value !== 0 && empty($value)) {
+			$value = null;
+		}
+
+		$this->data[$name] = $value;
+	}
+
+	/**
+	 * Get column name with prefix if is set
+	 *
+	 * @param string $columnName
+	 *
+	 * @return string
+	 */
+	private function getColumnName($columnName)
+	{
+		if ( ! empty($this->rowPrefix)) {
+			$columnName = ucfirst($this->rowPrefix) . ucfirst($columnName);
+		}
+
+		return $columnName;
+	}
+
+	/**
+	 * Check the given column can be null
+	 *
+	 * @param string $column column name
+	 *
+	 * @return bool
+	 * @access protected
+	 */
+	public function isNullable($column)
+	{
+		return in_array($column, $this->nullable);
+	}
+
+	/**
+	 * Set column as nullable
+	 *
+	 * @param string    $column
+	 * @param bool|true $flag
+	 *
+	 * @return $this
+	 * @access public
+	 */
+	public function setNullable($column, $flag = true)
+	{
+		if ($flag) {
+			$this->nullable[] = $column;
+			$this->nullable   = array_unique($this->nullable);
+		} else {
+			$this->nullable = array_diff($this->nullable, [$column]);
+		}
+
+		return $this;
+	}
+
 }

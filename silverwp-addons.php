@@ -31,6 +31,7 @@ use SilverWp\Exception;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Currency;
 use SilverZF2\Common\Application;
+use SilverZF2\Common\Traits\SingletonAwareTrait;
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\ServiceManager;
 
@@ -60,7 +61,7 @@ add_action(
 		         */
 		        $model = $application->getServiceLocator()->get('CurrentDayRate');
 
-		        Debug::dumpPrint($model->getAll());
+		        Debug::dumpPrint($model->findAll()->toArray());
 	        } catch ( Exception $ex ) {
 	            echo $ex->catchException();
 	        }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b617af4ba8cbd917cb852e546feff3aa",
-    "content-hash": "eac14e933e03b599321e5451c38e8ce0",
+    "hash": "103737535e8d9694c5a6a7ec43171fab",
+    "content-hash": "a37f5aa390d55d6e550f330cbb7cecaf",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -36,16 +36,16 @@
         },
         {
             "name": "zendframework/zend-db",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-db.git",
-                "reference": "ecfd5cf4eb223f7374f7b05f40d0c97eed197de3"
+                "reference": "8bda58293d6baa3e1d8316300fce0fed55df8ea0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-db/zipball/ecfd5cf4eb223f7374f7b05f40d0c97eed197de3",
-                "reference": "ecfd5cf4eb223f7374f7b05f40d0c97eed197de3",
+                "url": "https://api.github.com/repos/zendframework/zend-db/zipball/8bda58293d6baa3e1d8316300fce0fed55df8ea0",
+                "reference": "8bda58293d6baa3e1d8316300fce0fed55df8ea0",
                 "shasum": ""
             },
             "require": {
@@ -86,7 +86,7 @@
                 "db",
                 "zf2"
             ],
-            "time": "2015-10-14 20:26:01"
+            "time": "2015-12-09 21:17:32"
         },
         {
             "name": "zendframework/zend-filter",

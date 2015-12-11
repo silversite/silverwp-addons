@@ -11,7 +11,8 @@
   "autoload": {
     "psr-4": {
       "SilverZF2\\Db\\": "src/"
-    }
+    },
+    "files": ["vendor/silversite/zend-db/autoload_classmap.php"]
   },
   "require": {
     "php": ">=5.5",
