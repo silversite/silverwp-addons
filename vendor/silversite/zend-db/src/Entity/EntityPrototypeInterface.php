@@ -20,17 +20,18 @@
 
 namespace SilverZF2\Db\Entity;
 
-
 /**
  *
  *
  *
- * @category  Zend Framework 2
- * @package
- * @author    Michal Kalkowski <michal at silversite.pl>
- * @copyright SilverZF2.pl 2015
- * @version   $Revision:$
+ * @category   Zend Framework 2
+ * @package    SilverZF2\Db
+ * @subpackage Entity
+ * @author     Michal Kalkowski <michal at silversite.pl>
+ * @copyright  SilverZF2.pl 2015
+ * @version    0.1
  */
-interface EntityPrototype {
+interface EntityPrototypeInterface
+{
 
 }

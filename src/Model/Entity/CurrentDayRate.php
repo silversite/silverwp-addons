@@ -21,7 +21,6 @@
 namespace Currency\Model\Entity;
 
 use SilverZF2\Db\Entity\Entity;
-use SilverZF2\Db\Entity\EntityPrototype;
 
 /**
  *
@@ -32,6 +31,7 @@ use SilverZF2\Db\Entity\EntityPrototype;
  * @property $currencyCounter
  * @property $currencyRate
  * @property $currencyId
+ * @property $postTitle
  *
  * @category   Currency
  * @package    Model
@@ -40,7 +40,7 @@ use SilverZF2\Db\Entity\EntityPrototype;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-class CurrentDayRate extends Entity implements EntityPrototype
+class CurrentDayRate extends Entity
 {
 	/**
 	 * @return float
@@ -140,6 +140,5 @@ class CurrentDayRate extends Entity implements EntityPrototype
 
 		return $this;
 	}
-
 
 }

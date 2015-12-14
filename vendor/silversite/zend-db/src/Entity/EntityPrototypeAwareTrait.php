@@ -18,87 +18,51 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
-use SilverZF2\Db\Entity\Entity;
+namespace SilverZF2\Db\Entity;
+use Zend\Db\ResultSet\HydratingResultSet;
+
 
 /**
  *
- *
- * @property $tableNoId
- * @property $tableDate
- * @property $tableNo
+ * Entity prototype trait
  *
  * @category     Zend Framework 2
- * @package      Currency
- * @subpackage   Model\Entity
+ * @package      Db
+ * @subpackage   Entity
  * @author       Michal Kalkowski <michal at silversite.pl>
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends Entity
+trait EntityPrototypeAwareTrait
 {
 	/**
-	 * @param int $id
+	 * @var object
+	 */
+	protected $entityPrototype;
+
+	/**
+	 * @var HydratingResultSet
+	 */
+	protected $resultSetPrototype;
+
+	/**
+	 * @return object
+	 */
+	public function getEntityPrototype()
+	{
+		return $this->entityPrototype;
+	}
+
+	/**
+	 * @param EntityPrototypeInterface $entityPrototype
 	 *
 	 * @return $this
-	 * @access public
 	 */
-	public function setTableNoId($id)
+	public function setEntityPrototype(EntityPrototypeInterface $entityPrototype)
 	{
-		$this->tableNoId = $id;
+		$this->entityPrototype    = $entityPrototype;
+		$this->resultSetPrototype = null;
+
 		return $this;
-	}
-
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getTableNoId()
-	{
-		return $this->tableNoId;
-	}
-
-	/**
-	 * @param string $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setTableDate($date)
-	{
-		$this->tableDate = $date;
-		return $this;
-	}
-
-	/**
-	 * @return object DateTime
-	 * @access public
-	 */
-	public function getTableDate()
-	{
-		return $this->tableDate;
-	}
-
-	/**
-	 *
-	 * @param string $tableNo
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setTableNo($tableNo)
-	{
-		$this->tableNo = $tableNo;
-		return $this;
-	}
-
-	/**
-	 *
-	 * @return string
-	 * @access public
-	 */
-	public function getTableNo()
-	{
-		return $this->tableNo;
 	}
 }

@@ -20,7 +20,9 @@
 
 namespace Currency\Model\Mapper;
 
+use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 
 /**
  *
@@ -39,4 +41,35 @@ class CurrentDayRate extends AbstractDbMapper
 	 * @var string
 	 */
 	protected $tableName = 'current_day_rate';
+
+	public function getCurrentDayRate($limit = 10)
+	{
+		//todo add auto prefix to table name
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		//SELECT ID, post_title,currency_counter,currency_rate,currency_change_rate FROM wordpress.waluty__posts AS p, waluty__current_day_rate AS cdr, waluty__postmeta AS pm
+		//WHERE p.ID = cdr.currency_id AND p.post_type = 'currency' AND pm.post_id = p.ID AND (pm.meta_key = 'main_page' AND pm.meta_value = '1')
+		$select = $this->getSql()->select()
+			->columns([
+				'current_day_rate_id',
+				'currency_counter',
+				'currency_rate',
+				'currency_change_rate',
+			    'currency_id'
+			])
+			->from($this->getTableName())
+			->join(
+				['p' => $tablePrefix . 'posts'],
+				new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
+				['id'=> 'ID' , 'iso' => 'post_title']
+			)
+			->join(
+				['pm' => $tablePrefix . 'postmeta'],
+				new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1'),
+				[]
+			)
+		;
+		$results = $this->select($select);
+
+		return $results;
+	}
 }

@@ -33,7 +33,8 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class Currency extends AbstractDbMapper {
+class Currency extends AbstractDbMapper
+{
 	/**
 	 * @var string
 	 */

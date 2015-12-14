@@ -59,7 +59,7 @@ if ( ! class_exists( '\SilverWpAddons\MetaBox\Currency' ) ) {
 
 			$main_page = new Checkbox( 'main_page' );
 			$main_page->setLabel( Translate::translate( 'Display on home?' ) );
-			$this->addControl( $main_page );
+			$this->addFilterControl( $main_page );
 
 			$gallery = new Gallery( 'gallery' );
 			$this->addControl( $gallery );

@@ -71,4 +71,22 @@ class Application
 
 		return $merger->getConfig();
 	}
+
+	/**
+	 * Get service object
+	 *
+	 * @param string $serviceName
+	 *
+	 * @return array|object
+	 * @static
+	 * @access public
+	 */
+	public static function getService($serviceName)
+	{
+		$application = self::getInstance();
+
+		$service = $application->getServiceLocator()->get($serviceName);
+
+		return $service;
+	}
 }

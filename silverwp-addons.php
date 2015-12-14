@@ -28,6 +28,7 @@ use Currency\Model\Mapper\CurrentDayRate;
 use Currency\Model\Service\CurrentDayRateMapperFactory;
 use SilverWp\Debug;
 use SilverWp\Exception;
+use SilverWp\FileSystem;
 use SilverWp\Translate;
 use SilverWpAddons\PostType\Currency;
 use SilverZF2\Common\Application;
@@ -47,21 +48,15 @@ add_action(
 		if ( class_exists( 'SilverWp\SilverWp' ) ) {
 
 	        try {
-				load_plugin_textdomain('silverwp_addons', false, plugin_dir_url( __FILE__ ) . 'languages/');
+				load_plugin_textdomain( 'silverwp_addons', false, plugin_dir_path( __FILE__ ) . 'languages/' );
+
+		        FileSystem::getInstance()->addDirectory( 'plugin_config_dir', plugin_dir_path( __FILE__ ) . 'config/' );
 
 		        $currency = Currency::getInstance();
 		        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
 		        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
-		        $application = Application::getInstance();
-		        $application->init(include __DIR__ . '/config/module.config.php');
 
-		        /**
-		         * @var $model CurrentDayRate
-		         */
-		        $model = $application->getServiceLocator()->get('CurrentDayRate');
-
-		        Debug::dumpPrint($model->findAll()->toArray());
 	        } catch ( Exception $ex ) {
 	            echo $ex->catchException();
 	        }

@@ -19,6 +19,7 @@
  */
 
 namespace Currency\Model\Entity;
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
@@ -30,52 +31,14 @@ namespace Currency\Model\Entity;
  * @copyright SilverSite.pl 2015
  * @version   1.0
  */
-class Currency implements CurrencyInterface {
-	/**
-	 * @var int
-	 */
-	protected $ID;
-
-	/**
-	 * @var string
-	 */
-	protected $currencySymbol;
-
-	/**
-	 * @var string
-	 */
-	protected $currencyLogo;
-
-	/**
-	 * @var string
-	 */
-	protected $currencyCountry;
-
-	/**
-	 * @var int
-	 */
-	protected $currencyContinent;
-
-	/**
-	 * @var string
-	 */
-	protected $currencyDescription;
-
-	/**
-	 * @var int (0/1)
-	 */
-	protected $currencyMainPage;
-
-	/**
-	 * @var int
-	 */
-	protected $currencyOrder;
-
+class Currency extends Entity
+{
 	/**
 	 * @return mixed
 	 */
-	public function getCurrencyId() {
-		return $this->currencyId;
+	public function getID()
+	{
+		return $this->ID;
 	}
 
 	/**
@@ -83,8 +46,9 @@ class Currency implements CurrencyInterface {
 	 *
 	 * @return Currency
 	 */
-	public function setCurrencyId( $currencyId ) {
-		$this->currencyId = $currencyId;
+	public function setID($currencyId)
+	{
+		$this->ID = $currencyId;
 
 		return $this;
 	}
@@ -92,8 +56,8 @@ class Currency implements CurrencyInterface {
 	/**
 	 * @return string
 	 */
-	public function getCurrencySymbol() {
-		return $this->currencySymbol;
+	public function getPostTitle() {
+		return $this->postTitle;
 	}
 
 	/**
@@ -101,8 +65,9 @@ class Currency implements CurrencyInterface {
 	 *
 	 * @return Currency
 	 */
-	public function setCurrencySymbol( $currencySymbol ) {
-		$this->currencySymbol = $currencySymbol;
+	public function setPostTitle($currencySymbol)
+	{
+		$this->postTitle = $currencySymbol;
 
 		return $this;
 	}

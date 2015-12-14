@@ -16,8 +16,10 @@ $config = [
 	'service_manager' => [
 		'factories' => [
 			'DbAdapter'      => 'SilverZF2\Db\Adapter\AdapterServiceFactory',
-			'CurrentDayRate' => 'Currency\Model\Service\CurrentDayRateMapperFactory'
+			'CurrentDayRate' => 'Currency\Model\Service\CurrentDayRateMapperFactory',
+			'TableNo'        => 'Currency\Model\Service\CurrentDayTableNoMapperFactory',
 		],
+
 	],
 ];
 

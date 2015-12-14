@@ -33,7 +33,7 @@ use Zend\Filter\Word\CamelCaseToUnderscore;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-class Entity implements EntityInterface
+class Entity implements EntityInterface, EntityPrototypeInterface
 {
 	/**
 	 * @var string

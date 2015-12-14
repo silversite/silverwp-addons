@@ -2,8 +2,9 @@
 
 namespace SilverZF2\Db\Mapper;
 
-use SilverZF2\Db\Entity\EntityPrototype;
 use SilverZF2\Db\Adapter\Adapter;
+use SilverZF2\Db\Entity\EntityPrototypeAwareTrait;
+use SilverZF2\Db\Entity\EntityPrototypeInterface;
 use SilverZF2\Db\Exception\Mapper\InvalidArgumentException;
 use SilverZF2\Db\Table\TableAwareTrait;
 use Zend\Db\Adapter\Driver\ResultInterface;
@@ -32,16 +33,7 @@ abstract class AbstractDbMapper
 {
 	use HydratorAwareTrait;
 	use TableAwareTrait;
-
-    /**
-     * @var object
-     */
-    protected $entityPrototype;
-
-    /**
-     * @var HydratingResultSet
-     */
-    protected $resultSetPrototype;
+	use EntityPrototypeAwareTrait;
 
     /**
      * @var Select
@@ -58,13 +50,14 @@ abstract class AbstractDbMapper
      */
     private $isInitialized = false;
 
+	protected $virtualKeys;
 	/**
 	 * AbstractDbMapper constructor.
 	 *
-	 * @param Adapter|null         $dbAdapter
-	 * @param EntityPrototype|null $entityPrototype
+	 * @param Adapter|null                  $dbAdapter
+	 * @param EntityPrototypeInterface|null $entityPrototype
 	 */
-	public function __construct(Adapter $dbAdapter = null, EntityPrototype $entityPrototype = null) {
+	public function __construct(Adapter $dbAdapter = null, EntityPrototypeInterface $entityPrototype = null) {
 		if ( ! is_null($dbAdapter)) {
 			$this->setDbAdapter($dbAdapter);
 		}
@@ -207,26 +200,6 @@ abstract class AbstractDbMapper
         return $statement->execute();
     }
 
-    /**
-     * @return object
-     */
-    public function getEntityPrototype()
-    {
-        return $this->entityPrototype;
-    }
-
-	/**
-	 * @param EntityPrototype $entityPrototype
-	 *
-	 * @return AbstractDbMapper
-	 */
-    public function setEntityPrototype(EntityPrototype $entityPrototype)
-    {
-        $this->entityPrototype    = $entityPrototype;
-        $this->resultSetPrototype = null;
-
-        return $this;
-    }
 
     /**
      * @return HydratorInterface
