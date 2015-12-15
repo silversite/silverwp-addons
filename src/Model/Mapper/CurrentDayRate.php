@@ -20,7 +20,6 @@
 
 namespace Currency\Model\Mapper;
 
-use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 use Zend\Db\Sql\Expression;
 
@@ -42,12 +41,23 @@ class CurrentDayRate extends AbstractDbMapper
 	 */
 	protected $tableName = 'current_day_rate';
 
-	public function getCurrentDayRate($limit = 10)
+	/**
+	 * @param bool $mainPageOnly get only currencies with flag display on main page. Default: false
+	 * @param int  $limit display limit. Default: 10
+	 *
+	 * @return \Zend\Db\ResultSet\HydratingResultSet
+	 * @access public
+	 */
+	public function getCurrentDayRate($mainPageOnly = false, $limit = 10)
 	{
 		//todo add auto prefix to table name
 		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-		//SELECT ID, post_title,currency_counter,currency_rate,currency_change_rate FROM wordpress.waluty__posts AS p, waluty__current_day_rate AS cdr, waluty__postmeta AS pm
-		//WHERE p.ID = cdr.currency_id AND p.post_type = 'currency' AND pm.post_id = p.ID AND (pm.meta_key = 'main_page' AND pm.meta_value = '1')
+		if ($mainPageOnly) {
+			$metaBoxExpression = new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1');
+		} else {
+			$metaBoxExpression = new Expression('p.ID = pm.post_id');
+		}
+
 		$select = $this->getSql()->select()
 			->columns([
 				'current_day_rate_id',
@@ -64,10 +74,14 @@ class CurrentDayRate extends AbstractDbMapper
 			)
 			->join(
 				['pm' => $tablePrefix . 'postmeta'],
-				new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1'),
+				$metaBoxExpression,
 				[]
 			)
+
 		;
+		if ($limit) {
+			$select->limit($limit);
+		}
 		$results = $this->select($select);
 
 		return $results;
