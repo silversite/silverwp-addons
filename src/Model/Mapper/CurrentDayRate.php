@@ -52,11 +52,6 @@ class CurrentDayRate extends AbstractDbMapper
 	{
 		//todo add auto prefix to table name
 		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-		if ($mainPageOnly) {
-			$metaBoxExpression = new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1');
-		} else {
-			$metaBoxExpression = new Expression('p.ID = pm.post_id');
-		}
 
 		$select = $this->getSql()->select()
 			->columns([
@@ -72,16 +67,19 @@ class CurrentDayRate extends AbstractDbMapper
 				new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
 				['id'=> 'ID' , 'iso' => 'post_title']
 			)
-			->join(
-				['pm' => $tablePrefix . 'postmeta'],
-				$metaBoxExpression,
-				[]
-			)
-
 		;
+		if ($mainPageOnly) {
+			$select->join(
+				['pm' => $tablePrefix . 'postmeta'],
+				new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1'),
+				[]
+			);
+		}
+
 		if ($limit) {
 			$select->limit($limit);
 		}
+
 		$results = $this->select($select);
 
 		return $results;

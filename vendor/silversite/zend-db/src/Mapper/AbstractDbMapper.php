@@ -2,6 +2,7 @@
 
 namespace SilverZF2\Db\Mapper;
 
+use SilverWp\Debug;
 use SilverZF2\Db\Adapter\Adapter;
 use SilverZF2\Db\Entity\EntityPrototypeAwareTrait;
 use SilverZF2\Db\Entity\EntityPrototypeInterface;
@@ -306,4 +307,27 @@ abstract class AbstractDbMapper
             'Entity passed to db mapper should be an array or object.'
         );
     }
+
+	/**
+	 * Display current sql query string
+	 *
+	 * @param Select $select
+	 *
+	 * @return string
+	 * @access protected
+	 */
+	protected function getSqlQuery(Select $select)
+	{
+		return $select->getSqlString($this->getDbAdapter()->getPlatform());
+	}
+
+	/**
+	 * Convert object to string
+	 *
+	 * @access public
+	 * @magic
+	 */
+	public function __toString() {
+		Debug::dump($this->getSqlQuery($this->getSelect()));
+	}
 }
