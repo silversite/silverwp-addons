@@ -21,6 +21,8 @@
 namespace Currency\Model\Mapper;
 
 use Currency\Model\Entity;
+use SilverWp\Debug;
+use SilverZF2\Db\Hydrator\Strategy\DateTimeStrategy;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
@@ -54,17 +56,39 @@ class CurrentDayTableNo extends AbstractDbMapper
 		$select = $this->getSelect();
 		$select->where->equalTo('table_date', $date);
 		$select->limit(1);
-		$result = $this->select($select, new Entity\CurrentDayTableNo());
+		$result = $this->select($select);
 
 		return $result->current();
 	}
 
+	/**
+	 * Get latest table no
+	 *
+	 * @return object
+	 * @access public
+	 */
 	public function getLastTableNo()
 	{
 		$select = $this->getSelect();
 		$select->order('table_date DESC');
 		$select->limit(1);
-		$result = $this->select($select, new Entity\CurrentDayTableNo());
+		$result = $this->select($select);
+		return $result->current();
+	}
+
+	/**
+	 * Get first table no
+	 *
+	 * @return object
+	 * @access public
+	 */
+	public function getFirstTableNo()
+	{
+		$select = $this->getSelect();
+		$select->order('table_date ASC');
+		$select->limit(1);
+		$result = $this->select($select);
+
 		return $result->current();
 	}
 }

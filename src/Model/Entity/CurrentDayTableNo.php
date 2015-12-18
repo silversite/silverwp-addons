@@ -25,8 +25,8 @@ use SilverZF2\Db\Entity\Entity;
  *
  *
  * @property $tableNoId
- * @property $tableDate
- * @property $tableNo
+ * @property $table_date
+ * @property $table_no
  *
  * @category     Zend Framework 2
  * @package      Currency
@@ -38,35 +38,14 @@ use SilverZF2\Db\Entity\Entity;
 class CurrentDayTableNo extends Entity
 {
 	/**
-	 * @param int $id
+	 * @param \DateTime $date
 	 *
 	 * @return $this
 	 * @access public
 	 */
-	public function setTableNoId($id)
+	public function setTableDate(\DateTime $date)
 	{
-		$this->tableNoId = $id;
-		return $this;
-	}
-
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getTableNoId()
-	{
-		return $this->tableNoId;
-	}
-
-	/**
-	 * @param string $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setTableDate($date)
-	{
-		$this->tableDate = $date;
+		$this->table_date = $date;
 		return $this;
 	}
 
@@ -76,29 +55,6 @@ class CurrentDayTableNo extends Entity
 	 */
 	public function getTableDate()
 	{
-		return $this->tableDate;
-	}
-
-	/**
-	 *
-	 * @param string $tableNo
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setTableNo($tableNo)
-	{
-		$this->tableNo = $tableNo;
-		return $this;
-	}
-
-	/**
-	 *
-	 * @return string
-	 * @access public
-	 */
-	public function getTableNo()
-	{
-		return $this->tableNo;
+		return $this->table_date;
 	}
 }

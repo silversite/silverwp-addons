@@ -58,7 +58,8 @@ abstract class AbstractDbMapper
 	 * @param Adapter|null                  $dbAdapter
 	 * @param EntityPrototypeInterface|null $entityPrototype
 	 */
-	public function __construct(Adapter $dbAdapter = null, EntityPrototypeInterface $entityPrototype = null) {
+	public function __construct(Adapter $dbAdapter = null, EntityPrototypeInterface $entityPrototype = null)
+	{
 		if ( ! is_null($dbAdapter)) {
 			$this->setDbAdapter($dbAdapter);
 		}
@@ -203,7 +204,7 @@ abstract class AbstractDbMapper
 
 
     /**
-     * @return HydratorInterface
+     * @return ClassMethods
      */
     public function getHydrator()
     {
@@ -327,7 +328,8 @@ abstract class AbstractDbMapper
 	 * @access public
 	 * @magic
 	 */
-	public function __toString() {
+	public function __toString()
+	{
 		Debug::dump($this->getSqlQuery($this->getSelect()));
 	}
 }

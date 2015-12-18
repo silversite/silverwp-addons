@@ -77,6 +77,7 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 	{
 		$getter = 'get' . ucfirst($name);
 		$name   = $this->formatFieldName($name);
+
 		if (method_exists($this, $getter)) {
 			return $this->$getter();
 		} else {

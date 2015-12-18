@@ -1,10 +1,9 @@
 <?php
 namespace Currency\Model\Service;
 
-use Currency\Model\Mapper\CurrentDayRate;
 use Currency\Model\Entity;
 use Currency\Model\Mapper\CurrentDayTableNo;
-use SilverWp\Debug;
+use SilverZF2\Db\Hydrator\Strategy\DateTimeStrategy;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Hydrator;
@@ -31,10 +30,13 @@ class CurrentDayTableNoMapperFactory implements FactoryInterface
 	 */
 	public function createService(ServiceLocatorInterface $serviceLocator)
     {
-	    $dbAdapter = $serviceLocator->get('DbAdapter');
+	    $dbAdapter   = $serviceLocator->get( 'DbAdapter' );
 	    $entityClass = new Entity\CurrentDayTableNo();
+	    $mapper      = new CurrentDayTableNo( $dbAdapter, $entityClass );
+	    $mapper->getHydrator()
+	           ->addStrategy( 'table_date', new DateTimeStrategy() )
+	    ;
 
-	    $mapper = new CurrentDayTableNo($dbAdapter, $entityClass);
-        return $mapper;
+	    return $mapper;
     }
 }
