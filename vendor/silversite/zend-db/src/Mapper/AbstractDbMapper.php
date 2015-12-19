@@ -4,9 +4,11 @@ namespace SilverZF2\Db\Mapper;
 
 use SilverWp\Debug;
 use SilverZF2\Db\Adapter\Adapter;
+use SilverZF2\Db\Entity\EntityAwareTrait;
 use SilverZF2\Db\Entity\EntityPrototypeAwareTrait;
 use SilverZF2\Db\Entity\EntityPrototypeInterface;
 use SilverZF2\Db\Exception\Mapper\InvalidArgumentException;
+use SilverZF2\Db\ResultSet\EntityResultSet;
 use SilverZF2\Db\Table\TableAwareTrait;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\HydratingResultSet;
@@ -34,7 +36,7 @@ abstract class AbstractDbMapper
 {
 	use HydratorAwareTrait;
 	use TableAwareTrait;
-	use EntityPrototypeAwareTrait;
+	use EntityAwareTrait;
 
     /**
      * @var Select
@@ -51,22 +53,21 @@ abstract class AbstractDbMapper
      */
     private $isInitialized = false;
 
-	protected $virtualKeys;
 	/**
 	 * AbstractDbMapper constructor.
 	 *
-	 * @param Adapter|null                  $dbAdapter
-	 * @param EntityPrototypeInterface|null $entityPrototype
+	 * @param Adapter|null $dbAdapter
+	 * @param string|null  $entityClass
 	 */
-	public function __construct(Adapter $dbAdapter = null, EntityPrototypeInterface $entityPrototype = null)
+	public function __construct(Adapter $dbAdapter = null, $entityClass = null)
 	{
 		if ( ! is_null($dbAdapter)) {
 			$this->setDbAdapter($dbAdapter);
 		}
-
-		if ( ! is_null($entityPrototype)) {
-			$this->setEntityPrototype( $entityPrototype );
+		if ( ! is_null($entityClass)) {
+			$this->setEntityClass($entityClass);
 		}
+
 	}
 
 	/**
@@ -80,17 +81,13 @@ abstract class AbstractDbMapper
         if ($this->isInitialized) {
             return;
         }
-
+		//todo get this form service manage if not sets
         if ( ! $this->adapter instanceof Adapter) {
             throw new \Exception('No db adapter present');
         }
 
         if ( ! $this->hydrator instanceof HydratorInterface) {
             $this->hydrator = new ClassMethods;
-        }
-
-        if ( ! is_object($this->entityPrototype)) {
-            throw new \Exception('No entity prototype set');
         }
 
         $this->isInitialized = true;
@@ -110,26 +107,28 @@ abstract class AbstractDbMapper
 
     /**
      * @param Select                 $select
-     * @param object|null            $entityPrototype
+     * @param string|null            $entityClass
      * @param HydratorInterface|null $hydrator
      *
      * @return HydratingResultSet
      */
     protected function select(
-        Select $select, $entityPrototype = null, HydratorInterface $hydrator = null
+        Select $select, $entityClass = null, HydratorInterface $hydrator = null
     ) {
         $this->initialize();
 
-        $stmt = $this->getSql()->prepareStatementForSqlObject($select);
+	    $stmt    = $this->getSql()->prepareStatementForSqlObject($select);
+	    $results = $stmt->execute();
+	    if ($results instanceof ResultInterface && $results->isQueryResult()) {
+		    $hydrator   = is_null($hydrator) ? $this->getHydrator() : $hydrator;
+		    $entity     = is_null($entityClass) ?  $this->getEntityClass() : $entityClass;
+		    $resultSet  = new EntityResultSet($entity, $hydrator);
+		    $resultSet->initialize($results);
 
-        $resultSet = new HydratingResultSet(
-            $hydrator ? : $this->getHydrator(),
-            $entityPrototype ? : $this->getEntityPrototype()
-        );
+		    return $resultSet;
+	    }
 
-        $resultSet->initialize($stmt->execute());
-
-        return $resultSet;
+	    return false;
     }
 
     /**

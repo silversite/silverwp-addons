@@ -19,12 +19,13 @@
  */
 
 namespace Currency\Model\Entity;
+use SilverWp\Debug;
 use SilverZF2\Db\Entity\Entity;
 
 /**
  *
  *
- * @property $tableNoId
+ * @property $table_no_id
  * @property $table_date
  * @property $table_no
  *
@@ -37,6 +38,8 @@ use SilverZF2\Db\Entity\Entity;
  */
 class CurrentDayTableNo extends Entity
 {
+	const DATE_FORMAT = 'd-m-Y';
+
 	/**
 	 * @param \DateTime $date
 	 *
@@ -55,6 +58,7 @@ class CurrentDayTableNo extends Entity
 	 */
 	public function getTableDate()
 	{
-		return $this->table_date;
+		$date = new \DateTime($this->table_date);
+		return $date;
 	}
 }

@@ -33,7 +33,7 @@ use Zend\Filter\Word\CamelCaseToUnderscore;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-class Entity implements EntityInterface, EntityPrototypeInterface
+class Entity implements EntityInterface
 {
 	/**
 	 * @var string
@@ -49,6 +49,16 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 	 * @var array
 	 */
 	protected $nullable = [];
+
+	/**
+	 * Entity constructor.
+	 *
+	 * @param array $data
+	 */
+	public function __construct(array $data)
+	{
+		$this->loadData($data);
+	}
 
 	/**
 	 * Check if field is already set
@@ -99,7 +109,6 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 	{
 		$setter = 'set' . ucfirst($name);
 		$name   = $this->formatFieldName($name);
-
 		if (method_exists($this, $setter)) {
 			$this->$setter($value);
 		} else {
@@ -129,7 +138,6 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 	private function formatFieldName($name)
 	{
 		static $instance = null;
-
 		if (is_null($instance)) {
 			$instance = new CamelCaseToUnderscore();
 		}
@@ -151,7 +159,6 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 	protected function _get($name)
 	{
 		$name = $this->getColumnName($name);
-
 		$value = isset($this->data[$name]) ? $this->data[$name] : null;
 
 		return $value;
@@ -172,7 +179,6 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 		if ($this->isNullable($name) && $value !== 0 && empty($value)) {
 			$value = null;
 		}
-
 		$this->data[$name] = $value;
 	}
 
@@ -224,6 +230,77 @@ class Entity implements EntityInterface, EntityPrototypeInterface
 		}
 
 		return $this;
+	}
+
+	/**
+	 * Load the data in to the entity
+	 * @param array $data
+	 */
+	private function loadData(array $data)
+	{
+		$this->data = $this->preProcessData($data);
+	}
+
+	/**
+	 * Pre process the data before loading it into the entity
+	 *
+	 * @param array $data
+	 * @return array
+	 */
+	protected function preProcessData(array $data)
+	{
+		$envelope = new \ArrayObject($data);
+		$data = $envelope->getArrayCopy();
+
+		return $data;
+	}
+
+	/**
+	 * Merges entity data with provided data
+	 *
+	 * @param array|\Traversable $data
+	 * @param bool               $underscore
+	 *
+	 * @return Entity
+	 */
+	public function merge($data, $underscore = false)
+	{
+		if ( ! is_array($data) && ! ($data instanceof \Traversable)) {
+			throw new InvalidArgumentException('$data must be an array or Traversable');
+		}
+
+		foreach ($data as $key => $value) {
+			if ($underscore) {
+				$this[ $key ] = $value;
+			} else {
+				$this->$key = $value;
+			}
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Convert entity data to array
+	 *
+	 * @param array $fields
+	 *
+	 * @return array
+	 */
+	public function toArray(array $fields = [])
+	{
+		$data = [];
+
+		foreach (array_keys($this->data) as $field) {
+			if ($fields && ! in_array($field, $fields)) {
+				continue;
+			}
+
+			$data[ $field ] = $this->$field;
+		}
+
+		$data = new \ArrayObject($data);
+		return $data->getArrayCopy();
 	}
 
 }

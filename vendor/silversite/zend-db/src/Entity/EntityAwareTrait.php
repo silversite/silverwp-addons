@@ -19,7 +19,8 @@
  */
 
 namespace SilverZF2\Db\Entity;
-use Zend\Db\ResultSet\HydratingResultSet;
+use SilverWp\Debug;
+use SilverZF2\Db\Entity\Exception\InvalidArgumentException;
 
 
 /**
@@ -33,36 +34,57 @@ use Zend\Db\ResultSet\HydratingResultSet;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-trait EntityPrototypeAwareTrait
+trait EntityAwareTrait
 {
 	/**
 	 * @var object
 	 */
-	protected $entityPrototype;
-
-	/**
-	 * @var HydratingResultSet
-	 */
-	protected $resultSetPrototype;
+	protected $entityClass;
 
 	/**
 	 * @return object
 	 */
-	public function getEntityPrototype()
+	public function getEntityClass()
 	{
-		return $this->entityPrototype;
+		return $this->entityClass;
 	}
 
 	/**
-	 * @param EntityPrototypeInterface $entityPrototype
+	 * @param $entityClass
 	 *
 	 * @return $this
 	 */
-	public function setEntityPrototype(EntityPrototypeInterface $entityPrototype)
+	public function setEntityClass($entityClass)
 	{
-		$this->entityPrototype    = $entityPrototype;
-		$this->resultSetPrototype = null;
-
+		$this->entityClass = $entityClass;
+		Debug::dump($this->entityClass);
 		return $this;
+	}
+
+	/**
+	 * Load entity class
+	 *
+	 * @param array $data
+	 *
+	 * @return Entity
+	 * @access public
+	 */
+	public function loadEntity(array $data)
+	{
+		$class  = $this->entityClass;
+		if (is_string($class)) {
+			$entity = new $class($data);
+		} elseif ($class instanceof EntityInterface) {
+			$entity = $class;
+		} else {
+			throw new InvalidArgumentException(
+				sprintf(
+					'Expected a subclass of SilverZF2\Db\Entity\Entity, but got %s',
+					get_class($class)
+				)
+			);
+		}
+
+		return $entity;
 	}
 }

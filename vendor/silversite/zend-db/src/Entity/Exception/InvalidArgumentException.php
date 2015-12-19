@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverZF2\Db\Exception\Entity;
+namespace SilverZF2\Db\Entity\Exception;
 
-class InvalidArgumentException extends \InvalidArgumentException implements ExceptionInterface
+class InvalidArgumentException extends \InvalidArgumentException
 {}

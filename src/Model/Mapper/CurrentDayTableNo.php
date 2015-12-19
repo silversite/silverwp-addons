@@ -64,7 +64,7 @@ class CurrentDayTableNo extends AbstractDbMapper
 	/**
 	 * Get latest table no
 	 *
-	 * @return object
+	 * @return Entity\CurrentDayTableNo
 	 * @access public
 	 */
 	public function getLastTableNo()
@@ -72,8 +72,9 @@ class CurrentDayTableNo extends AbstractDbMapper
 		$select = $this->getSelect();
 		$select->order('table_date DESC');
 		$select->limit(1);
-		$result = $this->select($select);
-		return $result->current();
+		$results = $this->select($select);
+
+		return $results->current();
 	}
 
 	/**
