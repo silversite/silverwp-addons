@@ -19,7 +19,6 @@
  */
 
 namespace SilverZF2\Db\Entity;
-use SilverWp\Debug;
 use SilverZF2\Db\Entity\Exception\InvalidArgumentException;
 
 
@@ -37,7 +36,7 @@ use SilverZF2\Db\Entity\Exception\InvalidArgumentException;
 trait EntityAwareTrait
 {
 	/**
-	 * @var object
+	 * @var object|string
 	 */
 	protected $entityClass;
 
@@ -50,14 +49,14 @@ trait EntityAwareTrait
 	}
 
 	/**
-	 * @param $entityClass
+	 * @param object|string $entityClass
 	 *
 	 * @return $this
 	 */
 	public function setEntityClass($entityClass)
 	{
 		$this->entityClass = $entityClass;
-		Debug::dump($this->entityClass);
+
 		return $this;
 	}
 

@@ -24,50 +24,42 @@ use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * Currency Entity
+ * Currency Current day rates entity class
  *
- * @property $id
- * @property $post_title
- * @property $post_content
- * @property $post_author
- * @property $post_date
- * @property $post_date_gmt
- * @property $post_excerpt
- * @property $post_status
- * @property $comment_status
- * @property $post_name
- * @property $menu_order
- * @property $guid
- * @property $post_type
+ * @property $currency_id
+ * @property $history_current_day_rate_id
+ * @property $currency_counter
+ * @property $currency_rate
+ * @property $currency_change_rate
+ * @property $currency_date
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Entity
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
- * @version      1.0
+ * @category   Currency
+ * @package    Model
+ * @subpackage Entity
+ * @author     Michal Kalkowski <michal at silversite.pl>
+ * @copyright  SilverSite.pl 2015
+ * @version    0.1
  */
-class Currency extends Entity
+class HistoryCurrentDayRate extends Entity
 {
 	/**
-	 * @param int $id
-	 *
-	 * @return $this
-	 * @access public
+	 * @return \DateTime
 	 */
-	public function setId($id)
+	public function getCurrencyDate()
 	{
-		$this->id = $id;
+		return $this->currency_date;
+	}
+
+	/**
+	 * @param \DateTime $currency_date
+	 *
+	 * @return HistoryCurrentDayRate
+	 */
+	public function setCurrencyDate(\DateTime $currency_date)
+	{
+		$this->currency_date = $currency_date;
 
 		return $this;
 	}
 
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
 }

@@ -5,13 +5,10 @@ namespace SilverZF2\Db\Mapper;
 use SilverWp\Debug;
 use SilverZF2\Db\Adapter\Adapter;
 use SilverZF2\Db\Entity\EntityAwareTrait;
-use SilverZF2\Db\Entity\EntityPrototypeAwareTrait;
-use SilverZF2\Db\Entity\EntityPrototypeInterface;
-use SilverZF2\Db\Exception\Mapper\InvalidArgumentException;
+use SilverZF2\Db\Mapper\Exception\InvalidArgumentException;
 use SilverZF2\Db\ResultSet\EntityResultSet;
 use SilverZF2\Db\Table\TableAwareTrait;
 use Zend\Db\Adapter\Driver\ResultInterface;
-use Zend\Db\ResultSet\HydratingResultSet;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
@@ -110,7 +107,7 @@ abstract class AbstractDbMapper
      * @param string|null            $entityClass
      * @param HydratorInterface|null $hydrator
      *
-     * @return HydratingResultSet
+     * @return EntityResultSet
      */
     protected function select(
         Select $select, $entityClass = null, HydratorInterface $hydrator = null
@@ -119,18 +116,35 @@ abstract class AbstractDbMapper
 
 	    $stmt    = $this->getSql()->prepareStatementForSqlObject($select);
 	    $results = $stmt->execute();
-	    if ($results instanceof ResultInterface && $results->isQueryResult()) {
-		    $hydrator   = is_null($hydrator) ? $this->getHydrator() : $hydrator;
-		    $entity     = is_null($entityClass) ?  $this->getEntityClass() : $entityClass;
-		    $resultSet  = new EntityResultSet($entity, $hydrator);
-		    $resultSet->initialize($results);
-
-		    return $resultSet;
-	    }
-
-	    return false;
+	    return $this->getResultSet($results, $entityClass, $hydrator);
     }
 
+	/**
+	 * DB results to Entity results sets object
+	 *
+	 * @param ResultInterface[]      $results
+	 * @param null                   $entityClass
+	 * @param HydratorInterface|null $hydrator
+	 *
+	 * @return EntityResultSet
+	 * @access protected
+	 */
+	protected function getResultSet($results, $entityClass = null, HydratorInterface $hydrator = null)
+	{
+		if ($results instanceof ResultInterface && $results->isQueryResult()) {
+			$hydrator   = is_null($hydrator) ? $this->getHydrator() : $hydrator;
+			$entity     = is_null($entityClass) ?  $this->getEntityClass() : $entityClass;
+			$resultSet  = new EntityResultSet($entity, $hydrator);
+			$resultSet->initialize($results);
+
+			return $resultSet;
+		} else {
+			throw new InvalidArgumentException(
+				'$results must be an instance of Zend\Db\Adapter\Driver\ResultInterface'
+			);
+		}
+
+	}
     /**
      * @param object|array                $entity
      * @param string|TableIdentifier|null $tableName
@@ -241,22 +255,22 @@ abstract class AbstractDbMapper
     }
 
 	/**
-	 * @param $id
+	 * @param array $id ['key = ?' => value]
 	 *
 	 * @return object
 	 */
-	public function find($id)
+	public function find(array $id)
 	{
 		$select = $this->getSelect();
-		$select->where(array('id = ?' => $id));
+		$select->where($id);
 
 		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
 		$result = $stmt->execute();
 
-		if ($result instanceof ResultInterface && $result->isQueryResult() && $result->getAffectedRows()) {
-			return $this->getHydrator()->hydrate($result->current(), $this->getEntityPrototype());
+		$data = $this->getResultSet($result);
+		if ($data) {
+			return $data;
 		}
-
 		throw new \InvalidArgumentException("Record with given ID:{$id} not found.");
 	}
 
@@ -270,13 +284,9 @@ abstract class AbstractDbMapper
 		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
 		$result = $stmt->execute();
 
-		if ($result instanceof ResultInterface && $result->isQueryResult()) {
-			$resultSet = new HydratingResultSet($this->getHydrator(), $this->getEntityPrototype());
+		$data = $this->getResultSet($result);
 
-			return $resultSet->initialize($result);
-		}
-
-		return [];
+		return $data;
 	}
 
     /**

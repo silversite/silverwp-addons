@@ -20,6 +20,7 @@
 
 namespace SilverZF2\Db\Entity;
 
+use SilverZF2\Db\Entity\Exception\InvalidArgumentException;
 use Zend\Filter\Word\CamelCaseToUnderscore;
 
 /**

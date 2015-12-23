@@ -37,6 +37,8 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  */
 class CurrentDayTableNo extends AbstractDbMapper
 {
+	const DATE_FORMAT = 'd-m-Y';
+
 	/**
 	 * @var string
 	 */
@@ -87,6 +89,7 @@ class CurrentDayTableNo extends AbstractDbMapper
 	{
 		$select = $this->getSelect();
 		$select->order('table_date ASC');
+		$select->where->isNotNull('table_no');
 		$select->limit(1);
 		$result = $this->select($select);
 

@@ -20,11 +20,12 @@
 
 namespace Currency\Model\Mapper;
 
+use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
  *
- *
+ * Currency entities
  *
  * @category     Zend Framework 2
  * @package      Model
@@ -38,29 +39,28 @@ class Currency extends AbstractDbMapper
 	/**
 	 * @var string
 	 */
-	protected $tableName = 'currency';
+	protected $tableName = 'posts';
 
 	/**
 	 * @var array
 	 */
-	private $continent
-		= [
-			'Europa',
-			'Ameryka Północna',
-			'Ameryka Południowa',
-			'Azja',
-			'Australia',
-			'Afryka'
-		];
+	private $continent = [
+		'Europa',
+		'Ameryka Północna',
+		'Ameryka Południowa',
+		'Azja',
+		'Australia',
+		'Afryka'
+	];
 
-	public function getAll() {
-		$select = $this->getSelect();
-
-		return $this->select( $select );
-	}
-
-	public function getContinentNameById( $id ) {
-		return $this->continent[ $id ];
+	/**
+	 * @param int $id
+	 *
+	 * @return string|bool
+	 * @access public
+	 */
+	public function getContinentNameById($id) {
+		return isset($this->continent[$id]) ? $this->continent[$id] : false;
 	}
 
 	/**
@@ -109,5 +109,21 @@ class Currency extends AbstractDbMapper
 		}
 
 		return $post_id;
+	}
+
+	/**
+	 * Get all currencies
+	 *
+	 * @return \SilverZF2\Db\ResultSet\EntityResultSet
+	 * @access public
+	 */
+	public function getAll()
+	{
+		$select = $this->getSelect();
+		$select->where->equalTo('post_type', 'currency');
+		$select->order('post_title ASC');
+		$results = $this->select($select);
+
+		return $results;
 	}
 }

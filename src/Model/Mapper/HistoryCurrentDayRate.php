@@ -18,56 +18,28 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
+namespace Currency\Model\Mapper;
 
-use SilverZF2\Db\Entity\Entity;
+use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 
 /**
  *
- * Currency Entity
- *
- * @property $id
- * @property $post_title
- * @property $post_content
- * @property $post_author
- * @property $post_date
- * @property $post_date_gmt
- * @property $post_excerpt
- * @property $post_status
- * @property $comment_status
- * @property $post_name
- * @property $menu_order
- * @property $guid
- * @property $post_type
+ * History current day rates
  *
  * @category     Currency
  * @package      Model
- * @subpackage   Entity
+ * @subpackage   Mapper
  * @author       Michal Kalkowski <michal at silversite.pl>
  * @copyright    SilverSite.pl 2015
- * @version      1.0
+ * @version      0.1
  */
-class Currency extends Entity
+class HistoryCurrentDayRate extends AbstractDbMapper
 {
 	/**
-	 * @param int $id
-	 *
-	 * @return $this
-	 * @access public
+	 * @var string
 	 */
-	public function setId($id)
-	{
-		$this->id = $id;
+	protected $tableName = 'history_current_day_rate';
 
-		return $this;
-	}
 
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
 }

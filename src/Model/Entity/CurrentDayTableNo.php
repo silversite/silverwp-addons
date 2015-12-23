@@ -38,8 +38,6 @@ use SilverZF2\Db\Entity\Entity;
  */
 class CurrentDayTableNo extends Entity
 {
-	const DATE_FORMAT = 'd-m-Y';
-
 	/**
 	 * @param \DateTime $date
 	 *
@@ -53,7 +51,7 @@ class CurrentDayTableNo extends Entity
 	}
 
 	/**
-	 * @return object DateTime
+	 * @return \DateTime
 	 * @access public
 	 */
 	public function getTableDate()

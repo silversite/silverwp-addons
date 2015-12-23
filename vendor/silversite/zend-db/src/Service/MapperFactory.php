@@ -19,6 +19,10 @@
  */
 
 namespace SilverZF2\Db\Service;
+
+use SilverZF2\Db\Entity\Entity;
+use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 
@@ -33,22 +37,98 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * @copyright  SilverSite.pl (c) 2015
  * @version    0.1
  */
-class MapperFactory implements FactoryInterface
+class MapperFactory implements AbstractFactoryInterface
 {
 
 	/**
-	 * Create service
+	 * Determine if we can create a service with name
 	 *
 	 * @param ServiceLocatorInterface $serviceLocator
-	 * @return mixed
+	 * @param string                  $name
+	 * @param string                  $requestedName
+	 *
+	 * @return bool
 	 */
-	public function createService(ServiceLocatorInterface $serviceLocator)
-	{
-		$dbAdapter = $serviceLocator->get('DbAdapter');
-		$entityClass = $serviceLocator->get('EntityClass');
-
-		$mapper = new CurrentDayRate($dbAdapter, $entityClass);
-		return $mapper;
+	public function canCreateServiceWithName(
+		ServiceLocatorInterface $serviceLocator, $name, $requestedName
+	) {
+		return preg_match('#^Mapper\\\\(.+)$#', $requestedName);
 	}
 
+	/**
+	 * Create service with name
+	 *
+	 * @param ServiceLocatorInterface $serviceLocator
+	 * @param                         $name
+	 * @param                         $requestedName
+	 *
+	 * @return mixed
+	 * @throws \LogicException
+	 */
+	public function createServiceWithName(
+		ServiceLocatorInterface $serviceLocator, $name, $requestedName
+	) {
+		if ( ! preg_match('#^Mapper\\\\(.+)$#', $requestedName, $match)) {
+			throw new \LogicException();
+		}
+
+		$modelName = $match[1];
+		$config    = $serviceLocator->get( 'Config' );
+
+		if (isset($config['db']) && isset($config['db']['models'])) {
+			if (isset($config['db']['models'][$modelName])) {
+				$modelConfig  = $config['db']['models'][$modelName];
+
+				if (array_key_exists('mapper', $modelConfig)) {
+					$dbAdapter   = $serviceLocator->get('DbAdapter');
+
+					$entityClass = isset($modelConfig['entity']) ? $modelConfig['entity'] : '\SilverZF2\Db\Entity\Entity';
+
+					if ( ! class_exists($entityClass)) {
+						throw new \LogicException(
+							sprintf('Entity class %s does not exists', $entityClass)
+						);
+					}
+
+					if ( ! is_subclass_of($entityClass, 'SilverZF2\Db\Entity\Entity')) {
+						throw new \LogicException(
+							sprintf('Mapper class "%s" is invalid. Expected a subclass of SilverZF2\Db\Entity\Entity', $entityClass)
+						);
+					}
+
+					$mapperClass = $modelConfig['mapper'];
+
+					if ( ! class_exists($mapperClass)) {
+						throw new \LogicException(
+							sprintf('Mapper class %s does not exists', $mapperClass)
+						);
+					}
+
+					if ( ! is_subclass_of($mapperClass, 'SilverZF2\Db\Mapper\AbstractDbMapper')) {
+						throw new \LogicException(
+							sprintf('Mapper class "%s" is invalid. Expected a subclass of SilverZF2\Db\Mapper\AbstractDbMapper', $mapperClass)
+						);
+					}
+
+					/** @var $mapper AbstractDbMapper */
+					$mapper = new $mapperClass($dbAdapter, $entityClass);
+					if (isset($modelConfig['table'])) {
+						$mapper->setTableName($modelConfig['table']);
+					}
+
+ 					return $mapper;
+				} else {
+					throw new \LogicException(
+						'No mapper key configuration found!'
+					);
+				}
+			} else {
+				throw new \LogicException(
+					sprintf('No model configuration found for %s!', $modelName)
+				);
+			}
+		}
+
+		return null;
+	}
 }
