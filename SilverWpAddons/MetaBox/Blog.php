@@ -5,9 +5,9 @@ namespace SilverWpAddons\MetaBox;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Group;
 //use SilverWp\Helper\Control\Gallery;
-//use SilverWp\Helper\Control\SidebarPosition;
+use SilverWp\Helper\Control\SidebarPosition;
 use SilverWp\Helper\Control\Toggle;
-//use SilverWp\Helper\Option;
+use SilverWp\Helper\Option;
 use SilverWp\MetaBox\MetaBoxAbstract;
 use SilverWp\Translate;
 
@@ -29,13 +29,13 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function setUp() {
-            /*
+
             $sidebar = new SidebarPosition( 'sidebar' );
             $sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
             $sidebar->removeOption( 1 );
             $sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
             $this->addControl( $sidebar );
-            */
+
             $groupSource = new Group( 'source' );
             $groupSource->setLabel( Translate::translate( 'Source of article' ) );
             $sourceName = new Text( 'source_name' );
@@ -66,6 +66,12 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
             $relatedId->setLabel( Translate::translate( 'Post ID' ) );
             $groupRelated->addControl( $relatedId );
             $this->addControl( $groupRelated );
+
+			$sidebar = new SidebarPosition( 'sidebar' );
+			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
+			$sidebar->removeOption( 1 );
+			$sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
+			$this->addControl( $sidebar );
 		}
 
 		/**

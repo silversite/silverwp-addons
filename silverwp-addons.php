@@ -59,7 +59,11 @@ add_action( 'plugins_loaded', function () {
             NavMenu::getInstance();
 
             //register sidebars
-            Sidebar\ToggleNav::getInstance();
+            //Sidebar\ToggleNav::getInstance();
+            Sidebar\FooterCol1::getInstance();
+            Sidebar\FooterCol2::getInstance();
+            Sidebar\FooterCol3::getInstance();
+            Sidebar\FooterCol4::getInstance();
 
             if ( function_exists( 'vc_set_as_theme' ) ) {
                 ShortCode\Setup::getInstance();
@@ -76,8 +80,8 @@ add_action( 'plugins_loaded', function () {
 	            SilverWp::getInstance()->addWidget( 'SilverWpAddons\Widget\TwitterRecentPosts' );
             }
 
-	        PostLike::getInstance();
-	        MegaMenu::getInstance();
+	        //PostLike::getInstance();
+	        //MegaMenu::getInstance();
 	        if ( function_exists( 'icl_object_id' ) ) {
 				Wpml::getInstance();
 			}
