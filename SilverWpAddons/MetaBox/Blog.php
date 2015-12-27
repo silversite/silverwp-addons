@@ -37,7 +37,9 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
             $this->addControl( $sidebar );
 
             $groupSource = new Group( 'source' );
-            $groupSource->setLabel( Translate::translate( 'Source of article' ) );
+			$groupSource->setRepeating( true );
+			$groupSource->setSortable( true );
+            $groupSource->setLabel( Translate::translate( 'Source' ) );
             $sourceName = new Text( 'source_name' );
             $sourceName->setLabel( Translate::translate( 'Name' ) );
             $groupSource->addControl( $sourceName );
@@ -49,6 +51,22 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
             $sourceAlt->setLabel( Translate::translate( 'Original title' ) );
             $groupSource->addControl( $sourceAlt );
             $this->addControl( $groupSource );
+
+			$groupMore = new Group( 'more' );
+			$groupMore->setRepeating( true );
+			$groupMore->setSortable( true );
+			$groupMore->setLabel( Translate::translate( 'More' ) );
+			$sourceName = new Text( 'more_name' );
+			$sourceName->setLabel( Translate::translate( 'Name' ) );
+			$groupMore->addControl( $sourceName );
+			$sourceUrl = new Text( 'more_url' );
+			$sourceUrl->setLabel( Translate::translate( 'Address URL' ) );
+			$sourceUrl->setValidation( 'url' );
+			$groupMore->addControl( $sourceUrl );
+			$sourceAlt = new Text( 'more_alt' );
+			$sourceAlt->setLabel( Translate::translate( 'Original title' ) );
+			$groupMore->addControl( $sourceAlt );
+			$this->addControl( $groupMore );
 
             $groupVideo = new Group( 'video' );
             $groupVideo->setLabel( Translate::translate( 'Video' ) );
@@ -66,12 +84,6 @@ if ( ! class_exists( 'SilverWpAddons\Blog' ) ) {
             $relatedId->setLabel( Translate::translate( 'Post ID' ) );
             $groupRelated->addControl( $relatedId );
             $this->addControl( $groupRelated );
-
-			$sidebar = new SidebarPosition( 'sidebar' );
-			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
-			$sidebar->removeOption( 1 );
-			$sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
-			$this->addControl( $sidebar );
 		}
 
 		/**
