@@ -48,11 +48,8 @@ trait HistoryTrait
 	{
 		/** @var  $select \Zend\Db\Sql\Select*/
 		$select = $this->getSelect();
-		if ($this->tableName == 'history_currency_sell_buy') {
-			$dateColumn = 'currency_insert_date';
-		} else {
-			$dateColumn = 'currency_date';
-		}
+		$dateColumn = $this->getDateColumn();
+
 		$select->columns(['day' => new Expression('DATE_FORMAT(' . $dateColumn . ', \'%d\')')])
 			->where->equalTo(new Expression('YEAR(' . $dateColumn . ')'), (int)$year)
 			->and->equalTo(new Expression('MONTH(' . $dateColumn . ')'), $month);
@@ -61,5 +58,52 @@ trait HistoryTrait
 		$results = $this->select($select);
 
 		return $results;
+	}
+
+	public function getCurrencyRates($currencyId, $dateFrom = null, $dateTo = null, $tableNoId = null)
+	{
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		/** @var $select \Zend\Db\Sql\Select*/
+		$select = $this->getSelect();
+		$dateColumn = $this->getDateColumn();
+		$select->where(['currency_id = ?' => (int) $currencyId]);
+
+		if ( ! is_null($dateFrom) && ! is_null($dateTo)) {
+			//currency_date BETWEEN ($dateFrom AND $dateTo)
+			$select->where->between($dateColumn, $dateFrom, $dateTo);
+		} else if ( ! is_null($dateFrom)) {
+			//currency_date <= $dateFrom
+			$select->where->lessThanOrEqualTo($dateColumn, $dateFrom);
+		} else if ( ! is_null($dateTo)) {
+			//currency_date >= $dateTo
+			$select->where->greaterThanOrEqualTo($dateColumn, $dateTo);
+		}
+
+		if ( !is_null($tableNoId)) {
+			//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+			$select->join($tablePrefix . 'current_day_table_no', new Expression('DATE_FORMAT(table_date, \'%Y-%m-%d\') = DATE_FORMAT(currency_date, \'%Y-%m-%d\')'));
+			//AND table_no_id = ?
+			$select->where(['table_no_id = ?' => (int) $tableNoId]);
+		}
+		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+		$results = $this->select($select);
+
+		return $results;
+	}
+
+	/**
+	 * Get date column name by table name
+	 *
+	 * @return string
+	 * @access private
+	 */
+	private function getDateColumn()
+	{
+		if ($this->tableName == 'history_currency_sell_buy') {
+			$dateColumn = 'currency_insert_date';
+		} else {
+			$dateColumn = 'currency_date';
+		}
+		return $dateColumn;
 	}
 }

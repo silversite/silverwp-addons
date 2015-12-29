@@ -27,7 +27,11 @@ $config = [
 				'table'  => 'history_currency_irredeemable',
 				'entity' => 'Currency\Model\Entity\HistoryIrredeemable',
 				'mapper' => 'Currency\Model\Mapper\HistoryIrredeemable',
-			]
+			],
+		    'IrredeemableTableNo' => [
+			    'table'  => 'history_currency_irredeemable',
+			    'mapper' => 'Currency\Model\Mapper\HistoryIrredeemable',
+		    ]
 		]
 
 	],

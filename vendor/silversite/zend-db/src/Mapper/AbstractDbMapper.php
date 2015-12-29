@@ -10,9 +10,11 @@ use SilverZF2\Db\ResultSet\EntityResultSet;
 use SilverZF2\Db\Table\TableAwareTrait;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\TableIdentifier;
+use Zend\Db\Sql\Where;
 use Zend\Hydrator\HydratorAwareTrait;
 use Zend\Hydrator\HydratorInterface;
 use Zend\Hydrator\ClassMethods;
@@ -31,6 +33,8 @@ use Zend\Hydrator\ClassMethods;
  */
 abstract class AbstractDbMapper
 {
+	const DATE_FORMAT = 'd-m-Y';
+
 	use HydratorAwareTrait;
 	use TableAwareTrait;
 	use EntityAwareTrait;
@@ -40,7 +44,13 @@ abstract class AbstractDbMapper
      */
     protected $selectPrototype;
 
-    /**
+	/**
+	 * Primary key column
+	 * @var string
+	 */
+	protected $pkColumn;
+
+	/**
      * @var Sql
      */
     private $sql;
@@ -275,12 +285,22 @@ abstract class AbstractDbMapper
 	}
 
 	/**
+	 * Get all records. Can be limited by $limit variable and paged by page
+	 *
+	 * @param null|int $page
+	 * @param null|int $limit
 	 *
 	 * @return ResultSet
 	 */
-	public function findAll()
+	public function findAll($page = null, $limit = null)
 	{
 		$select = $this->getSelect();
+		if ( ! is_null($page)) {
+			$select->offset($page);
+		}
+		if ( ! is_null($limit)) {
+			$select->limit($limit);
+		}
 		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
 		$result = $stmt->execute();
 
@@ -340,5 +360,35 @@ abstract class AbstractDbMapper
 	public function __toString()
 	{
 		Debug::dump($this->getSqlQuery($this->getSelect()));
+	}
+
+	/**
+	 * Count all rows
+	 *
+	 * @param Where $where
+	 *
+	 * @access public
+	 * @return int
+	 */
+	public function countAll(Where $where = null)
+	{
+		if ( ! isset($this->pkColumn) || is_null($this->pkColumn)) {
+			throw new InvalidArgumentException(
+				sprintf('Primary key column (%s::$pkColumn) is not specified', get_called_class())
+			);
+		}
+		/** @var $select \Zend\Db\Sql\Select*/
+		$select = $this->getSelect();
+		$select->columns(['count' => new Expression('COUNT(' . $this->pkColumn . ')')]);
+		if ( ! is_null($where)) {
+			$select->where($where);
+		}
+		$results = $this->select($select);
+		if ($results) {
+			$data = $results->current();
+			return $data->count;
+		}
+
+		return 0;
 	}
 }

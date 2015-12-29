@@ -24,7 +24,7 @@ use SilverWp\Ajax\AjaxAbstract;
 
 /**
  *
- * Create select with days list
+ * Create select with table no list
  *
  * @category   WordPress
  * @package    SilverWpAddons
@@ -33,8 +33,8 @@ use SilverWp\Ajax\AjaxAbstract;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-class SelectDay extends AjaxAbstract {
-	protected $name = 'select-day';
+class SelectTableNo extends AjaxAbstract {
+	protected $name = 'select-table-no';
 
 	/**
 	 * ajax response
@@ -43,26 +43,31 @@ class SelectDay extends AjaxAbstract {
 	 */
 	public function ajaxResponse() {
 		$model = $this->getRequestData( 'model', FILTER_SANITIZE_STRING, 'currentDay');
-		$year =  $this->getRequestData( 'year', FILTER_SANITIZE_NUMBER_INT, date('Y'));
-		$month =  $this->getRequestData( 'month', FILTER_SANITIZE_NUMBER_INT, date('m'));
+		$page  =  $this->getRequestData( 'page', FILTER_SANITIZE_NUMBER_INT, 0);
 
 		switch ($model) {
 			case 'currentDay':
-				/** @var $mapper \Currency\Model\Mapper\HistoryCurrentDayRate*/
-				$mapper = \SilverWp\Service\get_service( 'Mapper\HistoryCurrentDayRate' );
-				break;
-			case 'sellBuy':
-				/** @var $mapper \Currency\Model\Mapper\HistorySellBuy*/
-				$mapper = \SilverWp\Service\get_service( 'Mapper\HistorySellBuy' );
+				/** @var $mapper \Currency\Model\Mapper\CurrentDayTableNo*/
+				$mapper = \SilverWpAddons\get_service( 'TableNo' );
 				break;
 			case 'irredeemable':
-				/** @var $mapper \Currency\Model\Mapper\HistoryIrredeemable*/
-				$mapper = \SilverWp\Service\get_service( 'Mapper\HistoryIrredeemable' );
+				/** @var $mapper \Currency\Model\Mapper\IrredeemableTableNo*/
+				$mapper = \SilverWpAddons\get_service( 'Mapper\IrredeemableTableNo' );
 				break;
 
 		}
 
-		$data = $mapper->getDaysByYearMonth($year, $month);
-		$this->responseJson(['data' => $data->toArray()]);
+		$tables = $mapper->findAll( $page, 100 );
+		$data = [
+			'total_count' => $mapper->countAll(),
+		];
+		foreach ( $tables as $table ) {
+			$data['items'][] = [
+				'id'   => $table->table_no_id,
+				'no'   => $table->table_no,
+			];
+		}
+
+		$this->responseJson($data);
 	}
 }

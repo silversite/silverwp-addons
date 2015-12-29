@@ -31,6 +31,7 @@ use SilverWp\Exception;
 use SilverWp\FileSystem;
 use SilverWp\Translate;
 use SilverWpAddons\Ajax\SelectDay;
+use SilverWpAddons\Ajax\SelectTableNo;
 use SilverWpAddons\PostType\Currency;
 use SilverZF2\Common\Application;
 use SilverZF2\Common\Traits\SingletonAwareTrait;
@@ -43,6 +44,26 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 require_once 'vendor/autoload.php';
+
+/**
+ * Get service manager instance
+ *
+ * @param string $service_name
+ *
+ * @return array|object
+ * @access public
+ */
+function get_service( $service_name ) {
+	$application = Application::getInstance();
+	$config_path = FileSystem::getDirectory( 'plugin_config_dir' );
+	$config_file = include trailingslashit( $config_path ) . 'module.config.php';
+	$application->init( $config_file );
+
+	$service = $application->getServiceLocator()->get( $service_name );
+
+	return $service;
+}
+
 add_action(
 	'plugins_loaded',
 	function () {
@@ -57,7 +78,9 @@ add_action(
 		        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
 		        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
+		        //Ajax
 		        SelectDay::getInstance();
+				SelectTableNo::getInstance();
 
 	        } catch ( Exception $ex ) {
 	            echo $ex->catchException();
@@ -66,3 +89,4 @@ add_action(
 	},
 	12
 );
+

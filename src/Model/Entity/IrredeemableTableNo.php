@@ -18,32 +18,45 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Mapper;
-
-use Currency\Model\Entity;
+namespace Currency\Model\Entity;
 use SilverWp\Debug;
-use SilverZF2\Db\Hydrator\Strategy\DateTimeStrategy;
-use SilverZF2\Db\Mapper\AbstractDbMapper;
+use SilverZF2\Db\Entity\Entity;
 
 /**
- * Current day table no
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
+ *
+ * @property int $table_no_id
+ * @property \DateTime $table_date
+ * @property string $table_no
+ *
+ * @category     Zend Framework 2
+ * @package      Currency
+ * @subpackage   Model\Entity
  * @author       Michal Kalkowski <michal at silversite.pl>
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends AbstractDbMapper
+class IrredeemableTableNo extends Entity
 {
-	use TableNoTrait;
-
-	protected $pkColumn = 'table_no_id';
+	/**
+	 * @param \DateTime $date
+	 *
+	 * @return $this
+	 * @access public
+	 */
+	public function setTableDate(\DateTime $date)
+	{
+		$this->table_date = $date;
+		return $this;
+	}
 
 	/**
-	 * @var string
+	 * @return \DateTime
+	 * @access public
 	 */
-	protected $tableName = 'current_day_table_no';
-
+	public function getTableDate()
+	{
+		$date = new \DateTime($this->table_date);
+		return $date;
+	}
 }

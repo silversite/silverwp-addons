@@ -26,7 +26,7 @@ use SilverZF2\Db\Hydrator\Strategy\DateTimeStrategy;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
- * Current day table no
+ * Irredeemable day table no
  *
  * @category     Currency
  * @package      Model
@@ -35,15 +35,19 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends AbstractDbMapper
+class IrredeemableTableNo extends AbstractDbMapper
 {
 	use TableNoTrait;
 
-	protected $pkColumn = 'table_no_id';
+	const DATE_FORMAT = 'd-m-Y';
 
 	/**
 	 * @var string
 	 */
 	protected $tableName = 'current_day_table_no';
 
+	/**
+	 * @var string
+	 */
+	protected $pkColumn = 'table_no_id';
 }
