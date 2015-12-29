@@ -30,6 +30,7 @@ use SilverWp\Debug;
 use SilverWp\Exception;
 use SilverWp\FileSystem;
 use SilverWp\Translate;
+use SilverWpAddons\Ajax\SelectDay;
 use SilverWpAddons\PostType\Currency;
 use SilverZF2\Common\Application;
 use SilverZF2\Common\Traits\SingletonAwareTrait;
@@ -56,6 +57,7 @@ add_action(
 		        $currency->registerMetaBox( MetaBox\Currency::getInstance() );
 		        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
+		        SelectDay::getInstance();
 
 	        } catch ( Exception $ex ) {
 	            echo $ex->catchException();
