@@ -17,12 +17,22 @@ $config = [
 				'table'  => 'history_current_day_rate',
 				'entity' => 'Currency\Model\Entity\HistoryCurrentDayRate',
 				'mapper' => 'Currency\Model\Mapper\HistoryCurrentDayRate',
+			],
+			'HistorySellBuy' => [
+				'table'  => 'history_currency_sell_buy',
+				'entity' => 'Currency\Model\Entity\HistorySellBuy',
+				'mapper' => 'Currency\Model\Mapper\HistorySellBuy',
+			],
+			'HistoryIrredeemable' => [
+				'table'  => 'history_currency_irredeemable',
+				'entity' => 'Currency\Model\Entity\HistoryIrredeemable',
+				'mapper' => 'Currency\Model\Mapper\HistoryIrredeemable',
 			]
 		]
 
 	],
 	'service_manager' => [
-		//abstrakcyjne fabryki
+		//abstract factories
 		'abstract_factories' => [
 //			'Zend\Cache\Service\StorageCacheAbstractServiceFactory',    //cache
 			'SilverZF2\Db\Service\MapperFactory' //mapper construct factory loader

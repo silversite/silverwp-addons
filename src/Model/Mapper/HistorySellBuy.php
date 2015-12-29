@@ -18,29 +18,28 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
+namespace Currency\Model\Mapper;
 
-use SilverZF2\Db\Entity\Entity;
+use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 
 /**
  *
- * Currency Current day rates entity class
+ * History sell buy rates
  *
- * @property int $currency_id
- * @property int $history_current_day_rate_id
- * @property int $currency_counter
- * @property float $currency_rate
- * @property float $currency_change_rate
- * @property \DateTime $currency_date
- *
- * @category   Currency
- * @package    Model
- * @subpackage Entity
- * @author     Michal Kalkowski <michal at silversite.pl>
- * @copyright  SilverSite.pl 2015
- * @version    0.1
+ * @category     Currency
+ * @package      Model
+ * @subpackage   Mapper
+ * @author       Michal Kalkowski <michal at silversite.pl>
+ * @copyright    SilverSite.pl 2015
+ * @version      0.1
  */
-class HistoryCurrentDayRate extends Entity implements HistoryInterface
+class HistorySellBuy extends AbstractDbMapper implements HistoryInterface
 {
 	use HistoryTrait;
+
+	/**
+	 * @var string
+	 */
+	protected $tableName = 'history_currency_sell_buy';
 }

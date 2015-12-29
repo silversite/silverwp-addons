@@ -82,18 +82,21 @@ class MapperFactory implements AbstractFactoryInterface
 				if (array_key_exists('mapper', $modelConfig)) {
 					$dbAdapter   = $serviceLocator->get('DbAdapter');
 
-					$entityClass = isset($modelConfig['entity']) ? $modelConfig['entity'] : '\SilverZF2\Db\Entity\Entity';
+					if (isset($modelConfig['entity'])) {
+						$entityClass = $modelConfig['entity'];
+						if ( ! class_exists($entityClass)) {
+							throw new \LogicException(
+								sprintf('Entity class %s does not exists', $entityClass)
+							);
+						}
 
-					if ( ! class_exists($entityClass)) {
-						throw new \LogicException(
-							sprintf('Entity class %s does not exists', $entityClass)
-						);
-					}
-
-					if ( ! is_subclass_of($entityClass, 'SilverZF2\Db\Entity\Entity')) {
-						throw new \LogicException(
-							sprintf('Mapper class "%s" is invalid. Expected a subclass of SilverZF2\Db\Entity\Entity', $entityClass)
-						);
+						if ( ! is_subclass_of($entityClass, 'SilverZF2\Db\Entity\Entity')) {
+							throw new \LogicException(
+								sprintf('Mapper class "%s" is invalid. Expected a subclass of SilverZF2\Db\Entity\Entity', $entityClass)
+							);
+						}
+					} else {
+						$entityClass = 'SilverZF2\Db\Entity\Entity';
 					}
 
 					$mapperClass = $modelConfig['mapper'];

@@ -19,13 +19,12 @@
  */
 
 namespace Currency\Model\Mapper;
-
-use SilverZF2\Db\Mapper\AbstractDbMapper;
 use Zend\Db\Sql\Expression;
+
 
 /**
  *
- * History current day rates
+ * History mapper Trait
  *
  * @category     Currency
  * @package      Model
@@ -34,12 +33,33 @@ use Zend\Db\Sql\Expression;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class HistoryCurrentDayRate extends AbstractDbMapper implements HistoryInterface
+trait HistoryTrait
 {
-	use HistoryTrait;
 	/**
-	 * @var string
+	 * Get all list of days from year and month
+	 *
+	 * @param int $year
+	 * @param int $month
+	 *
+	 * @return \SilverZF2\Db\ResultSet\EntityResultSet
+	 * @access public
 	 */
-	protected $tableName = 'history_current_day_rate';
+	public function getDaysByYearMonth($year, $month)
+	{
+		/** @var  $select \Zend\Db\Sql\Select*/
+		$select = $this->getSelect();
+		if ($this->tableName == 'history_currency_sell_buy') {
+			$dateColumn = 'currency_insert_date';
+		} else {
+			$dateColumn = 'currency_date';
+		}
+		$select->columns(['day' => new Expression('DATE_FORMAT(' . $dateColumn . ', \'%d\')')])
+			->where->equalTo(new Expression('YEAR(' . $dateColumn . ')'), (int)$year)
+			->and->equalTo(new Expression('MONTH(' . $dateColumn . ')'), $month);
+		;
+		$select->group(new Expression('DAY(' . $dateColumn . ')'));
+		$results = $this->select($select);
 
+		return $results;
+	}
 }

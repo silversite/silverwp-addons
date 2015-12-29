@@ -32,6 +32,7 @@ use SilverZF2\Db\Entity\Entity;
  * @property $currencyRate
  * @property $currencyId
  * @property $postTitle
+ * @property $day
  *
  * @category   Currency
  * @package    Model
@@ -140,5 +141,6 @@ class CurrentDayRate extends Entity
 
 		return $this;
 	}
+
 
 }

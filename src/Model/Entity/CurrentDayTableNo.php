@@ -25,9 +25,9 @@ use SilverZF2\Db\Entity\Entity;
 /**
  *
  *
- * @property $table_no_id
- * @property $table_date
- * @property $table_no
+ * @property int $table_no_id
+ * @property \DateTime $table_date
+ * @property string $table_no
  *
  * @category     Zend Framework 2
  * @package      Currency
