@@ -18,36 +18,43 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Mapper;
-
-use Currency\Model\Entity;
+namespace Currency\Model\Entity;
 use SilverWp\Debug;
-use SilverZF2\Db\Hydrator\Strategy\DateTimeStrategy;
-use SilverZF2\Db\Mapper\AbstractDbMapper;
+use SilverZF2\Db\Entity\Entity;
 
 /**
- * Irredeemable day table no
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
+ *
+ * @property \DateTime $table_date
+ *
+ * @category     Zend Framework 2
+ * @package      Currency
+ * @subpackage   Model\Entity
  * @author       Michal Kalkowski <michal at silversite.pl>
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class IrredeemableTableNo extends AbstractDbMapper
+trait TableNoTrait
 {
-	use TableNoTrait;
-
-	const DATE_FORMAT = 'd-m-Y';
+	/**
+	 * @param \DateTime $date
+	 *
+	 * @return $this
+	 * @access public
+	 */
+	public function setTableDate(\DateTime $date)
+	{
+		$this->table_date = $date;
+		return $this;
+	}
 
 	/**
-	 * @var string
+	 * @return \DateTime
+	 * @access public
 	 */
-	protected $tableName = 'irredeemable_table_no';
-
-	/**
-	 * @var string
-	 */
-	protected $pkColumn = 'table_no_id';
+	public function getTableDate()
+	{
+		$date = new \DateTime($this->table_date);
+		return $date;
+	}
 }

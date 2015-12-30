@@ -118,7 +118,13 @@ class MapperFactory implements AbstractFactoryInterface
 					if (isset($modelConfig['table'])) {
 						$mapper->setTableName($modelConfig['table']);
 					}
-
+					//add hydrator strategy
+					if (isset($modelConfig['strategy'])) {
+						$hydrator = $mapper->getHydrator();
+						foreach ($modelConfig['strategy'] as $column => $strategyClass) {
+							$hydrator->addStrategy($column, new $strategyClass());
+						}
+					}
  					return $mapper;
 				} else {
 					throw new \LogicException(

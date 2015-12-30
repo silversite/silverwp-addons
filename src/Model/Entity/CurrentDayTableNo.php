@@ -36,27 +36,7 @@ use SilverZF2\Db\Entity\Entity;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends Entity
+class CurrentDayTableNo extends Entity implements TableNoInterface
 {
-	/**
-	 * @param \DateTime $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setTableDate(\DateTime $date)
-	{
-		$this->table_date = $date;
-		return $this;
-	}
-
-	/**
-	 * @return \DateTime
-	 * @access public
-	 */
-	public function getTableDate()
-	{
-		$date = new \DateTime($this->table_date);
-		return $date;
-	}
+	use TableNoTrait;
 }

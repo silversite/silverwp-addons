@@ -29,8 +29,12 @@ $config = [
 				'mapper' => 'Currency\Model\Mapper\HistoryIrredeemable',
 			],
 		    'IrredeemableTableNo' => [
-			    'table'  => 'history_currency_irredeemable',
-			    'mapper' => 'Currency\Model\Mapper\HistoryIrredeemable',
+			    'table'  => 'irredeemable_table_no',
+			    'entity' => 'Currency\Model\Entity\IrredeemableTableNo',
+			    'mapper' => 'Currency\Model\Mapper\IrredeemableTableNo',
+		        'strategy' => [
+			        'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+		        ]
 		    ]
 		]
 

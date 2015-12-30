@@ -20,6 +20,7 @@
 
 namespace SilverWpAddons\Ajax;
 
+use Currency\Model\Entity\TableNoTrait;
 use SilverWp\Ajax\AjaxAbstract;
 
 /**
@@ -64,11 +65,12 @@ class SelectTableNo extends AjaxAbstract {
 		$data   = [
 			'total_count' => $mapper->countAll(),
 		];
+		/** @var $table TableNoTrait*/
 		foreach ( $tables as $table ) {
 			$data['items'][] = [
 				'id'           => $table->table_no_id,
 				'main_text'    => $table->table_no,
-				'info_txt'     => $table->table_date,
+				'info_txt'     => $table->getTableDate()->format('d-m-Y'),
 				'flag_ico_url' => null
 			];
 		}
