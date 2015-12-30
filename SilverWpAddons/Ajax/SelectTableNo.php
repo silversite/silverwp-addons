@@ -34,7 +34,10 @@ use SilverWp\Ajax\AjaxAbstract;
  * @version    0.1
  */
 class SelectTableNo extends AjaxAbstract {
-	protected $name = 'select-table-no';
+	/**
+	 * @var string
+	 */
+	protected $name = 'selectTableNo';
 
 	/**
 	 * ajax response
@@ -42,32 +45,34 @@ class SelectTableNo extends AjaxAbstract {
 	 * @access public
 	 */
 	public function ajaxResponse() {
-		$model = $this->getRequestData( 'model', FILTER_SANITIZE_STRING, 'currentDay');
-		$page  =  $this->getRequestData( 'page', FILTER_SANITIZE_NUMBER_INT, 0);
+		$model = $this->getRequestData( 'model', FILTER_SANITIZE_STRING, 'currentDay' );
+		$page  = $this->getRequestData( 'page', FILTER_SANITIZE_NUMBER_INT, 0 );
 
-		switch ($model) {
+		switch ( $model ) {
 			case 'currentDay':
-				/** @var $mapper \Currency\Model\Mapper\CurrentDayTableNo*/
+				/** @var $mapper \Currency\Model\Mapper\CurrentDayTableNo */
 				$mapper = \SilverWpAddons\get_service( 'TableNo' );
 				break;
 			case 'irredeemable':
-				/** @var $mapper \Currency\Model\Mapper\IrredeemableTableNo*/
+				/** @var $mapper \Currency\Model\Mapper\IrredeemableTableNo */
 				$mapper = \SilverWpAddons\get_service( 'Mapper\IrredeemableTableNo' );
 				break;
 
 		}
 
 		$tables = $mapper->findAll( $page, 100 );
-		$data = [
+		$data   = [
 			'total_count' => $mapper->countAll(),
 		];
 		foreach ( $tables as $table ) {
 			$data['items'][] = [
-				'id'   => $table->table_no_id,
-				'no'   => $table->table_no,
+				'id'           => $table->table_no_id,
+				'main_text'    => $table->table_no,
+				'info_txt'     => $table->table_date,
+				'flag_ico_url' => null
 			];
 		}
 
-		$this->responseJson($data);
+		$this->responseJson( $data );
 	}
 }

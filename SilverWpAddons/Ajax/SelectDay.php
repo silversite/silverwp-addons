@@ -34,7 +34,7 @@ use SilverWp\Ajax\AjaxAbstract;
  * @version    0.1
  */
 class SelectDay extends AjaxAbstract {
-	protected $name = 'select-day';
+	protected $name = 'selectDay';
 
 	/**
 	 * ajax response
