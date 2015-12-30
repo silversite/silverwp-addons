@@ -70,7 +70,7 @@ class SelectTableNo extends AjaxAbstract {
 		foreach ( $tables as $table ) {
 			$data['items'][] = [
 				'id'           => $table->table_no_id,
-				'main_text'    => $table->table_no,
+				'main_txt'     => $table->table_no,
 				'info_txt'     => $table->getTableDate()->format('d-m-Y'),
 				'flag_ico_url' => null
 			];
