@@ -121,7 +121,7 @@ class Currency extends AbstractDbMapper
 	{
 		$select = $this->getSelect();
 		$select->where->equalTo('post_type', 'currency');
-		$select->order('post_title ASC');
+		$select->order('menu_order DESC');
 		$results = $this->select($select);
 
 		return $results;
