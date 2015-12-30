@@ -48,6 +48,7 @@ class SelectTableNo extends AjaxAbstract {
 	public function ajaxResponse() {
 		$model = $this->getRequestData( 'model', FILTER_SANITIZE_STRING, 'currentDay' );
 		$page  = $this->getRequestData( 'page', FILTER_SANITIZE_NUMBER_INT, 0 );
+		$limit = $this->getRequestData( 'limit', FILTER_SANITIZE_NUMBER_INT, 100 );
 
 		switch ( $model ) {
 			case 'currentDay':
@@ -61,7 +62,7 @@ class SelectTableNo extends AjaxAbstract {
 
 		}
 
-		$tables = $mapper->findAll( $page, 100 );
+		$tables = $mapper->findAll( $page, $limit );
 		$data   = [
 			'total_count' => $mapper->countAll(),
 		];
