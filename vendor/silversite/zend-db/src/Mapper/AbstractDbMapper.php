@@ -287,19 +287,19 @@ abstract class AbstractDbMapper
 	/**
 	 * Get all records. Can be limited by $limit variable and paged by page
 	 *
-	 * @param null|int $page
+	 * @param null|int $offset
 	 * @param null|int $limit
 	 *
 	 * @return ResultSet
 	 */
-	public function findAll($page = null, $limit = null)
+	public function findAll($offset = null, $limit = null)
 	{
 		$select = $this->getSelect();
-		if ( ! is_null($page)) {
-			$select->offset($page);
+		if ( ! is_null($offset)) {
+			$select->offset((int)$offset);
 		}
 		if ( ! is_null($limit)) {
-			$select->limit($limit);
+			$select->limit((int)$limit);
 		}
 		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
 		$result = $stmt->execute();

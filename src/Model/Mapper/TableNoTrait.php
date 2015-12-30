@@ -92,4 +92,27 @@ trait TableNoTrait
 
 		return $result->current();
 	}
+
+	/**
+	 * @param null|int $offset
+	 * @param null|int $limit
+	 *
+	 * @access public
+	 * @return \SilverZF2\Db\ResultSet\EntityResultSet
+	 */
+	public function getAll($offset = null, $limit = null)
+	{
+		/** @var $select \Zend\Db\Sql\Select*/
+		$select = $this->getSelect();
+		if ( ! is_null($offset)) {
+			$select->offset((int)$offset);
+		}
+		if ( ! is_null($limit)) {
+			$select->limit((int)$limit);
+		}
+		$select->order('table_date DESC');
+		$data = $this->select($select);
+
+		return $data;
+	}
 }

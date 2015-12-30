@@ -22,6 +22,7 @@ namespace SilverWpAddons\Ajax;
 
 use Currency\Model\Entity\TableNoTrait;
 use SilverWp\Ajax\AjaxAbstract;
+use SilverWp\Debug;
 
 /**
  *
@@ -47,8 +48,8 @@ class SelectTableNo extends AjaxAbstract {
 	 */
 	public function ajaxResponse() {
 		$model = $this->getRequestData( 'model', FILTER_SANITIZE_STRING, 'currentDay' );
-		$page  = $this->getRequestData( 'page', FILTER_SANITIZE_NUMBER_INT, 0 );
-		$limit = $this->getRequestData( 'limit', FILTER_SANITIZE_NUMBER_INT, 100 );
+		$page  = $this->getRequestData( 'page', FILTER_SANITIZE_NUMBER_INT, 1 );
+		$limit = $this->getRequestData( 'limit', FILTER_SANITIZE_NUMBER_INT, 5 );
 
 		switch ( $model ) {
 			case 'currentDay':
@@ -61,10 +62,11 @@ class SelectTableNo extends AjaxAbstract {
 				break;
 
 		}
-
-		$tables = $mapper->findAll( $page, $limit );
+		$count  = $mapper->countAll();
+		$offset   = ($page - 1) * $limit;
+		$tables = $mapper->getAll( $offset, $limit );
 		$data   = [
-			'total_count' => $mapper->countAll(),
+			'total_count' => $count,
 		];
 		/** @var $table TableNoTrait*/
 		foreach ( $tables as $table ) {
