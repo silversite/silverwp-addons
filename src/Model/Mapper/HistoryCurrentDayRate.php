@@ -42,4 +42,29 @@ class HistoryCurrentDayRate extends AbstractDbMapper implements HistoryInterface
 	 */
 	protected $tableName = 'history_current_day_rate';
 
+	/**
+	 * @param $tableNoId
+	 *
+	 * @return \Currency\Model\Entity\HistoryCurrentDayRate
+	 * @access public
+	 */
+	public function getRatesByTableNoId($tableNoId)
+	{
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		/** @var $select \Zend\Db\Sql\Select*/
+		$select = $this->getSelect();
+		$dateColumn = $this->getDateColumn();
+		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+		$select->join(
+			$tablePrefix . 'current_day_table_no',
+			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
+			['table_no']
+		);
+		//AND table_no_id = ?
+		$select->where(['table_no_id = ?' => (int) $tableNoId]);
+		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+		$results = $this->select($select);
+
+		return $results;
+	}
 }

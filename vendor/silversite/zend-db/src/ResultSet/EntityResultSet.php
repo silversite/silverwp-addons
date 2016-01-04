@@ -99,13 +99,14 @@ class EntityResultSet extends AbstractResultSet
 	 * @return Entity[]
 	 * @access public
 	 */
-	public function toArray()
-	{
-		$return = [];
-		foreach ($this as $row) {
-			$return[] = $this->getHydrator()->extract($row);
-		}
-
-		return $return;
-	}
+//	public function toArray()
+//	{
+//		$return = [];
+//		Debug::dumpPrint($this);
+//		foreach ($this as $row) {
+//			$return[] = $this->getHydrator()->extract($row);
+//		}
+//
+//		return $return;
+//	}
 }

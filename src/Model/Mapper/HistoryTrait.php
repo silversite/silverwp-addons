@@ -35,6 +35,10 @@ use Zend\Db\Sql\Expression;
  */
 trait HistoryTrait
 {
+	protected $currencyId;
+	protected $dateFrom;
+	protected $dateTo;
+
 	/**
 	 * Get all list of days from year and month
 	 *
@@ -79,7 +83,7 @@ trait HistoryTrait
 			$select->where->greaterThanOrEqualTo($dateColumn, $dateTo);
 		}
 
-		if ( !is_null($tableNoId)) {
+		if ( ! is_null($tableNoId)) {
 			//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
 			$select->join($tablePrefix . 'current_day_table_no', new Expression('DATE_FORMAT(table_date, \'%Y-%m-%d\') = DATE_FORMAT(currency_date, \'%Y-%m-%d\')'));
 			//AND table_no_id = ?
@@ -87,7 +91,7 @@ trait HistoryTrait
 		}
 		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
 		$results = $this->select($select);
-
+		echo $this->getSqlQuery($select);
 		return $results;
 	}
 

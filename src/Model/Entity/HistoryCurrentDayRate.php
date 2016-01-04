@@ -32,6 +32,7 @@ use SilverZF2\Db\Entity\Entity;
  * @property float $currency_rate
  * @property float $currency_change_rate
  * @property \DateTime $currency_date
+ * @property string $table_no
  *
  * @category   Currency
  * @package    Model

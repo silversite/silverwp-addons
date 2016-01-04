@@ -72,7 +72,7 @@ class Entity implements EntityInterface
 	 */
 	public function __isset($name)
 	{
-		return (null !== $this->data[$name]);
+		return (isset($this->data[$name]) && ! is_null($this->data[$name]));
 	}
 
 	/**
