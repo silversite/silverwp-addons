@@ -26,6 +26,7 @@ namespace Currency\Model\Entity;
  * History entity trait
  *
  * @property int $day
+ * @property \DateTime $currency_date
  *
  * @category   Currency
  * @package    Model
@@ -57,4 +58,24 @@ trait HistoryTrait
 
 		return $this;
 	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getCurrencyDate() {
+		return new \DateTime($this->currency_date);
+	}
+
+	/**
+	 * @param \DateTime $currency_date
+	 *
+	 * @return HistoryTrait
+	 */
+	public function setCurrencyDate( \DateTime $currency_date ) {
+		$this->currency_date = $currency_date;
+
+		return $this;
+	}
+
+
 }

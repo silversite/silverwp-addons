@@ -17,6 +17,9 @@ $config = [
 				'table'  => 'history_current_day_rate',
 				'entity' => 'Currency\Model\Entity\HistoryCurrentDayRate',
 				'mapper' => 'Currency\Model\Mapper\HistoryCurrentDayRate',
+				'strategy' => [
+					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
 			],
 			'HistorySellBuy' => [
 				'table'  => 'history_currency_sell_buy',
