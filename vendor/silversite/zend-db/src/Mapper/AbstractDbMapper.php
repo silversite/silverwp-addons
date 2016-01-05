@@ -93,11 +93,16 @@ abstract class AbstractDbMapper
             throw new \Exception('No db adapter present');
         }
 
-        if ( ! $this->hydrator instanceof HydratorInterface) {
+	    if ( ! isset($this->pkColumn)) {
+		    throw new \Exception(
+			    sprintf('Primary key column (%s::pkColumn) isn\'t set!', get_called_class())
+		    );
+	    }
+
+	    if ( ! $this->hydrator instanceof HydratorInterface) {
             $this->hydrator = new ClassMethods;
         }
-
-        $this->isInitialized = true;
+		$this->isInitialized = true;
     }
 
 	/**
@@ -265,21 +270,22 @@ abstract class AbstractDbMapper
     }
 
 	/**
-	 * @param array $id ['key = ?' => value]
+	 * Find single record form DB table
+	 *
+	 * @param int $id
 	 *
 	 * @return object
 	 */
-	public function find(array $id)
+	public function find($id)
 	{
 		$select = $this->getSelect();
-		$select->where($id);
+		$select->where([$this->pkColumn .' = ?' => $id]);
 
 		$stmt   = $this->getSql()->prepareStatementForSqlObject($select);
 		$result = $stmt->execute();
-
-		$data = $this->getResultSet($result);
+		$data   = $this->getResultSet($result);
 		if ($data) {
-			return $data;
+			return $data->current();
 		}
 		throw new \InvalidArgumentException("Record with given ID:{$id} not found.");
 	}

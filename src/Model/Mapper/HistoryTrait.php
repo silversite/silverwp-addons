@@ -21,7 +21,6 @@
 namespace Currency\Model\Mapper;
 use Zend\Db\Sql\Expression;
 
-
 /**
  *
  * History mapper Trait
@@ -35,10 +34,6 @@ use Zend\Db\Sql\Expression;
  */
 trait HistoryTrait
 {
-	protected $currencyId;
-	protected $dateFrom;
-	protected $dateTo;
-
 	/**
 	 * Get all list of days from year and month
 	 *
@@ -64,34 +59,51 @@ trait HistoryTrait
 		return $results;
 	}
 
-	public function getCurrencyRates($currencyId, $dateFrom = null, $dateTo = null, $tableNoId = null)
+	/**
+	 * @param int         $currencyId
+	 * @param null|string $dateFrom
+	 * @param null|string $dateTo
+	 *
+	 * @return \Currency\Model\Entity\HistoryCurrentDayRate
+	 * @access public
+	 */
+	public function getRatesByCurrencyIdByDates($currencyId, $dateFrom = null, $dateTo = null)
 	{
+		$dateFromObject = new \DateTime($dateFrom);
+		$dateToObject   = new \DateTime($dateTo);
+		$dateFrom       = $dateFromObject->format('Y-m-d');
+		$dateTo         = $dateToObject->format('Y-m-d');
+		//TODO move to SQL class
 		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-		/** @var $select \Zend\Db\Sql\Select*/
-		$select = $this->getSelect();
+		/** @var $select \Zend\Db\Sql\Select */
+		$select     = $this->getSelect();
 		$dateColumn = $this->getDateColumn();
+		//AND currency_id = ?
 		$select->where(['currency_id = ?' => (int) $currencyId]);
-
+		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+		$select->join(
+			$tablePrefix . 'current_day_table_no',
+			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
+			['table_no']
+		);
 		if ( ! is_null($dateFrom) && ! is_null($dateTo)) {
-			//currency_date BETWEEN ($dateFrom AND $dateTo)
-			$select->where->between($dateColumn, $dateFrom, $dateTo);
-		} else if ( ! is_null($dateFrom)) {
+			//currency_date BETWEEN $dateFrom AND $dateTo
+			$select->where->between(
+				'currency_date',
+				new Expression('?', $dateFrom),
+				new Expression('?', $dateTo)
+			);
+		} elseif ( ! is_null($dateFrom)) {
 			//currency_date <= $dateFrom
-			$select->where->lessThanOrEqualTo($dateColumn, $dateFrom);
-		} else if ( ! is_null($dateTo)) {
+			$select->where->greaterThanOrEqualTo('currency_date', new Expression('?', $dateFrom));
+		} elseif ( ! is_null($dateTo)) {
 			//currency_date >= $dateTo
-			$select->where->greaterThanOrEqualTo($dateColumn, $dateTo);
+			$select->where->lessThanOrEqualTo('currency_date', new Expression('?', $dateTo));
 		}
 
-		if ( ! is_null($tableNoId)) {
-			//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
-			$select->join($tablePrefix . 'current_day_table_no', new Expression('DATE_FORMAT(table_date, \'%Y-%m-%d\') = DATE_FORMAT(currency_date, \'%Y-%m-%d\')'));
-			//AND table_no_id = ?
-			$select->where(['table_no_id = ?' => (int) $tableNoId]);
-		}
-		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+		/** @var $results \Currency\Model\Entity\HistoryCurrentDayRate */
 		$results = $this->select($select);
-		echo $this->getSqlQuery($select);
+
 		return $results;
 	}
 

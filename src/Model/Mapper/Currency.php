@@ -54,6 +54,11 @@ class Currency extends AbstractDbMapper
 	];
 
 	/**
+	 * @var string
+	 */
+	protected $pkColumn = 'currency_id';
+
+	/**
 	 * @param int $id
 	 *
 	 * @return string|bool

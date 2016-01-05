@@ -44,4 +44,14 @@ interface HistoryInterface
 	 * @access public
 	 */
 	public function getDaysByYearMonth($year, $month);
+
+	/**
+	 * @param int $currencyId
+	 * @param string $date_from
+	 * @param string $date_to
+	 *
+	 * @return His
+	 * @access public
+	 */
+	public function getRatesByCurrencyIdByDates($currencyId, $date_from, $date_to);
 }
