@@ -42,6 +42,11 @@ class CurrentDayRate extends AbstractDbMapper
 	protected $tableName = 'current_day_rate';
 
 	/**
+	 * @var string
+	 */
+	protected $pkColumn = 'current_day_rate_id';
+
+	/**
 	 * @param bool $mainPageOnly get only currencies with flag display on main page. Default: false
 	 * @param int  $limit display limit. Default: 10
 	 *

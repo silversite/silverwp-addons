@@ -24,7 +24,8 @@ use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- *
+ * @property int       $table_no_id
+ * @property string    $table_no
  * @property \DateTime $table_date
  *
  * @category     Zend Framework 2

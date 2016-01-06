@@ -20,9 +20,9 @@
 
 namespace SilverWpAddons\Ajax;
 
-use Currency\Model\Entity\TableNoTrait;
+use Currency\Model\Entity\TableNoInterface;
 use SilverWp\Ajax\AjaxAbstract;
-use SilverWp\Debug;
+use SilverZF2\Db\ResultSet\EntityResultSet;
 
 /**
  *
@@ -62,22 +62,32 @@ class SelectTableNo extends AjaxAbstract {
 				break;
 
 		}
-		$count  = $mapper->countAll();
-		$offset   = ($page - 1) * $limit;
-		$tables = $mapper->getAll( $offset, $limit );
-		$data   = [
-			'total_count' => $count,
-		];
-		/** @var $table TableNoTrait*/
+		$count               = $mapper->countAll();
+		$offset              = ( $page - 1 ) * $limit;
+		$tables              = $mapper->getAll( $offset, $limit );
+		$data                = $this->responseFormat( $tables );
+		$data['total_count'] = [ $count ];
+
+		$this->responseJson( $data );
+	}
+
+	/**
+	 * @param EntityResultSet $tables
+	 *
+	 * @return array
+	 * @access protected
+	 */
+	protected function responseFormat( EntityResultSet $tables ) {
+		$return = [];
+		/** @var $table TableNoInterface*/
 		foreach ( $tables as $table ) {
-			$data['items'][] = [
+			$return['items'][] = [
 				'id'           => $table->table_no_id,
 				'main_txt'     => $table->table_no,
 				'info_txt'     => $table->getTableDate()->format('d-m-Y'),
 				'flag_ico_url' => null
 			];
 		}
-
-		$this->responseJson( $data );
+		return $return;
 	}
 }
