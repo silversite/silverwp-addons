@@ -84,6 +84,7 @@ class CurrentDayRate extends AbstractDbMapper
 		if ($limit) {
 			$select->limit($limit);
 		}
+		$select->order('menu_order ASC');
 
 		$results = $this->select($select);
 
