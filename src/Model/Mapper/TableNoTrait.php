@@ -24,7 +24,9 @@ use SilverZF2\Db\ResultSet\EntityResultSet;
 
 /**
  *
- * Table no trait
+ * HistoryTableNoTrait Table no trait
+ *
+ * @property \SilverZF2\Db\Mapper\AbstractDbMapper $this
  *
  * @category     Currency
  * @package      Model

@@ -21,10 +21,12 @@
 namespace Currency\Model\Mapper;
 
 use Currency\Model\Entity;
+use SilverWp\Debug;
+use SilverZF2\Db\Hydrator\Strategy\DateTimeStrategy;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
- * Current day table no
+ * Sell buy table no
  *
  * @category     Currency
  * @package      Model
@@ -33,7 +35,7 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends AbstractDbMapper implements TableNoInterface
+class SellBuyTableNo extends AbstractDbMapper implements TableNoInterface
 {
 	use TableNoTrait;
 
@@ -42,6 +44,6 @@ class CurrentDayTableNo extends AbstractDbMapper implements TableNoInterface
 	/**
 	 * @var string
 	 */
-	protected $tableName = 'current_day_table_no';
+	protected $tableName = 'current_sell_buy_table_no';
 
 }

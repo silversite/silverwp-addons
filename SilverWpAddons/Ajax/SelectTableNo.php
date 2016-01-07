@@ -56,6 +56,10 @@ class SelectTableNo extends AjaxAbstract {
 				/** @var $mapper \Currency\Model\Mapper\CurrentDayTableNo */
 				$mapper = \SilverWpAddons\get_service( 'TableNo' );
 				break;
+			case 'sellBuy':
+				/** @var $mapper \Currency\Model\Mapper\SellBuyTableNo */
+				$mapper = \SilverWpAddons\get_service( 'SellBuyTableNo' );
+				break;
 			case 'irredeemable':
 				/** @var $mapper \Currency\Model\Mapper\IrredeemableTableNo */
 				$mapper = \SilverWpAddons\get_service( 'Mapper\IrredeemableTableNo' );

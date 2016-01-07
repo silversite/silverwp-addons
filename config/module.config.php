@@ -38,7 +38,16 @@ $config = [
 		        'strategy' => [
 			        'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
 		        ]
-		    ]
+		    ],
+			'SellBuyTableNo' => [
+				'table'  => 'sell_buy_table_no',
+				'entity' => 'Currency\Model\Entity\SellBuyTableNo',
+				'mapper' => 'Currency\Model\Mapper\SellBuyTableNo',
+				'strategy' => [
+					'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
+			]
+
 		]
 
 	],

@@ -20,28 +20,26 @@
 
 namespace Currency\Model\Mapper;
 
-use Currency\Model\Entity;
-use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
- * Current day table no
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
- * @version      0.1
+ * Table no interface
+ *
+ * @category   Zend Framework 2
+ * @package    Currency
+ * @subpackage Mapper
+ * @author     Michal Kalkowski <michal at silversite.pl>
+ * @copyright  SilverSite.pl 2016
+ * @version    $Revision:$
  */
-class CurrentDayTableNo extends AbstractDbMapper implements TableNoInterface
+interface TableNoInterface
 {
-	use TableNoTrait;
-
-	protected $pkColumn = 'table_no_id';
-
 	/**
-	 * @var string
+	 * @param int $limit
+	 * @param int $offset
+	 *
+	 * @return EntityResultSet
+	 * @access public
 	 */
-	protected $tableName = 'current_day_table_no';
-
+	public function getAll($limit, $offset);
 }

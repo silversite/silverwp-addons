@@ -35,11 +35,9 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class IrredeemableTableNo extends AbstractDbMapper
+class IrredeemableTableNo extends AbstractDbMapper implements TableNoInterface
 {
 	use TableNoTrait;
-
-	const DATE_FORMAT = 'd-m-Y';
 
 	/**
 	 * @var string

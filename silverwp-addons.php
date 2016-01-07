@@ -79,8 +79,7 @@ add_action(
 		        $currency->registerTaxonomy( Taxonomy\Currency::getInstance() );
 
 		        //Ajax
-		        SelectDay::getInstance();
-				SelectTableNo::getInstance();
+		        SelectTableNo::getInstance();
 
 	        } catch ( Exception $ex ) {
 	            echo $ex->catchException();
