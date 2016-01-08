@@ -20,6 +20,7 @@
 
 namespace SilverZF2\Db\Service;
 
+use SilverWp\Debug;
 use SilverZF2\Db\Entity\Entity;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 use Zend\ServiceManager\AbstractFactoryInterface;
@@ -74,7 +75,6 @@ class MapperFactory implements AbstractFactoryInterface
 
 		$modelName = $match[1];
 		$config    = $serviceLocator->get( 'Config' );
-
 		if (isset($config['db']) && isset($config['db']['models'])) {
 			if (isset($config['db']['models'][$modelName])) {
 				$modelConfig  = $config['db']['models'][$modelName];

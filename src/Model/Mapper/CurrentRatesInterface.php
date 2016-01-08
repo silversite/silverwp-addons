@@ -18,35 +18,31 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
+namespace Currency\Model\Mapper;
 
+use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 
 /**
  *
- * History entity interface
  *
- * @property \DateTime $currency_date
  *
- * @category   Currency
- * @package    Model
- * @subpackage Entity
- * @author     Michal Kalkowski <michal at silversite.pl>
- * @copyright  SilverSite.pl 2015
- * @version    0.1
+ * @category     Currency
+ * @package      Model
+ * @subpackage   Mapper
+ * @author       Michal Kalkowski <michal at silversite.pl>
+ * @copyright    SilverSite.pl 2015
+ * @version      0.1
  */
-interface HistoryInterface
+interface CurrentRatesInterface
 {
 	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getCurrencyDate();
-
-	/**
-	 * @param \DateTime $date
 	 *
-	 * @return $this
+	 * @param bool     $mainPageOnly
+	 * @param bool|int $limit
+	 *
+	 * @return \Currency\Model\Entity\CurrentRatesTrait
 	 * @access public
 	 */
-	public function setCurrencyDate(\DateTime $date);
+	public function getRates($mainPageOnly = false, $limit = false);
 }

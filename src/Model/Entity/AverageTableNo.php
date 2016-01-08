@@ -19,34 +19,24 @@
  */
 
 namespace Currency\Model\Entity;
-
+use SilverWp\Debug;
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * History entity interface
  *
- * @property \DateTime $currency_date
+ * @property int $table_no_id
+ * @property \DateTime $table_date
+ * @property string $table_no
  *
- * @category   Currency
- * @package    Model
- * @subpackage Entity
- * @author     Michal Kalkowski <michal at silversite.pl>
- * @copyright  SilverSite.pl 2015
- * @version    0.1
+ * @category     Zend Framework 2
+ * @package      Currency
+ * @subpackage   Model\Entity
+ * @author       Michal Kalkowski <michal at silversite.pl>
+ * @copyright    SilverSite.pl 2015
+ * @version      0.1
  */
-interface HistoryInterface
+class AverageTableNo extends Entity implements TableNoInterface
 {
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getCurrencyDate();
-
-	/**
-	 * @param \DateTime $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setCurrencyDate(\DateTime $date);
+	use TableNoTrait;
 }

@@ -25,7 +25,7 @@ use Zend\Db\Sql\Expression;
 
 /**
  *
- *
+ * History average rates
  *
  * @category     Currency
  * @package      Model
@@ -34,58 +34,40 @@ use Zend\Db\Sql\Expression;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayRate extends AbstractDbMapper
+class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface
 {
+	use HistoryTrait;
 	/**
 	 * @var string
 	 */
-	protected $tableName = 'current_day_rate';
+	protected $tableName = 'history_current_day_rate';
 
 	/**
 	 * @var string
 	 */
-	protected $pkColumn = 'current_day_rate_id';
+	protected $pkColumn = 'currency_id';
 
 	/**
-	 * @param bool $mainPageOnly get only currencies with flag display on main page. Default: false
-	 * @param int  $limit display limit. Default: 10
+	 * @param int $tableNoId
 	 *
-	 * @return \Zend\Db\ResultSet\HydratingResultSet
+	 * @return \Currency\Model\Entity\HistoryCurrentDayRate
 	 * @access public
 	 */
-	public function getCurrentDayRate($mainPageOnly = false, $limit = 10)
+	public function getRatesByTableNoId($tableNoId)
 	{
-		//todo add auto prefix to table name
 		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-
-		$select = $this->getSql()->select()
-			->columns([
-				'current_day_rate_id',
-				'currency_counter',
-				'currency_rate',
-				'currency_change_rate',
-			    'currency_id'
-			])
-			->from($this->getTableName())
-			->join(
-				['p' => $tablePrefix . 'posts'],
-				new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
-				['id'=> 'ID' , 'iso' => 'post_title']
-			)
-		;
-		if ($mainPageOnly) {
-			$select->join(
-				['pm' => $tablePrefix . 'postmeta'],
-				new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1'),
-				[]
-			);
-		}
-
-		if ($limit) {
-			$select->limit($limit);
-		}
-		$select->order('menu_order ASC');
-
+		/** @var $select \Zend\Db\Sql\Select*/
+		$select = $this->getSelect();
+		$dateColumn = $this->getDateColumn();
+		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+		$select->join(
+			$tablePrefix . 'current_day_table_no',
+			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
+			['table_no']
+		);
+		//AND table_no_id = ?
+		$select->where(['table_no_id = ?' => (int) $tableNoId]);
+		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
 		$results = $this->select($select);
 
 		return $results;

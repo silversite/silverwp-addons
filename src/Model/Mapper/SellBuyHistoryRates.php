@@ -20,11 +20,12 @@
 
 namespace Currency\Model\Mapper;
 
-use Currency\Model\Entity;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 
 /**
- * Current day table no
+ *
+ * History sell buy rates
  *
  * @category     Currency
  * @package      Model
@@ -33,15 +34,12 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends AbstractDbMapper implements TableNoInterface
+class SellBuyHistoryRates extends AbstractDbMapper implements HistoryInterface
 {
-	use TableNoTrait;
-
-	protected $pkColumn = 'table_no_id';
+	use HistoryTrait;
 
 	/**
 	 * @var string
 	 */
-	protected $tableName = 'current_day_table_no';
-
+	protected $tableName = 'history_currency_sell_buy';
 }

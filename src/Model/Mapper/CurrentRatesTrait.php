@@ -20,12 +20,15 @@
 
 namespace Currency\Model\Mapper;
 
+use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 use Zend\Db\Sql\Expression;
 
 /**
  *
- * History current day rates
+ * @property int       $currency_id
+ * @property \DateTime $currency_date
+ * @property string    $currency_iso
  *
  * @category     Currency
  * @package      Model
@@ -34,40 +37,43 @@ use Zend\Db\Sql\Expression;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class HistoryCurrentDayRate extends AbstractDbMapper implements HistoryInterface
+trait CurrentRatesTrait
 {
-	use HistoryTrait;
 	/**
-	 * @var string
-	 */
-	protected $tableName = 'history_current_day_rate';
-
-	/**
-	 * @var string
-	 */
-	protected $pkColumn = 'currency_id';
-
-	/**
-	 * @param int $tableNoId
 	 *
-	 * @return \Currency\Model\Entity\HistoryCurrentDayRate
+	 * @param bool     $mainPageOnly
+	 * @param bool|int $limit
+	 *
+	 * @return \Currency\Model\Entity\CurrentRatesTrait
 	 * @access public
 	 */
-	public function getRatesByTableNoId($tableNoId)
+	public function getRates($mainPageOnly = false, $limit = false)
 	{
+		//todo add auto prefix to table name
 		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-		/** @var $select \Zend\Db\Sql\Select*/
-		$select = $this->getSelect();
-		$dateColumn = $this->getDateColumn();
-		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
-		$select->join(
-			$tablePrefix . 'current_day_table_no',
-			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
-			['table_no']
-		);
-		//AND table_no_id = ?
-		$select->where(['table_no_id = ?' => (int) $tableNoId]);
-		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+
+		$select = $this->getSql()->select()
+			->from($this->getTableName())
+			->join(
+				['p' => $tablePrefix . 'posts'],
+				new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
+				['currency_id' => 'ID' , 'currency_iso' => 'post_title']
+			)
+		;
+
+		$select->order('menu_order ASC');
+
+		if ($mainPageOnly) {
+			$select->join(
+				['pm' => $tablePrefix . 'postmeta'],
+				new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1'),
+				[]
+			);
+		}
+		if ($limit) {
+			$select->limit($limit);
+		}
+
 		$results = $this->select($select);
 
 		return $results;

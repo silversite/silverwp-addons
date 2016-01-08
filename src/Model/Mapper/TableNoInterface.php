@@ -38,8 +38,20 @@ interface TableNoInterface
 	 * @param int $limit
 	 * @param int $offset
 	 *
-	 * @return EntityResultSet
+	 * @return \Currency\Model\Entity\TableNoInterface
 	 * @access public
 	 */
 	public function getAll($limit, $offset);
+
+	/**
+	 * @return \Currency\Model\Entity\TableNoInterface
+	 * @access public
+	 */
+	public function getFirstTableNo();
+
+	/**
+	 * @return \Currency\Model\Entity\TableNoInterface
+	 * @access public
+	 */
+	public function getLastTableNo();
 }

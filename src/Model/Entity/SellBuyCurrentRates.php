@@ -20,12 +20,18 @@
 
 namespace Currency\Model\Entity;
 
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * History entity interface
+ * Currency Current day rates entity class
  *
- * @property \DateTime $currency_date
+ * @property int    $current_day_rate_id
+ * @property float  $currency_sell_rate
+ * @property float  $currency_sell_change_rate
+ * @property float  $currency_buy_rate
+ * @property float  $currency_buy_change_rate
+ * @property string $post_title
  *
  * @category   Currency
  * @package    Model
@@ -34,19 +40,7 @@ namespace Currency\Model\Entity;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-interface HistoryInterface
+class SellBuyCurrentRates extends Entity implements CurrentRatesInterface
 {
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getCurrencyDate();
-
-	/**
-	 * @param \DateTime $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setCurrencyDate(\DateTime $date);
+	use CurrentRatesTrait;
 }

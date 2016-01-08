@@ -23,30 +23,16 @@ namespace Currency\Model\Entity;
 
 /**
  *
- * History entity interface
  *
- * @property \DateTime $currency_date
  *
- * @category   Currency
- * @package    Model
+ * @category  Zend Framework 2
+ * @package Currency
  * @subpackage Entity
- * @author     Michal Kalkowski <michal at silversite.pl>
- * @copyright  SilverSite.pl 2015
- * @version    0.1
+ * @author    Michal Kalkowski <michal at silversite.pl>
+ * @copyright SilverSite.pl 2016
+ * @version   0.1
  */
-interface HistoryInterface
+interface CurrentRatesInterface
 {
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getCurrencyDate();
 
-	/**
-	 * @param \DateTime $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setCurrencyDate(\DateTime $date);
 }

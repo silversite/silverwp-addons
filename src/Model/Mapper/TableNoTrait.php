@@ -26,7 +26,9 @@ use SilverZF2\Db\ResultSet\EntityResultSet;
  *
  * HistoryTableNoTrait Table no trait
  *
- * @property \SilverZF2\Db\Mapper\AbstractDbMapper $this
+ * @property int       $table_id
+ * @property \DateTime $table_date
+ * @property string    $table_no
  *
  * @category     Currency
  * @package      Model

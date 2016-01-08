@@ -13,23 +13,57 @@ $config = [
 		'prefix'   => DB_PREFIX,
 	    //models
 		'models' => [
-			'HistoryCurrentDayRate' => [
-				'table'  => 'history_current_day_rate',
-				'entity' => 'Currency\Model\Entity\HistoryCurrentDayRate',
-				'mapper' => 'Currency\Model\Mapper\HistoryCurrentDayRate',
+			'AverageCurrentRates' => [
+				'table'  => 'current_day_rate',
+				'entity' => 'Currency\Model\Entity\AverageCurrentRates',
+				'mapper' => 'Currency\Model\Mapper\AverageCurrentRates',
 				'strategy' => [
 					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
 				]
 			],
-			'HistorySellBuy' => [
-				'table'  => 'history_currency_sell_buy',
-				'entity' => 'Currency\Model\Entity\HistorySellBuy',
-				'mapper' => 'Currency\Model\Mapper\HistorySellBuy',
+			'AverageHistoryRates' => [
+				'table'  => 'history_current_day_rate',
+				'entity' => 'Currency\Model\Entity\AverageHistoryRates',
+				'mapper' => 'Currency\Model\Mapper\AverageHistoryRates',
+				'strategy' => [
+					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
 			],
-			'HistoryIrredeemable' => [
+			'AverageTableNo' => [
+				'table'  => 'current_day_table_no',
+				'entity' => 'Currency\Model\Entity\AverageTableNo',
+				'mapper' => 'Currency\Model\Mapper\AverageTableNo',
+				'strategy' => [
+					'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
+			],
+			'SellBuyCurrentRates' => [
+//				'table'  => 'currency_sell_buy',
+				'entity' => 'Currency\Model\Entity\SellBuyCurrentRates',
+				'mapper' => 'Currency\Model\Mapper\SellBuyCurrentRates',
+			],
+			'SellBuyHistoryRates' => [
+				'table'  => 'history_currency_sell_buy',
+				'entity' => 'Currency\Model\Entity\SellBuyHistoryRates',
+				'mapper' => 'Currency\Model\Mapper\SellBuyHistoryRates',
+			],
+			'SellBuyTableNo' => [
+				'table'  => 'sell_buy_table_no',
+				'entity' => 'Currency\Model\Entity\SellBuyTableNo',
+				'mapper' => 'Currency\Model\Mapper\SellBuyTableNo',
+				'strategy' => [
+					'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
+			],
+			'IrredeemableCurrentRates' => [
+				'table'  => 'currency_irredeemable',
+				'entity' => 'Currency\Model\Entity\IrredeemableCurrentRates',
+				'mapper' => 'Currency\Model\Mapper\IrredeemableCurrentRates',
+			],
+			'IrredeemableHistoryRates' => [
 				'table'  => 'history_currency_irredeemable',
-				'entity' => 'Currency\Model\Entity\HistoryIrredeemable',
-				'mapper' => 'Currency\Model\Mapper\HistoryIrredeemable',
+				'entity' => 'Currency\Model\Entity\IrredeemableHistoryRates',
+				'mapper' => 'Currency\Model\Mapper\IrredeemableHistoryRates',
 			],
 		    'IrredeemableTableNo' => [
 			    'table'  => 'irredeemable_table_no',
@@ -39,15 +73,6 @@ $config = [
 			        'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
 		        ]
 		    ],
-			'SellBuyTableNo' => [
-				'table'  => 'sell_buy_table_no',
-				'entity' => 'Currency\Model\Entity\SellBuyTableNo',
-				'mapper' => 'Currency\Model\Mapper\SellBuyTableNo',
-				'strategy' => [
-					'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
-				]
-			]
-
 		]
 
 	],
@@ -59,8 +84,6 @@ $config = [
 		],
 		'factories' => [
 			'DbAdapter'             => 'SilverZF2\Db\Adapter\AdapterServiceFactory',
-			'CurrentDayRate'        => 'Currency\Model\Service\CurrentDayRateMapperFactory',
-			'TableNo'               => 'Currency\Model\Service\CurrentDayTableNoMapperFactory',
 			'Currency'              => 'Currency\Model\Service\CurrencyMapperFactory',
 		],
 	],

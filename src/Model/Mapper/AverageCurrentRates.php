@@ -18,25 +18,33 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
-use SilverWp\Debug;
-use SilverZF2\Db\Entity\Entity;
+namespace Currency\Model\Mapper;
+
+use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
  *
  *
- * @property int $table_no_id
- * @property \DateTime $table_date
- * @property string $table_no
  *
- * @category     Zend Framework 2
- * @package      Currency
- * @subpackage   Model\Entity
+ * @category     Currency
+ * @package      Model
+ * @subpackage   Mapper
  * @author       Michal Kalkowski <michal at silversite.pl>
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class CurrentDayTableNo extends Entity implements TableNoInterface
+class AverageCurrentRates extends AbstractDbMapper implements CurrentRatesInterface
 {
-	use TableNoTrait;
+	use CurrentRatesTrait;
+
+	/**
+	 * @var string
+	 */
+	protected $tableName = 'current_day_rate';
+
+	/**
+	 * @var string
+	 */
+	protected $pkColumn = 'current_day_rate_id';
+
 }

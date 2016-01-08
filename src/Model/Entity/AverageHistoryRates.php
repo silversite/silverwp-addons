@@ -20,12 +20,18 @@
 
 namespace Currency\Model\Entity;
 
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * History entity interface
+ * Currency Current day rates entity class
  *
- * @property \DateTime $currency_date
+ * @property int    $currency_id
+ * @property int    $history_current_day_rate_id
+ * @property int    $currency_counter
+ * @property float  $currency_rate
+ * @property float  $currency_change_rate
+ * @property string $table_no
  *
  * @category   Currency
  * @package    Model
@@ -34,19 +40,7 @@ namespace Currency\Model\Entity;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-interface HistoryInterface
+class AverageHistoryRates extends Entity implements HistoryInterface
 {
-	/**
-	 * @return int
-	 * @access public
-	 */
-	public function getCurrencyDate();
-
-	/**
-	 * @param \DateTime $date
-	 *
-	 * @return $this
-	 * @access public
-	 */
-	public function setCurrencyDate(\DateTime $date);
+	use HistoryTrait;
 }
