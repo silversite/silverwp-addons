@@ -38,7 +38,7 @@ $config = [
 				]
 			],
 			'SellBuyCurrentRates' => [
-//				'table'  => 'currency_sell_buy',
+				'table'  => 'currency_sell_buy',
 				'entity' => 'Currency\Model\Entity\SellBuyCurrentRates',
 				'mapper' => 'Currency\Model\Mapper\SellBuyCurrentRates',
 			],
@@ -73,6 +73,14 @@ $config = [
 			        'table_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
 		        ]
 		    ],
+			'DutyRates' => [
+				'table'  => 'currency_duty',
+				'entity' => 'Currency\Model\Entity\DutyRates',
+				'mapper' => 'Currency\Model\Mapper\DutyRates',
+				'strategy' => [
+					'currency_publication_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
+			],
 		]
 
 	],

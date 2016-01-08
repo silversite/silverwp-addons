@@ -20,24 +20,43 @@
 
 namespace Currency\Model\Entity;
 
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
+ * Currency Current day rates entity class
  *
- * @property int    $currency_id
- * @property int    $currency_counter
- * @property float  $currency_rate
- * @property float  $currency_change_rate
- * @property string $post_title - currency is (short name like: EUR etc.)
+ * @property \DateTime $current_publication_date
  *
- * @category     Zend Framework 2
- * @package      Currency
- * @subpackage   Entity
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2016
- * @version      0.1
+ * @category   Currency
+ * @package    Model
+ * @subpackage Entity
+ * @author     Michal Kalkowski <michal at silversite.pl>
+ * @copyright  SilverSite.pl 2015
+ * @version    0.1
  */
-trait CurrentRatesTrait
+class DutyRates extends Entity implements CurrentRatesInterface, HistoryInterface
 {
+	use CurrentRatesTrait;
+	use HistoryTrait;
 
+	/**
+	 * @return \DateTime
+	 */
+	public function getCurrentPublicationDate()
+	{
+		return new \DateTime($this->current_publication_date);
+	}
+
+	/**
+	 * @param \DateTime $current_publication_date
+	 *
+	 * @return DutyRates
+	 */
+	public function setCurrentPublicationDate( \DateTime $current_publication_date )
+	{
+		$this->current_publication_date = $current_publication_date;
+
+		return $this;
+	}
 }

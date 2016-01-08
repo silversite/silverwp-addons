@@ -20,16 +20,15 @@
 
 namespace Currency\Model\Mapper;
 
-use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
-use Zend\Db\Sql\Expression;
+use Zend\Db\Sql\Predicate\Expression;
 use Zend\Db\Sql\Where;
 
 /**
  *
- * @property int       $currency_id
- * @property \DateTime $currency_date
- * @property string    $currency_iso
+ *
+ * @property int $currency_duty_id
+ * @property int $currency_publication_date
  *
  * @category     Currency
  * @package      Model
@@ -38,50 +37,45 @@ use Zend\Db\Sql\Where;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-trait CurrentRatesTrait
+class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, HistoryInterface
 {
+	use CurrentRatesTrait {
+		getRates as parentRates;
+	}
+
+	use HistoryTrait;
+
 	/**
-	 *
-	 * @param bool     $mainPageOnly
-	 * @param bool|int $limit
+	 * @var string
+	 */
+	protected $tableName = 'currency_duty';
+
+	/**
+	 * @var string
+	 */
+	protected $pkColumn = 'currency_duty_id';
+
+	/**
+	 * @param bool $mainPageOnly
+	 * @param bool $limit
 	 *
 	 * @return \Currency\Model\Entity\CurrentRatesTrait
 	 * @access public
 	 */
-	public function getRates($mainPageOnly = false, $limit = false, Where $where = null)
+	public function getRates($mainPageOnly = false, $limit = false, $date = null)
 	{
-		//todo add auto prefix to table name
-		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-
-		$select = $this->getSql()->select()
-			->from($this->getTableName())
-			->join(
-				['p' => $tablePrefix . 'posts'],
-				new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
-				['currency_id' => 'ID' , 'currency_iso' => 'post_title']
-			)
-		;
-
-		$select->order('menu_order ASC');
-
-		if ($mainPageOnly) {
-			$select->join(
-				['pm' => $tablePrefix . 'postmeta'],
-				new Expression('p.ID = pm.post_id AND pm.meta_key = \'main_page\' AND pm.meta_value = 1'),
-				[]
-			);
+		if (is_null($date)) {
+			$date = date('Y-m');
 		}
+		$where = new Where();
+		$where->equalTo(new Expression('DATE_FORMAT(\'currency_publication_date\', \'%Y-%m\')'), $date);
+		$data = $this->parentRates($mainPageOnly, $limit, $where);
+		return $data;
+	}
 
-		if ( ! is_null($where)) {
-			$select->where($where);
-		}
-
-		if ($limit) {
-			$select->limit($limit);
-		}
-
-		$results = $this->select($select);
-//		Debug::dump($this->getSqlQuery($select));
-		return $results;
+	public function getLastPublicationDate()
+	{
+		$select = $this->getSelect();
+		$select->columns(['publication']);
 	}
 }

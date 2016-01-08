@@ -26,14 +26,6 @@ use SilverZF2\Db\Entity\Entity;
  *
  * Currency Current day rates entity class
  *
- * @property int    $current_day_rate_id
- * @property int    $currency_id
- * @property int    $currency_counter
- * @property float  $currency_rate
- * @property float  $currency_change_rate
- * @property string $post_title
- * @property string $day
- *
  * @category   Currency
  * @package    Model
  * @subpackage Entity

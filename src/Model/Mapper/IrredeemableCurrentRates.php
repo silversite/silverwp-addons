@@ -18,26 +18,33 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Entity;
+namespace Currency\Model\Mapper;
 
+use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
  *
  *
- * @property int    $currency_id
- * @property int    $currency_counter
- * @property float  $currency_rate
- * @property float  $currency_change_rate
- * @property string $post_title - currency is (short name like: EUR etc.)
  *
- * @category     Zend Framework 2
- * @package      Currency
- * @subpackage   Entity
+ * @category     Currency
+ * @package      Model
+ * @subpackage   Mapper
  * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2016
+ * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-trait CurrentRatesTrait
+class IrredeemableCurrentRates extends AbstractDbMapper implements CurrentRatesInterface
 {
+	use CurrentRatesTrait;
+
+	/**
+	 * @var string
+	 */
+	protected $tableName = 'currency_irredeemable';
+
+	/**
+	 * @var string
+	 */
+	protected $pkColumn = 'currency_irredeemable_id';
 
 }

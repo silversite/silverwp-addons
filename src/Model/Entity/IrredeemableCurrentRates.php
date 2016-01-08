@@ -20,24 +20,20 @@
 
 namespace Currency\Model\Entity;
 
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
+ * Irredeemable Current day rates entity class
  *
- * @property int    $currency_id
- * @property int    $currency_counter
- * @property float  $currency_rate
- * @property float  $currency_change_rate
- * @property string $post_title - currency is (short name like: EUR etc.)
- *
- * @category     Zend Framework 2
- * @package      Currency
- * @subpackage   Entity
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2016
- * @version      0.1
+ * @category   Currency
+ * @package    Model
+ * @subpackage Entity
+ * @author     Michal Kalkowski <michal at silversite.pl>
+ * @copyright  SilverSite.pl 2015
+ * @version    0.1
  */
-trait CurrentRatesTrait
+class IrredeemableCurrentRates extends Entity implements CurrentRatesInterface
 {
-
+	use CurrentRatesTrait;
 }
