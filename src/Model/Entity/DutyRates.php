@@ -24,9 +24,9 @@ use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * Currency Current day rates entity class
+ * Duty rates entity class
  *
- * @property \DateTime $current_publication_date
+ * @property \DateTime $currency_publication_date
  *
  * @category   Currency
  * @package    Model
@@ -43,19 +43,19 @@ class DutyRates extends Entity implements CurrentRatesInterface, HistoryInterfac
 	/**
 	 * @return \DateTime
 	 */
-	public function getCurrentPublicationDate()
+	public function getCurrencyPublicationDate()
 	{
-		return new \DateTime($this->current_publication_date);
+		return new \DateTime($this->currency_publication_date);
 	}
 
 	/**
-	 * @param \DateTime $current_publication_date
+	 * @param \DateTime $currency_publication_date
 	 *
 	 * @return DutyRates
 	 */
-	public function setCurrentPublicationDate( \DateTime $current_publication_date )
+	public function setCurrencyPublicationDate(\DateTime $currency_publication_date)
 	{
-		$this->current_publication_date = $current_publication_date;
+		$this->currency_publication_date = $currency_publication_date;
 
 		return $this;
 	}

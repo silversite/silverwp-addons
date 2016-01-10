@@ -78,6 +78,7 @@ $config = [
 				'entity' => 'Currency\Model\Entity\DutyRates',
 				'mapper' => 'Currency\Model\Mapper\DutyRates',
 				'strategy' => [
+					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy',
 					'currency_publication_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
 				]
 			],

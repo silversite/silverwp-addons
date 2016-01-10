@@ -20,6 +20,7 @@
 
 namespace Currency\Model\Mapper;
 
+use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 use Zend\Db\Sql\Predicate\Expression;
 use Zend\Db\Sql\Where;
@@ -59,6 +60,8 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, Histo
 	 * @param bool $mainPageOnly
 	 * @param bool $limit
 	 *
+	 * @param null|string $date - date format Y-m
+	 *
 	 * @return \Currency\Model\Entity\CurrentRatesTrait
 	 * @access public
 	 */
@@ -66,16 +69,29 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, Histo
 	{
 		if (is_null($date)) {
 			$date = date('Y-m');
+		} else {
+			$dateObj = new \DateTime($date);
+			$date = $dateObj->format('Y-m');
 		}
 		$where = new Where();
-		$where->equalTo(new Expression('DATE_FORMAT(\'currency_publication_date\', \'%Y-%m\')'), $date);
+		$where->equalTo(new Expression('DATE_FORMAT(currency_publication_date, \'%Y-%m\')'), $date);
 		$data = $this->parentRates($mainPageOnly, $limit, $where);
 		return $data;
 	}
 
+	/**
+	 * @return bool|\Currency\Model\Entity\DutyRates
+	 * @access public
+	 */
 	public function getLastPublicationDate()
 	{
 		$select = $this->getSelect();
-		$select->columns(['publication']);
+		$select
+			->columns(['currency_publication_date' => new Expression('MAX(currency_publication_date)')])
+			->limit(1)
+		;
+		$data = $this->select($select);
+
+		return $data->current();
 	}
 }
