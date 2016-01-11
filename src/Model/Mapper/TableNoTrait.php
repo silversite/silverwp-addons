@@ -81,7 +81,7 @@ trait TableNoTrait
 	/**
 	 * Get first table no
 	 *
-	 * @return EntityResultSet
+	 * @return \Currency\Model\Entity\TableNoTrait
 	 * @access public
 	 */
 	public function getFirstTableNo()
@@ -91,7 +91,7 @@ trait TableNoTrait
 		$select->order('table_date ASC');
 		$select->where->isNotNull('table_no');
 		$select->limit(1);
-		/** @var $result EntityResultSet*/
+		/** @var $result \Currency\Model\Entity\TableNoTrait*/
 		$result = $this->select($select);
 
 		return $result->current();

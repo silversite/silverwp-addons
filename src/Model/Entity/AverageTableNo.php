@@ -19,15 +19,16 @@
  */
 
 namespace Currency\Model\Entity;
+
 use SilverWp\Debug;
 use SilverZF2\Db\Entity\Entity;
 
 /**
  *
  *
- * @property int $table_no_id
+ * @property int       $table_no_id
  * @property \DateTime $table_date
- * @property string $table_no
+ * @property string    $table_no
  *
  * @category     Zend Framework 2
  * @package      Currency
