@@ -18,35 +18,29 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Mapper;
+namespace Currency\Model\Entity;
 
-use Currency\Model\Entity\Currency;
-use SilverZF2\Db\Mapper\AbstractDbMapper;
-
+use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * History average rates
+ * Irredeemable History rates entity class
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
- * @version      0.1
+ * @property int    $currency_id
+ * @property int    $history_current_day_rate_id
+ * @property int    $currency_counter
+ * @property float  $currency_rate
+ * @property float  $currency_change_rate
+ * @property string $table_no
+ *
+ * @category   Currency
+ * @package    Model
+ * @subpackage Entity
+ * @author     Michal Kalkowski <michal at silversite.pl>
+ * @copyright  SilverSite.pl 2015
+ * @version    0.1
  */
-class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
+class IrredeemableHistoryRates extends Entity implements HistoryInterface
 {
 	use HistoryTrait;
-	use HistoryTableNoTrait;
-
-	/**
-	 * @var string
-	 */
-	protected $tableName = 'history_current_day_rate';
-
-	/**
-	 * @var string
-	 */
-	protected $pkColumn = 'currency_id';
 }

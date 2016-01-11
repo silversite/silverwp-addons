@@ -53,12 +53,12 @@ class SelectTableNo extends AjaxAbstract {
 
 		switch ( $model ) {
 			case 'currentDay':
-				/** @var $mapper \Currency\Model\Mapper\CurrentDayTableNo */
-				$mapper = \SilverWpAddons\get_service( 'TableNo' );
+				/** @var $mapper \Currency\Model\Mapper\AverageTableNo */
+				$mapper = \SilverWpAddons\get_service( 'Mapper\AverageTableNo' );
 				break;
 			case 'sellBuy':
 				/** @var $mapper \Currency\Model\Mapper\SellBuyTableNo */
-				$mapper = \SilverWpAddons\get_service( 'SellBuyTableNo' );
+				$mapper = \SilverWpAddons\get_service( 'Mapper\SellBuyTableNo' );
 				break;
 			case 'irredeemable':
 				/** @var $mapper \Currency\Model\Mapper\IrredeemableTableNo */

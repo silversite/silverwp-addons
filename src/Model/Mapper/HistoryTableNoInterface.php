@@ -20,33 +20,25 @@
 
 namespace Currency\Model\Mapper;
 
-use Currency\Model\Entity\Currency;
-use SilverZF2\Db\Mapper\AbstractDbMapper;
-
 
 /**
  *
- * History average rates
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
+ *
+ * @category     Zend Framework 2
+ * @package      Currency
+ * @subpackage   Model\Mapper
  * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
+ * @copyright    SilverSite.pl 2016
  * @version      0.1
  */
-class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
+interface HistoryTableNoInterface
 {
-	use HistoryTrait;
-	use HistoryTableNoTrait;
-
 	/**
-	 * @var string
+	 * @param int $tableNoId
+	 *
+	 * @return \Currency\Model\Entity\HistoryTrait
+	 * @access public
 	 */
-	protected $tableName = 'history_current_day_rate';
-
-	/**
-	 * @var string
-	 */
-	protected $pkColumn = 'currency_id';
+	public function getRatesByTableNoId($tableNoId);
 }

@@ -26,6 +26,7 @@ namespace Currency\Model\Entity;
  * History entity trait
  *
  * @property \DateTime $currency_date
+ * @property float     $currency_rate
  *
  * @category   Currency
  * @package    Model

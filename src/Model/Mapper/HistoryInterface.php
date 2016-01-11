@@ -19,6 +19,7 @@
  */
 
 namespace Currency\Model\Mapper;
+use Currency\Model\Entity\Currency;
 
 
 /**
@@ -54,4 +55,12 @@ interface HistoryInterface
 	 * @access public
 	 */
 	public function getRatesByCurrencyIdByDates($currencyId, $date_from, $date_to);
+
+	/**
+	 * Get currencies list for table
+	 *
+	 * @return Currency
+	 * @access public
+	 */
+	public function getCurrencies();
 }

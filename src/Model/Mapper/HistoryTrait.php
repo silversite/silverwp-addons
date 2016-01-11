@@ -64,7 +64,7 @@ trait HistoryTrait
 	 * @param null|string $dateFrom
 	 * @param null|string $dateTo
 	 *
-	 * @return \Currency\Model\Entity\HistoryCurrentDayRate
+	 * @return \Currency\Model\Entity\HistoryTrait
 	 * @access public
 	 */
 	public function getRatesByCurrencyIdByDates($currencyId, $dateFrom = null, $dateTo = null)
@@ -101,9 +101,31 @@ trait HistoryTrait
 			$select->where->lessThanOrEqualTo('currency_date', new Expression('?', $dateTo));
 		}
 
-		/** @var $results \Currency\Model\Entity\HistoryCurrentDayRate */
+		/** @var $results \Currency\Model\Entity\HistoryTrait */
 		$results = $this->select($select);
+//		echo $this->getSqlQuery($select);
+		return $results;
+	}
 
+	/**
+	 * Get currencies list for table
+	 *
+	 * @return Currency
+	 * @access public
+	 */
+	public function getCurrencies()
+	{
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		//SELECT currency_id FROM $tableName INNER JOIN waluty__posts ON (ID=currency_id) GROUP BY currency_id
+		$select = $this->getSelect();
+		$select
+			->columns(['currency_id'])
+			->join($tablePrefix. 'posts', 'ID = currency_id', ['post_title','id' => 'ID'])
+			->group('currency_id')
+			->order('menu_order ASC')
+		;
+		$results = $this->select($select);
+		echo $this->getSqlQuery($select);
 		return $results;
 	}
 

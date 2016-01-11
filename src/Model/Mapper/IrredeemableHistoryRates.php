@@ -20,9 +20,8 @@
 
 namespace Currency\Model\Mapper;
 
-use Currency\Model\Entity\Currency;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
-
+use Zend\Db\Sql\Expression;
 
 /**
  *
@@ -35,7 +34,7 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
+class IrredeemableHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
 {
 	use HistoryTrait;
 	use HistoryTableNoTrait;
@@ -43,7 +42,7 @@ class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface, 
 	/**
 	 * @var string
 	 */
-	protected $tableName = 'history_current_day_rate';
+	protected $tableName = 'history_currency_irredeemable';
 
 	/**
 	 * @var string
