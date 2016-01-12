@@ -20,7 +20,6 @@
 
 namespace Currency\Model\Mapper;
 
-use Currency\Model\Entity\Currency;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 
