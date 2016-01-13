@@ -20,6 +20,7 @@
 
 namespace Currency\Model\Mapper;
 use Currency\Model\Entity\Currency;
+use Currency\Model\Entity\HistoryTrait;
 
 
 /**
@@ -41,7 +42,7 @@ interface HistoryInterface
 	 * @param int $year
 	 * @param int $month
 	 *
-	 * @return \SilverZF2\Db\ResultSet\EntityResultSet
+	 * @return HistoryTrait
 	 * @access public
 	 */
 	public function getDaysByYearMonth($year, $month);
@@ -51,7 +52,7 @@ interface HistoryInterface
 	 * @param string $date_from
 	 * @param string $date_to
 	 *
-	 * @return His
+	 * @return $this
 	 * @access public
 	 */
 	public function getRatesByCurrencyIdByDates($currencyId, $date_from, $date_to);
@@ -59,8 +60,10 @@ interface HistoryInterface
 	/**
 	 * Get currencies list for table
 	 *
+	 * @param null $date
+	 *
 	 * @return Currency
 	 * @access public
 	 */
-	public function getCurrencies();
+	public function getCurrencies($date = null);
 }

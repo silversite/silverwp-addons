@@ -39,6 +39,13 @@ class SellBuyHistoryRates extends AbstractDbMapper implements HistoryInterface
 	use HistoryTrait;
 
 	/**
+	 * Primary key column name
+	 *
+	 * @var string
+	 */
+	protected $pkColumn = 'history_currency_sell_buy_id';
+
+	/**
 	 * @var string
 	 */
 	protected $tableName = 'history_currency_sell_buy';

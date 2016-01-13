@@ -24,14 +24,16 @@ use SilverZF2\Db\Entity\Entity;
 
 /**
  *
- * Currency Current day rates entity class
+ * Sell Buy rates entity class
  *
  * @property int       $currency_id
  * @property int       $history_currency_sell_buy_id
  * @property int       $currency_counter
- * @property float     $currency_rate
- * @property float     $currency_change_rate
- * @property \DateTime $currency_date
+ * @property float     $currency_sell_rate
+ * @property float     $currency_buy_rate
+ * @property float     $currency_sell_change_rate
+ * @property float     $currency_buy_change_rate
+ * @property \DateTime $currency_insert_date
  *
  * @category   Currency
  * @package    Model
@@ -40,7 +42,7 @@ use SilverZF2\Db\Entity\Entity;
  * @copyright  SilverSite.pl 2015
  * @version    0.1
  */
-class HistorySellBuy extends Entity implements HistoryInterface
+class SellBuyHistoryRates extends Entity implements HistoryInterface
 {
 	use HistoryTrait;
 }
