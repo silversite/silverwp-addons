@@ -59,12 +59,16 @@ class AverageHistoryRates extends AbstractDbMapper
 	 */
 	public function getComparisonRates(array $currenciesIds)
 	{
-		//SELECT * FROM history_current_day_rate WHERE currency_date >= date_sub(NOW(), INTERVAL 1 YEAR);
+		// SELECT * FROM history_current_day_rate
+		// WHERE currency_date >= date_sub(NOW(), INTERVAL 1 YEAR)
+		// ORDER BY FIELD (currency_id, 143,137);
 		$select = $this->getSelect();
 		$select
 			->where->in('currency_id', $currenciesIds)
 			->greaterThanOrEqualTo('currency_date', new Expression('DATE_SUB(NOW(), INTERVAL 1 YEAR)'))
 		;
+		$ids_string = implode(',', $currenciesIds);
+		$select->order([new Expression('FIELD (currency_id, '. $ids_string .')')]);
 		$results = $this->select($select);
 
 		return $results;
