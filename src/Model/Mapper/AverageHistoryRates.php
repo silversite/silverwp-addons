@@ -65,7 +65,6 @@ class AverageHistoryRates extends AbstractDbMapper
 			->where->in('currency_id', $currenciesIds)
 			->greaterThanOrEqualTo('currency_date', new Expression('DATE_SUB(NOW(), INTERVAL 1 YEAR)'))
 		;
-		echo $this->getSqlQuery($select);
 		$results = $this->select($select);
 
 		return $results;
