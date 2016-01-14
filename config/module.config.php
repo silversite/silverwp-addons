@@ -64,6 +64,9 @@ $config = [
 				'table'  => 'history_currency_irredeemable',
 				'entity' => 'Currency\Model\Entity\IrredeemableHistoryRates',
 				'mapper' => 'Currency\Model\Mapper\IrredeemableHistoryRates',
+				'strategy' => [
+					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+				]
 			],
 		    'IrredeemableTableNo' => [
 			    'table'  => 'irredeemable_table_no',

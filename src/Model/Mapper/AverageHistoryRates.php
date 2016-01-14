@@ -21,6 +21,7 @@
 namespace Currency\Model\Mapper;
 
 use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 
 
 /**
@@ -34,7 +35,8 @@ use SilverZF2\Db\Mapper\AbstractDbMapper;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
+class AverageHistoryRates extends AbstractDbMapper
+	implements HistoryInterface, HistoryTableNoInterface, ComparisonInterface
 {
 	use HistoryTrait;
 	use HistoryTableNoTrait;
@@ -48,4 +50,24 @@ class AverageHistoryRates extends AbstractDbMapper implements HistoryInterface, 
 	 * @var string
 	 */
 	protected $pkColumn = 'currency_id';
+
+	/**
+	 * @param array $currenciesIds
+	 *
+	 * @return \SilverZF2\Db\ResultSet\EntityResultSet
+	 * @access public
+	 */
+	public function getComparisonRates(array $currenciesIds)
+	{
+		//SELECT * FROM history_current_day_rate WHERE currency_date >= date_sub(NOW(), INTERVAL 1 YEAR);
+		$select = $this->getSelect();
+		$select
+			->where->in('currency_id', $currenciesIds)
+			->greaterThanOrEqualTo('currency_date', new Expression('DATE_SUB(NOW(), INTERVAL 1 YEAR)'))
+		;
+		echo $this->getSqlQuery($select);
+		$results = $this->select($select);
+
+		return $results;
+	}
 }

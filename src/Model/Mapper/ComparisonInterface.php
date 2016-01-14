@@ -20,32 +20,26 @@
 
 namespace Currency\Model\Mapper;
 
-use SilverZF2\Db\Mapper\AbstractDbMapper;
 
 /**
  *
  *
- *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
+ * @property int $currency_id
+ * 
+ * @category     Zend Framework 2
+ * @package      Currency
+ * @subpackage   Model\Mapper
  * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
+ * @copyright    SilverSite.pl 2016
  * @version      0.1
  */
-class AverageCurrentRates extends AbstractDbMapper implements CurrentRatesInterface
+interface ComparisonInterface
 {
-	use CurrentRatesTrait;
-
 	/**
-	 * @var string
+	 * @param array $currenciesIds
+	 *
+	 * @return \SilverZF2\Db\ResultSet\EntityResultSet
+	 * @access public
 	 */
-	protected $tableName = 'current_day_rate';
-
-	/**
-	 * @var string
-	 */
-	protected $pkColumn = 'current_day_rate_id';
-
-
+	public function getComparisonRates(array $currenciesIds);
 }

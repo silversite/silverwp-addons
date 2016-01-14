@@ -103,7 +103,7 @@ trait HistoryTrait
 
 		/** @var $results \Currency\Model\Entity\HistoryTrait */
 		$results = $this->select($select);
-//		echo $this->getSqlQuery($select);
+		echo $this->getSqlQuery($select);
 		return $results;
 	}
 
