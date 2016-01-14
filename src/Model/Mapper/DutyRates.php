@@ -80,6 +80,8 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, Histo
 	}
 
 	/**
+	 * Last publication date
+	 *
 	 * @return bool|\Currency\Model\Entity\DutyRates
 	 * @access public
 	 */
@@ -88,6 +90,24 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, Histo
 		$select = $this->getSelect();
 		$select
 			->columns(['currency_publication_date' => new Expression('MAX(currency_publication_date)')])
+			->limit(1)
+		;
+		$data = $this->select($select);
+
+		return $data->current();
+	}
+
+	/**
+	 * First publication date
+	 *
+	 * @return bool|\Currency\Model\Entity\DutyRates
+	 * @access public
+	 */
+	public function getFirstPublicationDate()
+	{
+		$select = $this->getSelect();
+		$select
+			->columns(['currency_publication_date' => new Expression('MIN(currency_publication_date)')])
 			->limit(1)
 		;
 		$data = $this->select($select);
