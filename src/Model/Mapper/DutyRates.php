@@ -20,7 +20,6 @@
 
 namespace Currency\Model\Mapper;
 
-use SilverWp\Debug;
 use SilverZF2\Db\Mapper\AbstractDbMapper;
 use Zend\Db\Sql\Predicate\Expression;
 use Zend\Db\Sql\Where;
@@ -38,7 +37,7 @@ use Zend\Db\Sql\Where;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, HistoryInterface
+class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, DutyRatesInterface
 {
 	use CurrentRatesTrait {
 		getRates as parentRates;
@@ -113,5 +112,16 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, Histo
 		$data = $this->select($select);
 
 		return $data->current();
+	}
+
+	/**
+	 * @param string $date format: 'YYYY-MM'
+	 *
+	 * @return \Currency\Model\Entity\DutyRates
+	 * @access public
+	 */
+	public function getRatesByDate($date)
+	{
+		return $this->getRates(false, false, $date);
 	}
 }

@@ -20,37 +20,40 @@
 
 namespace Currency\Model\Mapper;
 
-
 /**
  *
  *
  *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
- * @version      0.1
+ * @category  Zend Framework 2
+ * @package   Currency
+ * @package   Model\Mapper
+ * @author    Michal Kalkowski <michal at silversite.pl>
+ * @copyright SilverSite.pl 2016
+ * @version   0.1
  */
-interface HistoryInterface
+interface DutyRatesInterface
 {
 	/**
-	 * @param int $currencyId
-	 * @param string $date_from
-	 * @param string $date_to
+	 * @param string $date format: 'YYYY-MM'
 	 *
-	 * @return \Currency\Model\Entity\HistoryTrait
+	 * @return \Currency\Model\Entity\DutyRates
 	 * @access public
 	 */
-	public function getRatesByCurrencyIdByDates($currencyId, $date_from, $date_to);
+	public function getRatesByDate($date);
 
 	/**
-	 * Get currencies list for table
+	 * Last publication date
 	 *
-	 * @param null|string $date
-	 *
-	 * @return \Currency\Model\Entity\Currency
+	 * @return bool|\Currency\Model\Entity\DutyRates
 	 * @access public
 	 */
-	public function getCurrencies($date = null);
+	public function getLastPublicationDate();
+
+	/**
+	 * First publication date
+	 *
+	 * @return bool|\Currency\Model\Entity\DutyRates
+	 * @access public
+	 */
+	public function getFirstPublicationDate();
 }
