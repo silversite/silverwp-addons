@@ -107,32 +107,7 @@ trait HistoryTrait
 		return $results;
 	}
 
-	/**
-	 * Get currencies list for table
-	 *
-	 * @return Currency
-	 * @access public
-	 */
-	public function getCurrencies($date = null)
-	{
-		if (is_null($date)) {
-			$date = date('Y-m');
-		}
-		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
-		//SELECT currency_id FROM $tableName INNER JOIN waluty__posts ON (ID=currency_id) GROUP BY currency_id
-		$select = $this->getSelect();
-		$select
-			->columns(['currency_id'])
-			->join($tablePrefix. 'posts', 'ID = currency_id', ['post_title','id' => 'ID'])
-			->where(new Expression('DATE_FORMAT(currency_date, \'%Y-%m\') = ?', $date))
-			->group('currency_id')
-			->order('menu_order ASC')
 
-		;
-		$results = $this->select($select);
-//		echo $this->getSqlQuery($select);
-		return $results;
-	}
 
 	/**
 	 * Get date column name by table name

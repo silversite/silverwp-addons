@@ -45,6 +45,8 @@ trait CurrentRatesTrait
 	 * @param bool     $mainPageOnly
 	 * @param bool|int $limit
 	 *
+	 * @param Where    $where
+	 *
 	 * @return \Currency\Model\Entity\CurrentRatesTrait
 	 * @access public
 	 */
@@ -82,6 +84,30 @@ trait CurrentRatesTrait
 
 		$results = $this->select($select);
 //		Debug::dump($this->getSqlQuery($select));
+		return $results;
+	}
+
+	/**
+	 * Get currencies list for table
+	 *
+	 * @return Currency
+	 * @access public
+	 */
+	public function getCurrencies()
+	{
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		//SELECT currency_id FROM $tableName INNER JOIN waluty__posts ON (ID=currency_id) GROUP BY currency_id
+		$select = $this->getSelect();
+		$select
+			->columns(['currency_id'])
+			->join(['p' => $tablePrefix. 'posts'], 'p.ID = currency_id', ['post_title','id' => 'ID'])
+			->join(['c' => $tablePrefix. 'currency'], 'p.ID = c.currency_id', [])
+			->group('currency_id')
+			->order('menu_order ASC')
+
+		;
+		$results = $this->select($select);
+
 		return $results;
 	}
 }

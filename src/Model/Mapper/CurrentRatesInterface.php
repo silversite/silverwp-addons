@@ -45,4 +45,12 @@ interface CurrentRatesInterface
 	 * @access public
 	 */
 	public function getRates($mainPageOnly = false, $limit = false);
+
+	/**
+	 * Get currencies list for table
+	 *
+	 * @return \Currency\Model\Entity\Currency
+	 * @access public
+	 */
+	public function getCurrencies();
 }

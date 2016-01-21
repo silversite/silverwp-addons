@@ -43,14 +43,4 @@ interface HistoryInterface
 	 * @access public
 	 */
 	public function getRatesByCurrencyIdByDates($currencyId, $date_from, $date_to);
-
-	/**
-	 * Get currencies list for table
-	 *
-	 * @param null|string $date
-	 *
-	 * @return \Currency\Model\Entity\Currency
-	 * @access public
-	 */
-	public function getCurrencies($date = null);
 }
