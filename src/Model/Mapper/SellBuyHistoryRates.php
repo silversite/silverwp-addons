@@ -34,9 +34,10 @@ use Zend\Db\Sql\Expression;
  * @copyright    SilverSite.pl 2015
  * @version      0.1
  */
-class SellBuyHistoryRates extends AbstractDbMapper implements HistoryInterface
+class SellBuyHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
 {
 	use HistoryTrait;
+	use HistoryTableNoTrait;
 
 	/**
 	 * Primary key column name

@@ -167,9 +167,7 @@ abstract class AbstractDbMapper
      *
      * @return ResultInterface
      */
-    protected function insert(
-        $entity, $tableName = null, HydratorInterface $hydrator = null
-    ) {
+    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) {
         $this->initialize();
         $tableName = $tableName ? : $this->getTableName();
 
@@ -177,7 +175,7 @@ abstract class AbstractDbMapper
         $insert = $sql->insert();
 
         $rowData = $this->entityToArray($entity, $hydrator);
-        $insert->values($rowData);
+	    $insert->values($rowData);
 
         $statement = $sql->prepareStatementForSqlObject($insert);
 
@@ -202,8 +200,7 @@ abstract class AbstractDbMapper
         $update = $sql->update();
 
         $rowData = $this->entityToArray($entity, $hydrator);
-        $update->set($rowData)
-            ->where($where);
+        $update->set($rowData)->where($where);
 
         $statement = $sql->prepareStatementForSqlObject($update);
 

@@ -51,9 +51,17 @@ trait HistoryTableNoTrait
 			$tablePrefix . 'current_day_table_no',
 			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
 			['table_no']
-		);
+		)
+		->join(
+			['p' => $tablePrefix . 'posts'],
+			new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
+			[]
+		)
+		;
+
 		//AND table_no_id = ?
 		$select->where(['table_no_id = ?' => (int) $tableNoId]);
+		$select->order('menu_order ASC');
 		/** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
 		$results = $this->select($select);
 

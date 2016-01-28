@@ -78,8 +78,10 @@ trait HistoryTrait
 		/** @var $select \Zend\Db\Sql\Select */
 		$select     = $this->getSelect();
 		$dateColumn = $this->getDateColumn();
-		//AND currency_id = ?
-		$select->where(['currency_id = ?' => (int) $currencyId]);
+		if ($currencyId) {
+			//AND currency_id = ?
+			$select->where( [ 'currency_id = ?' => (int) $currencyId ] );
+		}
 		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
 		$select->join(
 			$tablePrefix . 'current_day_table_no',
@@ -89,18 +91,18 @@ trait HistoryTrait
 		if ( ! is_null($dateFrom) && ! is_null($dateTo)) {
 			//currency_date BETWEEN $dateFrom AND $dateTo
 			$select->where->between(
-				'currency_date',
+				$dateColumn,
 				new Expression('?', $dateFrom),
 				new Expression('?', $dateTo)
 			);
 		} elseif ( ! is_null($dateFrom)) {
 			//currency_date <= $dateFrom
-			$select->where->greaterThanOrEqualTo('currency_date', new Expression('?', $dateFrom));
+			$select->where->greaterThanOrEqualTo($dateColumn, new Expression('?', $dateFrom));
 		} elseif ( ! is_null($dateTo)) {
 			//currency_date >= $dateTo
-			$select->where->lessThanOrEqualTo('currency_date', new Expression('?', $dateTo));
+			$select->where->lessThanOrEqualTo($dateColumn, new Expression('?', $dateTo));
 		}
-
+		$select->order( $dateColumn . ' DESC');
 		/** @var $results \Currency\Model\Entity\HistoryTrait */
 		$results = $this->select($select);
 //		echo $this->getSqlQuery($select);
