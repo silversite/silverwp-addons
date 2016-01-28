@@ -50,7 +50,7 @@ trait HistoryTableNoTrait
 		$select->join(
 			$tablePrefix . 'current_day_table_no',
 			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
-			['table_no']
+			['table_no', 'table_no_id']
 		)
 		->join(
 			['p' => $tablePrefix . 'posts'],
