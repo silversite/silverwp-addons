@@ -34,12 +34,13 @@ namespace Currency\Model\Mapper;
 interface DutyRatesInterface
 {
 	/**
-	 * @param string $date format: 'YYYY-MM'
+	 * @param string $month: 'MM'
+	 * @param string $year: 'MM'
 	 *
 	 * @return \Currency\Model\Entity\DutyRates
 	 * @access public
 	 */
-	public function getRatesByDate($date);
+	public function getRatesByDate($month, $year);
 
 	/**
 	 * Last publication date

@@ -82,8 +82,9 @@ trait CurrentRatesTrait
 			$select->limit($limit);
 		}
 
+//		echo $this->getSqlQuery($select);
 		$results = $this->select($select);
-//		Debug::dump($this->getSqlQuery($select));
+
 		return $results;
 	}
 

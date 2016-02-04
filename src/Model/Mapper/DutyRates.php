@@ -120,8 +120,15 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, DutyR
 	 * @return \Currency\Model\Entity\DutyRates
 	 * @access public
 	 */
-	public function getRatesByDate($date)
+	public function getRatesByDate($month, $year)
 	{
-		return $this->getRates(false, false, $date);
+		$date = new \DateTime($year .'-'. $month);
+		$lastDay = $date->format('Y-m-t');
+
+		$where = new Where();
+		$where->between('currency_publication_date', $year .'-'. $month . '-01', $lastDay);
+		$results = $this->parentRates(false, false, $where);
+
+		return $results;
 	}
 }

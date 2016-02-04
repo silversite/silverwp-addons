@@ -88,6 +88,13 @@ trait HistoryTrait
 			new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
 			['table_no', 'table_no_id']
 		);
+		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+		$select->join(
+			$tablePrefix . 'posts',
+			new Expression('ID = currency_id'),
+			[]
+		);
+
 		if ( ! is_null($dateFrom) && ! is_null($dateTo)) {
 			//currency_date BETWEEN $dateFrom AND $dateTo
 			$select->where->between(
@@ -102,10 +109,11 @@ trait HistoryTrait
 			//currency_date >= $dateTo
 			$select->where->lessThanOrEqualTo($dateColumn, new Expression('?', $dateTo));
 		}
-		$select->order( $dateColumn . ' DESC');
+
+		$select->order( [$dateColumn . ' DESC', 'menu_order ASC']);
+//		echo $this->getSqlQuery($select);
 		/** @var $results \Currency\Model\Entity\HistoryTrait */
 		$results = $this->select($select);
-//		echo $this->getSqlQuery($select);
 		return $results;
 	}
 
