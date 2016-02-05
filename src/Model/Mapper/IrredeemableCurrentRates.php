@@ -21,6 +21,7 @@
 namespace Currency\Model\Mapper;
 
 use SilverZF2\Db\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Select;
 
 /**
  *
@@ -47,4 +48,39 @@ class IrredeemableCurrentRates extends AbstractDbMapper implements CurrentRatesI
 	 */
 	protected $pkColumn = 'currency_irredeemable_id';
 
+	/**
+	 * @param int $id
+	 *
+	 * @return bool|\SilverZF2\Db\Entity\Entity
+	 * @access public
+	 */
+	public function getRatesByCurrencyId($id)
+	{
+		//todo add auto prefix to table name
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		$select = $this->getSelect();
+		$select->columns(
+			[
+				'counter' => 'currency_counter',
+				'avg'     => 'currency_rate',
+			]
+		);
+		$select->join(
+			['cd' => $tablePrefix . 'currency_duty'],
+			'cd.currency_id = ' . $this->getTableName() . '.currency_id',
+			['duty' => 'currency_rate'],
+			Select::JOIN_LEFT
+		);
+		$select->join(
+			['sb' => $tablePrefix . 'currency_sell_buy'],
+			'sb.currency_id = ' . $this->getTableName() . '.currency_id',
+			['buy' => 'currency_buy_rate', 'sell' => 'currency_sell_rate'],
+			Select::JOIN_LEFT
+		);
+		$select->where([$this->getTableName() . '.currency_id = ? ' => $id]);
+		$select->order(['currency_date DESC']);
+		$select->limit(1);
+//		echo $this->getSqlQuery($select);
+		return $this->select($select)->current();
+	}
 }

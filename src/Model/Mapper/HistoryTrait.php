@@ -134,4 +134,36 @@ trait HistoryTrait
 		}
 		return $dateColumn;
 	}
+
+	/**
+	 * @param int $currencyId
+	 *
+	 * @return \Currency\Model\Entity\HistoryTrait[]
+	 * @access public
+	 */
+	public function getCurrencyLastYearRates($currencyId)
+	{
+		//TODO move to SQL class
+		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
+		/** @var $select \Zend\Db\Sql\Select */
+		$select     = $this->getSelect();
+		$dateColumn = $this->getDateColumn();
+		//AND currency_id = ?
+		$select->where(['currency_id = ?' => (int) $currencyId]);
+		//INNER JOIN current_day_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+		$select->join(
+			$tablePrefix . 'posts',
+			new Expression('ID = currency_id'),
+			[]
+		);
+
+		//currency_date BETWEEN $dateFrom AND $dateTo
+		$select->where->greaterThanOrEqualTo($dateColumn, new Expression('DATE_SUB(NOW(), INTERVAL 1 YEAR)'));
+
+		$select->order([$dateColumn . ' DESC']);
+//		echo $this->getSqlQuery($select);
+		/** @var $results \Currency\Model\Entity\HistoryTrait */
+		$results = $this->select($select);
+		return $results;
+	}
 }

@@ -20,9 +20,6 @@
 
 namespace Currency\Model\Mapper;
 
-use SilverZF2\Db\Mapper\AbstractDbMapper;
-use Zend\Db\Sql\Expression;
-
 /**
  *
  *

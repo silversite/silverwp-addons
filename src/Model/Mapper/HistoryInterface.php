@@ -43,4 +43,12 @@ interface HistoryInterface
 	 * @access public
 	 */
 	public function getRatesByCurrencyIdByDates($currencyId, $date_from, $date_to);
+
+	/**
+	 * @param int $currencyId
+	 *
+	 * @return \Currency\Model\Entity\HistoryTrait[]
+	 * @access public
+	 */
+	public function getCurrencyLastYearRates($currencyId);
 }
