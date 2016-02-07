@@ -35,5 +35,5 @@ use SilverZF2\Db\Entity\Entity;
  */
 class IrredeemableCurrentRates extends Entity implements CurrentRatesInterface
 {
-	use CurrentRatesTrait;
+	use RateTrait;
 }

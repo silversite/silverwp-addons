@@ -27,6 +27,7 @@ namespace Currency\Model\Entity;
  *
  * @property \DateTime $currency_date
  * @property float     $currency_rate
+ * @property int       $currency_counter
  *
  * @category   Currency
  * @package    Model
@@ -37,6 +38,8 @@ namespace Currency\Model\Entity;
  */
 trait HistoryTrait
 {
+	use RateTrait;
+
 	/**
 	 * @return \DateTime
 	 */

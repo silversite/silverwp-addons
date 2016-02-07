@@ -18,7 +18,8 @@ $config = [
 				'entity' => 'Currency\Model\Entity\AverageCurrentRates',
 				'mapper' => 'Currency\Model\Mapper\AverageCurrentRates',
 				'strategy' => [
-					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy'
+					'currency_date' => 'Zend\Hydrator\Strategy\DateTimeFormatterStrategy',
+				    'currency_rate' => 'SilverZF2\Db\Hydrator\Strategy\NumberFormatStrategy'
 				]
 			],
 			'AverageHistoryRates' => [

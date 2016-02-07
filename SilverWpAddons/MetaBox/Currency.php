@@ -62,6 +62,10 @@ if ( ! class_exists( '\SilverWpAddons\MetaBox\Currency' ) ) {
 			$this->addFilterControl( $main_page );
 
 			$gallery = new Gallery( 'gallery' );
+			$description = new Text( 'image_desc' );
+			$description->setLabel( Translate::translate( 'Image description' ) );
+			$gallery->addControl($description);
+
 			$this->addControl( $gallery );
 		}
 	}

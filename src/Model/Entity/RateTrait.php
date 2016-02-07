@@ -19,6 +19,7 @@
  */
 
 namespace Currency\Model\Entity;
+use SilverZF2\Db\Entity\Exception\InvalidArgumentException;
 
 
 /**
@@ -37,7 +38,33 @@ namespace Currency\Model\Entity;
  * @copyright    SilverSite.pl 2016
  * @version      0.1
  */
-trait CurrentRatesTrait
+trait RateTrait
 {
+	use RateFormatTrait;
+
+	/**
+	 * @return float
+	 * @access public
+	 */
+	public function getCurrencyRate()
+	{
+		$rate = $this->currency_rate / $this->currency_counter;
+
+		return $this->toString($rate);
+	}
+
+	/**
+	 * @param float $rate
+	 *
+	 * @return $this
+	 * @access public
+	 */
+	public function setCurrencyRate($rate)
+	{
+		$this->currency_rate = $rate;
+
+		return $this;
+	}
+
 
 }

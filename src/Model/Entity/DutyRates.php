@@ -37,7 +37,6 @@ use SilverZF2\Db\Entity\Entity;
  */
 class DutyRates extends Entity implements CurrentRatesInterface, HistoryInterface
 {
-	use CurrentRatesTrait;
 	use HistoryTrait;
 
 	/**

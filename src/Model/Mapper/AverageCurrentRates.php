@@ -60,6 +60,9 @@ class AverageCurrentRates extends AbstractDbMapper implements CurrentRatesInterf
 		$tablePrefix = $this->getDbAdapter()->getTablePrefix();
 		$select = $this->getSelect();
 //		$select->from(['cdr' => $this->tableName]);
+
+		$tableName = $this->getTableName();
+
 		$select->columns(
 			[
 				'counter' => 'currency_counter',
@@ -68,13 +71,13 @@ class AverageCurrentRates extends AbstractDbMapper implements CurrentRatesInterf
 		);
 		$select->join(
 			['cd' => $tablePrefix . 'currency_duty'],
-			'cd.currency_id = ' . $this->getTableName() . '.currency_id',
+			'cd.currency_id = ' . $tableName . '.currency_id',
 			['duty' => 'currency_rate'],
 			Select::JOIN_LEFT
 		);
 		$select->join(
 			['sb' => $tablePrefix . 'currency_sell_buy'],
-			'sb.currency_id = ' . $this->getTableName() . '.currency_id',
+			'sb.currency_id = ' . $tableName . '.currency_id',
 			['buy' => 'currency_buy_rate', 'sell' => 'currency_sell_rate'],
 			Select::JOIN_LEFT
 		);

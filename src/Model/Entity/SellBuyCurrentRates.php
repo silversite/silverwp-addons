@@ -42,5 +42,5 @@ use SilverZF2\Db\Entity\Entity;
  */
 class SellBuyCurrentRates extends Entity implements CurrentRatesInterface
 {
-	use CurrentRatesTrait;
+	use SellBuyRatesTrait;
 }

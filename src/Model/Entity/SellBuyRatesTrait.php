@@ -19,25 +19,66 @@
  */
 
 namespace Currency\Model\Entity;
-use SilverWp\Debug;
-use SilverZF2\Db\Entity\Entity;
 
 /**
  *
  *
- * @property int $table_no_id
- * @property \DateTime $table_date
- * @property string $table_no
+ * @property int   $currency_counter
+ * @property float $currency_sell_rate
+ * @property float $currency_buy_rate
  *
  * @category     Zend Framework 2
  * @package      Currency
- * @subpackage   Model\Entity
+ * @subpackage   Entity
  * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
+ * @copyright    SilverSite.pl 2016
  * @version      0.1
  */
-class SellBuyTableNo extends Entity implements TableNoInterface
+trait SellBuyRatesTrait
 {
-	use TableNoTrait;
-	use SellBuyRatesTrait;
+	use RateFormatTrait;
+
+	/**
+	 * @return float
+	 */
+	public function getCurrencyBuyRate() {
+		$rate = $this->currency_buy_rate / $this->currency_counter;
+
+		return $this->toString($rate);
+	}
+
+	/**
+	 * @param float $currency_buy_rate
+	 *
+	 * @return SellBuyRatesTrait
+	 */
+	public function setCurrencyBuyRate( $currency_buy_rate ) {
+		$this->currency_buy_rate = $currency_buy_rate;
+
+		return $this;
+	}
+
+	/**
+	 * @return float
+	 * @access public
+	 */
+	public function getCurrencySellRate()
+	{
+		$rate = $this->currency_sell_rate / $this->currency_counter;
+		return $this->toString($rate);
+	}
+
+	/**
+	 * @param float $rate
+	 *
+	 * @return $this
+	 * @access public
+	 */
+	public function setCurrencySellRate($rate)
+	{
+		$this->currency_sell_rate = $rate;
+
+		return $this;
+	}
+
 }

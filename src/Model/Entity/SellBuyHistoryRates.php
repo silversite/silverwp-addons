@@ -45,4 +45,5 @@ use SilverZF2\Db\Entity\Entity;
 class SellBuyHistoryRates extends Entity implements HistoryInterface
 {
 	use HistoryTrait;
+	use SellBuyRatesTrait;
 }

@@ -9,12 +9,12 @@ use Zend\Stdlib\Exception\InvalidArgumentException;
  *
  *
  *
- * @category  Zend Framework 2
- * @package   SilverZF2\Db
- * @subpackage
- * @author    Michal Kalkowski <michal at silversite.pl>
- * @copyright SilverSite.pl (c) 2015
- * @version
+ * @category    Zend Framework 2
+ * @package     SilverZF2\Db
+ * @subpackage  Hydrator
+ * @author      Michal Kalkowski <michal.kalkowski at autentika.pl>
+ * @copyright   SilverSite.pl (c) 2015
+ * @version     1.0
  */
 class EntityHydrator implements HydratorInterface
 {

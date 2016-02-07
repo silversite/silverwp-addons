@@ -40,4 +40,5 @@ use SilverZF2\Db\Entity\Entity;
 class AverageTableNo extends Entity implements TableNoInterface
 {
 	use TableNoTrait;
+	use RateTrait;
 }
