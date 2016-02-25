@@ -39,7 +39,6 @@ class AverageHistoryRates extends AbstractDbMapper
 	implements HistoryInterface, HistoryTableNoInterface, ComparisonInterface
 {
 	use HistoryTrait;
-	use HistoryTableNoTrait;
 
 	/**
 	 * @var string
@@ -73,4 +72,39 @@ class AverageHistoryRates extends AbstractDbMapper
 
 		return $results;
 	}
+
+    /**
+     * @param int $tableNoId
+     *
+     * @return \Currency\Model\Entity\HistoryTrait
+     * @access public
+     */
+    public function getRatesByTableNoId($tableNoId)
+    {
+        $tablePrefix = $this->getDbAdapter()->getTablePrefix();
+        /** @var $select \Zend\Db\Sql\Select*/
+        $select = $this->getSelect();
+        $dateColumn = $this->getDateColumn();
+        //INNER JOIN sell_buy_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+        $select->join(
+            $tablePrefix . 'current_day_table_no',
+            new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
+            ['table_no', 'table_no_id']
+        )
+               ->join(
+                   ['p' => $tablePrefix . 'posts'],
+                   new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
+                   []
+               )
+        ;
+
+        //AND table_no_id = ?
+        $select->where(['table_no_id = ?' => (int) $tableNoId]);
+        $select->order('menu_order ASC');
+        /** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+        $results = $this->select($select);
+
+        return $results;
+    }
+
 }

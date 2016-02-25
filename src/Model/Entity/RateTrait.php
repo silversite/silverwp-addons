@@ -19,8 +19,8 @@
  */
 
 namespace Currency\Model\Entity;
-use SilverZF2\Db\Entity\Exception\InvalidArgumentException;
 
+use SilverWp\Debug;
 
 /**
  *
@@ -48,9 +48,9 @@ trait RateTrait
 	 */
 	public function getCurrencyRate()
 	{
-		$rate = $this->currency_rate / $this->currency_counter;
+		$rate = $this->currency_rate;
 
-		return $this->toString($rate);
+        return $rate;
 	}
 
 	/**

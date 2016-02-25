@@ -19,6 +19,7 @@
  */
 
 namespace Currency\Model\Mapper;
+use SilverZF2\Db\Entity\Entity;
 use Zend\Db\Sql\Expression;
 
 /**
@@ -166,4 +167,39 @@ trait HistoryTrait
 		$results = $this->select($select);
 		return $results;
 	}
+
+    /**
+     * @param string $date
+     *
+     * @return mixed
+     * @access public
+     */
+    public function getLastRatesByDate($date)
+    {
+        $select     = $this->getSelect();
+        $dateColumn = $this->getDateColumn();
+        $select->where->equalTo($dateColumn, $date);
+//        $select->order([$dateColumn . ' DESC']);
+        $results = $this->select($select);
+        return $results;
+    }
+
+    /**
+     *
+     * @return Entity[]
+     * @access public
+     */
+    public function getMaxDate()
+    {
+        $select     = $this->getSelect();
+        $dateColumn = $this->getDateColumn();
+        $select->columns(['max_date' => new Expression('MAX(' . $dateColumn . ')')]);
+        $results = $this->select($select);
+
+        if ($results) {
+            return $results->current();
+        }
+
+        return false;
+    }
 }

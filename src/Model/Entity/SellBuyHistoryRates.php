@@ -44,6 +44,25 @@ use SilverZF2\Db\Entity\Entity;
  */
 class SellBuyHistoryRates extends Entity implements HistoryInterface
 {
-	use HistoryTrait;
 	use SellBuyRatesTrait;
+
+    /**
+     * @return \DateTime
+     */
+    public function getCurrencyDate()
+    {
+        return new \DateTime($this->currency_date);
+    }
+
+    /**
+     * @param \DateTime $currency_date
+     *
+     * @return HistoryTrait
+     */
+    public function setCurrencyDate(\DateTime $currency_date)
+    {
+        $this->currency_date = $currency_date;
+
+        return $this;
+    }
 }

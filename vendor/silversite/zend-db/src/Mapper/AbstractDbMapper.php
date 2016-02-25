@@ -190,7 +190,7 @@ abstract class AbstractDbMapper
      *
      * @return ResultInterface
      */
-    protected function update(
+    public function update(
         $entity, $where, $tableName = null, HydratorInterface $hydrator = null
     ) {
         $this->initialize();
@@ -227,6 +227,19 @@ abstract class AbstractDbMapper
         return $statement->execute();
     }
 
+	/**
+	 * @param null|string $tableName
+	 *
+	 * @return \Zend\Db\Adapter\Driver\StatementInterface|ResultSet
+	 * @access public
+	 */
+	public function truncate($tableName = null)
+	{
+		$tableName = $tableName ? : $this->getTableName();
+		$sql       = $this->getDbAdapter();
+		$query = $sql->query('TRUNCATE TABLE ' . $tableName);
+		return $query->execute();
+	}
 
     /**
      * @return ClassMethods
@@ -394,4 +407,52 @@ abstract class AbstractDbMapper
 
 		return 0;
 	}
+
+    /**
+     * @link http://stackoverflow.com/questions/13831582/how-does-zend-db-in-zf2-control-transactions
+     * @return \Zend\Db\Adapter\Driver\ConnectionInterface
+     */
+    public function beginTransaction()
+    {
+        return $this
+            ->getDbAdapter()
+            ->getDriver()
+            ->getConnection()
+            ->beginTransaction();
+
+    }
+
+    /**
+     * @return \Zend\Db\Adapter\Driver\ConnectionInterface
+     */
+    public function commitTransaction()
+    {
+        return $this
+            ->getDbAdapter()
+            ->getDriver()
+            ->getConnection()
+            ->commit();
+    }
+
+    /**
+     * @return \Zend\Db\Adapter\Driver\ConnectionInterface
+     */
+    public function rollbackTransaction()
+    {
+        return $this
+            ->getDbAdapter()
+            ->getDriver()
+            ->getConnection()
+            ->rollback();
+    }
+
+    public function close()
+    {
+        return $this
+            ->getDbAdapter()
+            ->getDriver()
+            ->getConnection()
+            ->disconnect();
+
+    }
 }

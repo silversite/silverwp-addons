@@ -18,29 +18,3 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-namespace Currency\Model\Mapper;
-
-use SilverZF2\Db\Mapper\AbstractDbMapper;
-use Zend\Db\Sql\Expression;
-
-/**
- *
- * History irredeemable rates
- *
- * @category     Currency
- * @package      Model
- * @subpackage   Mapper
- * @author       Michal Kalkowski <michal at silversite.pl>
- * @copyright    SilverSite.pl 2015
- * @version      0.1
- */
-class HistoryIrredeemable extends AbstractDbMapper implements HistoryInterface
-{
-	use HistoryTrait;
-
-	/**
-	 * @var string
-	 */
-	protected $tableName = 'history_currency_irredeemable';
-
-}

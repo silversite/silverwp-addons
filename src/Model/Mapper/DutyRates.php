@@ -61,21 +61,26 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, DutyR
 	 *
 	 * @param null|string $date - date format Y-m
 	 *
-	 * @return \Currency\Model\Entity\CurrentRatesTrait
+	 * @return \Currency\Model\Entity\
 	 * @access public
 	 */
 	public function getRates($mainPageOnly = false, $limit = false, $date = null)
 	{
 		if (is_null($date)) {
-			$date = date('Y-m');
+            $dateObj   = new \DateTime();
+            $dateStart = $dateObj->format('Y-m') . '-01';
+            $dateEnd   = $dateObj->format('Y-m-t');
 		} else {
-			$dateObj = new \DateTime($date);
-			$date = $dateObj->format('Y-m');
+            $dateObj   = new \DateTime($date);
+            $dateStart = $dateObj->format('Y-m') . '-01';
+            $dateEnd   = $dateObj->format('Y-m-t');
 		}
+
 		$where = new Where();
-		$where->equalTo(new Expression('DATE_FORMAT(currency_publication_date, \'%Y-%m\')'), $date);
+		$where->between('currency_publication_date', $dateStart , $dateEnd);
 		$data = $this->parentRates($mainPageOnly, $limit, $where);
-		return $data;
+
+        return $data;
 	}
 
 	/**
@@ -109,17 +114,36 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, DutyR
 			->columns(['currency_publication_date' => new Expression('MIN(currency_publication_date)')])
 			->limit(1)
 		;
-		$data = $this->select($select);
+        $data = $this->select($select);
 
 		return $data->current();
 	}
 
-	/**
-	 * @param string $date format: 'YYYY-MM'
-	 *
-	 * @return \Currency\Model\Entity\DutyRates
-	 * @access public
-	 */
+    public function getFirstYear()
+    {
+        $select = $this->getSelect();
+        $select
+            ->columns(
+                [
+                    'year'  => new Expression('DATE_FORMAT(MAX(currency_date), \'%Y\')'),
+                    'month' => new Expression('DATE_FORMAT(MAX(currency_date), \'%m\')')
+                ]
+            )
+            ->limit(1)
+        ;
+        $data = $this->select($select);
+
+        return $data->current()->toArray();
+    }
+
+    /**
+     * @param string $month
+     * @param string $year
+     *
+     * @return \Currency\Model\Entity\DutyRates
+     *
+     * @access   public
+     */
 	public function getRatesByDate($month, $year)
 	{
 		$date = new \DateTime($year .'-'. $month);
@@ -131,4 +155,24 @@ class DutyRates extends AbstractDbMapper implements CurrentRatesInterface, DutyR
 
 		return $results;
 	}
+
+    /**
+     * @param $date
+     *
+     * @return bool|\SilverZF2\Db\Entity\Entity
+     */
+    public function getLastRatesByDate($date)
+    {
+        $select = $this->getSelect();
+        $select->where->between('currency_date', $date, new Expression('LAST_DAY(?)', $date));
+        $select->order(['currency_date DESC', 'currency_id ASC']);
+//        echo $this->getSqlQuery($select);
+        $rates  = $this->select($select)->toArray();
+
+        $return = [];
+        foreach ($rates as $rate) {
+            $return[$rate['currency_id']] = $rate['currency_rate'];
+        }
+        return $return;
+    }
 }

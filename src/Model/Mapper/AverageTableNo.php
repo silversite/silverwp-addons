@@ -44,4 +44,5 @@ class AverageTableNo extends AbstractDbMapper implements TableNoInterface
 	 */
 	protected $tableName = 'current_day_table_no';
 
+
 }

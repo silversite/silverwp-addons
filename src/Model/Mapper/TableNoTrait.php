@@ -19,6 +19,7 @@
  */
 
 namespace Currency\Model\Mapper;
+use SilverWp\Debug;
 use SilverZF2\Db\ResultSet\EntityResultSet;
 
 
@@ -119,4 +120,23 @@ trait TableNoTrait
 
 		return $data;
 	}
+
+    /**
+     * @param string $tableNo
+     *
+     * @return bool|EntityResultSet[]
+     * @access public
+     */
+    public function isExists($tableNo)
+    {
+        /** @var $select \Zend\Db\Sql\Select*/
+        $select = $this->getSelect();
+        $select->where(['table_no = ?' => $tableNo]);
+        $select->limit(1);
+        $result = $this->select($select);
+        if ($result) {
+            return $result->current();
+        }
+        return false;
+    }
 }

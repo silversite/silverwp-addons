@@ -66,7 +66,7 @@ trait RateFormatTrait
 	 * @access protected
 	 * @throws \SilverZF2\Db\Entity\Exception\InvalidArgumentException
 	 */
-	protected function toString($rate)
+	public function toString($rate)
 	{
 		if ( ! is_float($rate)) {
 			throw new InvalidArgumentException(
@@ -84,7 +84,7 @@ trait RateFormatTrait
 	 * @return float
 	 * @access protected
 	 */
-	protected function toFloat($number)
+	public function toFloat($number)
 	{
 		$dotPos     = strrpos($number, '.');
 		$commaPos   = strrpos($number, ',');

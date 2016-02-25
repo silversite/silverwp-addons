@@ -65,6 +65,7 @@ trait SellBuyRatesTrait
 	public function getCurrencySellRate()
 	{
 		$rate = $this->currency_sell_rate / $this->currency_counter;
+
 		return $this->toString($rate);
 	}
 

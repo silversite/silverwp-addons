@@ -37,7 +37,6 @@ use Zend\Db\Sql\Expression;
 class IrredeemableHistoryRates extends AbstractDbMapper implements HistoryInterface, HistoryTableNoInterface
 {
 	use HistoryTrait;
-	use HistoryTableNoTrait;
 
 	/**
 	 * @var string
@@ -48,4 +47,60 @@ class IrredeemableHistoryRates extends AbstractDbMapper implements HistoryInterf
 	 * @var string
 	 */
 	protected $pkColumn = 'currency_id';
+
+    /**
+     * @param int $tableNoId
+     *
+     * @return \Currency\Model\Entity\HistoryTrait
+     * @access public
+     */
+    public function getRatesByTableNoId($tableNoId)
+    {
+        $tablePrefix = $this->getDbAdapter()->getTablePrefix();
+        /** @var $select \Zend\Db\Sql\Select*/
+        $select = $this->getSelect();
+        $dateColumn = $this->getDateColumn();
+        //INNER JOIN sell_buy_table_no ON (DATE_FORMAT(table_date, '%Y-%m-%d') = DATE_FORMAT(currency_date, '%Y-%m-%d'))
+        $select->join(
+            $tablePrefix . 'irredeemable_table_no',
+            new Expression('DATE_FORMAT(' . $dateColumn . ', \'%Y-%m-%d\') = DATE_FORMAT(table_date, \'%Y-%m-%d\')'),
+            ['table_no', 'table_no_id']
+        )
+               ->join(
+                   ['p' => $tablePrefix . 'posts'],
+                   new Expression('p.ID = currency_id AND p.post_type = \'currency\''),
+                   []
+               )
+        ;
+
+        //AND table_no_id = ?
+        $select->where(['table_no_id = ?' => (int) $tableNoId]);
+        $select->order('menu_order ASC');
+        /** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+        $results = $this->select($select);
+
+        return $results;
+    }
+
+    /**
+     *
+     * @return \Currency\Model\Entity\HistoryTrait
+     * @access public
+     */
+    public function getRates4Duty($year, $month)
+    {
+        /** @var $select \Zend\Db\Sql\Select*/
+        $select = $this->getSelect();
+        //AND table_no_id = ?
+        $select->where
+            ->equalTo(new Expression('YEAR(currency_date)'), $year)
+            ->and->equalTo(new Expression('MONTH(currency_date)'), $month)
+            ->and->equalTo(new Expression('DAYOFWEEK(currency_date)'), 4);
+        $select->order('currency_date DESC');
+//        echo $this->getSqlQuery($select);
+        /** @var $results \SilverZF2\Db\ResultSet\EntityResultSet */
+        $results = $this->select($select);
+
+        return $results;
+    }
 }

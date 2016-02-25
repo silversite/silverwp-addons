@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Zend\\Stdlib\\' => array($vendorDir . '/zendframework/zend-stdlib/src'),
     'Zend\\ServiceManager\\' => array($vendorDir . '/zendframework/zend-servicemanager/src'),
+    'Zend\\Log\\' => array($vendorDir . '/zendframework/zend-log/src'),
     'Zend\\Hydrator\\' => array($vendorDir . '/zendframework/zend-hydrator/src'),
     'Zend\\Filter\\' => array($vendorDir . '/zendframework/zend-filter/src'),
     'Zend\\Db\\' => array($vendorDir . '/zendframework/zend-db/src'),
