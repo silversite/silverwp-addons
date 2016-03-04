@@ -306,12 +306,12 @@ add_action( 'plugins_loaded', function () {
 	        #widgets
 	        //new Widget\Social();
 	        #endwidgets
-	        new Import();
-			if ( function_exists( 'icl_object_id' ) ) {
-		    	Wpml::getInstance();
+			if ( is_plugin_active('sitepress-multilingual-cms/inc/wpml-api.php') ) {
+				new Import();
+				if ( function_exists( 'icl_object_id' ) ) {
+					Wpml::getInstance();
+				}
 			}
-
-
         } catch ( Exception $ex ) {
             echo $ex->catchException();
         }
