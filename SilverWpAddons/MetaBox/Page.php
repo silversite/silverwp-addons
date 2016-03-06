@@ -1,12 +1,15 @@
 <?php
 namespace SilverWpAddons\MetaBox;
 
+use SilverWp\Helper\Control\Attachments;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Textarea;
-use SilverWp\Helper\Control\Attachments;
-use SilverWp\Helper\Control\Gallery;
+use SilverWp\Helper\Control\Upload;
+use SilverWp\Helper\Control\SidebarPosition;
+//use SilverWp\Helper\Control\Gallery;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
+use SilverWp\Helper\Control\Group;
 
 if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 	/**
@@ -25,18 +28,25 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function setUp() {
-			$about = new Textarea( 'about' );
-			$about->setLabel( Translate::translate( 'About' ) );
-			$this->addControl( $about );
 
-			$title = new Text( 'title' );
-			$title->setLabel( Translate::translate( 'Title' ) );
-			$this->addControl( $title );
+			$sidebar = new SidebarPosition( 'sidebar' );
+			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
+			$sidebar->removeOption( 1 );
+			$sidebar->setDefault( \SilverWp\get_theme_option( 'pages_sidebar' ) );
+			$this->addControl( $sidebar );
 
-			$attachments = new Attachments( 'attachments' );
-			$attachments->setLabel( Translate::translate( 'Attachments' ) );
-			$this->addControl( $attachments );
-
+			$header = new Group('pageheader');
+			$header->setLabel(Translate::translate('Page header'));
+			$header_title = new Text( 'pageheadertitle' );
+			$header_title->setLabel( Translate::translate( 'Title' ) );
+			$header->addControl( $header_title );
+			$header_desc = new Textarea( 'pageheaderdescription' );
+			$header_desc->setLabel( Translate::translate( 'Description' ) );
+			$header->addControl( $header_desc );
+			$header_bg = new Attachments( 'pageheaderbg' );
+			$header_bg->setLabel( Translate::translate( 'Background image' ) );
+			$header->addControl( $header_bg );
+			$this->addControl( $header );
 		}
 	}
 }
