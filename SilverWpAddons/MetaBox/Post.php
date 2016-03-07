@@ -34,7 +34,7 @@ if ( ! class_exists( 'SilverWpAddons\Post' ) ) {
 
             $sidebar = new SidebarPosition( 'sidebar' );
             $sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
-            $sidebar->removeOption( 1 );
+            // $sidebar->removeOption( 1 ); // remove left sidebar option
             $sidebar->setDefault( Option::get_theme_option( 'blogposts_sidebar' ) );
             $this->addControl( $sidebar );
 

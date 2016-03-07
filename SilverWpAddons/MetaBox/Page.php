@@ -31,7 +31,7 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 
 			$sidebar = new SidebarPosition( 'sidebar' );
 			$sidebar->setLabel( Translate::translate( 'Sidebar position' ) );
-			$sidebar->removeOption( 1 );
+			// $sidebar->removeOption( 1 ); // remove left sidebar option
 			$sidebar->setDefault( \SilverWp\get_theme_option( 'pages_sidebar' ) );
 			$this->addControl( $sidebar );
 
