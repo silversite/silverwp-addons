@@ -20,7 +20,7 @@
 
 namespace SilverWpAddons\Ajax;
 
-use SilverWp\AjaxAbstract;
+use SilverWp\Ajax\AjaxAbstract;
 
 /**
  * Blog posts list via ajax
