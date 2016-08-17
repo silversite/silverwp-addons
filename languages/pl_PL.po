@@ -1,2863 +1,655 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: dynamitestudio\n"
-"POT-Creation-Date: 2015-05-06 12:29+0100\n"
-"PO-Revision-Date: 2015-05-06 12:30+0100\n"
+"Project-Id-Version: Silversite.pl\n"
+"POT-Creation-Date: 2015-10-28 09:45+0100\n"
+"PO-Revision-Date: 2015-10-28 09:45+0100\n"
 "Last-Translator: Michał Kalkowski <michal@silversite.pl>\n"
-"Language-Team: dynamitestudio\n"
+"Language-Team: SilverSite.pl <info@silversite.pl>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;__params;_n;escHtmlE;"
 "escHtml;e;escAttr;escAttrE;n;params;nNoop;translate\n"
-"X-Poedit-Basepath: ./\n"
+"X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPathExcluded-0: ../vendor\n"
 
-#: ../Igniter/Ajax/PostLike.php:383
+#: ../SilverWpAddons/Ajax/PostLike.php:383
 msgid "Unlike"
 msgstr "Nie lubię"
 
-#: ../Igniter/Ajax/PostLike.php:386
+#: ../SilverWpAddons/Ajax/PostLike.php:386
 msgid "Like"
 msgstr "Lubię"
 
-#: ../Igniter/MetaBox/Blog.php:34
-msgid "Blog sidebar"
-msgstr "Pasek widgetów bloga"
-
-#: ../Igniter/MetaBox/Blog.php:40
-msgid "Post format"
+#: ../SilverWpAddons/Import.php:61 ../SilverWpAddons/Import.php:62
+msgid "CSV"
 msgstr ""
 
-#: ../Igniter/MetaBox/Blog.php:43
-msgid "Link"
-msgstr "Odnośnik"
+#: ../SilverWpAddons/Import.php:234
+msgid "Import news from old site"
+msgstr "Import aktulności ze starej witryny"
 
-#: ../Igniter/MetaBox/Blog.php:47
-msgid "Url"
-msgstr "Odnośnik"
+#: ../SilverWpAddons/Import.php:449
+msgid "Import publications from old site"
+msgstr ""
 
-#: ../Igniter/MetaBox/Blog.php:56
-msgid "Quote"
-msgstr "Cytat"
+#: ../SilverWpAddons/MetaBox/Authors.php:43
+#: ../SilverWpAddons/MetaBox/Team.php:45
+msgid "Name and last name"
+msgstr "Imie i nazwisko"
 
-#: ../Igniter/MetaBox/Blog.php:59
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:130
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:108
-msgid "Author"
-msgstr "Autor"
+#: ../SilverWpAddons/MetaBox/Authors.php:46
+#: ../SilverWpAddons/MetaBox/Team.php:53
+msgid "Affiliation"
+msgstr "Afiliacja"
 
-#: ../Igniter/MetaBox/Blog.php:63 ../Igniter/MetaBox/Page.php:85
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:101
-#: ../Igniter/ShortCode/Vc/Counter.php:122
-#: ../Igniter/ShortCode/Vc/IconBox.php:76
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:65
-msgid "Text"
-msgstr "Tekst"
+#: ../SilverWpAddons/MetaBox/Authors.php:50
+#: ../SilverWpAddons/MetaBox/Team.php:48
+msgid "E-mail"
+msgstr "Mail"
 
-#: ../Igniter/MetaBox/Blog.php:70
-#: ../Igniter/ShortCode/Vp/Menu/Element/Video.php:51
-msgid "Video"
-msgstr "Wideo"
+#: ../SilverWpAddons/MetaBox/Events.php:50
+#: ../SilverWpAddons/MetaBox/News.php:50 ../SilverWpAddons/MetaBox/Page.php:41
+msgid "Gallery"
+msgstr "Galeria"
 
-#: ../Igniter/MetaBox/Blog.php:74
-msgid "YouTube or Vimeo film URL"
-msgstr "Odnośnik filmu YouTube lub Vimeo"
+#: ../SilverWpAddons/MetaBox/Events.php:57
+#: ../SilverWpAddons/MetaBox/News.php:57
+msgid "Promotion on main page"
+msgstr "Promuj na stronie głównej"
 
-#: ../Igniter/MetaBox/Page.php:78
-msgid "Page header"
-msgstr "Nagłówek strony"
+#: ../SilverWpAddons/MetaBox/Events.php:62
+msgid "Place"
+msgstr "Miejsce"
 
-#: ../Igniter/MetaBox/Page.php:81 ../Igniter/ShortCode/Vc/IconBox.php:72
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/Title.php:53
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:62
-#: ../Igniter/Sidebar/Widget/LatestComments.php:60
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:61
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:67
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:63
-#: ../Igniter/Sidebar/Widget/Social.php:57
+#: ../SilverWpAddons/MetaBox/Events.php:66
+msgid "Event address"
+msgstr "Adres wydarzenia"
+
+#: ../SilverWpAddons/MetaBox/Events.php:70
+msgid "Program"
+msgstr "Program"
+
+#: ../SilverWpAddons/MetaBox/Events.php:75
+#: ../SilverWpAddons/MetaBox/Page.php:33
 msgid "Title"
-msgstr "Tytuł"
+msgstr "Tytul"
 
-#: ../Igniter/MetaBox/Page.php:89 ../Igniter/ShortCode/Vc/Counter.php:155
-msgid "Background image"
-msgstr "Obrazek tła"
-
-#: ../Igniter/MetaBox/Page.php:97
-msgid "Texts and Short Codes"
-msgstr ""
-
-#: ../Igniter/MetaBox/Page.php:100
-msgid ""
-"The following fields allow for setting content and shortcodes above and "
-"below the container. Thanks to this elment you can use full width of the "
-"screen."
-msgstr ""
-"Poniższe pola umożliwiają wprowadzenie treści oraz kodów shortcode powyżej "
-"oraz poniżej kontenera. Dzięki czemu możliwe jest wprowadzanie elementów z "
-"wykorzystaniem pełnej szerokości ekranu."
-
-#: ../Igniter/MetaBox/Page.php:104
-msgid "Above the content"
-msgstr "Powyżej treści"
-
-#: ../Igniter/MetaBox/Page.php:108
-msgid "Below the content"
-msgstr "Poniżej treści"
-
-#: ../Igniter/MetaBox/Portfolio.php:44
-msgid "Details"
-msgstr ""
-
-#: ../Igniter/MetaBox/Portfolio.php:49
-#: ../Igniter/ShortCode/Vc/TeamMember.php:72
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/Box.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/ColourfulBar.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Icons.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/KlIcons.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/ProgressBar.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Video.php:49
-msgid "Name"
-msgstr "Nazwa"
-
-#: ../Igniter/MetaBox/Portfolio.php:53
-#: ../Igniter/ShortCode/Vc/TeamMember.php:92
-#: ../Igniter/ShortCode/Vp/Menu/Element/Box.php:51
-#: ../Igniter/Sidebar/Widget/Social.php:67
+#: ../SilverWpAddons/MetaBox/Events.php:79
 msgid "Description"
 msgstr "Opis"
 
-#: ../Igniter/PostType/Portfolio.php:43 ../Igniter/PostType/Portfolio.php:45
-#: ../Igniter/ShortCode/Vc/Portfolio.php:58
-#: ../Igniter/Sidebar/Portfolio.php:22
-msgid "Portfolio"
-msgstr "Portfolio"
-
-#: ../Igniter/PostType/Portfolio.php:44
-msgid "Portfolio Projects"
-msgstr "Projekty portfolio"
-
-#: ../Igniter/PostType/Portfolio.php:46
-msgid "All Portfolio"
-msgstr "Wszystkie projekty"
-
-#: ../Igniter/PostType/Testimonial.php:51
-#: ../Igniter/PostType/Testimonial.php:52
-#: ../Igniter/ShortCode/Vc/Testimonial.php:51
-#: ../Igniter/ShortCode/Vp/Menu/Element/Testimonial.php:62
-msgid "Testimonial"
-msgstr "Referencje"
-
-#: ../Igniter/PostType/Testimonial.php:53
-msgid "Testimonial list"
-msgstr "Lista referencji"
-
-#: ../Igniter/PostType/Testimonial.php:54
-msgid "All Testimonial"
-msgstr "Wszystkie referencje"
-
-#: ../Igniter/ShortCode/Vc/Button.php:83
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:73
-msgid "Button"
-msgstr "Przycisk"
-
-#: ../Igniter/ShortCode/Vc/Button.php:84
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:93
-#: ../Igniter/ShortCode/Vc/Counter.php:83
-#: ../Igniter/ShortCode/Vc/IconBox.php:69
-#: ../Igniter/ShortCode/Vc/MessageBox.php:80
-#: ../Igniter/ShortCode/Vc/PieCharts.php:55
-#: ../Igniter/ShortCode/Vc/Portfolio.php:59
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:81
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:86
-#: ../Igniter/ShortCode/Vc/Separator.php:82
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:49
-#: ../Igniter/ShortCode/Vc/TeamMember.php:69
-#: ../Igniter/ShortCode/Vc/Testimonial.php:52
-msgid "Add by silversite.pl"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:88 ../Igniter/ShortCode/Vc/Button.php:89
-#: ../Igniter/ShortCode/Vc/Button.php:90
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:102
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:103
-msgid "Text on the button"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:95
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:108
-msgid "URL (Link)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:99
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:112
-msgid "Button style"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:104
-#: ../Igniter/ShortCode/Vc/MessageBox.php:97
-msgid "Custom color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:105
-msgid "Use custom color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:106
-msgid ""
-"If you set up color hear you can not configure color for this element in "
-"theme options."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:110
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:119
-#: ../Igniter/ShortCode/Vc/PieCharts.php:87
-#: ../Igniter/ShortCode/Vc/Separator.php:85
-msgid "Color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:116
-msgid "Transparent ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:117
-msgid "Only colorful border"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:121
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:124
-#: ../Igniter/ShortCode/Vc/PieCharts.php:79
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:67
-msgid "Size"
-msgstr "Rozmiar"
-
-#: ../Igniter/ShortCode/Vc/Button.php:127
-#: ../Igniter/ShortCode/Vc/PieCharts.php:93
-msgid "Add icon ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:128
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:139
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:154
-#: ../Igniter/ShortCode/Vc/Counter.php:133
-#: ../Igniter/ShortCode/Vc/Counter.php:145
-#: ../Igniter/ShortCode/Vc/PieCharts.php:94
-msgid "Yes please"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Button.php:132
-#: ../Igniter/ShortCode/Vc/IconBox.php:80
-#: ../Igniter/ShortCode/Vc/MessageBox.php:103
-#: ../Igniter/ShortCode/Vc/PieCharts.php:98
-#: ../Igniter/ShortCode/Vp/Menu/Element/Gwf.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Icons.php:55
-#: ../Igniter/ShortCode/Vp/Menu/Element/Social.php:51
-msgid "Icon"
-msgstr "Ikona"
-
-#: ../Igniter/ShortCode/Vc/Button.php:137
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:71
-msgid "Icon position"
-msgstr "Pozycja ikony"
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:92
-msgid "Call to action button"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:97
-msgid "Promotional text"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:115
-msgid "Text align in call to action block."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:120
-msgid "Button color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:127
-msgid "Button size."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:131
-msgid "Button position"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:134
-msgid "Select button alignment."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:138
-#: ../Igniter/ShortCode/Vc/Counter.php:132
-msgid "Border ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:140
-msgid "Button border. If enabled You have to define border color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:141
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:148
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:156
-msgid "Border"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:145
-#: ../Igniter/ShortCode/Vc/Counter.php:138
-msgid "Border color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:147
-#: ../Igniter/ShortCode/Vc/Counter.php:140
-msgid "Choice border color from colors list."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:153
-#: ../Igniter/ShortCode/Vc/Counter.php:144
-msgid "Rounded ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/CallToActionButton.php:155
-msgid "Button border style rounded"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:82
-msgid "Counter"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:89
-msgid "Label before value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:90
-msgid "Label before counter value."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:95
-msgid "Counter value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:96
-msgid "Counter value."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:101
-msgid "Label after value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:102
-msgid "Label after counter value."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:107
-msgid "Label font size"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:114
-msgid "Label font weight"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:118
-msgid "Not for every fonts all weights is available."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:123
-msgid "Text below label."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:127
-msgid "Label color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:128
-msgid "Text label color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:134
-msgid "Counter border. If enabled You have to define border color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:146
-msgid "Counter box rounded"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:150
-msgid "Background color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:151
-msgid "Choice background color from colors list."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Counter.php:156
-msgid "Background image from media library or from Your hard drive."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/IconBox.php:68
-msgid "Icon box"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/MessageBox.php:79
-msgid "Message box"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/MessageBox.php:90
-msgid "Message box type"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/MessageBox.php:91
-msgid "Select message type."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/MessageBox.php:98
-msgid "Custom message background color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/MessageBox.php:104
-#: ../Igniter/ShortCode/Vc/PieCharts.php:99
-msgid "Select icon."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/MessageBox.php:111
-msgid "<p>I am message box. Click edit button to change this text.</p>"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:54
-msgid "Pie chart"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:59
-msgid "Pie value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:64
-msgid "Input graph value here. Choose range between 0 and 100."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:69
-msgid "Pie label value"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:70
-msgid "Input integer value for label. If empty \"Pie value\" will be used."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:74
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:91
-msgid "Units"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/PieCharts.php:75
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:92
-msgid ""
-"Enter measurement units (if needed) Eg. %, px, points, etc. Graph value and "
-"unit will be appended to the graph title."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Portfolio.php:66
-msgid "Project Count"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Portfolio.php:74
-msgid "Enable filters?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Portfolio.php:75 ../Igniter/ShortCode/Vc/Row.php:61
-msgid "Yes"
-msgstr "Tak"
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:80
-msgid "Progress Bar"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:85
-msgid "Graphic values"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:86
-msgid ""
-"Input graph values, titles and color here. Divide values with linebreaks "
-"(Enter). Example: 90|Development|#e75956"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:96
-msgid "Bar color"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:97
-msgid "Select bar background color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:102
-msgid "Options"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:105
-msgid "Add Stripes?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:106
-msgid "Add animation? Will be visible with striped bars."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:113
-msgid "Label position"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:116
-msgid "Inside the progress bar"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:117
-msgid "Above the progress bar"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/ProgressBar.php:123
-msgid "Rounded style"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:85
-msgid "Recent blog posts grid"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:91
-msgid "Post count"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:99
-msgid "Column count"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:104
-msgid "Thumbnail size"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:108
-msgid ""
-"Enter thumbnail size. Example: thumbnail, medium, large, full or other sizes "
-"defined by current\n"
-"                    theme. Alternatively enter image size in pixels: 200x100 "
-"(Width x Height) ."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:115
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:73
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:66
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:89
-msgid "Layout"
-msgstr "Szablon"
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:118
-msgid "Mini"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:119
-msgid "Standard"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:126
-msgid "Line 2 (below title)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:129
-msgid "Category names"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:131
-msgid "Publish date"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:132
-msgid "Comments number"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:140
-msgid "Line 3"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:147
-msgid "Show date ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:148
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:154
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:160
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:166
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:172
-msgid "Yes, please"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:153
-msgid "Show category ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:159
-msgid "Show comments number ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:165
-msgid "Show author ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/RecentBlogPostsGrid.php:171
-msgid "Show read more link ?"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Row.php:60
-msgid "Full-width content"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Row.php:63
-msgid "General"
-msgstr "Ogólne"
-
-#: ../Igniter/ShortCode/Vc/Separator.php:76
-msgid "Separator"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Separator.php:77
-msgid "Horizontal separator line with heading."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Separator.php:86
-msgid "Separator color."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Separator.php:90
-msgid "Separator style"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Separator.php:93
-msgid "Separator style."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Separator.php:97
-msgid "Element width"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Separator.php:100
-msgid "Separator element width in percents."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:48
-#: ../Igniter/ShortCode/Vc/TeamMember.php:87
-#: ../Igniter/Sidebar/Widget/Social.php:46
-#: ../Igniter/Sidebar/Widget/Social.php:63
-msgid "Social accounts"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:50
-msgid "Social account URLs are configured in Theme Options."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/SocialAccount.php:57
-msgid ""
-"Social accounts URLs are configured in <a href=\"themes.php?page=silverwp-"
-"theme_options#_social\" target=\"_blank\">Theme Options</a>"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/TeamMember.php:68
-msgid "Team member"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/TeamMember.php:76
-msgid "Image"
-msgstr "Zdjęcie"
-
-#: ../Igniter/ShortCode/Vc/TeamMember.php:80
-msgid "Workplace"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/TeamMember.php:86
-#, php-format
-msgid "%s URL"
-msgstr "%s URL"
-
-#: ../Igniter/ShortCode/Vc/Testimonial.php:55
-msgid "Quotation"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Testimonial.php:60
-msgid "Author name"
+#: ../SilverWpAddons/MetaBox/Events.php:85
+msgid "Start"
+msgstr "Start"
+
+#: ../SilverWpAddons/MetaBox/Events.php:88
+msgid "Date start"
+msgstr "Data rozpoczęcia"
+
+#: ../SilverWpAddons/MetaBox/Events.php:92
+msgid "Time start"
+msgstr "Godzina rozpoczęcia"
+
+#: ../SilverWpAddons/MetaBox/Events.php:97
+msgid "End"
+msgstr "Zakończenie"
+
+#: ../SilverWpAddons/MetaBox/Events.php:100
+msgid "Date end"
+msgstr "Data zakończenia"
+
+#: ../SilverWpAddons/MetaBox/Events.php:104
+msgid "Time end"
+msgstr "Godzina zakończenia"
+
+#: ../SilverWpAddons/MetaBox/Page.php:29
+msgid "About"
+msgstr "O"
+
+#: ../SilverWpAddons/MetaBox/Page.php:37
+msgid "Attachments"
+msgstr "Załączniki"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:48
+msgid "Name"
+msgstr "Nazwa"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:51
+msgid "Lead"
+msgstr "Lead"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:55
+msgid "Keywords"
+msgstr "Słowa kluczowe"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:59
+msgid "Abstract"
+msgstr "Abstrakt"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:63
+msgid "Additional information"
+msgstr "Dodatkowe informacje"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:67
+msgid "Publication year"
+msgstr "Rok publikacji"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:73
+msgid "Publication language"
+msgstr "Język publikacji"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:77
+msgid "polish"
+msgstr "polski"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:81
+msgid "english"
+msgstr "angielski"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:89
+msgid "Main file"
+msgstr "Główny plik"
+
+#: ../SilverWpAddons/MetaBox/Publications.php:96
+msgid "Cover"
+msgstr "Okładka"
+
+#: ../SilverWpAddons/MetaBox/Research.php:48
+msgid "Realization time"
+msgstr "Czas realizacji"
+
+#: ../SilverWpAddons/MetaBox/Research.php:52
+msgid "Partners"
+msgstr "Partnerzy"
+
+#: ../SilverWpAddons/MetaBox/Research.php:56
+#: ../SilverWpAddons/MetaBox/Team.php:57
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../SilverWpAddons/MetaBox/Research.php:60
+msgid "External URL"
+msgstr "Zewnętrzny URL"
+
+#: ../SilverWpAddons/MetaBox/Research.php:65
+msgid "Persons engage in project"
+msgstr "Osoby zaangażowane w projekt"
+
+#: ../SilverWpAddons/MetaBox/Research.php:70
+msgid "Label"
+msgstr "Etykieta"
+
+#: ../SilverWpAddons/MetaBox/Research.php:74 ../silverwp-addons.php:101
+#: ../silverwp-addons.php:153 ../silverwp-addons.php:266
+msgid "Person"
+msgstr "Osoba"
+
+#: ../SilverWpAddons/MetaBox/Team.php:61
+msgid "Show in Team page"
+msgstr "Pokaż w zakładce Zespół"
+
+#: ../SilverWpAddons/MetaBox/Team.php:65
+msgid "Interests"
+msgstr "Zainteresowania"
+
+#: ../SilverWpAddons/MetaBox/Team.php:69
+msgid "Curriculum Vitae"
+msgstr "CV"
+
+#: ../SilverWpAddons/MetaBox/Team.php:73
+msgid "Picture with smile"
+msgstr "Zdjęcie z uśmiechem"
+
+#: ../SilverWpAddons/PostType/Authors.php:51
+#: ../SilverWpAddons/PostType/Authors.php:52 ../silverwp-addons.php:96
+#: ../silverwp-addons.php:211
+msgid "Authors"
+msgstr "Autorzy"
+
+#: ../SilverWpAddons/PostType/Authors.php:53 ../silverwp-addons.php:108
+#: ../silverwp-addons.php:218
+msgid "Author"
 msgstr "Autor"
 
-#: ../Igniter/ShortCode/Vc/Testimonial.php:65
-msgid "Author description"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vc/Testimonial.php:66
-msgid "Company name or workplace."
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Main.php:50 ../Igniter/ShortCode/Vp/Main.php:55
-msgid "Short Codes"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Accordion.php:48
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accordion.php:49
-msgid "Accordion"
-msgstr "Akordeon"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:51
-msgid "Open"
-msgstr "Otwarty"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:51
-msgid "Href"
-msgstr "Href (odnośnik wiążący)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Accitem.php:54
-msgid "Accordion content item"
-msgstr "Accordion content item (zawartość)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:49
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:65
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/PieCharts.php:51
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:61
-#: ../Igniter/ShortCode/Vp/Menu/Element/PricePlan.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:60
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Timeline.php:50
-msgid "Box title"
-msgstr "Tytuł boksu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:55
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:67
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:54
-msgid "Icon (under title)"
-msgstr "Ikona poniżej tytułu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:55
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:56
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:68
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:55
-msgid "Background colour"
-msgstr "Kolor tła"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:58
-msgid "Number of posts"
-msgstr "Liczba wpisów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Blog.php:66
-msgid "Blog - latest posts"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Box.php:54
-msgid "Box"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:53
-msgid "Normal"
-msgstr "Normalny"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:57
-msgid "Strong"
-msgstr "Pogrubiony"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:66
-#: ../Igniter/ShortCode/Vp/Menu/Element/Social.php:52
-msgid "URL"
-msgstr "Adres URL"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:68
-msgid "Rounding"
-msgstr "Zaokrąglenie"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:69
-msgid "Colour (background)"
-msgstr "Kolor tła"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:70
-msgid "Icon after text"
-msgstr "Ikona za tekstem"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Button.php:71
-msgid "Icon before text"
-msgstr "Ikona przed tekstem"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:66
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/PieCharts.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:62
-#: ../Igniter/ShortCode/Vp/Menu/Element/PricePlan.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:61
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Timeline.php:51
-msgid "Box description"
-msgstr "Opis boksu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:53
-msgid "Number of clients"
-msgstr "Liczba klientów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Clients.php:61
-msgid "Clients"
-msgstr "Klienci"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/ColourfulBar.php:54
-msgid "Colourful Bar"
-msgstr "Kolorowy pas"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Column.php:51
-msgid "Main"
-msgstr "Kolumna"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Column.php:61
-msgid "Offset"
-msgstr "Offset (odstęp)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Column.php:70
-msgid "Column"
-msgstr "Column (kolumny)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyAdvantage.php:58
-msgid "Company Advantage"
-msgstr "Zalety firmy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:56
-msgid "simple"
-msgstr "prosty"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:60
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:53
-msgid "grid"
-msgstr "siatka (grid)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:69
-msgid "Type"
-msgstr "Typ"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/CompanyStats.php:71
-msgid "Company Stats"
-msgstr "Statystyki firmy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Dropcaps.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Gwf.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/Highlight.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/Icons.php:53
-#: ../Igniter/ShortCode/Vp/Menu/Element/KlIcons.php:53
-msgid "Colour"
-msgstr "Kolor"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Dropcaps.php:55
-msgid "Dropcap"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Features.php:57
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:67
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:91
-msgid "Features"
-msgstr "Cechy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:55
-msgid "Map type"
-msgstr "Rodzaj mapy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:60
-msgid "Point coordinates latitude"
-msgstr "Szerokość geograficzna (latitude)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:62
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:68
-msgid ""
-"You can define coordinates using this <a href=\"http://universimmedia."
-"pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">tool</a>."
-msgstr ""
-"Możesz odczytać położenie geograficzne dzięki temu <a href=\"http://"
-"universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank"
-"\">narzędziu</a>."
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:66
-msgid "Point coordinates longitude"
-msgstr "Długość geograficzna (longitude)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:72
-msgid "Zoom"
-msgstr "Powiększenie"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/GoogleMap.php:81
-msgid "Google Map"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Highlight.php:55
-msgid "Highlight"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/KlIcons.php:55
-#, fuzzy
-msgid "KlIcons"
-msgstr "Icons (ikony)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/PieCharts.php:54
-msgid "Pie Charts"
-msgstr "Wykresy kołowe"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:57
-msgid "carousel"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:65
-msgid "Number of projects"
-msgstr "Liczba projektów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Portfolio.php:75
-msgid "Portfolio - latest projects"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Presentation.php:51
-msgid "Presentation"
-msgstr "Prezentacja"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/PricePlan.php:55
-msgid "Price Plan"
-msgstr "Cennik"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/ProgressBar.php:53
-msgid "Percent value"
-msgstr "Procent"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/ProgressBar.php:61
-msgid "Progressbar"
-msgstr "Pasek postępu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Row.php:46
-msgid "Row"
-msgstr "Row (wiersz)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:50
-msgid "Top"
-msgstr "Góra"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:54
-msgid "Left"
-msgstr "Lewa strona"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:64
-msgid "Maximum item in row"
-msgstr "Maksymalna ilość elementów w wierszu"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:72
-msgid "Icon border"
-msgstr "Obramowanie ikony"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Service.php:74
-msgid "Services"
-msgstr "Usługi"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Social.php:54
-msgid "Social button (icon)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContent.php:48
-msgid "Tab content"
-msgstr "Tab content (zawartość zakładek)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContentItem.php:49
-msgid "Id"
-msgstr "Identyfikator"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContentItem.php:50
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:50
-msgid "Active"
-msgstr "Aktywny"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabContentItem.php:52
-msgid "Tab content item"
-msgstr "Tab content item (zawartość danej zakładki)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNav.php:46
-msgid "Tab nav"
-msgstr "Tab nav (nawigacja zakładek)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TabNavItem.php:54
-msgid "Tab nav item"
-msgstr "Tab nav item (odnośnik nawigacji)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:56
-msgid "Number of person"
-msgstr "Liczba osób"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:69
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:101
-msgid "Grid with images only"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:73
-msgid "List with description of members"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Team.php:79
+#: ../SilverWpAddons/PostType/Authors.php:54
+msgid "All Authors"
+msgstr "Wszyscy Autorzy"
+
+#: ../SilverWpAddons/PostType/Comments.php:52
+#: ../SilverWpAddons/PostType/Comments.php:53
+#: ../SilverWpAddons/PostType/Comments.php:54
+msgid "Comments"
+msgstr "Komentarze"
+
+#: ../SilverWpAddons/PostType/Comments.php:55
+msgid "All Comments"
+msgstr "Wszystkie komentarze"
+
+#: ../SilverWpAddons/PostType/Events.php:53
+#: ../SilverWpAddons/PostType/Events.php:54
+#: ../SilverWpAddons/PostType/Events.php:55
+msgid "Events"
+msgstr "Wydarzenia"
+
+#: ../SilverWpAddons/PostType/Events.php:56
+msgid "All Events"
+msgstr "Wszystkie wydarzenia"
+
+#: ../SilverWpAddons/PostType/News.php:52
+#: ../SilverWpAddons/PostType/News.php:53
+#: ../SilverWpAddons/PostType/News.php:54 ../silverwp-addons.php:244
+#: ../silverwp-addons.php:247
+msgid "News"
+msgstr "Wiadomości"
+
+#: ../SilverWpAddons/PostType/News.php:55
+msgid "All News"
+msgstr "Wszystkie Wiadomości"
+
+#: ../SilverWpAddons/PostType/Publications.php:51
+#: ../SilverWpAddons/PostType/Publications.php:52
+#: ../SilverWpAddons/PostType/Publications.php:53 ../silverwp-addons.php:191
+msgid "Publications"
+msgstr "Publikacje"
+
+#: ../SilverWpAddons/PostType/Publications.php:54
+msgid "All Publications"
+msgstr "Wszystkie publikacje"
+
+#: ../SilverWpAddons/PostType/Research.php:51
+#: ../SilverWpAddons/PostType/Research.php:52
+#: ../SilverWpAddons/PostType/Research.php:53 ../silverwp-addons.php:124
+#: ../silverwp-addons.php:202 ../silverwp-addons.php:255
+#: ../silverwp-addons.php:260 ../silverwp-addons.php:277
+#: ../silverwp-addons.php:280
+msgid "Research"
+msgstr "Badania"
+
+#: ../SilverWpAddons/PostType/Research.php:54
+msgid "All Research"
+msgstr "Wszystkie Badania"
+
+#: ../SilverWpAddons/PostType/Resources.php:51
+#: ../SilverWpAddons/PostType/Resources.php:52 ../silverwp-addons.php:136
+#: ../silverwp-addons.php:226 ../silverwp-addons.php:290
+msgid "Resources"
+msgstr "Zasoby"
+
+#: ../SilverWpAddons/PostType/Resources.php:53 ../silverwp-addons.php:139
+#: ../silverwp-addons.php:233 ../silverwp-addons.php:293
+msgid "Resource"
+msgstr "Zasoby"
+
+#: ../SilverWpAddons/PostType/Resources.php:54
+msgid "All Resources"
+msgstr "Wszystkie Zasoby"
+
+#: ../SilverWpAddons/PostType/Team.php:52
+#: ../SilverWpAddons/PostType/Team.php:53
+#: ../SilverWpAddons/PostType/Team.php:54
 msgid "Team"
-msgstr "Zespół (Team)"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Testimonial.php:54
-msgid "Number of quots"
-msgstr "Liczba cytatów"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Timeline.php:53
-msgid "Timeline"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Title.php:50
-msgid "Text of title"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/Title.php:51
-msgid "Style"
-msgstr "Styl"
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleLarge.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:51
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:51
-msgid "Title text"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleLarge.php:53
-msgid "Below description"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleLarge.php:55
-msgid "Large title (H2)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:52
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:52
-msgid "Align"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:54
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:58
-msgid "center"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:58
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:54
-msgid "left"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleMedium.php:63
-msgid "Medium title (H3)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Element/TitleSmall.php:63
-msgid "Small title (H4)"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Elements.php:48
-msgid "Elements"
-msgstr "Elementy"
-
-#: ../Igniter/ShortCode/Vp/Menu/Grid.php:48
-msgid "Grid"
-msgstr "Grid"
-
-#: ../Igniter/ShortCode/Vp/Menu/PostTypes.php:50
-msgid "Post Types"
-msgstr ""
-
-#: ../Igniter/ShortCode/Vp/Menu/Tabs.php:48
-msgid "Tabs"
-msgstr "Zakładki"
-
-#: ../Igniter/ShortCode/Vp/Menu/Titles.php:48
-msgid "Titles"
-msgstr ""
-
-#: ../Igniter/Sidebar/Blog.php:22
-msgid "Blog"
-msgstr "Blog"
-
-#: ../Igniter/Sidebar/Blog.php:28
-msgid "Place for right site in Blog view"
-msgstr "Umiejscowiony w bocznej części Bloga"
-
-#: ../Igniter/Sidebar/Contact.php:22
-msgid "Contact Page"
-msgstr "Zakładka kontakt"
-
-#: ../Igniter/Sidebar/Contact.php:28
-msgid "Place for right site in Contact Page view"
-msgstr "Umiejscowiony w bocznej części zakładki Kontakt"
-
-#: ../Igniter/Sidebar/Footer.php:23
-msgid "Footer"
-msgstr "Stopka strony"
-
-#: ../Igniter/Sidebar/Page.php:48
-msgid "Pages"
-msgstr "Zakładki"
-
-#: ../Igniter/Sidebar/Page.php:53
-msgid "Sidebar area for Widgets for Pages templates"
-msgstr "Sidebar dla widgetów dla szablonu zakładek"
-
-#: ../Igniter/Sidebar/Portfolio.php:28
-msgid "Place for right site in Portfolio view"
-msgstr "Umiejscowiony w bocznej części widoku Portfolio"
-
-#: ../Igniter/Sidebar/Primary.php:22
-msgid "Primary"
-msgstr "Podstawowy"
-
-#: ../Igniter/Sidebar/Primary.php:28
-msgid "Place for right site in Page view"
-msgstr "Umiejscowiony w bocznej części stron"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:50
-msgid "Company Info"
-msgstr "Dane firmy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:53
-msgid "Company information contact details."
-msgstr "Dane kontaktowe (teleadresowe) firmy."
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:115
-msgid "Show Company Name"
-msgstr "Pokaż nazwę firmy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:124
-msgid "Show Company Street"
-msgstr "Pokaż adres (ulica)"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:132
-msgid "Show Postcode"
-msgstr "Pokaż kod pocztowy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:140
-msgid "Show City"
-msgstr "Pokaż miasto"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:148
-msgid "Show State / Region"
-msgstr "Pokaż stan / region / województwo"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:156
-msgid "Show Country"
-msgstr "Pokaż kraj"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:172
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:180
-#, php-format
-msgid "Show Phone number %s"
-msgstr "Pokaż numer telefonu %s"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:188
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:196
-#, php-format
-msgid "Show Mobile phone number %s"
-msgstr "Pokaż numer telefonu komórkowego %s"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:204
-msgid "Show Fax number"
-msgstr "Pokaż numer faksu"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:212
-msgid "Show Email address"
-msgstr "Pokaż adres email"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:220
-msgid "Show Business hours"
-msgstr "Pokaż godziny otwarcia"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:242
-msgid "Company Information"
-msgstr "Dane firmy"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:263
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:264
-msgid "Phone"
-msgstr "Telefon"
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:265
-msgid "Email"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:266
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:267
-msgid "Mobile"
-msgstr "Telefon kom."
-
-#: ../Igniter/Sidebar/Widget/CompanyInfo.php:268
-msgid "Fax"
-msgstr "Faks"
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:47
-msgid "Latest comments"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:49
-msgid "widget description."
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:66
-#: ../Igniter/Sidebar/Widget/LatestComments.php:83
-msgid "Latest comments with excerpts"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/LatestComments.php:69
-msgid "Number of comments to show"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:51
-msgid "Portfolio Project Details"
-msgstr "Szczegóły Projektów Portfolio"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:54
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:53
-msgid "Enabled only on single Project view with sidebar."
-msgstr ""
-"Widoczne jedynie w widoku szczegółowym danego projektu z panelem bocznym."
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:72
-msgid "Project Details"
-msgstr "Szczegóły projektu"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:105
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:107
-msgid "Date"
-msgstr "Data"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:109
-msgid "Category"
-msgstr "Kategoria"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:110
-msgid "Tags"
-msgstr "Tagi"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:111
-msgid "Client"
-msgstr "Klient"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectDetails.php:112
-msgid "Website"
-msgstr "Strona internetowa"
-
-#: ../Igniter/Sidebar/Widget/PortfolioProjectFeatured.php:50
-msgid "Portfolio Project Features"
-msgstr "Cechy Projektów Portfolio"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:54
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:133
-msgid "Recent Posts with Image"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:56
-msgid "Blog posts with images from selected categories."
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:73
-msgid "Recent Posts With Image"
-msgstr "Ostatnie wpisy z obrazkami"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:76
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:72
-msgid "Number of posts to show"
-msgstr "Liczba wpisów"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:85
-msgid "Display post date"
-msgstr "Pokaż datę publikacji"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:93
-msgid "Display post author"
-msgstr "Pokaż autora"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:101
-msgid "Display post category"
-msgstr "Pokaż kategorię"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:109
-msgid "Display post image"
-msgstr "Pokaż obrazek"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:117
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:81
-msgid "Categories"
-msgstr "Kategorie"
-
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:164
-msgid "Permanent link to "
-msgstr "Bezpośredni odnośnik do"
-
-# Date in Category
-#: ../Igniter/Sidebar/Widget/RecentPosts.php:237
-#, php-format
-msgid "in %s "
-msgstr "w %s "
-
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:52
-msgid "Recent Projects"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:69
-msgid "Recent Portfolio Project"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:97
-msgid "List with names of Projects"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/RecentProjects.php:123
-msgid "Recent portfolio projects"
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/Social.php:49
-msgid ""
-"Social icons with link to social accounts. Configuration social accounts is "
-"available in Theme Options - social bookmark."
-msgstr ""
-
-#: ../Igniter/Sidebar/Widget/Social.php:94
-msgid "Social"
-msgstr "Społeczność"
-
-#: ../Igniter/Taxonomy/Portfolio.php:46 ../Igniter/Taxonomy/Portfolio.php:48
-msgid "Portfolio categories"
-msgstr "Kategorie portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:47
-msgid "Portfolio category"
-msgstr "Kategoria portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:49
-msgid "All Portfolio categories"
-msgstr "Wszystkie kategorie portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:50 ../Igniter/Taxonomy/Portfolio.php:51
-msgid "Parent Portfolio category"
-msgstr "Rodzic kategorii portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:52
-msgid "Update Portfolio category"
-msgstr "Aktualizuj kategorię portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:53
-msgid "Separate Portfolio categories with commas"
-msgstr "Kolejne kategorie portfolio rozdziel przecinkami"
-
-#: ../Igniter/Taxonomy/Portfolio.php:54
-msgid "Choose from the most often used Portfolio categories"
-msgstr "Wybierz spośród najczęściej stosowanych kategorii portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:58 ../Igniter/Taxonomy/Portfolio.php:60
-msgid "Portfolio tags"
-msgstr "Tagi portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:59
-msgid "Portfolio tag"
-msgstr "Tag portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:61
-msgid "All Portfolio tags"
-msgstr "Wszystkie tagi portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:62 ../Igniter/Taxonomy/Portfolio.php:63
-msgid "Parent Portfolio tag"
-msgstr "Rodzic tagów portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:64
-msgid "Update Portfolio tag"
-msgstr "Aktualizuj tag portfolio"
-
-#: ../Igniter/Taxonomy/Portfolio.php:65
-msgid "Separate Portfolio tags with commas"
-msgstr "Kolejne tagi portfolio rozdziel przecinkami"
-
-#: ../Igniter/Taxonomy/Portfolio.php:66
-msgid "Choose from the most often used Portfolio tags"
-msgstr "Wybierz spośród najczęściej stosowanych tagów portfolio"
-
-#: ../Igniter/Taxonomy/Slider.php:60 ../Igniter/Taxonomy/Slider.php:62
-msgid "Slider categories"
-msgstr ""
-
-#: ../Igniter/Taxonomy/Slider.php:61
-msgid "Slider category"
-msgstr ""
-
-#: ../Igniter/Taxonomy/Team.php:60 ../Igniter/Taxonomy/Team.php:62
-msgid "Team proffesions"
-msgstr "Zawody (profesje)"
+msgstr "Zespół"
+
+#: ../SilverWpAddons/PostType/Team.php:55
+msgid "All Team"
+msgstr "Cały zespół"
+
+#: ../SilverWpAddons/Taxonomy/Events.php:40
+#: ../SilverWpAddons/Taxonomy/Events.php:42
+msgid "Event category"
+msgstr "Kategorie wydarzeń"
+
+#: ../SilverWpAddons/Taxonomy/Events.php:41
+msgid "Event type"
+msgstr "Typ wydarzenia"
+
+#: ../SilverWpAddons/Taxonomy/Events.php:43
+msgid "All events category"
+msgstr "Wszystkie wydarzenia kategorii"
+
+#: ../SilverWpAddons/Taxonomy/Events.php:44
+msgid "Separate Event category with commas"
+msgstr "Kategorie wydarzeń rozdzielone przecinkami"
+
+#: ../SilverWpAddons/Taxonomy/Events.php:45
+msgid "Choose from the most often used Event category"
+msgstr "Wybierz z najczęściej wybieranych kategorii wydarzeń"
+
+#: ../SilverWpAddons/Taxonomy/Events.php:46
+#: ../SilverWpAddons/Taxonomy/Publications.php:85
+#: ../SilverWpAddons/Taxonomy/Research.php:59
+#: ../SilverWpAddons/Taxonomy/Resources.php:55
+msgid "Add new Category"
+msgstr "Dodaj nową Kategorię"
+
+#: ../SilverWpAddons/Taxonomy/News.php:59
+#: ../SilverWpAddons/Taxonomy/News.php:61
+msgid "News types"
+msgstr "Typy wiadomości"
+
+#: ../SilverWpAddons/Taxonomy/News.php:60
+msgid "News type"
+msgstr "Typ wiadomości"
+
+#: ../SilverWpAddons/Taxonomy/News.php:62
+msgid "All events types"
+msgstr "Wszystkie typy wydarzeń"
+
+#: ../SilverWpAddons/Taxonomy/News.php:63
+msgid "Separate News types with commas"
+msgstr "Typy Wiadomości rozdzielone przecinkami"
+
+#: ../SilverWpAddons/Taxonomy/News.php:64
+msgid "Choose from the most often used News types"
+msgstr "Wybierz z najczęściej używanych Typów Wiadomości"
+
+#: ../SilverWpAddons/Taxonomy/News.php:65
+#: ../SilverWpAddons/Taxonomy/Publications.php:64
+msgid "Add new Type"
+msgstr "Dodaj nowy Typ"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:48
+msgid "Select type"
+msgstr "Wybierz typ"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:58
+#: ../SilverWpAddons/Taxonomy/Publications.php:60
+msgid "Publications types"
+msgstr "Typy Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:59
+msgid "Publication type"
+msgstr "Typ Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:61
+msgid "All Publications types"
+msgstr "Wszystkie Typy Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:62
+msgid "Separate Publications types with commas"
+msgstr "Typy publikacji rozdzielone przecinkami"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:63
+msgid "Choose from the most often used Publications types"
+msgstr "Wybierz z najczęściej używanych Typów Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:79
+#: ../SilverWpAddons/Taxonomy/Publications.php:81
+msgid "Publications categories"
+msgstr "Kategorie Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:80
+#: ../SilverWpAddons/Taxonomy/Research.php:54
+msgid "Publication category"
+msgstr "Kategoria Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:82
+msgid "All Publications categories"
+msgstr "Wszystkie Kategorie Publikacji"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:107
+#: ../SilverWpAddons/Taxonomy/Publications.php:109
+msgid "JEL codes"
+msgstr "Kody JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:108
+msgid "JEL code"
+msgstr "Kod JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:110
+msgid "All JEL codes"
+msgstr "Wszystkie Kody JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:111
+msgid "Separate JEL codes with commas"
+msgstr "Kody JEL odzielone przecinkami"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:112
+msgid "Choose from the most often used JEL codes"
+msgstr "Wybierz z najczęściej używanych Kdów JEL"
+
+#: ../SilverWpAddons/Taxonomy/Publications.php:113
+msgid "Add new JEL code"
+msgstr "Dodaj nowy Kod JEL"
+
+#: ../SilverWpAddons/Taxonomy/Research.php:53
+#: ../SilverWpAddons/Taxonomy/Research.php:55
+msgid "Research categories"
+msgstr "Kategorie Badań"
+
+#: ../SilverWpAddons/Taxonomy/Research.php:56
+msgid "All Research categories"
+msgstr "Wszystkie kategorie badań"
+
+#: ../SilverWpAddons/Taxonomy/Resources.php:49
+#: ../SilverWpAddons/Taxonomy/Resources.php:51
+msgid "Resources categories"
+msgstr "Kategorie zasobów"
+
+#: ../SilverWpAddons/Taxonomy/Resources.php:50
+msgid "Resource category"
+msgstr "Zasob kategoria"
+
+#: ../SilverWpAddons/Taxonomy/Resources.php:52
+msgid "All Resources categories"
+msgstr "Wszystkie kategorie zasobów"
+
+#: ../silverwp-addons.php:97 ../silverwp-addons.php:150
+#: ../silverwp-addons.php:256
+msgid "Persons from IBS"
+msgstr "Osoby z IBS"
+
+#: ../silverwp-addons.php:100 ../silverwp-addons.php:152
+#: ../silverwp-addons.php:265
+msgid "Select Person"
+msgstr "Wybierz osobę"
+
+#: ../silverwp-addons.php:102 ../silverwp-addons.php:154
+#: ../silverwp-addons.php:267
+msgid "Search persons"
+msgstr "Wyszukaj osobę"
+
+#: ../silverwp-addons.php:103 ../silverwp-addons.php:155
+#: ../silverwp-addons.php:268
+msgid "No person found."
+msgstr "Nie znaleziono osób."
+
+#: ../silverwp-addons.php:107 ../silverwp-addons.php:217
+msgid "Select Author"
+msgstr "Wybierz Autora"
+
+#: ../silverwp-addons.php:109
+msgid "Search authors"
+msgstr "Przeszukaj autorów"
+
+#: ../silverwp-addons.php:110
+msgid "No author found."
+msgstr "Nie znaleziono autorów"
+
+#: ../silverwp-addons.php:121 ../silverwp-addons.php:192
+msgid "Researches"
+msgstr "Badania"
+
+#: ../silverwp-addons.php:123 ../silverwp-addons.php:201
+#: ../silverwp-addons.php:279
+msgid "Select Research"
+msgstr "Wybierz Badanie"
+
+#: ../silverwp-addons.php:125 ../silverwp-addons.php:261
+msgid "Search researches"
+msgstr "Wyszukaj badań"
+
+#: ../silverwp-addons.php:126
+msgid "No researches found."
+msgstr "Nie znaleziono badań"
+
+#: ../silverwp-addons.php:138 ../silverwp-addons.php:232
+#: ../silverwp-addons.php:292
+msgid "Select Resource"
+msgstr "Wybierz Zasób"
+
+#: ../silverwp-addons.php:140
+msgid "Search resource"
+msgstr "Wyszukaj badańa"
+
+#: ../silverwp-addons.php:141
+msgid "No resources found."
+msgstr "Nieznaleziono badań"
+
+#: ../silverwp-addons.php:164 ../silverwp-addons.php:167
+msgid "Project"
+msgstr "Projekt"
+
+#: ../silverwp-addons.php:166
+msgid "Select Project"
+msgstr "Wybierz projekt"
+
+#: ../silverwp-addons.php:168
+msgid "Search projects"
+msgstr "Przeszukaj proejkty "
+
+#: ../silverwp-addons.php:169
+msgid "No projects found."
+msgstr "Nie znaleziono projektów"
+
+#: ../silverwp-addons.php:179 ../silverwp-addons.php:182
+#: ../silverwp-addons.php:196
+msgid "Publication"
+msgstr "Publikacja"
 
-#: ../Igniter/Taxonomy/Team.php:61
-msgid "Team proffesion"
-msgstr "Zawód (profesja)"
+#: ../silverwp-addons.php:181 ../silverwp-addons.php:195
+msgid "Select Publication"
+msgstr "Wybierz Publikację"
 
-#~ msgid "Page not found"
-#~ msgstr "Strona nie została znaleziona"
+#: ../silverwp-addons.php:183
+msgid "Search publications"
+msgstr "Wyszukaj Publikacji"
 
-#~ msgid "It looks like this was the result of either:"
-#~ msgstr "Jedna z poniższych opcji może być powodem problemu:"
+#: ../silverwp-addons.php:184
+msgid "No publication found."
+msgstr "Nie znaleziono Publikacji"
 
-#~ msgid "a mistyped address"
-#~ msgstr "wprowadzono nieprawidłowy odnośnik (adres zakładki)"
+#: ../silverwp-addons.php:197
+msgid "Search Publication"
+msgstr "Wyszukaj Publikacji"
 
-#~ msgid "an out-of-date link"
-#~ msgstr ""
-#~ "odnośnik jest już nieaktualny (zakładka została usunięta lub ukryta)"
+#: ../silverwp-addons.php:198
+msgid "No Publication found."
+msgstr "Nie znaleziono Publikacji"
 
-#~ msgid ""
-#~ "You are using an <strong>outdated</strong> browser. Please <a href="
-#~ "\"http://browsehappy.com/\">upgrade your browser</a> to improve your "
-#~ "experience."
-#~ msgstr ""
-#~ "Używasz <strong>przestarzałej</strong> przeglądarki. Proszę <a href="
-#~ "\"http://browsehappy.com/\">aktualizować przeglądarkę</a> aby móc cieszyć "
-#~ "się w pełni funkcjonalnością stron internetowych."
+#: ../silverwp-addons.php:203
+msgid "Search Research"
+msgstr "Wyszukaj Badanie"
 
-#~ msgid "No results found."
-#~ msgstr "Brak wyników wyszukiwania."
+#: ../silverwp-addons.php:204
+msgid "No Research found."
+msgstr "Nie znaleziono Badania"
 
-#~ msgid "Older posts"
-#~ msgstr "Starsze wpisy"
+#: ../silverwp-addons.php:219
+msgid "Search Author"
+msgstr "Wyszukaj Autora"
 
-#~ msgid "Newer posts"
-#~ msgstr "Nowsze wpisy"
+#: ../silverwp-addons.php:220
+msgid "No Author found."
+msgstr "Nie znaleziono autora"
 
-#~ msgid "Theme Activation"
-#~ msgstr "Aktywacja szablonu"
+#: ../silverwp-addons.php:234 ../silverwp-addons.php:294
+msgid "Search Resources"
+msgstr "Przeszukaj Zasoby"
 
-#~ msgid "%s Theme Activation"
-#~ msgstr "%s Aktywacja szablonu"
+#: ../silverwp-addons.php:235 ../silverwp-addons.php:295
+msgid "No Resource found."
+msgstr "Nie znaleziono Zasobów."
 
-#~ msgid ""
-#~ "These settings are optional and should usually be used only on a fresh "
-#~ "installation"
-#~ msgstr ""
-#~ "Ustawienia te są opcjonalne i powinny być stosowane tylko dla nowej "
-#~ "instalacji"
+#: ../silverwp-addons.php:246
+msgid "Select news"
+msgstr "Wybierz wiadomość"
 
-#~ msgid "Create static front page?"
-#~ msgstr "Czy stworzyć statyczną stronę główną?"
+#: ../silverwp-addons.php:248
+msgid "Search news"
+msgstr "Przeszukaj wiadomości"
 
-#~ msgid "No"
-#~ msgstr "Nie"
+#: ../silverwp-addons.php:249
+msgid "No news found."
+msgstr "Nie znaleziono wiadomości."
 
-#~ msgid "Create a page called Home and set it to be the static front page"
-#~ msgstr "Stwórz stronę o nazwie Home i ustaw ją jako statyczną stronę główną"
+#: ../silverwp-addons.php:259
+msgid "Select research"
+msgstr "Wybierz badanie"
 
-#~ msgid "Change permalink structure?"
-#~ msgstr "Czy zmienić strukturę permalinków?"
+#: ../silverwp-addons.php:262 ../silverwp-addons.php:282
+msgid "No research found."
+msgstr "Nieznaleziono badań."
 
-#~ msgid "Update permalink structure?"
-#~ msgstr "Czy zaktualizować strukturę permalinków?"
+#: ../silverwp-addons.php:281
+msgid "Search Researches"
+msgstr "Wyszukaj Badanie"
 
-#~ msgid "Change permalink structure to /&#37;postname&#37;/"
-#~ msgstr "Zmień strukturę permalinków: /&#37;postname&#37;/"
+#~ msgid "Polish"
+#~ msgstr "Polski"
 
-#~ msgid "Create navigation menu?"
-#~ msgstr "Czy stworzyć menu?"
+#~ msgid "English"
+#~ msgstr "Angielski"
 
-#~ msgid "Create the Primary Navigation menu and set the location"
-#~ msgstr "Stwórz główne menu i ustaw jego pozycję"
+#~ msgid "Import old content"
+#~ msgstr "Import starej treści"
 
-#~ msgid "Add pages to menu?"
-#~ msgstr "Czy dodać strony do menu?"
+#~ msgid "Attachment"
+#~ msgstr "Załącznik"
 
-#~ msgid "Add all current published pages to the Primary Navigation"
-#~ msgstr "Dodaj wszystkie aktualnie opublikowane strony do głównego menu"
+#~ msgid "Select Team member"
+#~ msgstr "Wybierz członka zespołu"
 
-#~ msgid "Primary Navigation"
-#~ msgstr "Główna nawigacja"
+#~ msgid "Team member"
+#~ msgstr "Członek Zespołu"
 
-#~ msgid "Latest Posts"
-#~ msgstr "Ostatnie wpisy na blogu"
+#~ msgid "Search Team"
+#~ msgstr "Przeszukaj Zespół"
 
-#~ msgid "Daily Archives: %s"
-#~ msgstr "Archiwum dzienne: %s"
+#~ msgid "No members found."
+#~ msgstr "Nic nie znaleziono."
 
-#~ msgid "Monthly Archives: %s"
-#~ msgstr "Archiwum miesięczne: %s"
+#~ msgid "Event"
+#~ msgstr "Wydarzenie"
 
-#~ msgid "Yearly Archives: %s"
-#~ msgstr "Archiwum roczne: %s"
+#~ msgid "Details"
+#~ msgstr "Szczegóły"
 
-#~ msgid "Author Archives: %s"
-#~ msgstr "Wpisy użytkownika: %s"
+#~ msgid "Date"
+#~ msgstr "Data"
 
-#~ msgid "Search Results for %s"
-#~ msgstr "Wyniki wyszukiwania dla frazy: %s"
+#~ msgid "Time"
+#~ msgstr "Czas"
 
-#~ msgid "Install Required Plugins"
-#~ msgstr "Zainstaluj niezbędne pluginy"
+#~ msgid "Search Publications"
+#~ msgstr "Wyszukaj Publikacji"
 
-#~ msgid "Install Plugins"
-#~ msgstr "Zainstaluj wtyczki"
+#~ msgid "Events types"
+#~ msgstr "Typy wydarzeń"
 
-#~ msgid "Installing Plugin: %s"
-#~ msgstr "Instalowanie wtyczek: %s"
+#~ msgid "Separate Events types with commas"
+#~ msgstr "Typy wydarzeń separowane przecinkiem"
 
-#~ msgid "Something went wrong with the plugin API."
-#~ msgstr "Wystąpił problem z API wtyczek."
+#~ msgid "Choose from the most often used Events types"
+#~ msgstr "Wybierz z najczęściej używanych typów wydarzeń"
+
+#~ msgid "All events"
+#~ msgstr "Wszystkie wydarzenia"
+
+#~ msgid "Sources"
+#~ msgstr "Żródła"
+
+#~ msgid "Source"
+#~ msgstr "Źródło"
+
+#~ msgid "All Sources"
+#~ msgstr "Wszystkie Źródła"
 
 #, fuzzy
-#~ msgid "Begin installing plugin"
-#~ msgstr "Instalowanie wtyczek: %s"
-
-#, fuzzy
-#~ msgid "Begin activating plugin"
-#~ msgstr "Wystąpił problem podczas aktywacji."
-
-#~ msgid "Return to Required Plugins Installer"
-#~ msgstr "Powrót do instalatora niezbędnych wtyczek."
-
-#~ msgid "Plugin activated successfully."
-#~ msgstr "Wtyczka aktywowana pomyślnie."
-
-#~ msgid "All plugins installed and activated successfully. %s"
-#~ msgstr "Wszystkie wtyczki zainstalowane i aktywowane pomyślnie. %s"
-
-#~ msgid "Theme Updates"
-#~ msgstr "Aktualizacje motywu"
-
-#~ msgid "New Updates"
-#~ msgstr "Nowe aktualizacje"
-
-#~ msgid "There is a new version of the %s theme available"
-#~ msgstr "Nowa wersja szablonu %s jest dostępna"
-
-#~ msgid ""
-#~ "<strong>Please note:</strong> make a <strong> backup</strong> of the "
-#~ "Theme inside your WordPress installation folder<strong> /wp-content/"
-#~ "themes/%s/</strong>"
-#~ msgstr ""
-#~ "<strong>Uwaga:</strong> wykonaj <strong>kopię bezpieczeństwa</strong> "
-#~ "szablonu w katalogu <strong>/wp-content/themes/%s/</strong>"
-
-#~ msgid ""
-#~ "To update the Theme, login to your account, head over to your "
-#~ "<strong>downloads</strong> section and re-download the theme like you did "
-#~ "when you bought it."
-#~ msgstr ""
-#~ "Aby zaktualizować szablon, zaloguj się do swojego konta ThemeForest i "
-#~ "przejdź do zakładki <strong>downloads</strong> oraz re-download the theme "
-#~ "jak to robiłeś podczas zakupu szablonu."
-
-#~ msgid ""
-#~ "Extract the zip's contents, look for the extracted theme folder, and "
-#~ "after you have all the new files upload them using FTP to the <strong>/wp-"
-#~ "content/themes/%s/</strong> folder overwriting the old ones (this is why "
-#~ "it's important to backup any changes you've made to the theme files)"
-#~ msgstr ""
-#~ "Rozpakuj zawartość pliku ZIP, znajdź folder z szablonem i za pomocą "
-#~ "swojego programu (klient FTP) przegraj pliki szablonu do odpowiedniego "
-#~ "katalogu na serwerze <strong>/wp-content/themes/%s/</strong> nadpisując "
-#~ "wszystkie stare pliki, które zostaną w ten sposób zastąpione nowymi "
-#~ "(dlatego tak ważne jest posiadanie kopii bezpieczeństwa)"
-
-#~ msgid ""
-#~ "If you didn't make any changes to the theme files, you are free to "
-#~ "overwrite them with the new ones without the risk of losing theme "
-#~ "settings, pages, posts, etc, and backwards compatibility is guaranteed"
-#~ msgstr ""
-#~ "Jeżeli nie wykonywałeś żadnych zmian na plikach szablonu możesz bez "
-#~ "ryzyka zastąpić aktualne pliki nowymi, nie utracisz żadnych danych, "
-#~ "zawartości stron, wpisów ani ustawień"
-
-#, fuzzy
-#~ msgid "Variable name is requaied and can't be empty."
-#~ msgstr "Zmienna _name jest obowiązkowa i nie może być pusta."
-
-#~ msgid "home"
-#~ msgstr "stronga główna"
-
-#~ msgid "Archive by category"
-#~ msgstr "Archiwum według kategorii"
-
-#~ msgid "Search"
-#~ msgstr "Szukaj"
-
-#~ msgid "Articles posted by"
-#~ msgstr "Wpisy opublikowane przez"
-
-#~ msgid "Error 404"
-#~ msgstr "Błąd 404"
-
-#~ msgid "Page"
-#~ msgstr "Zakładka"
-
-#~ msgid "Feature"
-#~ msgstr "Cecha"
-
-#~ msgid "Gallery"
-#~ msgstr "Galeria"
-
-#~ msgid "Social media URL"
-#~ msgstr "Adresy kont serwisów społecznościowych"
-
-#~ msgid "content - left / image - right"
-#~ msgstr "treść z lewej / obrazek z prawej"
-
-#~ msgid "image - left / content - right"
-#~ msgstr "obrazek z lewej / treść z prawej"
-
-#, fuzzy
-#~ msgid "Plugin enabled"
-#~ msgstr "Twitter plugin aktywny"
-
-#, fuzzy
-#~ msgid ""
-#~ "These details are available in <a href=\"%s\" target=\"_blank\">your "
-#~ "dashboard</a>"
-#~ msgstr ""
-#~ "Szczegóły są dostępne w <a href=\"https://dev.twitter.com/apps\" target="
-#~ "\"_blank\">Twoim panelu Twittera</a>"
-
-#~ msgid "Gray light"
-#~ msgstr "Jasno szary"
-
-#~ msgid "Gray"
-#~ msgstr "Szary"
-
-#~ msgid "Dark blue"
-#~ msgstr "Granatowy"
-
-#~ msgid "Black"
-#~ msgstr "Czarny"
-
-#~ msgid "Yellow"
-#~ msgstr "Żółty"
-
-#~ msgid "Dark green"
-#~ msgstr "Ciemno zielony"
-
-#~ msgid "Brown"
-#~ msgstr "Brązowy"
-
-#~ msgid "Orange"
-#~ msgstr "Pomarańczowy"
-
-#~ msgid "Blue"
-#~ msgstr "Niebieski"
-
-#~ msgid "Purple"
-#~ msgstr "Purpurowy"
-
-#~ msgid "Pink"
-#~ msgstr "Różowy"
-
-#~ msgid "Green"
-#~ msgstr "Zielony"
-
-#~ msgid "Red"
-#~ msgstr "Czerwony"
-
-#~ msgid "Brand primary"
-#~ msgstr "Kolor firmowy"
-
-#~ msgid "Transparent"
-#~ msgstr "Przezroczystość"
-
-#~ msgid "Dark"
-#~ msgstr "Ciemny"
-
-#~ msgid "Light"
-#~ msgstr "Jasny"
-
-#~ msgid "small"
-#~ msgstr "mały"
-
-#~ msgid "normal"
-#~ msgstr "normalny"
-
-#~ msgid "large"
-#~ msgstr "duży"
-
-#~ msgid "roadmap"
-#~ msgstr "readmap (drogowa)"
-
-#~ msgid "satellite"
-#~ msgstr "satellite (satelitarna)"
-
-#~ msgid "hybrid"
-#~ msgstr "hybrid (hybryda)"
-
-#~ msgid "terrain"
-#~ msgstr "terrain (teren)"
-
-#~ msgid "static / scrollable"
-#~ msgstr "statyczne / przewijane"
-
-#~ msgid "fixed"
-#~ msgstr "pływające"
-
-#~ msgid "None"
-#~ msgstr "Brak"
-
-#~ msgid "Left sidebar"
-#~ msgstr "Lewy sidebar"
-
-#~ msgid "Right sidebar"
-#~ msgstr "Prawy sidebar"
-
-#~ msgid "Something went wrong."
-#~ msgstr "Wystapił problem."
-
-#~ msgid "The following plugin was activated successfully:"
-#~ msgstr "Poniższy plugin został aktywowany z powodzeniem"
-
-#~ msgid "All plugins installed and activated successfully. %1$s"
-#~ msgstr "Wszystkie pluginy zostały zainstalowane i aktywowane. %1$s"
-
-#~ msgid "Dismiss this notice"
-#~ msgstr "Usuń uwagę"
-
-#~ msgid "Activate"
-#~ msgstr "Aktywny"
-
-#~ msgid "Plugin"
-#~ msgstr "Wtyczka"
-
-#~ msgid "Plugin activation failed."
-#~ msgstr "Wystąpił problem podczas aktywacji."
-
-#~ msgid "Show Details"
-#~ msgstr "Pokaż szczegóły"
-
-#~ msgid "Hide Details"
-#~ msgstr "Ukryj szczegóły"
-
-#~ msgid "The installation of %1$s failed."
-#~ msgstr "Instalacja elementu: %1$s - nie powiodła się."
-
-#~ msgid "Successful"
-#~ msgstr "Sukces"
-
-#~ msgid "Unauthorized function"
-#~ msgstr "Nieautoryzowana funkcja"
-
-#~ msgid "[Development Mode] "
-#~ msgstr "[Development Mode]"
-
-#~ msgid "Remove"
-#~ msgstr "Usuń"
-
-#~ msgid "Add More"
-#~ msgstr "Dodaj"
-
-#~ msgid "Vafpress Options"
-#~ msgstr "Opcje Vafpress"
-
-#~ msgid "Option Key is required"
-#~ msgstr "Klucz opcji jest wymagany"
-
-#~ msgid "Template Array/File is required"
-#~ msgstr "Plik/Tablica szablonu jest obowiązakowa"
-
-#~ msgid "Page Slug is required"
-#~ msgstr "Slug jest obowiązkowy"
-
-#~ msgid ""
-#~ "Development Mode is Active, options' values won't be saved into database."
-#~ msgstr ""
-#~ "Development Mode is Active, options' values won't be saved into database."
-
-#~ msgid "Can not be empty"
-#~ msgstr "Nie może pozostać puste"
-
-#~ msgid "Invalid data"
-#~ msgstr "Nieprawidłowa data"
-
-#~ msgid "Unverified Access"
-#~ msgstr "Brak dostępu"
-
-#~ msgid "Invalid template supplied"
-#~ msgstr "Brak wymaganych plików szablonu"
-
-#~ msgid "Utility"
-#~ msgstr "Narzędzia"
-
-#~ msgid "Restore Default"
-#~ msgstr "Przywróć domyślne"
-
-#~ msgid "Export/Import"
-#~ msgstr "Eksport/Import"
-
-#~ msgid "Insert"
-#~ msgstr "Wstaw"
-
-#~ msgid "Cancel"
-#~ msgstr "Anuluj"
-
-#~ msgid "Saving successful"
-#~ msgstr "Zapisano pomyślnie"
-
-#~ msgid "Saving failed"
-#~ msgstr "Wystąpił problem podczas zapisu"
-
-#~ msgid "No changes made"
-#~ msgstr "Nie wykonano żadnych zmian"
-
-#~ msgid "Value needs to be Alphabet"
-#~ msgstr "Wartość powinna zawierać jedynie znaki alfabetu"
-
-#~ msgid "Value needs to be Alphanumeric"
-#~ msgstr "Wartość powinna zawierać jedynie znaki alfanumeryczne"
-
-#~ msgid "Value needs to be Numeric"
-#~ msgstr "Wartość powinna zawierać jedynie cyfry"
-
-#~ msgid "Value needs to be Valid Email"
-#~ msgstr "Wartość powinna być prawidłowym adresem email"
-
-#~ msgid "Value needs to be Valid URL"
-#~ msgstr "Wartość powinna być prawidłowym adresem URL"
-
-#~ msgid "Length needs to be less than {0} characters"
-#~ msgstr "Długość powinna zawierać mniej niż {0} znaki(ów)"
-
-#~ msgid "Length needs to be more than {0} characters"
-#~ msgstr "Długość powinna być dłuższa niż {0} znaki(ów)"
-
-#~ msgid "Select no more than {0} items"
-#~ msgstr "Wybierz nie więcej niż {0} pozycje"
-
-#~ msgid "Select at least {0} items"
-#~ msgstr "Wybierz minimum {0} pozycje"
-
-#~ msgid "This is required"
-#~ msgstr "To jest wymagane"
-
-#~ msgid "Import succeed, option page will be refreshed.."
-#~ msgstr "Import zakończony sukcesem, zakładka z opcjami zostanie odświeżona"
-
-#~ msgid "Import failed"
-#~ msgstr "Wystąpił problem podczas importowania"
-
-#~ msgid "Export succeed, copy the JSON formatted options"
-#~ msgstr "Eksport do pliku JSON zakończony sukcesem"
-
-#~ msgid "Export failed"
-#~ msgstr "Wystąpił problem podczas wykonywania eksportu"
-
-#~ msgid "Restoration succeed, option page will be refreshed.."
-#~ msgstr ""
-#~ "Przywracanie zakończone sukcesem, zakładka z opcjami zostanie odświeżona"
-
-#~ msgid "Options identical to default"
-#~ msgstr "Wartości są identyczne z domyślnymi"
-
-#~ msgid "Restoration failed"
-#~ msgstr "Wystąpił problem podczas przywracania"
-
-#~ msgid "Select option(s)"
-#~ msgstr "Wybierz opcje"
-
-#~ msgid "Select an Icon"
-#~ msgstr "Wybbierz ikonę"
-
-#~ msgid "Choose File"
-#~ msgstr "Wybierz plik"
-
-#~ msgid "Import"
-#~ msgstr "Import"
-
-#~ msgid "Import Options"
-#~ msgstr "Opcje importu"
-
-#~ msgid "Export"
-#~ msgstr "Eksport"
-
-#~ msgid "Export Options"
-#~ msgstr "Opcje eksportu"
-
-#~ msgid "Restore Default Options"
-#~ msgstr "Przywróć domyślne ustawienia"
-
-#~ msgid "Restore options to initial default values."
-#~ msgstr "Przywróć domyślne ustawienia"
-
-#~ msgid ""
-#~ "** Please make sure you have already make a backup data of your current "
-#~ "settings. Once you click this button, your current settings will be gone."
-#~ msgstr ""
-#~ "** Upewnij się, że posiadasz kopię bezpieczeństwa swoich ustawień. "
-#~ "Kliknięcie tego przycisku wyczyście aktualne ustawienia."
-
-#~ msgid "Save Changes"
-#~ msgstr "Zapisz zmiany"
-
-#~ msgid "Saving Now"
-#~ msgstr "Zapisuje"
-
-#~ msgid ""
-#~ "This option panel is built using <a href=\"http://vafpress.com/vafpress-"
-#~ "framework\">Vafpress Framework %s</a> powered by <a href=\"http://"
-#~ "vafpress.com\">Vafpress</a>"
-#~ msgstr ""
-#~ "Zakładka opcji szablonu została stworzona przy pomocy <a href=\"http://"
-#~ "vafpress.com/vafpress-framework\">Vafpress Framework %s</a> zbudowanego "
-#~ "przez <a href=\"http://vafpress.com\">Vafpress</a>"
-
-#~ msgid "Kinds of Posts"
-#~ msgstr "Typy wpisów"
-
-#~ msgid ""
-#~ "If you select ONE of groups below (Link, Quote, Gallery, Video), you will "
-#~ "create a specific kind of Post."
-#~ msgstr ""
-#~ "Uzupełniając pola z wybranej JEDNEJ grupy (Odnośnik, Cytat, Galeria, "
-#~ "Wideo) tworzysz specjalny typ wpisu."
-
-#~ msgid "Blog sidebar position"
-#~ msgstr "Pozycja paska widgetów bloga"
-
-#~ msgid "Website URL"
-#~ msgstr "Odnośnik strony"
-
-#~ msgid "Buttons"
-#~ msgstr "Przyciski"
-
-#~ msgid "Icon (Beauty Line Icons)"
-#~ msgstr "Ikona (Beauty Line Icons)"
-
-#~ msgid "Number"
-#~ msgstr "Numer"
-
-#~ msgid "Sign before number"
-#~ msgstr "Znak przed liczbą"
-
-#~ msgid "Sign after number"
-#~ msgstr "Znak po liczbie"
-
-#~ msgid "Feature name"
-#~ msgstr "Nazwa cechy"
-
-#, fuzzy
-#~ msgid "$id variable is required and can't be emapty."
-#~ msgstr "Wartość $_id jest obowiązkowa i nie może być pusta."
-
-#, fuzzy
-#~ msgid "$title variable is required and can't be emapty."
-#~ msgstr "Wartość $_title jest obowiązkowa i nie może być pusta."
-
-#~ msgid "Template for meta box structure isn't defined."
-#~ msgstr "Szablon dla struktury mata box nie został zdefiniowany."
-
-#~ msgid "Settings"
-#~ msgstr "Ustawienia"
-
-#~ msgid "Page sidebar"
-#~ msgstr "Pokaż pasek widgetów"
-
-#~ msgid "Texts and Shortcodes"
-#~ msgstr "Treść i shortcode"
-
-#~ msgid "Percent"
-#~ msgstr "Procent"
-
-#~ msgid "Portfolio sidebar position"
-#~ msgstr "Pozycja paska widgetów portfolio"
-
-#~ msgid "Client name"
-#~ msgstr "Nazwa klienta"
-
-#~ msgid "Price"
-#~ msgstr "Cena"
-
-#~ msgid "Button text"
-#~ msgstr "Tekst na przycisku"
-
-#~ msgid "Button URL"
-#~ msgstr "Odnośnik przycisku"
-
-#~ msgid "Featured"
-#~ msgstr "Cecha"
-
-#~ msgid "Page URL"
-#~ msgstr "Odnośnik zakładki"
-
-#~ msgid "Title #2:"
-#~ msgstr "Tytuł #2:"
-
-#~ msgid "Email address"
-#~ msgstr "Adres email"
-
-#~ msgid "Personal website Url"
-#~ msgstr "Odnośnik strony osobistej"
-
-#~ msgid "Company name"
-#~ msgstr "Nazwa firmy"
-
-#~ msgid "Author profession"
-#~ msgstr "Zawód (stanowisko) autora"
-
-#, fuzzy
-#~ msgid "Important"
-#~ msgstr "Import"
-
-#~ msgid "All Clients"
-#~ msgstr "Wszyscy klienci"
-
-#~ msgid "Colourful Bars"
-#~ msgstr "Kolorowe pasy"
-
-#~ msgid "All Colourful Bars"
-#~ msgstr "Wszystkie pasy"
-
-#~ msgid "Company Advantages"
-#~ msgstr "Zalety firmy"
-
-#~ msgid "All Company Advantages"
-#~ msgstr "Wszystkie zalety"
-
-#~ msgid "All Company Stats"
-#~ msgstr "Wszystkie statystyki"
-
-#~ msgid "All Features"
-#~ msgstr "Wszystkie cechy"
-
-#~ msgid "All Pie Charts"
-#~ msgstr "Wszystkie wykresy kołowe"
-
-#~ msgid "Item"
-#~ msgstr "Pozycja (element)"
-
-#~ msgid "Add New Item"
-#~ msgstr "Dodaje nową pozycję"
-
-#~ msgid "Edit Item"
-#~ msgstr "Edytuj pozycję"
-
-#~ msgid "All Items"
-#~ msgstr "Wszystkie pozycje (elementy)"
-
-#~ msgid "View Item"
-#~ msgstr "Zobacz pozycję"
-
-#~ msgid "No items found"
-#~ msgstr "Brak wyników wyszukiwania"
-
-#~ msgid "No items found in trash"
-#~ msgstr "Nie znaleziono pozycji w śmietniku"
-
-#, fuzzy
-#~ msgid "Post Type $name is required and can't be empty."
-#~ msgstr "Typ wpisu $_name jest obowiązkowy i nie może być pusty."
-
-#~ msgid "Presentations"
-#~ msgstr "Prezentacje"
-
-#~ msgid "All Presentations"
-#~ msgstr "Wszystkie prezentacje"
-
-#~ msgid "All Price Plan"
-#~ msgstr "Wszystkie cenniki"
-
-#~ msgid "All Services"
-#~ msgstr "Wszystkie usługi"
-
-#~ msgid "Sliders"
-#~ msgstr "Slajdy"
-
-#~ msgid "All Sliders"
-#~ msgstr "Wszystkie slajdy"
-
-#~ msgid "All Team"
-#~ msgstr "Wszyscy pracownicy"
-
-#, fuzzy
-#~ msgid "All Timeline"
-#~ msgstr "Wszystkie cenniki"
-
-#~ msgid "Videos"
-#~ msgstr "Wideo"
-
-#~ msgid "All Videos"
-#~ msgstr "Wszystkie filmy"
-
-#~ msgid "Meet our team"
-#~ msgstr "Poznaj nasz zespół"
-
-#~ msgid "Some of our clients"
-#~ msgstr "Nasi klienci"
-
-#~ msgid "Skills and Experiences"
-#~ msgstr "Umiejętności i doświadczenie"
-
-#~ msgid "Important statistics"
-#~ msgstr "Ważne statystyki"
-
-# front
-#~ msgid "Our latest projects"
-#~ msgstr "Nasze ostatnie projekty"
-
-#~ msgid "Latest Blogposts"
-#~ msgstr "Ostatnie wpisy na blogu"
-
-#~ msgid "Comment"
-#~ msgstr "Komentarz"
-
-#~ msgid "Comments"
-#~ msgstr "Komentarze"
-
-#~ msgid "Read more"
-#~ msgstr "Czytaj więcej"
-
-#, fuzzy
-#~ msgid "Class attribute $name is required and can't be empty."
-#~ msgstr "Atrybut klasy $_name jest obowiązkowy i nie może być pusty."
-
-#~ msgid "Latest from the Blog"
-#~ msgstr "Ostatnie wpisy na blogu"
-
-#, fuzzy
-#~ msgid "ElementAbstract::name is required and can't be empty"
-#~ msgstr "$_post_type_name jest obowiązkowy i nie może być pusty."
-
-#, fuzzy
-#~ msgid "%s::%s method is required!"
-#~ msgstr "To jest wymagane"
-
-#~ msgid "Portfolio - Latest projects"
-#~ msgstr "Ostatnie projekty z portfolio"
-
-#, fuzzy
-#~ msgid "Latest from the Service"
-#~ msgstr "Ostatnie wpisy na blogu"
-
-#~ msgid "Social button"
-#~ msgstr "Przycisk społecznościowy"
-
-#, fuzzy
-#~ msgid "Address"
-#~ msgstr "Adres email"
-
-#~ msgid "Blogposts with images from selected categories."
-#~ msgstr "Wpisy bloga (z obrazkami) z wybranych kategorii."
-
-#~ msgid "Social bookmarks"
-#~ msgstr "Społeczność"
-
-#~ msgid "Social icons with link to social accounts."
-#~ msgstr ""
-#~ "Ikony logotypów serwisów społecznościowych z odnośnikami do "
-#~ "poszczególnych kont."
-
-#~ msgid "Popular"
-#~ msgstr "Popularne"
-
-#~ msgid "Add New"
-#~ msgstr "Dodaje nową pozycję"
-
-#~ msgid "New name"
-#~ msgstr "Nowa nazwa"
-
-#~ msgid "Edit"
-#~ msgstr "Edytuj"
-
-#~ msgid "Add or remove"
-#~ msgstr "Dodaj lub usuń"
-
-#, fuzzy
-#~ msgid "$post_type is required and can't be empty."
-#~ msgstr "$_post_type_name jest obowiązkowy i nie może być pusty."
-
-#, fuzzy
-#~ msgid "Show All "
-#~ msgstr "Wszystkie"
-
-#~ msgid "SilverWp Theme Options"
-#~ msgstr "Panel konfiguracyjny szablonu SilverWP"
-
-#~ msgid "Theme Options"
-#~ msgstr "Opcje Motywu"
-
-#~ msgid "SilverWp Theme Options Panel"
-#~ msgstr "Panel konfiguracyjny szablonu SilverWP"
-
-#~ msgid "Listed view"
-#~ msgstr "Widok listy"
-
-#~ msgid "Show author"
-#~ msgstr "Pokaż autora"
-
-#~ msgid "Show \"like it\""
-#~ msgstr "Pokaż \"lubię to\""
-
-#~ msgid "Likes number will be enabled if it is greater than zero."
-#~ msgstr "Ilość polubień będzie widoczna jeżeli jest większa niż zero."
-
-#~ msgid "Post view"
-#~ msgstr "Widok szczegółowy wpisu"
-
-#~ msgid "Show social share"
-#~ msgstr "Pokaż przyciski udostępnień społecznościowych"
-
-#~ msgid "Address and Contact"
-#~ msgstr "Dane kontaktowe"
-
-#~ msgid "Street"
-#~ msgstr "Ulica"
-
-#~ msgid "Postcode"
-#~ msgstr "Kod pocztowy"
-
-#~ msgid "City"
-#~ msgstr "Miasto"
-
-#~ msgid "State / Region"
-#~ msgstr "Stan / Region / Województwo"
-
-#~ msgid "Country"
-#~ msgstr "Kraj"
-
-#~ msgid "Phone number %s"
-#~ msgstr "Numer telefonu %s"
-
-#~ msgid "Mobile phone number %s"
-#~ msgstr "Numer telefonu komórkowego %s"
-
-#~ msgid "Fax number"
-#~ msgstr "Numer faksu"
-
-#~ msgid "Working hours"
-#~ msgstr "Godziny pracy"
-
-#~ msgid "Google Maps"
-#~ msgstr "Mapy Google"
-
-#~ msgid "Map enable"
-#~ msgstr "Pokaż mapę"
-
-#~ msgid "Page with Google Map"
-#~ msgstr "Zakładka z Google mapą"
-
-#~ msgid "Company"
-#~ msgstr "Firma"
-
-#~ msgid "Logo"
-#~ msgstr "Logotyp"
-
-#~ msgid "Site name"
-#~ msgstr "Nazwa strony"
-
-#~ msgid ""
-#~ "If you do not set the \"Logo image\" only this value will be displayed."
-#~ msgstr ""
-#~ "Jeżeli obrazek logotypu nie zostanie dodany tylko ta wartość będzie "
-#~ "widoczna."
-
-#~ msgid "Logo image"
-#~ msgstr "Obrazek logotypu"
-
-#~ msgid "If you do not set the image only \"Site name\" will be displayed."
-#~ msgstr ""
-#~ "Jeżeli obrazek logotypu nie zostanie dodany tylko nazwa strony będzie "
-#~ "widoczna."
-
-#~ msgid "Margin top"
-#~ msgstr "Margines górny"
-
-#~ msgid "Set the margin size in \"px\"."
-#~ msgstr "Ustaw rozmiar marginesu w pikselach (px)."
-
-#~ msgid "Favicon"
-#~ msgstr "Favicon"
-
-#~ msgid "Image should have 16&times;16px."
-#~ msgstr "Obrazek powinien mieć rozmiar 16&times;16px."
-
-#~ msgid "Top bar"
-#~ msgstr "Pasek górny"
-
-#~ msgid "Welcome text"
-#~ msgstr "Tekst powitalny"
-
-#~ msgid "First sentence displayed in Top Bar"
-#~ msgstr "Pierwszy zwrot w pasku górnym"
-
-#~ msgid "Show company address"
-#~ msgstr "Pokaż adres firmy"
-
-#~ msgid "Show phone number"
-#~ msgstr "Pokaż numer telefonu"
-
-#~ msgid "Show mobile number"
-#~ msgstr "Pokaż numer telefonu komórkowego"
-
-#~ msgid "Show email address"
-#~ msgstr "Pokaż adres email"
-
-#~ msgid "Show WPML language switcher"
-#~ msgstr "Pokaż odnośniki WPML do zmiany języka"
-
-#~ msgid "Show social icons"
-#~ msgstr "Pokaż przyciski społecznościowe"
-
-#~ msgid "Enable top footer"
-#~ msgstr "Widoczność górnej stopki"
-
-#~ msgid "Sidebar with widgets."
-#~ msgstr "Element z widgetami."
-
-#~ msgid "Copyright text"
-#~ msgstr "Komunikat o prawach autorskich"
-
-#~ msgid "Entered text will be shown under the footer."
-#~ msgstr "Wprowadzony tekst będzie widoczny w dolnej części stopki."
-
-#~ msgid "Globally disable Page comments"
-#~ msgstr "Globalne wyłączenie komentarzy w zakładkach"
-
-#~ msgid "Globally disable Blog post comments"
-#~ msgstr "Globalne wyłączenie komentarzy we wpisach bloga"
-
-#~ msgid "Globally disable Portfolio comments"
-#~ msgstr "Globalne wyłączenie komentarzy w projektach portfolio"
-
-#~ msgid "Javascript"
-#~ msgstr "Javascript"
-
-#~ msgid "Custom code in Head page"
-#~ msgstr "Twój kod w nagłówku strony"
-
-#~ msgid ""
-#~ "Any code you place here will appear in the &lt;head/&gt; section of every "
-#~ "page of your site."
-#~ msgstr "Kod będzie dodany wewnątrz znacznika &lt;head/&gt; każdej zakładki."
-
-#~ msgid "Custom code in Body page"
-#~ msgstr "Twój kod"
-
-#~ msgid ""
-#~ "Any code you place here will appear before &lt;/body&gt; tag of every "
-#~ "page of your site."
-#~ msgstr ""
-#~ "Kod będzie dodany przed zamykającym znacznikiem &lt;/body&gt; każdej "
-#~ "zakładki."
-
-#~ msgid "Slider options"
-#~ msgstr "Opcje slidera"
-
-#~ msgid "Interval"
-#~ msgstr "Opóźnienie"
-
-#~ msgid ""
-#~ "The amount of time to delay between automatically cycling an item. If "
-#~ "false, carousel will not automatically cycle."
-#~ msgstr ""
-#~ "Czas prezentacji (w milisekundach) slajdu po którym nastąpi animowana "
-#~ "zmiana na kolejny slajd."
-
-#~ msgid "Pause when \"hover\""
-#~ msgstr "Kursor zatrzymuje animację"
-
-#~ msgid ""
-#~ "Pauses the cycling of the carousel on mouseenter and resumes the cycling "
-#~ "of the carousel on mouseleave."
-#~ msgstr ""
-#~ "Animacja zostaje wstrzymana gdy kursor mysz znajdzie się nad slajdem oraz "
-#~ "jest kontynuowana gdy ponownie opuści on slajd."
-
-#~ msgid "Wrap"
-#~ msgstr "Animacja nieskończona"
-
-#~ msgid "Whether the carousel should cycle continuously or have hard stops."
-#~ msgstr "Animacja nieskończona czy kończąca się po ostatnim slajdzie."
-
-#~ msgid "Home page"
-#~ msgstr "Strona główna"
-
-#~ msgid "Show categories"
-#~ msgstr "Pokaż nazwę kategorii"
-
-#~ msgid "Show client"
-#~ msgstr "Pokaż nazwę klienta"
-
-#~ msgid "Item project view"
-#~ msgstr "Widok szczegółowy projektu"
-
-#~ msgid "Show realization date"
-#~ msgstr "Pokaż datę realizacji"
-
-#~ msgid "Show social buttons"
-#~ msgstr "Pokaż przyciski społecznościowe"
-
-#~ msgid "Show related projects"
-#~ msgstr "Pokaż powiązane produkty"
-
-#~ msgid "above content"
-#~ msgstr "powyżej treści"
-
-#~ msgid "below content"
-#~ msgstr "poniżej treści"
-
-#~ msgid "Plugins Bar position"
-#~ msgstr "Pozycja paska wtyczek"
-
-#~ msgid "Plugins in blog post"
-#~ msgstr "Wtyczki w widoku wpisów bloga"
-
-#~ msgid "Plugins in portfolio"
-#~ msgstr "Pluginy w portfolio"
-
-#~ msgid "%s plugin"
-#~ msgstr "wtyczka %s"
-
-#~ msgid "Show plugin"
-#~ msgstr "Plugin widoczny"
-
-#~ msgid "Order"
-#~ msgstr "Kolejność"
-
-#~ msgid "%s order"
-#~ msgstr "%s kolejność"
-
-#~ msgid "Social bookmark"
-#~ msgstr "Społeczność"
-
-# Social plugins
-#~ msgid "Share providers"
-#~ msgstr "Serwisy umożliwiające udostepnienia"
-
-#~ msgid "Twitter Plugin (above the footer)"
-#~ msgstr "Twitter plugin (powyżej stopki)"
-
-#~ msgid "Background"
-#~ msgstr "Tło"
-
-#~ msgid "Fonts"
-#~ msgstr "Czcionki"
-
-#~ msgid "Custom CSS"
-#~ msgstr "Twój kod CSS"
-
-#~ msgid "Enable custom CSS settings"
-#~ msgstr "Twoje dedykowane ustawienia styli"
-
-#~ msgid "Brand primary colour"
-#~ msgstr "Kolor firmowy"
-
-#~ msgid "Main (top) menu position"
-#~ msgstr "Pozycja głównego (górnego) menu"
-
-#~ msgid "Animation display content element"
-#~ msgstr "Animacja elementów strony"
-
-#~ msgid "Page header image"
-#~ msgstr "Obrazek nagłówka strony"
-
-#~ msgid "Default background image."
-#~ msgstr "Domyślny obrazek tła."
-
-#~ msgid "Pages sidebar default position"
-#~ msgstr "Domyślne położenie paska widgetów stron"
-
-#~ msgid "Blogs sidebar default position"
-#~ msgstr "Domyślne położenie paska widgetów bloga"
-
-#~ msgid "Portfolios sidebar default position"
-#~ msgstr "Domyślna pozycja paska wtyczek w widoku Portfolio"
-
-#~ msgid "Colour of the body background"
-#~ msgstr "Kolor tła"
-
-#~ msgid "Position"
-#~ msgstr "Pozycja"
-
-#~ msgid "Colour text"
-#~ msgstr "Kolor tekstów"
-
-#~ msgid "Colour of the body text"
-#~ msgstr "Podstawowy kolor czcionki"
-
-#~ msgid "Font face"
-#~ msgstr "Rodzaj czcionki"
-
-#~ msgid "Choose your font for the content"
-#~ msgstr "Wybierz czcionkę"
-
-#~ msgid "Font style"
-#~ msgstr "Styl"
-
-#~ msgid "Font subset"
-#~ msgstr "Kodowanie"
-
-#~ msgid "Font transform"
-#~ msgstr "Transformacja"
-
-#~ msgid "Heading"
-#~ msgstr "Nagłówki"
-
-#~ msgid "Main menu"
-#~ msgstr "Główne menu"
-
-#~ msgid "Custom CSS code"
-#~ msgstr "Twój kod CSS"
-
-#~ msgid ""
-#~ "Any code you place here will appear in the head section of every page of "
-#~ "your site."
-#~ msgstr "Kod będzie dodany wewnątrz znacznika &lt;head/&gt; każdej zakładki."
-
-#~ msgid "Not connected to video service"
-#~ msgstr "Brak połączenia z serwisem wideo"
-
-#, fuzzy
-#~ msgid "Variable $regex pattern is required and can't by empty."
-#~ msgstr "Zmienna _name jest obowiązkowa i nie może być pusta."
-
-#~ msgid "All projects"
-#~ msgstr "Wszystkie projekty"
-
-#~ msgid "%1$s"
-#~ msgstr "%1$s"
-
-#~ msgid "(Edit)"
-#~ msgstr "(Edytuj)"
-
-#~ msgid "Your comment is awaiting moderation."
-#~ msgstr "Twój komentarz zostanie opublikowany po akceptacji moderatora."
-
-#~ msgid "Older comments"
-#~ msgstr "Starsze komentarze"
-
-#~ msgid "Newer comments"
-#~ msgstr "Nowsze komentarze"
-
-#~ msgid "Comments are closed."
-#~ msgstr "Komentowanie zostało zablokowane."
-
-#~ msgid "enter a name"
-#~ msgstr "wpisz swoj imię"
-
-#~ msgid "Mail (will not be published)"
-#~ msgstr "Adres email (nie będzie opublikowany)"
-
-#~ msgid "enter an email address"
-#~ msgstr "wpisz swój adres email"
-
-#~ msgid "enter a website address, example: http://www.mysite.com"
-#~ msgstr "wpisz adres swojej strony, np. http://www.mojastrona.com"
-
-#~ msgid "Your Comment"
-#~ msgstr "Twój komentarz"
-
-#~ msgid "enter a comment"
-#~ msgstr "wpisz wiadomość komentarza"
-
-#~ msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-#~ msgstr "Musisz się <a href=\"%s\">zalogować</a> aby skomentować wpis."
-
-#~ msgid ""
-#~ "Fill out all required fields to send a message. You are logged in as <a "
-#~ "href='%s/wp-admin/profile.php'>%s</a>. Please do not spam. Thank you!"
-#~ msgstr ""
-#~ "Wypełnij wszystkie obowiązkowe pola, aby wysłać wiadomość. Jesteś "
-#~ "zalogowany jako <a href=\"%s/wp-admin/profile.php\">%s</a>. Prosimy nie "
-#~ "spamować. Dziękujemy!"
-
-#~ msgid "Leave a Reply"
-#~ msgstr "Skomentuj"
-
-#~ msgid "Leave a Reply to %s"
-#~ msgstr "Skomentuj wpis: %s"
-
-#~ msgid "Cancel reply"
-#~ msgstr "Anuluj"
-
-#~ msgid "Submit Comment"
-#~ msgstr "Zapisz komentarz"
-
-#~ msgid "%s topic"
-#~ msgstr "%s temat"
-
-#~ msgid "Pages:"
-#~ msgstr "Zakładki:"
-
-#~ msgid "About the author"
-#~ msgstr "Autor wpisu"
-
-#~ msgid "%s Like"
-#~ msgstr "%s Lajk"
-
-#~ msgid "search something"
-#~ msgstr "szukana fraza"
-
-#~ msgid "Sidebar menu"
-#~ msgstr "Sidebar menu"
-
-#~ msgid "Meet us"
-#~ msgstr "Odwiedź nas"
-
-#~ msgid "Call us"
-#~ msgstr "Zadzwoń"
-
-#~ msgid "Send email"
-#~ msgstr "Napisz"
-
-#~ msgid "Filter"
-#~ msgstr "Filtr"
-
-#~ msgid "All"
-#~ msgstr "Wszystko"
-
-#~ msgid "Related projects"
-#~ msgstr "Powiązane projekty"
-
-# Social plugins
-#~ msgid "Share on %s"
-#~ msgstr "Udostępnij w serwisie %s"
-
-#~ msgid "Function register_sidebra is required"
-#~ msgstr "Funkcja register_sidebra jest obowiązkowa"
-
-#~ msgid "Sidebar Footer"
-#~ msgstr "Stopka"
-
-#~ msgid "Sidebar Blog"
-#~ msgstr "Pasek boczny blogu"
-
-#~ msgid "Sidebar Page"
-#~ msgstr "Pasek boczny strony"
-
-#~ msgid "Variable %s doesn't exists."
-#~ msgstr "Zmienna %s nie istnieje."
-
-#~ msgid "some description"
-#~ msgstr "opis"
-
-#~ msgid "Protfolio category"
-#~ msgstr "Kategoria portfolio"
-
-#~ msgid "Parent Protfolio category"
-#~ msgstr "Rodzic kategorii portfolio"
-
-#~ msgid "Update Protfolio category"
-#~ msgstr "Aktualizuj kategorię portfolio"
-
-#~ msgid "Choose from the most often used Protfolio categories"
-#~ msgstr "Wybierz spośród najczęściej używanych kategorii portfolio"
-
-#~ msgid "Protfolio tag"
-#~ msgstr "Tag portfolio"
-
-#~ msgid "Parent Protfolio tag"
-#~ msgstr "Rodzic taga portfolio"
-
-#~ msgid "Update Protfolio tag"
-#~ msgstr "Aktualizuj tag portfolio"
-
-#~ msgid "Choose from the most often used Protfolio tags"
-#~ msgstr "Wybierz spośród najczęściej używanych tagów portfolio"
-
-#~ msgid "Available only when WPML switcher is turned off."
-#~ msgstr "Dostępne tylko gdy odnośnik WPML jest włączony"
-
-#~ msgid "Contact Form"
-#~ msgstr "Formularz kontaktowy"
-
-#~ msgid "Slider"
-#~ msgstr "Slider"
-
-#~ msgid "Grey"
-#~ msgstr "Szary"
-
-#~ msgid "Transparent (default)"
-#~ msgstr "Przezroczysty"
-
-#~ msgid "Navy blue"
-#~ msgstr "Granatowy"
-
-#~ msgid "Violet"
-#~ msgstr "Fioletowy"
-
-#~ msgid "White"
-#~ msgstr "Biały"
-
-#~ msgid "Show on Home page"
-#~ msgstr "Pokaż na stronie głównej"
-
-#~ msgid "Choose page sidebar"
-#~ msgstr "Wybierz pasek boczny"
-
-#~ msgid "CSS"
-#~ msgstr "CSS"
-
-#~ msgid "Any code you place here will appear in every page of your site."
-#~ msgstr "Kod będzie dodany do każdej zakładki."
-
-#~ msgid "fullwidth"
-#~ msgstr "pełna szerokość"
-
-#~ msgid "wrapped / boxed"
-#~ msgstr "kontener"
-
-#, fuzzy
-#~ msgid "Listed container"
-#~ msgstr "Widok listy"
-
-#~ msgid "Show elements"
-#~ msgstr "Pokaż element"
-
-#~ msgid "Latest Projects"
-#~ msgstr "Najnowsze projekty"
-
-#~ msgid "Clients Quotes"
-#~ msgstr "Cytaty od klientów"
-
-#~ msgid "Clients Logos"
-#~ msgstr "Logotypy klientów"
-
-#~ msgid "by %s"
-#~ msgstr "autor %s"
-
-#~ msgid "More info"
-#~ msgstr "Więcej informacji"
-
-#~ msgid "No posts"
-#~ msgstr "Brak wpisów"
-
-#~ msgid "Images"
-#~ msgstr "Zdjęcia"
-
-#~ msgid "All Teams"
-#~ msgstr "Wszyscy pracownicy"
-
-#~ msgid "Team list"
-#~ msgstr "Lista pracowników"
-
-#, fuzzy
-#~ msgid "Box descriotion"
-#~ msgstr "Opis:"
-
-#, fuzzy
-#~ msgid "Choose from the most used Protfolio category"
-#~ msgstr "Wybierz spośród najczęściej stosowanych kategorii portfolio"
-
-#, fuzzy
-#~ msgid "Choose from the most used Protfolio tag"
-#~ msgstr "Wybierz spośród najczęściej stosowanych tagów portfolio"
-
-#~ msgid "Default (gray)"
-#~ msgstr "Szary (domyślny)"
-
-#~ msgid "gray"
-#~ msgstr "szary"
-
-#~ msgid "blue"
-#~ msgstr "niebieski"
-
-#~ msgid "violet"
-#~ msgstr "fioletowy"
-
-#~ msgid "Search "
-#~ msgstr "Szukaj"
-
-#~ msgid "Separate "
-#~ msgstr "Oddziel"
-
-#~ msgid "Choose from the most used "
-#~ msgstr "Najczęściej używane"
-
-#~ msgid ""
-#~ "Fill out all required fields to send a message. Please do not spam. Thank "
-#~ "you!"
-#~ msgstr ""
-#~ "Wypełnij wszystkie obowiązkowe pola, aby wysłać wiadomość. Prosimy nie "
-#~ "spamować. Dziękujemy!"
-
-#~ msgid "Website Url"
-#~ msgstr "Odnośnik strony"
-
-#~ msgid "New "
-#~ msgstr "Nowy"
-
-#~ msgid "Popular Team proffesions"
-#~ msgstr "Popularne zawody"
-
-#~ msgid "Add New Team proffesion"
-#~ msgstr "Dodaj nowy zawód"
-
-#~ msgid "Search Team proffesions"
-#~ msgstr "Szukaj zawodu"
-
-#~ msgid "Add New Protfolio tag"
-#~ msgstr "Dodaj nowy tag portfolio"
-
-#~ msgid "Phone number #2"
-#~ msgstr "Numer telefonu #2"
-
-#~ msgid "Mobile phone number #2"
-#~ msgstr "Numer telefonu komórkowego #2"
-
-#~ msgid "Icon under title"
-#~ msgstr "Ikona poniżej tytułu"
-
-#~ msgid "The $_id variable is required and can't be empty."
-#~ msgstr "Wartość $_id jest obowiązkowa i nie może być pusta."
-
-#~ msgid "Continued"
-#~ msgstr "Kontynuuj"
-
-#~ msgid "Email address:"
-#~ msgstr "Adres email:"
-
-#~ msgid "Image:"
-#~ msgstr "Zdjęcie:"
-
-#~ msgid "URL:"
-#~ msgstr "Adres URL:"
-
-#~ msgid "Author:"
-#~ msgstr "Autor:"
-
-#~ msgid "Company name:"
-#~ msgstr "Nazwa firmy"
-
-#~ msgid "Quotes some of clients"
-#~ msgstr "Cytaty referencji naszych klientów"
-
-#~ msgid "Logos some of clients"
-#~ msgstr "Nasi klienci"
-
-#~ msgid "Website:"
-#~ msgstr "Strona:"
-
-#~ msgid "Button link:"
-#~ msgstr "Podlinkowanie przycisku:"
-
-#~ msgid "Name:"
-#~ msgstr "Nazwa:"
-
-#, fuzzy
-#~ msgid "Portfolio:"
-#~ msgstr "Portfolio tag"
-
-#, fuzzy
-#~ msgid "Last blog posts"
-#~ msgstr "Ostatnie wpisy na blogu"
-
-#, fuzzy
-#~ msgid "Clients:"
-#~ msgstr "Klient:"
-
-#~ msgid "Edit Portfolio Item"
-#~ msgstr "Edytuj pozycję portfolio"
-
-#~ msgid "%s Likes"
-#~ msgstr "%s Lajków"
-
-#~ msgid ""
-#~ "Display a list of recent post entries from one or more categories. You "
-#~ "can choose the number of posts to show."
-#~ msgstr ""
-#~ "Display a list of recent post entries from one or more categories. You "
-#~ "can choose the number of posts to show."
+#~ msgid "Types"
+#~ msgstr "Typ"
