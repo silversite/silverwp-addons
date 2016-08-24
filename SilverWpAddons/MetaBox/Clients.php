@@ -19,20 +19,14 @@
  */
 namespace SilverWpAddons\MetaBox;
 
-use SilverWp\Helper\Control\Attachments;
-use SilverWp\Helper\Control\Checkbox;
-use SilverWp\Helper\Control\Date;
-use SilverWp\Helper\Control\Gallery;
-use SilverWp\Helper\Control\Group;
 use SilverWp\Helper\Control\Text;
 use SilverWp\Helper\Control\Textarea;
-use SilverWp\Helper\Control\Wpeditor;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\News' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Clients' ) ) {
 	/**
-	 * News Meta box for News Post Type
+	 * Clients Meta box for Clients Post Type
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
 	 * @version       $Id:$
@@ -41,17 +35,15 @@ if ( ! class_exists( '\SilverWpAddons\News' ) ) {
 	 * @subpackage    MetaBox
 	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class News extends MetaBoxAbstract {
-		protected $priority = 'low';
+	class Clients extends MetaBoxAbstract {
+		protected $exclude_columns = array( 'author' );
 
 		protected function setUp() {
 
-			$attachments = new Attachments( 'attachments' );
-			$this->addControl( $attachments );
-
-			$checkbox = new Checkbox( 'main_page_promo' );
-			$checkbox->setLabel( Translate::translate( 'Promotion on main page' ) );
-			$this->addControl( $checkbox );
+			$text = new Text( 'client_url' );
+			$text->setLabel( Translate::translate( 'Adres URL' ) );
+			$text->setValidation( 'url' );
+			$this->addControl( $text );
 		}
 	}
 }

@@ -49,11 +49,13 @@ add_action( 'plugins_loaded', function () {
 	        MetaBox\Page::getInstance();
 
 	        $portfolio = PostType\Portfolio::getInstance();
-	        $portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );
+//	        $portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );
 	        $portfolio->addTemplates( 'template-portfolio.php' );
 	        //todo move to PostTypeAbstract
 	        add_post_type_support( $portfolio->getName(), array( 'excerpt' ) );
 
+	        $clients = PostType\Clients::getInstance();
+	        $clients->registerMetaBox( MetaBox\Clients::getInstance() );
 
 	        #widgets
 	        //new Widget\Social();
