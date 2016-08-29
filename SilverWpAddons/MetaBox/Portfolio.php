@@ -9,26 +9,28 @@ use SilverWp\Helper\Control\Upload;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
-if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
+if ( ! class_exists( '\SilverWpAddons\Portfolio' ) ) {
 	/**
-	 * Meta box for Pages
+	 * Meta box for Portfolios
 	 *
 	 * @author        Michal Kalkowski <michal at silversite.pl>
-	 * @version       $Id: Page.php 2563 2015-03-12 14:23:49Z padalec $
+	 * @version       $Id: Portfolio.php 2563 2015-03-12 14:23:49Z padalec $
 	 * @category      WordPress
 	 * @package       SilverWpAddons
 	 * @subpackage    MetaBox
 	 * @copyright (c) SilverSite.pl 2015
 	 */
-	class Page extends MetaBoxAbstract {
-		protected $id = 'page';
-		protected $post_types = array( 'page' );
+	class Portfolio extends MetaBoxAbstract {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function setUp() {
-			$hd_image = new Upload( 'hd_image' );
-			$hd_image->setLabel( Translate::translate( 'Zdjęcie w nagłówku' ) );
-			$this->addControl( $hd_image );
+			$subtitle = new Text( 'subtitle' );
+			$subtitle->setLabel( Translate::translate( 'Podtytuł' ) );
+			$this->addControl( $subtitle );
+
+			$client_name = new Text( 'client_name' );
+			$client_name->setLabel( Translate::translate( 'Nazwa klienta' ) );
+			$this->addControl( $client_name );
 		}
 	}
 }

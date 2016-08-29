@@ -51,6 +51,7 @@ add_action( 'plugins_loaded', function () {
 	        $portfolio = PostType\Portfolio::getInstance();
 //	        $portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );
 	        $portfolio->addTemplates( 'template-portfolio.php' );
+	        $portfolio->registerMetaBox( MetaBox\Portfolio::getInstance() );
 	        //todo move to PostTypeAbstract
 	        add_post_type_support( $portfolio->getName(), array( 'excerpt' ) );
 
