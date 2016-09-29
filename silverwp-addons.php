@@ -47,6 +47,7 @@ add_action( 'plugins_loaded', function () {
 	        Translate::init();
 
 	        MetaBox\Page::getInstance();
+	        MetaBox\Posts::getInstance();
 
 	        $portfolio = PostType\Portfolio::getInstance();
 //	        $portfolio->registerTaxonomy( Taxonomy\Portfolio::getInstance() );

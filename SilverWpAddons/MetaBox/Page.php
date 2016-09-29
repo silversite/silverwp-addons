@@ -6,6 +6,7 @@ use SilverWp\Helper\Control\Textarea;
 use SilverWp\Helper\Control\Attachments;
 use SilverWp\Helper\Control\Gallery;
 use SilverWp\Helper\Control\Upload;
+use SilverWp\Helper\Control\Wpeditor;
 use SilverWp\Translate;
 use SilverWp\MetaBox\MetaBoxAbstract;
 
@@ -26,9 +27,18 @@ if ( ! class_exists( '\SilverWpAddons\Page' ) ) {
 		protected $exclude_columns = array( 'category', 'tag' );
 
 		protected function setUp() {
-			$hd_image = new Upload( 'hd_image' );
-			$hd_image->setLabel( Translate::translate( 'Zdjęcie w nagłówku' ) );
-			$this->addControl( $hd_image );
+
+			$section_two = new Textarea( 'section_kostka' );
+			$section_two->setLabel( Translate::translate( 'O firmie kostka' ) );
+			$this->addControl( $section_two );
+
+			$section_three = new Textarea( 'section_kontakt1' );
+			$section_three->setLabel( Translate::translate( 'O firmie kontakt 1' ) );
+			$this->addControl( $section_three );
+
+			$section_kontakt2 = new Textarea( 'section_kontakt2' );
+			$section_kontakt2->setLabel( Translate::translate( 'O firmie kontakt 2' ) );
+			$this->addControl( $section_kontakt2 );
 		}
 	}
 }
